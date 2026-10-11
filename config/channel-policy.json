@@ -155,7 +155,13 @@
     "descriptionGuidance": "Mehrere natürliche Absätze: neugierig machender Hook, konkrete historische Ausgangslage, zentrale Handlung und Konflikte, Bedeutung/Payoff; keine generische Füllbeschreibung.",
     "hashtagsPlacement": "description-end",
     "hashtagsRecommendedCount": 5,
-    "keywordsIncludedInCaption": false
+    "keywordsIncludedInCaption": false,
+    "futureCaptionPolicyVersion": 2,
+    "minimumDescriptionCharacters": 450,
+    "maximumDescriptionCharacters": 1400,
+    "minimumDescriptionParagraphs": 2,
+    "requiredHashtagCount": 5,
+    "hardValidationOnlyForCaptionPolicyV2": true
   },
   "channelSeparation": {
     "generalPhilosophyPsychologyWhatIf": "other_future_channel",

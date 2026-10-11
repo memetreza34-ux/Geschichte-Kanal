@@ -118,6 +118,15 @@ Diese Entscheidung ersetzt die frühere starke Betonung einer identischen Stickm
 - `finalize-youtube-export.js` erzeugt die Datei automatisch aus `video.json.youtubeUpload`.
 - Neue Projekt-Templates enthalten `youtubeUpload` von Anfang an.
 
+## 2026-10-11 — Uploadbeschreibung für neue Videos
+
+- Neue Videos bekommen **ausführlichere, konkrete YouTube-Beschreibungen** (450–1.400 Zeichen, mindestens zwei Absätze).
+- **Genau fünf thematisch passende Hashtags** am Ende des Beschreibungstextes.
+- Die Upload-Datei `CAPTION.txt` soll nur Titel, Beschreibung und die fünf Hashtags enthalten, ohne `KEYWORDS`, `THUMBNAIL_TEXT` und ohne eigene `HASHTAGS`-Überschrift.
+- Nur neue Projekt-Templates erhalten `youtubeUpload.captionPolicyVersion=2`; die neue Qualitätsprüfung blockiert kurze oder unvollständige Beschreibungen ab Phase 1 und Export.
+- Bereits vorhandene Projektdateien und veröffentlichte Videos werden **nicht nachträglich geändert**.
+- Maßgeblich: `channel/21-YOUTUBE-CAPTION-V2.md`.
+
 ## Aktuelle Style-Autorität
 
 ```text
