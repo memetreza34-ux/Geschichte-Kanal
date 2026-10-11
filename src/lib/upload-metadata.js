@@ -18,6 +18,7 @@ export function validateYoutubeUpload(meta, policy = {}) {
   const minimum = Number(rules.minimumDescriptionCharacters ?? 450);
   const maximum = Number(rules.maximumDescriptionCharacters ?? 1400);
   const expectedHashtags = Number(rules.requiredHashtagCount ?? 5);
+  const minimumParagraphs = Number(rules.minimumDescriptionParagraphs ?? 2);
   const errors = [];
   const title = clean(upload.title);
   const description = clean(upload.description);
@@ -28,7 +29,7 @@ export function validateYoutubeUpload(meta, policy = {}) {
   if (description.length < minimum || description.length > maximum) {
     errors.push(`YouTube-Caption V2: Beschreibung muss ${minimum}–${maximum} Zeichen haben; aktuell ${description.length}.`);
   }
-  if (paragraphs.length < 2) errors.push('YouTube-Caption V2: Beschreibung benötigt mindestens 2 verständliche Absätze.');
+  if (paragraphs.length < minimumParagraphs) errors.push(`YouTube-Caption V2: Beschreibung benötigt mindestens ${minimumParagraphs} verständliche Absätze.`);
   if (/#\S+/.test(description)) errors.push('YouTube-Caption V2: Hashtags gehören in youtubeUpload.hashtags, nicht in die Beschreibung.');
   if (hashtags.length !== expectedHashtags) {
     errors.push(`YouTube-Caption V2: genau ${expectedHashtags} passende Hashtags benötigt, aktuell ${hashtags.length}.`);
