@@ -7,6 +7,7 @@ import { findHighRiskPromptWords } from '../lib/flow-prompt.js';
 import { validateVisualInterestScene, validateVisualInterestSequence } from '../lib/visual-interest.js';
 import { validateWholeVideoQc } from '../lib/whole-video-quality.js';
 import { validatePreproduction } from './validate-youtube-preproduction.js';
+import { validateYoutubeUpload } from '../lib/upload-metadata.js';
 
 function nonEmpty(value) {
   return typeof value === 'string' && value.trim().length > 0;
@@ -91,6 +92,11 @@ export async function validatePhase1(projectDirectory) {
       const wholeVideoResult = validateWholeVideoQc(wholeVideoQc, visual);
       errors.push(...wholeVideoResult.errors.map((error) => `Whole Video: ${error}`));
     }
+  }
+
+  if (Number(meta.youtubeUpload?.captionPolicyVersion ?? 0) >= 2) {
+    const channel = await readJson(path.resolve('config/channel-policy.json'));
+    errors.push(...validateYoutubeUpload(meta, channel).errors);
   }
 
   const compilerV3 = Number(meta.promptSystemVersion) >= 3 || meta.promptSystem === 'flow-compiler-v3';
