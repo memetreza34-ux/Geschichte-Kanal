@@ -130,10 +130,15 @@
     "captionContainsTitle": true,
     "captionContainsDescription": true,
     "captionMayContainHashtags": true,
-    "captionMayContainKeywords": true,
-    "thumbnailTextIncludedInCaption": true,
+    "captionMayContainKeywords": false,
+    "thumbnailTextIncludedInCaption": false,
     "subtitleFile": "03-export/SUBTITLES.srt",
     "subtitleRequired": true,
-    "subtitleTimingSource": "whisper-aligned-scene-cards"
+    "subtitleTimingSource": "whisper-aligned-scene-cards",
+    "futureCaptionPolicyVersion": 2,
+    "captionDescriptionMinCharacters": 450,
+    "captionDescriptionMaxCharacters": 1400,
+    "captionRequiredHashtags": 5,
+    "captionHashtagsInsideDescription": true
   }
 }
