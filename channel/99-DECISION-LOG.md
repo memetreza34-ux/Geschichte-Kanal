@@ -118,6 +118,17 @@ Diese Entscheidung ersetzt die frühere starke Betonung einer identischen Stickm
 - `finalize-youtube-export.js` erzeugt die Datei automatisch aus `video.json.youtubeUpload`.
 - Neue Projekt-Templates enthalten `youtubeUpload` von Anfang an.
 
+## 2026-10-11 — YouTube-Beschreibungen für künftige Videos (Caption V2)
+
+Diese Entscheidung ersetzt die optionale Keywords-/Thumbnail-Text-Ausgabe vom 01.10. **Nur für neue Projekte**, nicht für bereits erstellte oder hochgeladene Videos.
+
+- Beschreibungen sollen deutlich informativer und etwas länger sein: 450–1.400 Zeichen, mindestens zwei Absätze, gut kopierbar.
+- Erst nach Recherche und fertigem Skript erstellen; historisch korrekt, neugierig machend, relevante Story-Details, nicht bloß knappe Ein-Satz-Zusammenfassung.
+- Exakt fünf passende Hashtags am Ende der Beschreibung.
+- `CAPTION.txt`: nur Titel, Beschreibung, fünf Hashtags; **keine** `KEYWORDS`-, `THUMBNAIL_TEXT`- oder separate `HASHTAGS`-Rubrik.
+- Template schaltet Caption V2 über `youtubeUpload.captionPolicyVersion=2` ein. Validator und Exporter prüfen diese Regel. Legacy-Projekte ohne Marker behalten altes Verhalten.
+- Standarddokument: `channel/21-YOUTUBE-CAPTION-V2.md`.
+
 ## Aktuelle Style-Autorität
 
 ```text
