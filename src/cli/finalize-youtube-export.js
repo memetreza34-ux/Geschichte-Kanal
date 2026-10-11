@@ -12,34 +12,21 @@ function arrayLine(value) {
   return Array.isArray(value) ? value.map((item) => clean(item)).filter(Boolean).join(' ') : '';
 }
 
-function commaLine(value) {
-  return Array.isArray(value) ? value.map((item) => clean(item)).filter(Boolean).join(', ') : '';
-}
-
-function buildCaption(meta) {
+export function buildCaption(meta) {
   const upload = meta.youtubeUpload ?? {};
   const title = clean(upload.title) || clean(meta.title);
   const description = clean(upload.description) || (clean(meta.topic) ? `In diesem Video geht es um ${clean(meta.topic)}.` : '');
   const hashtags = arrayLine(upload.hashtags);
-  const keywords = commaLine(upload.keywords);
-  const thumbnailText = clean(meta.coverPolicy?.coverText);
 
   if (!title) throw new Error('YouTube-Titel fehlt in video.json (youtubeUpload.title oder title).');
   if (!description) throw new Error('YouTube-Beschreibung fehlt in video.json (youtubeUpload.description oder topic).');
 
-  const sections = [
-    'TITLE:',
-    title,
-    '',
-    'DESCRIPTION:',
-    description
-  ];
+  const additionalHashtags = hashtags.split(/\s+/).filter(Boolean).filter((tag) => !description.includes(tag));
+  const descriptionForUpload = [description, additionalHashtags.join(' ')].filter(Boolean).join('\n\n');
 
-  if (hashtags) sections.push('', 'HASHTAGS:', hashtags);
-  if (keywords) sections.push('', 'KEYWORDS:', keywords);
-  if (thumbnailText) sections.push('', 'THUMBNAIL_TEXT:', thumbnailText);
-
-  return `${sections.join('\n')}\n`;
+  // CAPTION.txt is a copy-ready upload aid: keywords and cover instructions
+  // remain internal metadata and must not appear in the YouTube description.
+  return `TITLE:\n${title}\n\nDESCRIPTION:\n${descriptionForUpload}\n`;
 }
 
 function subtitleText(value) {

@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { buildCaption } from '../../../../src/cli/finalize-youtube-export.js';
 import { fileURLToPath } from 'node:url';
 
 const here=path.dirname(fileURLToPath(import.meta.url));
@@ -170,7 +171,7 @@ meta.imageDensityPolicy.targetAverageHoldSeconds=[2.5,4.5];
 meta.audioPolicy.playbackRate=1.05;
 meta.youtubeUpload={
 title:'Warum Paris 1870 seine Briefe mit Ballons verschickte',
-description:'1870 wurde Paris belagert und von allen normalen Postwegen abgeschnitten. Wie konnten Millionen Menschen dennoch Briefe verschicken? Die Geschichte der improvisierten Gasballonpost, der gefährlichen Flugrouten, der Brieftauben mit Mikrofotografie und einer letzten Idee mit Zinkkugeln auf der Seine.',
+description:"Eine Millionenstadt ist eingekesselt. Postkutschen kommen nicht mehr hinaus, Bahnstrecken sind gesperrt und wichtige Nachrichten erreichen ihre Empfänger nicht. Doch im September 1870 findet Paris einen ungewöhnlichen Weg, um trotzdem mit der Außenwelt zu sprechen: Briefe fliegen mit Gasballons über die feindlichen Linien.\n\nIn diesem Geschichtsvideo von Zeitkulisse erlebst du, wie die belagerte Stadt ihre eigene Luftpost organisiert. Wir schauen in die improvisierten Ballonwerkstätten, begleiten den ersten Postballon Le Neptune beim Start und zeigen, warum jeder Flug vom Wind abhing. Denn ein Gasballon konnte zwar aufsteigen, aber nicht einfach zum gewünschten Ort gelenkt werden.\n\nUnd wie kamen Antworten zurück nach Paris? Hier beginnt der vielleicht überraschendste Teil der Geschichte: Brieftauben trugen winzige, fotografisch verkleinerte Nachrichten in die eingeschlossene Stadt. Im harten Winter suchten die Menschen sogar nach einem Postweg durch die Seine.\n\nDie Ballonpost konnte den Krieg nicht beenden. Aber sie zeigte, wie eine Stadt selbst unter extremen Bedingungen neue Wege für Nachrichten und menschliche Verbindungen fand.\n\nEntdecke auf Zeitkulisse weitere spannende Geschichten, historische Erfindungen und Ereignisse, die unsere Welt verändert haben.",
 hashtags:['#Geschichte','#Paris','#Ballonpost','#1870','#History'],
 keywords:['Belagerung von Paris','Ballonpost 1870','Brieftauben Mikrofilm','Le Neptune','Deutsch Französischer Krieg 1870','Geschichte der Luftpost']
 };
@@ -195,7 +196,7 @@ await mkdir(path.join(root,'02-audio'),{recursive:true});
 await mkdir(path.join(root,'03-export'),{recursive:true});
 await writeFile(path.join(root,'00-bildprompts','images','.gitkeep'),'');
 await writeFile(path.join(root,'02-audio','.gitkeep'),'');
-await writeFile(path.join(root,'03-export','CAPTION.txt'),'TITLE:\n'+meta.youtubeUpload.title+'\n\nDESCRIPTION:\n'+meta.youtubeUpload.description+'\n');
+await writeFile(path.join(root,'03-export','CAPTION.txt'),buildCaption(meta));
 await writeFile(path.join(here,'PHASE1_QC.md'),
  '# Phase 1 QC\n\nStatus: READY PENDING FINAL VALIDATOR\n\n- Skript zuerst vollständig geschrieben: ja\n- '+images.length+' unterschiedliche Visuals\n- Original Voice-over: '+script.split(/\s+/).length+' Wörter\n- Story-Modus: world-led, keine Hauptfigur\n- 13 bis 15 Color-Arc-Phasen\n- explanation-only: '+explanationCount+'/90; max '+maxStreak+' in Folge\n- Flow-Cover: exakt 3 Kandidaten, dann STOP\n- 1,05× und SUBTITLES.srt beim späteren Export\n- Keine Bilder, kein Audio: Phase 2/3 blockiert\n');
 console.log('Paris Generator: '+images.length+' Visuals; '+script.split(/\s+/).length+' Wörter; explanation '+explanationCount+' max '+maxStreak+'.');

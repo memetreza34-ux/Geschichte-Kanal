@@ -145,11 +145,17 @@
     "descriptionRequired": true,
     "hashtagsOptional": true,
     "keywordsOptional": true,
-    "thumbnailTextIncluded": true,
+    "thumbnailTextIncluded": false,
     "subtitleFileRequired": true,
     "subtitleFile": "03-export/SUBTITLES.srt",
     "subtitleFormat": "srt",
-    "subtitleTimingSource": "whisper-aligned-scene-cards"
+    "subtitleTimingSource": "whisper-aligned-scene-cards",
+    "captionLayout": "title-and-description-only",
+    "descriptionRecommendedMinCharacters": 500,
+    "descriptionGuidance": "Mehrere natürliche Absätze: neugierig machender Hook, konkrete historische Ausgangslage, zentrale Handlung und Konflikte, Bedeutung/Payoff; keine generische Füllbeschreibung.",
+    "hashtagsPlacement": "description-end",
+    "hashtagsRecommendedCount": 5,
+    "keywordsIncludedInCaption": false
   },
   "channelSeparation": {
     "generalPhilosophyPsychologyWhatIf": "other_future_channel",
