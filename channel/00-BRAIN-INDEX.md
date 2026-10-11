@@ -146,6 +146,7 @@ Der Flow-Prompt-Build, `validate:youtube-phase1` und Phase 3 blockieren neue Pro
 - `16-STORY-QUALITY-GATE.md` — Story statt Anekdoten-Kette
 - `17-WHOLE-VIDEO-COHERENCE-GATE.md` — Fließtext + Gesamtsequenz + Erkläranteil
 - `18-NARRATION-ALIGNMENT-GATE.md` — harte Bild-Skript-Passung + Chronologie + Klarheit
+- `21-YOUTUBE-CAPTION-V2.md` — längere, kopierfertige YouTube-Beschreibungen für neue Projekte
 - `99-DECISION-LOG.md` — chronologische Entscheidungen
 
 ## Maschinenlesbare Kernquellen
@@ -191,7 +192,7 @@ config/pipeline.json
 → PHASE3_IMAGE_LOCK
 → Audio / Alignment / Timeline / Pacing
 → Remotion
-→ FINAL_VIDEO + THUMBNAIL + CAPTION
+→ FINAL_VIDEO + THUMBNAIL + CAPTION + SUBTITLES.srt
 ```
 
 ## Bildregeln
@@ -252,6 +253,9 @@ Ab `PHASE3_IMAGE_LOCK` ist `00-bildprompts/images/` read-only. Bei Asset-Fehlern
 FINAL_VIDEO.mp4
 THUMBNAIL.png
 CAPTION.txt
+SUBTITLES.srt
 ```
+
+Neue Projekte verwenden `youtubeUpload.captionPolicyVersion=2`: Beschreibung mit 450–1.400 Zeichen, mindestens zwei Absätzen und fünf Hashtags direkt am Ende. `CAPTION.txt` enthält bei diesen Projekten nur Titel und Beschreibung mit Hashtags, keine Keywords- oder Thumbnail-Text-Rubriken. Ältere Projekte bleiben unverändert.
 
 Den kompilierten `google-flow-prompt.txt` nicht manuell pflegen; Quelldaten ändern und neu bauen.
