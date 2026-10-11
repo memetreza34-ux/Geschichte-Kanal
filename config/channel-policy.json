@@ -145,11 +145,19 @@
     "descriptionRequired": true,
     "hashtagsOptional": true,
     "keywordsOptional": true,
-    "thumbnailTextIncluded": true,
+    "thumbnailTextIncluded": false,
     "subtitleFileRequired": true,
     "subtitleFile": "03-export/SUBTITLES.srt",
     "subtitleFormat": "srt",
-    "subtitleTimingSource": "whisper-aligned-scene-cards"
+    "subtitleTimingSource": "whisper-aligned-scene-cards",
+    "futureCaptionPolicyVersion": 2,
+    "minimumDescriptionCharacters": 450,
+    "maximumDescriptionCharacters": 1400,
+    "minimumDescriptionParagraphs": 2,
+    "requiredHashtagCount": 5,
+    "hashtagsAppendedToDescription": true,
+    "captionsHaveNoKeywordsSection": true,
+    "captionsHaveNoThumbnailTextSection": true
   },
   "channelSeparation": {
     "generalPhilosophyPsychologyWhatIf": "other_future_channel",
