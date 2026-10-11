@@ -242,6 +242,8 @@ Final:
 
 `CAPTION.txt` ist eine **direkt kopierbare YouTube-Uploadhilfe**: nur `TITLE:` (eigener YouTube-Titel) und `DESCRIPTION:` (mehrere sinnvolle Absätze, idealerweise mindestens 500 Zeichen). Die 5 relevanten Hashtags stehen **am Ende der Beschreibung**, ohne eigene `HASHTAGS`-Überschrift. Interne Metadaten wie `KEYWORDS` und `THUMBNAIL_TEXT` werden nicht ausgegeben; Keywords und Cover-Text dürfen weiterhin intern in `video.json` liegen.
 
+Für **neue** Videoprojekte gilt `youtubeUpload.captionPolicyVersion=2`. Die Beschreibung wird nach dem Skript geschrieben: 450–1.400 Zeichen, mindestens zwei inhaltliche Absätze und genau fünf passende Hashtags am Ende. Die Qualität wird in Phase 1 und beim Export geprüft. Vorhandene Projekte werden nicht rückwirkend bearbeitet. Siehe `channel/21-YOUTUBE-CAPTION-V2.md`.
+
 Die Datei `SUBTITLES.srt` wird aus den **gemessenen Whisper-/Audio-Alignment-Zeiten** der Scene Cards erzeugt. Jeder Eintrag enthält den zugehörigen `narrationBeat` mit echtem Start- und Endzeitpunkt und kann direkt als deutsche Untertiteldatei bei YouTube hochgeladen werden. Geschätzte Zeitcodes ohne Alignment sind nicht erlaubt.
 
 Audio-Geschwindigkeit: Standard für neue Videos ist **1,05×**. Ein projektspezifischer Wert in `video.json.audioPolicy.playbackRate` hat Vorrang vor dem globalen Standard.
