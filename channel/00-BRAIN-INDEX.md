@@ -146,6 +146,7 @@ Der Flow-Prompt-Build, `validate:youtube-phase1` und Phase 3 blockieren neue Pro
 - `16-STORY-QUALITY-GATE.md` — Story statt Anekdoten-Kette
 - `17-WHOLE-VIDEO-COHERENCE-GATE.md` — Fließtext + Gesamtsequenz + Erkläranteil
 - `18-NARRATION-ALIGNMENT-GATE.md` — harte Bild-Skript-Passung + Chronologie + Klarheit
+- `21-YOUTUBE-CAPTION-V2.md` — Uploadbeschreibung mit zwei Absätzen und fünf Hashtags für zukünftige Videos
 - `99-DECISION-LOG.md` — chronologische Entscheidungen
 
 ## Maschinenlesbare Kernquellen
