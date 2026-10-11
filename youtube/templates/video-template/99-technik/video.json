@@ -83,7 +83,7 @@
     "title": "",
     "description": "",
     "hashtags": [],
-    "keywords": []
+    "captionPolicyVersion": 2
   },
   "audioPolicy": {
     "singleFinalVoiceoverRequired": true,
