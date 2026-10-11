@@ -239,6 +239,19 @@ Final:
 └── SUBTITLES.srt
 ```
 
+### CAPTION.txt — verbindlich für neue Videos
+
+Neue Projekte setzen `youtubeUpload.captionPolicyVersion = 2`. Die YouTube-Beschreibung wird **nach Recherche und Skript** geschrieben und muss **450–1.400 Zeichen**, mindestens **2 inhaltliche Absätze** und **genau 5 passende, unterschiedliche Hashtags** enthalten.
+
+- Absatz 1: konkreter neugierig machender Einstieg mit historischem Thema, Ort/Zeit und Leitfrage.
+- Absatz 2 und bei Bedarf Absatz 3: was Zuschauer tatsächlich erfahren (wichtige Entscheidungen, Ereignisse, Ursachen und Folgen), ohne die ganze Story oder Pointe vorwegzunehmen.
+- Natürliches Deutsch, suchbare konkrete Begriffe, keine Stichwortliste, kein Wikipedia-Absatz, kein erfundener Clickbait, keine mehrfachen generischen Werbesätze oder erfundenen Quellenlinks.
+- Hashtags **direkt am Ende der Beschreibung**, ohne separate HASHTAGS-Überschrift. Keine redundanten `KEYWORDS`- oder `THUMBNAIL_TEXT`-Bereiche.
+- Die `CAPTION.txt` enthält nur `TITLE:`, `DESCRIPTION:`, den Beschreibungstext und darunter die fünf Hashtags. Titel und Beschreibung lassen sich getrennt kopieren.
+- Vor dem Bildprompt-Build prüft Phase 1 die Mindestlänge, Absätze und die 5 Hashtags; der Export prüft erneut. Für alte Projekte ohne Caption-V2-Markierung bleibt das alte Verhalten unverändert.
+
+Maßgeblich: `channel/21-YOUTUBE-CAPTION-V2.md`.
+
 Die Datei `SUBTITLES.srt` wird aus den **gemessenen Whisper-/Audio-Alignment-Zeiten** der Scene Cards erzeugt. Jeder Eintrag enthält den zugehörigen `narrationBeat` mit echtem Start- und Endzeitpunkt und kann direkt als deutsche Untertiteldatei bei YouTube hochgeladen werden. Geschätzte Zeitcodes ohne Alignment sind nicht erlaubt.
 
 Audio-Geschwindigkeit: Standard für neue Videos ist **1,05×**. Ein projektspezifischer Wert in `video.json.audioPolicy.playbackRate` hat Vorrang vor dem globalen Standard.
