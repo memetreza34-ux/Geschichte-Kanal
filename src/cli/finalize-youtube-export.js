@@ -3,6 +3,7 @@
 import { copyFile, mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { arg, exists, projectPaths, readJson, sha256, writeJson } from '../lib/pipeline.js';
+import { validateYoutubeUpload } from '../lib/upload-metadata.js';
 
 function clean(value) {
   return typeof value === 'string' ? value.trim() : '';
@@ -81,6 +82,12 @@ export async function finalizeYoutubeExport(projectDirectory) {
     readJson(p.meta),
     readJson(p.mapping)
   ]);
+
+  if (Number(meta.youtubeUpload?.captionPolicyVersion ?? 0) >= 2) {
+    const channel = await readJson(path.resolve('config/channel-policy.json'));
+    const qc = validateYoutubeUpload(meta, channel);
+    if (!qc.passed) throw new Error(qc.errors.join('\n'));
+  }
 
   await mkdir(p.exportDir, { recursive: true });
   await copyFile(cover, thumbnail);
