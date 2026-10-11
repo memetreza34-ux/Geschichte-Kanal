@@ -3,44 +3,7 @@
 import { copyFile, mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { arg, exists, projectPaths, readJson, sha256, writeJson } from '../lib/pipeline.js';
-
-function clean(value) {
-  return typeof value === 'string' ? value.trim() : '';
-}
-
-function arrayLine(value) {
-  return Array.isArray(value) ? value.map((item) => clean(item)).filter(Boolean).join(' ') : '';
-}
-
-function commaLine(value) {
-  return Array.isArray(value) ? value.map((item) => clean(item)).filter(Boolean).join(', ') : '';
-}
-
-function buildCaption(meta) {
-  const upload = meta.youtubeUpload ?? {};
-  const title = clean(upload.title) || clean(meta.title);
-  const description = clean(upload.description) || (clean(meta.topic) ? `In diesem Video geht es um ${clean(meta.topic)}.` : '');
-  const hashtags = arrayLine(upload.hashtags);
-  const keywords = commaLine(upload.keywords);
-  const thumbnailText = clean(meta.coverPolicy?.coverText);
-
-  if (!title) throw new Error('YouTube-Titel fehlt in video.json (youtubeUpload.title oder title).');
-  if (!description) throw new Error('YouTube-Beschreibung fehlt in video.json (youtubeUpload.description oder topic).');
-
-  const sections = [
-    'TITLE:',
-    title,
-    '',
-    'DESCRIPTION:',
-    description
-  ];
-
-  if (hashtags) sections.push('', 'HASHTAGS:', hashtags);
-  if (keywords) sections.push('', 'KEYWORDS:', keywords);
-  if (thumbnailText) sections.push('', 'THUMBNAIL_TEXT:', thumbnailText);
-
-  return `${sections.join('\n')}\n`;
-}
+import { buildCaption } from '../lib/upload-metadata.js';
 
 function subtitleText(value) {
   return String(value ?? '').replace(/\s+/g, ' ').trim();
@@ -95,9 +58,13 @@ export async function finalizeYoutubeExport(projectDirectory) {
     readJson(p.mapping)
   ]);
 
+  const captionPolicy = Number(meta.youtubeUpload?.captionPolicyVersion ?? 0) >= 2
+    ? await readJson(path.resolve('config/channel-policy.json'))
+    : null;
+
   await mkdir(p.exportDir, { recursive: true });
   await copyFile(cover, thumbnail);
-  await writeFile(caption, buildCaption(meta), 'utf8');
+  await writeFile(caption, buildCaption(meta, captionPolicy), 'utf8');
   const srt = buildSrt(mapping);
   await writeFile(subtitles, srt, 'utf8');
 
