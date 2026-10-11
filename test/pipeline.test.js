@@ -5,7 +5,7 @@ import path from 'node:path';
 import test from 'node:test';
 
 import { evaluateTopic } from '../src/cli/check-youtube-topic.js';
-import { finalizeYoutubeExport } from '../src/cli/finalize-youtube-export.js';
+import { buildCaption, finalizeYoutubeExport } from '../src/cli/finalize-youtube-export.js';
 import { resolveAudioPolicy } from '../src/cli/optimize-youtube-audio.js';
 import { createPhase3ImageLock, verifyPhase3ImageLock } from '../src/cli/phase3-image-lock.js';
 import { validatePhase1 } from '../src/cli/validate-youtube-phase1.js';
@@ -181,7 +181,9 @@ test('Export erzeugt FINAL_VIDEO, Thumbnail, CAPTION.txt und YouTube-SRT mit ech
     assert.match(caption, /TITLE:\nStarker YouTube-Titel/);
     assert.match(caption, /DESCRIPTION:\nEine vollständige Beschreibung/);
     assert.match(caption, /#Geschichte #Test/);
-    assert.match(caption, /THUMBNAIL_TEXT:\nTEST COVER/);
+    assert.match(caption, /DESCRIPTION:\nEine vollständige Beschreibung für den Upload\.\n\n#Geschichte #Test/);
+    assert.doesNotMatch(caption, /KEYWORDS|THUMBNAIL_TEXT|HASHTAGS:/);
+    assert.equal(caption.match(/#Geschichte/g)?.length, 1);
     const subtitles = await readFile(path.join(exportDir, 'SUBTITLES.srt'), 'utf8');
     assert.match(subtitles, /00:00:00,000 --> 00:00:04,250/);
     assert.match(subtitles, /Erster gesprochener Satz\./);
@@ -190,6 +192,22 @@ test('Export erzeugt FINAL_VIDEO, Thumbnail, CAPTION.txt und YouTube-SRT mit ech
   } finally {
     await rm(temp, { recursive: true, force: true });
   }
+});
+
+test('Caption enthält Hashtags genau einmal und keine internen Schlüsselwörter oder Coverangaben', () => {
+  const text = buildCaption({
+    title: 'Historisches Ereignis',
+    coverPolicy: { coverText: 'COVER METADATEN' },
+    youtubeUpload: {
+      description: 'Konkrete Beschreibung.\n\n#Geschichte',
+      hashtags: ['#Geschichte', '#London'],
+      keywords: ['internes Keyword']
+    }
+  });
+  assert.match(text, /TITLE:\nHistorisches Ereignis/);
+  assert.match(text, /#Geschichte\n\n#London/);
+  assert.equal(text.match(/#Geschichte/g)?.length, 1);
+  assert.doesNotMatch(text, /KEYWORDS|THUMBNAIL_TEXT|HASHTAGS:|COVER METADATEN|internes Keyword/);
 });
 
 test('Projekt-Template nutzt Pipeline V4, Upload-Metadaten und neue Bilddichte', async () => {
