@@ -2,6 +2,10 @@
 
 Kanalspezifische Produktionsbasis für einen deutschen **History × Storytelling × Curiosity**-Kanal.
 
+## HÖCHSTE OPERATIVE PRIORITÄT: Jedes Video verbessert die Pipeline
+
+Nach jedem fertigen Video: **komplett sichten → zeitcodierte Beobachtungen → Ursachen → systemischer Fix → Regressionstest und CI → konkrete Lehren für das nächste Video**. Neue Exports legen automatisch `POST_VIDEO_REVIEW.json` an. Solange ein Review unvollständig ist, ist die nächste reguläre Projekterstellung gesperrt. **Technische CI alleine bewertet kein Video.** Siehe `channel/22-CONTINUOUS-IMPROVEMENT.md`.
+
 ## Aktueller Status
 
 - Topic Director: **V2 + technisches Scorecard-Gate READY**
@@ -51,7 +55,9 @@ youtube/     Templates und konkrete Produktionen
 → PHASE3_IMAGE_LOCK
 → Audio / Alignment / Timeline / Pacing
 → Remotion
-→ FINAL_VIDEO + THUMBNAIL + CAPTION
+→ FINAL_VIDEO + THUMBNAIL + CAPTION + SRT
+→ POST_VIDEO_REVIEW: Sichten / Befunde / Ursachen / Fix / Regressionstest
+→ VERIFIED → nächste Produktion
 ```
 
 ## Preproduction: Thema und Skript
