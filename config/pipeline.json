@@ -140,5 +140,18 @@
     "captionDescriptionMaximumCharacters": 1400,
     "captionDescriptionMinimumParagraphs": 2,
     "captionRequiredHashtagsForV2": 5
+  },
+  "continuousImprovementPolicy": {
+    "version": 1,
+    "highestPriority": true,
+    "reviewFile": "99-technik/POST_VIDEO_REVIEW.json",
+    "reviewCommand": "npm run review:youtube -- --dir <projekt> --validate",
+    "trigger": "AFTER_SUCCESSFUL_FINAL_EXPORT",
+    "blockNewProjectWhenPending": true,
+    "blockNewPhase1WhenOtherExportUnreviewed": true,
+    "minimumConcreteFindings": 3,
+    "minimumVerifiedImprovements": 1,
+    "minimumCarryForwardLessons": 2,
+    "requiredProof": "FINAL_VIDEO_SHA256 + TIMECODES + ROOT_CAUSE + COMMITTED_CHANGE + REGRESSION_TEST + CI"
   }
 }
