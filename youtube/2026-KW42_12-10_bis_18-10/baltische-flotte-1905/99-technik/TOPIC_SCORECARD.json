@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 3,
+  "status": "APPROVED",
+  "candidate": "Warum Russlands Flotte 1905 nach einer halben Weltreise scheiterte",
+  "proposedTitle": "Warum Russlands Flotte 1905 nach einer halben Weltreise scheiterte",
+  "topicFamily": "war_beyond_battles",
+  "storyMode": "event-led",
+  "mainCharacterRequired": false,
+  "humanRepresentationPlan": "Historische Matrosen, Kohlelader, Offiziere, britische Fischer und japanische Seeleute sind individuelle realitätsnahe 2D-Figuren. Admiral Roschestwenski und Tōgō sind punktuell erkennbar, tragen aber nicht allein die Geschichte.",
+  "discovery": {
+    "rawCandidateCount": 30,
+    "shortlistSize": 12,
+    "selectedRank": 1,
+    "selectedFromShortlist": true
+  },
+  "duplicateCheckDecision": "APPROVED_NEW",
+  "storyEnginePresent": true,
+  "isolatedAnecdoteOnly": false,
+  "diversityGatePassed": true,
+  "largerHistoricalPoint": "Eine Flotte aus Stahl und Geschützen scheitert am Zusammenspiel von Aufklärung, Versorgung, Führung, Training, Einsatzbedingungen und einer realen militärischen Konfrontation.",
+  "sourceabilityEvidence": "Mikasa Memorial Museum (Route); Royal Museums Greenwich (Doggerbank-Untersuchung); US Naval Institute (zeitgenössische Schilderung von Tsushima); Deutsches Schiffahrtsmuseum (HAPAG-Kohleversorgung); Fordham Primary Sourcebook (Semenoff, Coaling).",
+  "historicalStoryCorePresent": true,
+  "mechanismOnlyTopic": false,
+  "concreteHumanStakes": "Matrosen einer monatelangen gefährlichen Seereise und britische zivile Fischer gerieten in tödliche Gefahr; Krieg und die Chancen russischer Stützpunkte in Ostasien hingen am Erfolg des Verbandes.",
+  "eventProgression": "Oktober 1904 Abfahrt Libau → Angst und zivile Opfer Doggerbank → diplomatische Krise → Kohle- und Kaproute → Port Arthur fällt, Warten vor Madagaskar → Verstärkung in Indochina → Tsushima 27./28. Mai 1905 → Niederlage und Nachwirkungen.",
+  "expectedExplanationMechanismShare": 0.25,
+  "titleDirections": [
+    "Warum Russlands Flotte 1905 nach einer halben Weltreise scheiterte",
+    "1904: Eine Flotte reist um Afrika – und verliert alles",
+    "Warum eine monatelange Seereise Russlands Marine nicht retten konnte"
+  ],
+  "visualForms": [
+    "architecture-city",
+    "character-scene",
+    "map-geography",
+    "object-focus",
+    "cutaway-section",
+    "comparison",
+    "battle-city-overview",
+    "system-hierarchy",
+    "process-sequence",
+    "evidence-reconstruction",
+    "environment-only"
+  ],
+  "scores": {
+    "curiosityGap": 9.1,
+    "stakes": 9.2,
+    "storyEngine": 9.3,
+    "visualPotential": 9.5,
+    "historicalSignificance": 9.3,
+    "freshnessDistinctiveness": 9,
+    "titlePotential": 9.1,
+    "sourceability": 9.1
+  },
+  "weightedScore": null,
+  "qualityBand": "PRIORITY",
+  "approvedByTopicDirector": true,
+  "notes": [
+    "Kein Wiederholungs-Thema (Ostasien 1904–1905, event-led maritime campaign).",
+    "Doggerbank-Angriff wird ernsthaft als Angriff auf zivile Fischer gezeigt, nicht als lustiger Patzer.",
+    "Suez-Nebenverband und Hauptflotte um Kap getrennt zeigen.",
+    "Keine präzisen, nicht abgesicherten 18.000 Meilen oder angebliche japanische Torpedoboote in der Nordsee."
+  ]
+}
