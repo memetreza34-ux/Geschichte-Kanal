@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "status": "APPROVED",
+  "reviewMethod": "manuelle strukturelle Scriptkontrolle, kein Audio oder Video beurteilt",
+  "centralQuestion": "Warum verlor eine riesige russische Flotte nach monatelanger Reise nach Ostasien im Mai 1905 nahezu ihre gesamte Kampfkraft?",
+  "storySpine": "Russland will angeschlagene Seemacht in Ostasien verstärken → gemischte Flotte wird auf lange Reise geschickt → gefährlicher Doggerbank-Irrtum → politische Folgen → logistische und menschliche Erschöpfung → Port Arthur fällt → Weiterfahrt und Gegner bereitet sich vor → Vernichtung bei Tsushima → Bedeutung jenseits der schweren Geschütze.",
+  "historicalMeaning": "Marine- und Kriegsgeschichte wird hier als Geschichte von Versorgung, Aufklärung, Fähigkeiten und Entscheidungen erzählt, nicht als Liste von Schiffen und Siegen.",
+  "hookPromise": "Warum fährt eine Flotte über halbe Ozeane, obwohl ihr Einsatz mit jeder Woche schwieriger wird?",
+  "scores": {
+    "hook": 9.1,
+    "storyProgression": 9.2,
+    "historicalMeaning": 9.3,
+    "payoff": 9.1
+  },
+  "centralStoryShare": 0.96,
+  "personalityCuriosityShare": 0.02,
+  "maxConsecutivePurePersonalityCuriosityBeats": 0,
+  "beatFunctionsReviewed": true,
+  "endingAnswersOpeningQuestion": true,
+  "approved": true,
+  "notes": [
+    "Vollständiger Fließtext vor Bildplanung fertig.",
+    "Beginn Oktober 1904, Ende nach Mai 1905. Frühere Konfliktentwicklung nur als aktuelle Oktoberlage erläutert.",
+    "Zivilisten und Mannschaften statt reine Herrscher-Anekdoten."
+  ]
+}
