@@ -16,10 +16,10 @@
     "phase1MustRevalidate": true
   },
   "coverPolicy": {
-    "firstSceneIsCover": true,
-    "coverImageNumber": 1,
+    "firstSceneIsCover": false,
+    "coverImageNumber": null,
     "coverCandidateCount": 3,
-    "separateThumbnailForbidden": true,
+    "separateThumbnailForbidden": false,
     "coverTextRequired": true,
     "coverTextLanguage": "de",
     "coverTextMinWords": 2,
@@ -31,7 +31,8 @@
     "userSelectsCover": true,
     "flowMustStopAfterCoverCandidates": true,
     "selectedCoverRequiredBeforeRemainingImages": true,
-    "flowMayNotAutoSelectCover": true
+    "flowMayNotAutoSelectCover": true,
+    "thumbnailSourceFile": "00-bildprompts/thumbnail.png"
   },
   "imagePolicy": {
     "fixedImageCountForbidden": true,

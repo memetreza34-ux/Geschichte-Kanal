@@ -40,10 +40,10 @@
   "targetDurationRangeSeconds": null,
   "plannedImageCount": null,
   "coverPolicy": {
-    "firstSceneIsCover": true,
-    "coverImageNumber": 1,
+    "firstSceneIsCover": false,
+    "coverImageNumber": null,
     "coverCandidateCount": 3,
-    "separateThumbnailForbidden": true,
+    "separateThumbnailForbidden": false,
     "coverTextRequired": true,
     "coverText": "",
     "coverTextLanguage": "de",
@@ -55,7 +55,8 @@
     "userSelectsCover": true,
     "flowMustStopAfterCoverCandidates": true,
     "selectedCoverRequiredBeforeRemainingImages": true,
-    "selectedCoverCandidate": null
+    "selectedCoverCandidate": null,
+    "thumbnailSourceFile": "00-bildprompts/thumbnail.png"
   },
   "imageDensityPolicy": {
     "contentDrivenImageCountRequired": true,
@@ -108,5 +109,6 @@
   "createdAt": "",
   "updatedAt": "",
   "postVideoImprovementGateVersion": 1,
-  "imageIntegrityGateVersion": 1
+  "imageIntegrityGateVersion": 1,
+  "figureReviewGateVersion": 1
 }

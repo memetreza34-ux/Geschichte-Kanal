@@ -75,7 +75,8 @@ test('Repo besitzt Narration-first History-Bildwelt und Flow Compiler V3', async
 test('Pipeline V4 erzwingt höhere Story-Beat-Dichte, offene Visual-Formen und Asset-Sperre', async () => {
   const policy = JSON.parse(await readFile('config/pipeline.json', 'utf8'));
   assert.equal(policy.pipelineVersion, 4);
-  assert.equal(policy.coverPolicy.firstSceneIsCover, true);
+  assert.equal(policy.coverPolicy.firstSceneIsCover, false);
+  assert.equal(policy.coverPolicy.thumbnailSourceFile, '00-bildprompts/thumbnail.png');
   assert.equal(policy.coverPolicy.coverCandidateCount, 3);
   assert.equal(policy.coverPolicy.userSelectsCover, true);
   assert.equal(policy.coverPolicy.flowMustStopAfterCoverCandidates, true);
@@ -220,6 +221,8 @@ test('Projekt-Template nutzt Pipeline V4, Upload-Metadaten und neue Bilddichte',
   assert.equal(meta.schemaVersion, 3);
   assert.equal(meta.pipelineVersion, 4);
   assert.equal(meta.visualStyleId, 'UNSET');
+  assert.equal(meta.coverPolicy.firstSceneIsCover, false);
+  assert.equal(mapping.images[0].visibleTextPolicy, 'NO_VISIBLE_TEXT');
   assert.equal(meta.promptSystemVersion, 3);
   assert.equal(meta.promptSystem, 'flow-compiler-v3');
   assert.equal(meta.wholeVideoCoherenceGateVersion, 1);
