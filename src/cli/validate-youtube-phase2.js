@@ -4,6 +4,7 @@ import { readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { arg, discoverAudioFiles, exists, listFinalImages, projectPaths, readJson, sha256 } from '../lib/pipeline.js';
 import { inspectPng } from '../lib/image-integrity.js';
+import { validateStandaloneThumbnail } from '../lib/thumbnail-policy.js';
 
 function validScore(value, minimum) {
   const score = Number(value);
@@ -52,6 +53,15 @@ async function validateVisualQc(qc, meta, images, mapping) {
     if (entry.unexpectedTextDetected !== false) errors.push(`Bild ${i}: unerwarteter sichtbarer Text erkannt oder nicht ausgeschlossen.`);
     if (entry.pseudoTextDetected !== false) errors.push(`Bild ${i}: Pseudo-Schrift erkannt oder nicht ausgeschlossen.`);
 
+    if (Number(meta.figureReviewGateVersion ?? 0) >= 1) {
+      if (typeof entry.prominentPeopleVisible !== 'boolean') errors.push(`Bild ${i}: prominentPeopleVisible muss im Figuren-Review ausdrücklich true oder false sein.`);
+      if (entry.prominentPeopleVisible === true || scene?.visualForm === 'character-scene') {
+        for (const field of ['faceNatural', 'proportionsPlausible', 'handsGesturesPlausible', 'distinctIdentities', 'historicalWardrobePlausible', 'characterStyleConsistent']) {
+          if (entry[field] !== true) errors.push(`Bild ${i}: Figuren-Review ${field} muss true sein; sonst Bild in Phase 2 regenerieren.`);
+        }
+      }
+    }
+
     if (Number(meta.phase2VisualQcHashVersion ?? 0) >= 1) {
       const expectedName = `Bild ${String(i).padStart(2, '0')}.png`;
       if (entry.fileName !== expectedName) errors.push(`Bild ${i}: Visual-QC.fileName muss ${expectedName} sein.`);
@@ -63,7 +73,7 @@ async function validateVisualQc(qc, meta, images, mapping) {
       }
     }
 
-    if (i === 1) {
+    if (i === 1 && meta.coverPolicy?.firstSceneIsCover !== false) {
       if (entry.visibleTextDetected !== true) errors.push('Bild 1: Cover-Text muss als sichtbarer Text erkannt und geprüft sein.');
       if (String(entry.visibleTextExact ?? '').trim() !== coverText) errors.push('Bild 1: visibleTextExact entspricht nicht exakt dem Cover-Text.');
     } else {
@@ -121,6 +131,7 @@ export async function validatePhase2(projectDirectory) {
     } else if (Number.isInteger(count) && count > 0) {
       const qc = await readJson(p.phase2VisualQc);
       errors.push(...await validateVisualQc(qc, meta, images, mapping));
+      errors.push(...await validateStandaloneThumbnail(p, meta, qc));
     }
   }
 

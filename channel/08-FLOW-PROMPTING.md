@@ -178,26 +178,24 @@ Vor Build Sequenz prüfen:
 - wäre Karte, Objekt, Übersicht, Detail, Cutaway oder Prozess besser?
 - bleibt ein Bild stehen, obwohl die Narration bereits einen neuen Beat erreicht?
 
-## Cover Gate
+## Thumbnail-Gate (neue Projekte)
 
 ### Stage 1
 
-- genau drei BILD-01-Kandidaten
-- exakt derselbe deutsche Cover-Text
-- danach STOP
-- Nutzer wählt
+- Genau drei eigene Thumbnail-Kandidaten mit demselben deutschen Covertext
+- STOP und Nutzerauswahl
+- Gewinner = `00-bildprompts/thumbnail.png`, außerhalb des Story-Bilderordners
 
 ### Stage 2
 
-- Gewinner = `Bild 01.png`
-- BILD 02–NN erzeugen
-- Cover nur als videospezifische Continuity-Hilfe
-- keine Erlaubnis, seine Komposition oder Personendesigns überall zu klonen
+- **BILD 01 ist die erste normale Handlungsszene**, nicht mehr Cover
+- BILD 01–NN erzeugen; alle nach Narration und Scene Card
+- Visuelle Welt gleich halten; Cover ist keine Vorlage zum Klonen von Komposition oder Figuren
+- Prominente Personen müssen natürlich proportioniert, glaubwürdig und untereinander unterscheidbar sein; QC lehnt übertriebene Comics, seltsame Hände und Gesichtsklone ab
 
 ## Textregel
 
-BILD 01: exakter Cover-Text.  
-BILD 02–NN: kein sichtbarer Text, keine Labels, Pseudo-Schrift, Wasserzeichen oder Bildnummern.
+BILD 01–NN: kein Covertext. Standard kein sichtbarer Text, keine Labels, Pseudo-Schrift, Wasserzeichen oder Bildnummern. Ausnahmen nur als expliziter `EDITORIAL_TEXT`-Eintrag. Alte Projekte mit `firstSceneIsCover=true` behalten ihre bisherigen Regeln.
 
 ## Definition of Done
 

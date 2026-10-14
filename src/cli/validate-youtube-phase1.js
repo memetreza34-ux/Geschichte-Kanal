@@ -137,6 +137,7 @@ export async function validatePhase1(projectDirectory) {
   }
 
   const coverText = String(meta.coverPolicy?.coverText ?? '').trim();
+  if (meta.coverPolicy?.firstSceneIsCover === false && !prompt.includes('STAGE 1 — SEPARATE THUMBNAIL ONLY')) errors.push('Der separate Thumbnail-Workflow fehlt im generierten Flow-Prompt.');
   if (!coverText) errors.push('coverPolicy.coverText fehlt.');
   else {
     const [minWords, maxWords] = Array.isArray(visual.coverTextWordRange) ? visual.coverTextWordRange : [2, 5];
@@ -212,7 +213,7 @@ export async function validatePhase1(projectDirectory) {
     if (visualInterestGate) {
       errors.push(...validateVisualInterestScene(image, {
         imageNumber: expected,
-        isCover: expected === 1,
+        isCover: expected === 1 && meta.coverPolicy?.firstSceneIsCover !== false,
         policy: interestPolicy,
         textUsagePolicy,
         hardMaximumSeconds: meta.imageDensityPolicy?.hardMaximumSeconds
@@ -257,13 +258,13 @@ export async function validatePhase1(projectDirectory) {
           const anchorLead = styleLock.sceneStyleAnchor.slice(0, 70);
           if (!block.includes(anchorLead)) errors.push(`Bild ${expected} wiederholt den kompakten Style Anchor nicht.`);
         }
-        if (expected === 1 && coverText && !block.includes(`"${coverText}"`)) errors.push('BILD 01 enthält den exakten Cover-Text nicht im Prompt.');
-        if (expected > 1 && !/No visible text|ZERO visible text|TEXT SAFETY/i.test(block)) errors.push(`Bild ${expected} enthält keine explizite Text-Sicherheitsregel.`);
-        if (visualInterestGate && expected === 1 && !/only visible text allowed/i.test(block)) errors.push('BILD 01 enthält keine harte Only-Cover-Text-Regel.');
-        if (visualInterestGate && expected > 1 && !/metadata only.*NEVER|metadata only and must NEVER|ZERO visible text/i.test(block)) {
+        if (expected === 1 && meta.coverPolicy?.firstSceneIsCover !== false && coverText && !block.includes(`"${coverText}"`)) errors.push('BILD 01 enthält den exakten Cover-Text nicht im Prompt.');
+        if ((expected > 1 || meta.coverPolicy?.firstSceneIsCover === false) && !/No visible text|ZERO visible text|TEXT SAFETY/i.test(block)) errors.push(`Bild ${expected} enthält keine explizite Text-Sicherheitsregel.`);
+        if (visualInterestGate && expected === 1 && meta.coverPolicy?.firstSceneIsCover !== false && !/only visible text allowed/i.test(block)) errors.push('BILD 01 enthält keine harte Only-Cover-Text-Regel.');
+        if (visualInterestGate && (expected > 1 || meta.coverPolicy?.firstSceneIsCover === false) && !/metadata only.*NEVER|metadata only and must NEVER|ZERO visible text/i.test(block)) {
           errors.push(`Bild ${expected} enthält keine harte Sperre gegen sichtbare interne Bildnummern/Metadaten.`);
         }
-        if (expected > 1 && image.visibleTextPolicy === 'EDITORIAL_TEXT' && !block.includes(`"${String(image.editorialText ?? '').trim()}"`)) {
+        if ((expected > 1 || meta.coverPolicy?.firstSceneIsCover === false) && image.visibleTextPolicy === 'EDITORIAL_TEXT' && !block.includes(`"${String(image.editorialText ?? '').trim()}"`)) {
           errors.push(`Bild ${expected}: der finale Prompt enthält den exakt freigegebenen editorialText nicht.`);
         }
       }

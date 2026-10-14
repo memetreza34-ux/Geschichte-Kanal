@@ -6,5 +6,6 @@
   "minimumNarrationSupportScore": 8,
   "minimumVisualInterestScore": 8,
   "minimumStyleConsistencyScore": 8,
-  "images": []
+  "images": [],
+  "thumbnail": null
 }

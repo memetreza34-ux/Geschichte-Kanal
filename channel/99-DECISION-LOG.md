@@ -150,3 +150,10 @@ neueste Nutzerentscheidung / dieses Decision Log
 → channel/07-VISUAL-GRAMMAR.md
 → videospezifische Scene Direction
 ```
+
+## 2026-10-14 — Feedback aus Ostseeflotten-Video: separate Thumbnails und natürlichere Menschen
+
+- **Ab zukünftigen Produktionen** ist `coverPolicy.firstSceneIsCover=false`: BILD 01 ist eine echte Erzählszene. Das Cover bleibt ein separates, vom Nutzer ausgewähltes `00-bildprompts/thumbnail.png` für YouTube.
+- Alle Szenen erhalten standardmäßig keinen Covertext. Altes Material wird nicht rückwirkend geändert.
+- Menschen bleiben als 2D-Zeichnungen in der bestehenden Bildwelt, aber mit reiferen Proportionen, weniger comicartiger Mimik, glaubwürdigen Händen und Handlungen, historisch passender Kleidung und individuellen Gesichtern.
+- Der neue Figuren-QC-Gate verlangt explizite Sichtbarkeitsangabe und sechs bestandene Figurenkontrollen. Fehlerhafte Bilder werden vor Phase-3-Lock abgelehnt.

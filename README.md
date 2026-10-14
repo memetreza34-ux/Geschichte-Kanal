@@ -127,7 +127,7 @@ Sequenzregeln:
 - max. 2 gleiche Shot Scales hintereinander
 - in 10 Bildern normalerweise mindestens 3 Visual Forms
 
-Bild 01 darf nur den exakten Covertext enthalten. Bild 02–NN enthalten **null sichtbaren Text**, insbesondere keine Bildnummern, Labels, Wasserzeichen oder Pseudo-Schrift.
+**Für neue Videos:** Bild 01 ist die erste normale Story-Szene. Alle Bilder 01–NN haben standardmäßig **null sichtbaren Text**. Der YouTube-Covertext erscheint ausschließlich auf `00-bildprompts/thumbnail.png`, nie in einem Video-Frame. Redaktionstext bleibt nur bei expliziter `EDITORIAL_TEXT`-Freigabe erlaubt. Frühere Projekte mit `coverPolicy.firstSceneIsCover=true` bleiben unverändert.
 
 ## Bilddichte
 
@@ -154,7 +154,9 @@ npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"
 npm run validate:youtube-phase1 -- --dir "youtube/<week>/<slug>"
 ```
 
-Cover-Gate: Flow erzeugt zuerst genau drei Bild-01-Kandidaten und stoppt bis zur Nutzerauswahl.
+Neues Thumbnail-Gate: Flow erzeugt zuerst **drei eigenständige Thumbnail-Kandidaten A/B/C**, stoppt und wartet auf die Auswahl. Den freigegebenen Kandidaten unter `00-bildprompts/thumbnail.png` speichern, **außerhalb** von `images/`. Danach alle Szenen `Bild 01.png` bis `Bild NN.png` ausschließlich nach ihrer Narration erzeugen. Bild 01 startet die Handlung ohne Covertext. Vor Phase 3 verlangt das Visual-QC eine geprüfte Thumbnail-Datei mit genauem Hash, korrektem Covertext und Freigabe.
+
+**Figuren-QC für neue Videos:** Bei jedem Bild `prominentPeopleVisible` explizit setzen. Bei prominenten Menschen müssen `faceNatural`, `proportionsPlausible`, `handsGesturesPlausible`, `distinctIdentities`, `historicalWardrobePlausible` und `characterStyleConsistent` jeweils `true` sein. Bei Fehlern in Phase 2 regenerieren; keine Reparaturen in Phase 3.
 
 ## Flow-Bildvollständigkeit und sichere Dateinamen
 

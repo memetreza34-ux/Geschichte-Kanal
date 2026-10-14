@@ -27,8 +27,8 @@ Maßgeblich: `channel/17-WHOLE-VIDEO-COHERENCE-GATE.md`.
 
 ## SICHTBARER TEXT
 
-- Bild 01: nur exakter Cover-Text.
-- Bild 02–NN: Standard `NO_VISIBLE_TEXT`.
+- **Neue Projekte:** Bild 01–NN sind reine Narrationsszenen, grundsätzlich `NO_VISIBLE_TEXT` (außer explizit freigegebenem Redaktionstext). Das ausgewählte Cover ist ausschließlich `00-bildprompts/thumbnail.png`, nie Szene 1.
+- Nur alte Projekte mit `coverPolicy.firstSceneIsCover=true` nutzen Bild 01 als Cover.
 - `EDITORIAL_TEXT` ist gezielt erlaubt, wenn die Scene Card exakt `editorialText` und `editorialTextPurpose` vorgibt.
 - Sinnvolle Fälle: Jahreszahl, Datum, kurzer Ort, Zeitwechsel, kurze Vergleichsangabe oder Orientierung.
 - Nur den exakt freigegebenen Text rendern; kein zusätzlicher Text.
@@ -42,7 +42,7 @@ Bevor Phase 3 gestartet werden darf, müssen alle finalen Bilder tatsächlich vi
 2. Prüfen, ob das Bild den gesprochenen Gedanken klar unterstützt und nicht nur thematisch ähnlich ist.
 3. Prüfen, ob die gesamte Sequenz zusammenhängend wirkt und nicht wie zufällig gemischte Illustrationen.
 4. Langweilige Wiederholung und lange Diagramm-/Erklärketten ablehnen.
-5. Unbeabsichtigt alberne Gesichter, Posen, Hände, Interaktionen oder komische Kompositionen ablehnen.
+5. Unbeabsichtigt alberne, übertrieben comicartige Gesichter, seltsame Körperproportionen, falsche Finger/Hände, unmögliche Griffe, steife Gestik und komische Kompositionen ablehnen. Für neue Projekte sechs Figuren-QC-Felder wahrheitsgemäß dokumentieren.
 6. Generische Klon-Figuren ablehnen.
 7. Sichtbaren Text exakt gegen die Scene Card prüfen.
 8. Fehlerhafte Bilder werden in Phase 2 neu generiert und erneut geprüft.

@@ -132,3 +132,74 @@ test('Bild-Audit erkennt überzählige Bilder trotz formal richtigem Dateinamen'
     assert.equal(audit.status, 'INCOMPLETE');
   } finally { await rm(dir, { recursive: true, force: true }); }
 });
+
+test('Separates Thumbnail ist ein eigener freigegebener Asset-Hash und nie das erste Storybild', async () => {
+  const { sha256 } = await import('../src/lib/pipeline.js');
+  const { validatePhase2 } = await import('../src/cli/validate-youtube-phase2.js');
+  const { finalizeYoutubeExport } = await import('../src/cli/finalize-youtube-export.js');
+  const dir = await fixture();
+  try {
+    const images = path.join(dir, '00-bildprompts', 'images');
+    const tech = path.join(dir, '99-technik');
+    const exportDir = path.join(dir, '03-export');
+    await mkdir(path.join(dir, '02-audio'), { recursive: true });
+    await mkdir(exportDir, { recursive: true });
+    const first = path.join(images, 'Bild 01.png');
+    const second = path.join(images, 'Bild 02.png');
+    const thumbnail = path.join(dir, '00-bildprompts', 'thumbnail.png');
+    await writeFile(first, png(1280, 720));
+    await writeFile(second, png(1280, 720));
+    await writeFile(thumbnail, png(1920, 1080));
+    await writeFile(path.join(dir, '02-audio', 'voice.wav'), 'placeholder');
+    await writeFile(path.join(exportDir, 'FINAL_VIDEO.mp4'), 'test-video');
+    await writeFile(path.join(tech, 'video.json'), JSON.stringify({
+      plannedImageCount: 2, imageIntegrityGateVersion: 1, phase2VisualQcRequired: true,
+      phase2VisualQcHashVersion: 1, figureReviewGateVersion: 1,
+      coverPolicy: { firstSceneIsCover: false, coverText: 'DIE LETZTE FLOTTE' },
+      title: 'History Test', topic: 'Testgeschichte',
+      youtubeUpload: { title: 'History Test', description: 'Ein Testtext.' }
+    }));
+    await writeFile(path.join(tech, 'BILD_AUDIO_ZUORDNUNG.json'), JSON.stringify({
+      images: [
+        { imageNumber: 1, visualForm: 'character-scene', visibleTextPolicy: 'NO_VISIBLE_TEXT', narrationBeat: 'Eine Flotte beginnt.', actualStartSeconds: 0, actualEndSeconds: 3 },
+        { imageNumber: 2, visualForm: 'object-focus', visibleTextPolicy: 'NO_VISIBLE_TEXT', narrationBeat: 'Dann fährt sie los.', actualStartSeconds: 3, actualEndSeconds: 6 }
+      ]
+    }));
+    const entries = [];
+    for (let i = 1; i <= 2; i++) {
+      entries.push({
+        imageNumber: i, fileName: 'Bild 0' + i + '.png', sha256: await sha256(i === 1 ? first : second),
+        approved: true, narrationSupportScore: 9, visualInterestScore: 9, styleConsistencyScore: 9,
+        weirdnessDetected: false, imageNumberVisible: false, unexpectedTextDetected: false,
+        pseudoTextDetected: false, visibleTextDetected: false, visibleTextExact: '',
+        prominentPeopleVisible: i === 1,
+        faceNatural: true, proportionsPlausible: true, handsGesturesPlausible: true,
+        distinctIdentities: true, historicalWardrobePlausible: true, characterStyleConsistent: true
+      });
+    }
+    const review = {
+      schemaVersion: 2, status: 'APPROVED', reviewMethod: 'human-or-vision-review',
+      hashAlgorithm: 'sha256', images: entries,
+      thumbnail: {
+        approved: true, fileName: 'thumbnail.png', sha256: await sha256(thumbnail),
+        visibleTextDetected: true, visibleTextExact: 'DIE LETZTE FLOTTE',
+        weirdnessDetected: false, unexpectedTextDetected: false, pseudoTextDetected: false,
+        styleConsistencyScore: 9, readabilityScore: 9
+      }
+    };
+    await writeFile(path.join(tech, 'PHASE2_VISUAL_QC.json'), JSON.stringify(review));
+    assert.equal((await validatePhase2(dir)).passed, true);
+    const report = await finalizeYoutubeExport(dir);
+    assert.equal(report.thumbnailIdenticalToCover, false);
+    assert.equal(report.thumbnailVerifiedAgainstSource, true);
+    assert.equal(report.thumbnailSource, '00-bildprompts/thumbnail.png');
+
+    review.images[0].faceNatural = false;
+    await writeFile(path.join(tech, 'PHASE2_VISUAL_QC.json'), JSON.stringify(review));
+    assert.match((await validatePhase2(dir)).errors.join(' '), /faceNatural/);
+    review.images[0].faceNatural = true;
+    await writeFile(path.join(tech, 'PHASE2_VISUAL_QC.json'), JSON.stringify(review));
+    await writeFile(thumbnail, png(1280, 720));
+    assert.match((await validatePhase2(dir)).errors.join(' '), /Thumbnail.*SHA-256/);
+  } finally { await rm(dir, { recursive: true, force: true }); }
+});
