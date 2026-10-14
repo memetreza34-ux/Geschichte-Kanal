@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "status": "ESTIMATED_UNTIL_AUDIO_ALIGNMENT",
+  "chapters": [
+    {
+      "title": "Abfahrt ohne sichere Rückkehr",
+      "narrativeIndex": 0
+    },
+    {
+      "title": "Warum Russland Hilfe schicken musste",
+      "narrativeIndex": 1
+    },
+    {
+      "title": "Der folgenschwere Irrtum in der Nordsee",
+      "narrativeIndex": 3
+    },
+    {
+      "title": "Kohle und die Fahrt um Afrika",
+      "narrativeIndex": 6
+    },
+    {
+      "title": "Port Arthur fällt",
+      "narrativeIndex": 8
+    },
+    {
+      "title": "Auf dem Weg nach Tsushima",
+      "narrativeIndex": 10
+    },
+    {
+      "title": "Die Schlacht vom 27. Mai",
+      "narrativeIndex": 11
+    },
+    {
+      "title": "Was von der Reise bleibt",
+      "narrativeIndex": 12
+    }
+  ]
+}
