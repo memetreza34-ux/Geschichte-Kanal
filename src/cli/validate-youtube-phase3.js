@@ -3,6 +3,7 @@
 import path from 'node:path';
 import { arg, exists, fileSize, projectPaths, readJson, sha256 } from '../lib/pipeline.js';
 import { verifyPhase3ImageLock } from './phase3-image-lock.js';
+import { usesStandaloneThumbnail, thumbnailSourcePath, validateStandaloneThumbnail } from '../lib/thumbnail-policy.js';
 
 export async function validatePhase3(projectDirectory, { postRender = false } = {}) {
   const p = projectPaths(projectDirectory);
@@ -19,6 +20,9 @@ export async function validatePhase3(projectDirectory, { postRender = false } = 
   ]);
 
   const phase3Assets = pipeline.phase3AssetPolicy;
+  if (usesStandaloneThumbnail(meta)) {
+    errors.push(...await validateStandaloneThumbnail(p, meta, await readJson(p.phase2VisualQc, null)));
+  }
   if (!phase3Assets || phase3Assets.existingImagesOnly !== true || phase3Assets.imageGenerationForbidden !== true) {
     errors.push('Phase-3-Asset-Policy fehlt oder erlaubt unerwartet Bildgenerierung.');
   }
@@ -39,11 +43,11 @@ export async function validatePhase3(projectDirectory, { postRender = false } = 
   if (postRender) {
     const video = path.join(p.exportDir, 'FINAL_VIDEO.mp4');
     const thumbnail = path.join(p.exportDir, 'THUMBNAIL.png');
-    const cover = path.join(p.imagesDir, 'Bild 01.png');
+    const cover = usesStandaloneThumbnail(meta) ? thumbnailSourcePath(p) : path.join(p.imagesDir, 'Bild 01.png');
     if (!(await exists(video))) errors.push('FINAL_VIDEO.mp4 fehlt.');
     else if ((await fileSize(video)) < 100_000) errors.push('FINAL_VIDEO.mp4 ist verdächtig klein.');
     if (!(await exists(thumbnail))) errors.push('THUMBNAIL.png fehlt.');
-    if (await exists(thumbnail) && await exists(cover) && (await sha256(thumbnail)) !== (await sha256(cover))) errors.push('THUMBNAIL.png ist nicht byte-identisch zu Bild 01.png.');
+    if (await exists(thumbnail) && await exists(cover) && (await sha256(thumbnail)) !== (await sha256(cover))) errors.push('THUMBNAIL.png entspricht nicht der freigegebenen Thumbnail-Quelldatei.');
   }
 
   return { passed: errors.length === 0, errors };

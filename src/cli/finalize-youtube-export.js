@@ -5,6 +5,7 @@ import path from 'node:path';
 import { arg, exists, projectPaths, readJson, sha256, writeJson } from '../lib/pipeline.js';
 import { validateYoutubeUpload } from '../lib/upload-metadata.js';
 import { ensurePendingPostVideoReview } from '../lib/continuous-improvement.js';
+import { usesStandaloneThumbnail, thumbnailSourcePath, validateStandaloneThumbnail } from '../lib/thumbnail-policy.js';
 
 function clean(value) {
   return typeof value === 'string' ? value.trim() : '';
@@ -84,6 +85,14 @@ export async function finalizeYoutubeExport(projectDirectory) {
     readJson(p.mapping)
   ]);
 
+  const standalone = usesStandaloneThumbnail(meta);
+  const sourceImage = standalone ? thumbnailSourcePath(p) : cover;
+  if (standalone) {
+    const qc = await readJson(p.phase2VisualQc, null);
+    const errors = await validateStandaloneThumbnail(p, meta, qc);
+    if (errors.length) throw new Error(errors.join('\n'));
+  }
+
   if (Number(meta.youtubeUpload?.captionPolicyVersion ?? 0) >= 2) {
     const channel = await readJson(path.resolve('config/channel-policy.json'));
     const qc = validateYoutubeUpload(meta, channel);
@@ -91,7 +100,7 @@ export async function finalizeYoutubeExport(projectDirectory) {
   }
 
   await mkdir(p.exportDir, { recursive: true });
-  await copyFile(cover, thumbnail);
+  await copyFile(sourceImage, thumbnail);
   await writeFile(caption, buildCaption(meta), 'utf8');
   const srt = buildSrt(mapping);
   await writeFile(subtitles, srt, 'utf8');
@@ -105,15 +114,17 @@ export async function finalizeYoutubeExport(projectDirectory) {
     subtitleFile: '03-export/SUBTITLES.srt',
     subtitleCueCount: Array.isArray(mapping.images) ? mapping.images.length : 0,
     subtitleTimingSource: '99-technik/BILD_AUDIO_ZUORDNUNG.json actualStartSeconds/actualEndSeconds',
-    thumbnailSource: '00-bildprompts/images/Bild 01.png',
-    coverSha256: await sha256(cover),
+    thumbnailSource: standalone ? '00-bildprompts/thumbnail.png' : '00-bildprompts/images/Bild 01.png',
+    coverSha256: standalone ? null : await sha256(cover),
+    thumbnailSourceSha256: await sha256(sourceImage),
     thumbnailSha256: await sha256(thumbnail),
     captionSha256: await sha256(caption),
     subtitleSha256: await sha256(subtitles),
     videoSha256: await sha256(video)
   };
-  report.thumbnailIdenticalToCover = report.coverSha256 === report.thumbnailSha256;
-  if (!report.thumbnailIdenticalToCover) throw new Error('Thumbnail ist nicht identisch zu Bild 01.');
+  report.thumbnailIdenticalToCover = !standalone && report.coverSha256 === report.thumbnailSha256;
+  report.thumbnailVerifiedAgainstSource = report.thumbnailSourceSha256 === report.thumbnailSha256;
+  if (!report.thumbnailVerifiedAgainstSource) throw new Error('Export-Thumbnail entspricht nicht der freigegebenen Thumbnail-Quelle.');
   await writeJson(path.join(p.techDir, 'EXPORT_REPORT.json'), report);
   await ensurePendingPostVideoReview(projectDirectory, meta, report);
   return report;

@@ -113,3 +113,18 @@ test('compileScenePrompt preserves multi-moment illustration as one connected st
   assert.match(prompt, /Do not create a dense collage/i);
   assert.match(prompt, /reading order unmistakable/i);
 });
+
+test('Neuer Thumbnail-Modus hält Covertext vollständig aus Bild 01 und dem Storyteil heraus', () => {
+  const story = { ...baseScene, visibleTextPolicy: 'NO_VISIBLE_TEXT' };
+  const prompt = compileFlowPrompt({
+    meta: { visualStyleId: styleLock.styleId, title: 'Test', topic: 'Historical siege', plannedImageCount: 1,
+      coverPolicy: { firstSceneIsCover: false, coverText: 'BURG OHNE NAHRUNG' } },
+    mapping: { images: [story] }, styleLock, worldLock
+  });
+  assert.match(prompt, /STAGE 1 — SEPARATE THUMBNAIL ONLY/);
+  assert.match(prompt, /STAGE 2 — FULL STORY, STARTING WITH BILD 01/);
+  assert.match(prompt, /BILD 01\n[\s\S]*?No visible text/);
+  assert.doesNotMatch(prompt, /Integrate exactly this German cover text/);
+  const storyBlock = prompt.split('\n\nBILD 01\n')[1].split('\n\nGLOBAL NEGATIVE')[0];
+  assert.doesNotMatch(storyBlock, /BURG OHNE NAHRUNG/);
+});
