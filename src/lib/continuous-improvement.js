@@ -104,7 +104,7 @@ export async function validateReviewEvidenceFiles(review, repoRoot = process.cwd
   for (const item of review.verifiedImprovements) {
     for (const key of ['policyOrCodePath', 'regressionTestPath']) {
       const rel = item?.[key];
-      if (typeof rel !== 'string' || !rel.trim() || path.isAbsolute(rel) || rel.split(/[/\\]/).includes('..')) {
+      if (typeof rel !== 'string' || !rel.trim() || path.isAbsolute(rel) || rel.replaceAll(String.fromCharCode(92), '/').split('/').includes('..')) {
         errors.push('Review: ungültiger Repo-Pfad '+String(rel)+'.');
       } else if (!(await exists(path.resolve(repoRoot, rel)))) {
         errors.push('Review: als umgesetzt behauptete Code-/Testdatei fehlt: '+rel+'.');
