@@ -98,6 +98,22 @@ export function validatePostVideoReview(review, exportReport = null) {
   return { passed: errors.length===0, errors };
 }
 
+export async function validateReviewEvidenceFiles(review, repoRoot = process.cwd()) {
+  const errors = [];
+  if (review?.status !== 'VERIFIED' || !Array.isArray(review.verifiedImprovements)) return errors;
+  for (const item of review.verifiedImprovements) {
+    for (const key of ['policyOrCodePath', 'regressionTestPath']) {
+      const rel = item?.[key];
+      if (typeof rel !== 'string' || !rel.trim() || path.isAbsolute(rel) || rel.split(/[/\\]/).includes('..')) {
+        errors.push('Review: ungültiger Repo-Pfad '+String(rel)+'.');
+      } else if (!(await exists(path.resolve(repoRoot, rel)))) {
+        errors.push('Review: als umgesetzt behauptete Code-/Testdatei fehlt: '+rel+'.');
+      }
+    }
+  }
+  return errors;
+}
+
 export async function ensurePendingPostVideoReview(projectDirectory, meta, exportReport) {
   if (Number(meta.postVideoImprovementGateVersion ?? 0) < 1) return { created: false, legacy: true };
   const p = projectPaths(projectDirectory);
@@ -142,7 +158,10 @@ export async function findUnreviewedExports(root = process.cwd(), ignoreProjectD
       try {
         const review = await readJson(reviewPath);
         const result = validatePostVideoReview(review, report);
-        if (!result.passed) failures.push({ project: path.relative(root,dir), reason: result.errors.join(' | ') });
+        const files = await validateReviewEvidenceFiles(review);
+        if (review.videoId !== meta.videoId) result.errors.push('Review-Video-ID stimmt nicht mit video.json überein.');
+        result.errors.push(...files);
+        if (result.errors.length) failures.push({ project: path.relative(root,dir), reason: result.errors.join(' | ') });
       } catch (error) {
         failures.push({ project: path.relative(root,dir), reason: error.message });
       }
