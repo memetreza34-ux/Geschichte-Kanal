@@ -2,7 +2,7 @@
 
 import path from 'node:path';
 import { arg, exists, projectPaths, readJson, writeJson, sha256 } from '../lib/pipeline.js';
-import { REVIEW_FILENAME, createPendingReview, validatePostVideoReview, findUnreviewedExports } from '../lib/continuous-improvement.js';
+import { REVIEW_FILENAME, createPendingReview, validatePostVideoReview, validateReviewEvidenceFiles, findUnreviewedExports } from '../lib/continuous-improvement.js';
 
 export async function reviewYoutubeVideo(projectDirectory, { init = false } = {}) {
   const p = projectPaths(projectDirectory);
@@ -28,18 +28,8 @@ export async function reviewYoutubeVideo(projectDirectory, { init = false } = {}
   const review = await readJson(reviewPath);
   const result = validatePostVideoReview(review, knownReport);
 
-  // Evidence paths must point to existing repo code/tests, not invented upgrades.
-  if (review.status === 'VERIFIED' && Array.isArray(review.verifiedImprovements)) {
-    for (const item of review.verifiedImprovements) {
-      for (const rel of [item.policyOrCodePath, item.regressionTestPath]) {
-        if (typeof rel !== 'string' || !rel.trim() || path.isAbsolute(rel) || rel.split(/[\/\\]/).includes('..')) {
-          result.errors.push('Ungültiger Repo-Pfad in der Verbesserung: '+rel);
-        } else if (!(await exists(path.resolve(rel)))) {
-          result.errors.push('Belegter Code-/Testpfad existiert nicht: '+rel);
-        }
-      }
-    }
-  }
+  result.errors.push(...await validateReviewEvidenceFiles(review));
+  if (review.videoId !== meta.videoId) result.errors.push('Review-Video-ID passt nicht zu video.json.');
   if (review.source?.exportVideoSha256 !== actualHash) {
     result.errors.push('Review-SHA stimmt nicht mit der vorliegenden FINAL_VIDEO.mp4 überein.');
   }
