@@ -248,6 +248,17 @@ Die Datei `SUBTITLES.srt` wird aus den **gemessenen Whisper-/Audio-Alignment-Zei
 
 Audio-Geschwindigkeit: Standard für neue Videos ist **1,05×**. Ein projektspezifischer Wert in `video.json.audioPolicy.playbackRate` hat Vorrang vor dem globalen Standard.
 
+## 11. HÖCHSTE PRIORITÄT — Nach jedem Video systemisch lernen
+
+Ein exportiertes Video führt bei neuen Projekten automatisch zu einem offenen `99-technik/POST_VIDEO_REVIEW.json`. **Export-Fertigstellung ist nicht Review-Fertigstellung.** Die fertige MP4 tatsächlich ansehen/anhören und die acht Qualitätsbereiche bewerten, mindestens 3 konkrete Befunde mit Timecode und Ursache festhalten, mindestens 1 Pipeline-Fix umsetzen, Regressionstest und CI belegen und 2 Lernziele für das nächste Video formulieren.
+
+```bash
+npm run validate:youtube-postmortem -- --dir "youtube/<week>/<slug>"
+npm run review:youtube -- --backlog
+```
+
+Solange ein Review offen ist, sperren die reguläre neue Projekterstellung und Phase 1 neuer Videos den nächsten Durchlauf. Alte Projekte ohne Opt-in bleiben unverändert. Vollständiger Ablauf: `channel/22-CONTINUOUS-IMPROVEMENT.md`.
+
 ## Definition of Done
 
 Ein Video ist erst fertig, wenn Topic Scorecard, Story QC, Whole-Video-QC, Phase 1, Phase-2-Visual-QC, Phase 2, Phase 3, Render und Export-QC bestanden sind.
