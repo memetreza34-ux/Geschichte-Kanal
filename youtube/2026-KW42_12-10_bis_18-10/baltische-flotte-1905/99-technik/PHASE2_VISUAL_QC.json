@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 2,
+  "status": "PLANNED",
+  "reviewMethod": "vision-review",
+  "hashAlgorithm": "sha256",
+  "minimumNarrationSupportScore": 8,
+  "minimumVisualInterestScore": 8,
+  "minimumStyleConsistencyScore": 8,
+  "images": []
+}

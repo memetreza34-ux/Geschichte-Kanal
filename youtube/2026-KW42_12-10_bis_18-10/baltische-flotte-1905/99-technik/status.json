@@ -1,0 +1,10 @@
+{
+  "project": "baltische-flotte-1905",
+  "storyMode": "event-led",
+  "preproduction": "APPROVED",
+  "phase1": "READY",
+  "coverSelection": "WAITING",
+  "phase2": "WAITING_FOR_IMAGES",
+  "phase3": "BLOCKED_UNTIL_PHASE2",
+  "render": "BLOCKED_UNTIL_PHASE3"
+}
