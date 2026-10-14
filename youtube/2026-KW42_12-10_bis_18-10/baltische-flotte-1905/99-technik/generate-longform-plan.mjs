@@ -77,7 +77,7 @@ const images=plan.map((s,idx)=>{
  }
  previousShot=shot;
  let motionType=formsStatic.has(form)?'static':
-   /Ballon.*(?:start|steig|über)|aufsteigend|abheb|Ballonpost über/i.test(s.visualConcept)?'pan-up':
+   /Schiff.*(?:start|fahrt|abfahr|Ankunft)|laufen aus|Hafenmole/i.test(s.visualConcept)?'pan-right':
    ['architecture-city','battle-city-overview','environment-only','rise-fall-lifecycle'].includes(form)?'pull-out':
    ['process-sequence','cause-effect','multi-moment-illustration'].includes(form)?'pan-right':
    'push-in';
@@ -93,7 +93,7 @@ const images=plan.map((s,idx)=>{
  const hold=Math.min(5.3,Math.max(2.7,Math.round((wordCount/2.8)*10)/10));
  const time=[
   'Oktober 1904, Vorbereitungen in Libau',
-  'Februar bis Oktober 1904, Ostasien und Konflikt um Port Arthur',
+  'Oktober 1904, aktueller Krieg und Druck auf Port Arthur',
   'Oktober 1904, Flottenzusammenstellung und Abfahrt Libau',
   'Oktober 1904, Nordsee und gemeldete Torpedoboot-Gefahr',
   '21./22. Oktober 1904, Doggerbank, britische Fischtrawler',
@@ -168,7 +168,7 @@ const wholeQc={schemaVersion:3,status:'APPROVED',reviewMethod:'script-first-and-
  narrationVisualAlignmentReviewed:true,everyVisualMatchesCurrentNarration:true,visualClarityReviewed:true,unclearVisualsAbsent:true,onePrimaryTakeawayPerVisual:true,futureEventLeakageAbsent:true,
  explanationOnlyVisualShare:explanationCount/83,maxConsecutiveExplanationOnlyVisuals:maxStreak,
  historicalWorldReturnsAfterExplanation:true,editorialTextUsedOnlyWhenUseful:true,transitionsReviewed:true,overallCoherenceScore:9.1,approved:true,
- notes:['83 Beats aus vollständigem Sprechertext abgeleitet, nicht umgekehrt.','Keine Hauptfigur; individuelle Pariser als wechselnde Darsteller.','Wiederkehrende Gasballons dürfen nicht in identischen Ansichten wiederholt werden.']};
+ notes:['83 Bilder aus vollständigem Sprechertext abgeleitet, nicht umgekehrt.','Event-led mit konkreten individuellen Matrosen und japanischen sowie britischen Betroffenen.','Gleiche Kriegsschiffe sollen nicht in identischen Horizont-Kompositionen wiederholt werden.']};
 const files={
 'video.json':meta,'BILD_AUDIO_ZUORDNUNG.json':mapping,'WHOLE_VIDEO_QC.json':wholeQc,
 'YOUTUBE_RENDER_PLAN.json':{schemaVersion:2,motionPolicy:'content-aware-v1',colorArc,backgroundMusic:false,motionOverrides:[],soundEffects:[]},
