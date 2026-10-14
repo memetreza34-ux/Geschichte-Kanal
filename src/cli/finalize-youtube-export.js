@@ -4,6 +4,7 @@ import { copyFile, mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { arg, exists, projectPaths, readJson, sha256, writeJson } from '../lib/pipeline.js';
 import { validateYoutubeUpload } from '../lib/upload-metadata.js';
+import { ensurePendingPostVideoReview } from '../lib/continuous-improvement.js';
 
 function clean(value) {
   return typeof value === 'string' ? value.trim() : '';
@@ -108,11 +109,13 @@ export async function finalizeYoutubeExport(projectDirectory) {
     coverSha256: await sha256(cover),
     thumbnailSha256: await sha256(thumbnail),
     captionSha256: await sha256(caption),
-    subtitleSha256: await sha256(subtitles)
+    subtitleSha256: await sha256(subtitles),
+    videoSha256: await sha256(video)
   };
   report.thumbnailIdenticalToCover = report.coverSha256 === report.thumbnailSha256;
   if (!report.thumbnailIdenticalToCover) throw new Error('Thumbnail ist nicht identisch zu Bild 01.');
   await writeJson(path.join(p.techDir, 'EXPORT_REPORT.json'), report);
+  await ensurePendingPostVideoReview(projectDirectory, meta, report);
   return report;
 }
 
