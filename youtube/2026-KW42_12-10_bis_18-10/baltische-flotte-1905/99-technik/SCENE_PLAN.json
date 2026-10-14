@@ -1,0 +1,666 @@
+[
+  {
+    "paragraph": 1,
+    "visualForm": "architecture-city",
+    "shotScale": "extreme-wide",
+    "dominantSubject": "Ostseehafen vor großer Abfahrt",
+    "visualConcept": "Hafen Libau 1904: russische Kriegsschiffe am Kai, Matrosen tragen Kisten, dunkle Schornsteine in klarer Morgenluft",
+    "worldLifeDetail": "Möwen, Lagerhaus"
+  },
+  {
+    "paragraph": 1,
+    "visualForm": "character-scene",
+    "shotScale": "medium-wide",
+    "dominantSubject": "Kohlelader und Familien am Kai",
+    "visualConcept": "Links Matrosen schleppen Kohlesäcke, rechts verabschiedet eine Familie einen Seemann, lebendige Menschen im selben Hafen",
+    "worldLifeDetail": "Kohle, Gepäck"
+  },
+  {
+    "paragraph": 1,
+    "visualForm": "object-focus",
+    "shotScale": "close",
+    "dominantSubject": "Seereisebefehle auf einem Pult",
+    "visualConcept": "Offener versiegelter Marschbefehl mit großem Fahrtziel auf stilisierter See-Karte und nautischen Werkzeugen",
+    "worldLifeDetail": "Lineal, Schiffsglocke"
+  },
+  {
+    "paragraph": 1,
+    "visualForm": "comparison",
+    "shotScale": "wide",
+    "dominantSubject": "gleiche Kriegsschiffe, verschiedene Bereitschaft",
+    "visualConcept": "Zwei russische Dampfkriegsschiffe nebeneinander, eines mit Reparaturmannschaft am Kessel, eines einsatzbereit; Bereitschaft statt Größe",
+    "worldLifeDetail": "Seile, Gangway"
+  },
+  {
+    "paragraph": 1,
+    "visualForm": "map-geography",
+    "shotScale": "top-down",
+    "dominantSubject": "von der Ostsee nach Fernost",
+    "visualConcept": "Übersichtliche Weltkarte mit Libau links und Korea-Japan in Ostasien rechts, langer noch NICHT abgeschlossener Seeweg als Frage",
+    "worldLifeDetail": "Kompassrose"
+  },
+  {
+    "paragraph": 2,
+    "visualForm": "map-geography",
+    "shotScale": "top-down",
+    "dominantSubject": "zwei Mächte in Ostasien 1904",
+    "visualConcept": "Historische Karte zeigt Japan, Korea, Mandschurei und russische Stützpunkte ohne heutige Grenzlabels",
+    "worldLifeDetail": "Küstenlinien"
+  },
+  {
+    "paragraph": 2,
+    "visualForm": "battle-city-overview",
+    "shotScale": "wide",
+    "dominantSubject": "Port Arthur im Herbst 1904 unter Druck",
+    "visualConcept": "Oktober 1904: japanische Schiffe halten russische Schiffe vor Port Arthur unter Druck, lokale Seeszene ohne späteren Fall des Hafens",
+    "worldLifeDetail": "Küstenfestung, Schiffe"
+  },
+  {
+    "paragraph": 2,
+    "visualForm": "character-scene",
+    "shotScale": "medium",
+    "dominantSubject": "besorgte russische Hafenbesatzung",
+    "visualConcept": "Russische Seeleute überwachen beschädigte Einheiten am eingeschränkten Stützpunkt, Fortschritt des Drucks",
+    "worldLifeDetail": "Fernglas, Marineuniform"
+  },
+  {
+    "paragraph": 2,
+    "visualForm": "cause-effect",
+    "shotScale": "elevated-overview",
+    "dominantSubject": "Seeverbindung entscheidet Nachschub",
+    "visualConcept": "Hafen mit Transportern und Landungsbooten, Kriegsschiffe schützen Zugang zu Versorgung und Truppen",
+    "worldLifeDetail": "Kisten, Küste"
+  },
+  {
+    "paragraph": 2,
+    "visualForm": "character-scene",
+    "shotScale": "medium-wide",
+    "dominantSubject": "Krisensitzung in Sankt Petersburg",
+    "visualConcept": "Russische Marineführung berät Hilfe für Ostasien an langem Tisch vor Landkarte",
+    "worldLifeDetail": "Öllampen, Akten"
+  },
+  {
+    "paragraph": 2,
+    "visualForm": "map-geography",
+    "shotScale": "top-down",
+    "dominantSubject": "Ozeane und neutrale Häfen als Hürde",
+    "visualConcept": "Klare Weltkarte mit langen Wasserwegen und wenigen neutralen Zwischenstationen, keine erfundene Route",
+    "worldLifeDetail": "Hafenpunkte"
+  },
+  {
+    "paragraph": 3,
+    "visualForm": "object-focus",
+    "shotScale": "detail",
+    "dominantSubject": "Name des Zweiten Pazifikgeschwaders",
+    "visualConcept": "Historische Schiffsliste und ein kleines Flottenmodell auf Holztisch, ohne lesbare Fantasiewörter",
+    "worldLifeDetail": "Feder, Karte"
+  },
+  {
+    "paragraph": 3,
+    "visualForm": "character-scene",
+    "shotScale": "medium",
+    "dominantSubject": "Admiral Roschestwenski am Brückentisch",
+    "visualConcept": "Individuelle stilisierte historische Person mit russischer Admiralsuniform, Bart und klarer Pose über Seekarte",
+    "worldLifeDetail": "Uhr, Fernglas"
+  },
+  {
+    "paragraph": 3,
+    "visualForm": "comparison",
+    "shotScale": "wide",
+    "dominantSubject": "unterschiedliche Schlachtschiffe",
+    "visualConcept": "Großes neues russisches Panzerschiff neben älterem langsamem Dampfer; unterschiedliche Rümpfe und Takelage klar",
+    "worldLifeDetail": "Schlepper, Hafen"
+  },
+  {
+    "paragraph": 3,
+    "visualForm": "cutaway-section",
+    "shotScale": "sectional",
+    "dominantSubject": "ungleiche Schiffstechnik",
+    "visualConcept": "Zwei Schiffskessel mit verschiedener Kohleversorgung und Geschwindigkeit als schlichte nebeneinander Querschnitte",
+    "worldLifeDetail": "Dampfrohr, Schaufel"
+  },
+  {
+    "paragraph": 3,
+    "visualForm": "system-hierarchy",
+    "shotScale": "elevated-overview",
+    "dominantSubject": "ein Verband aus vielen Schiffstypen",
+    "visualConcept": "Mehrere russische Schiffe unterschiedlicher Größe müssen in einer geordneten Linie dieselbe Geschwindigkeit halten",
+    "worldLifeDetail": "Rauchfahnen"
+  },
+  {
+    "paragraph": 3,
+    "visualForm": "character-scene",
+    "shotScale": "medium-wide",
+    "dominantSubject": "Matrosen auf Wache vor langer Reise",
+    "visualConcept": "Drei individuell gestaltete russische Seeleute wechseln Wache an Deck, fern ein Kai mit Angehörigen",
+    "worldLifeDetail": "Seesack, Messinglampe"
+  },
+  {
+    "paragraph": 3,
+    "visualForm": "architecture-city",
+    "shotScale": "wide",
+    "dominantSubject": "Libau im Oktober 1904",
+    "visualConcept": "Russisches Zweites Pazifikgeschwader passiert die Hafenmole von Libau, Dampfwolken und Abschiedsmenge",
+    "worldLifeDetail": "Leuchtturm, Hafenmauer"
+  },
+  {
+    "paragraph": 3,
+    "visualForm": "map-geography",
+    "shotScale": "top-down",
+    "dominantSubject": "einfacher Strich, komplizierter Seeweg",
+    "visualConcept": "Fahrtplan auf Seekarte zeigt nur ersten Abschnitt aus der Ostsee Richtung Nordsee, keine späteren Ereignisse",
+    "worldLifeDetail": "Messzirkel"
+  },
+  {
+    "paragraph": 4,
+    "visualForm": "environment-only",
+    "shotScale": "wide",
+    "dominantSubject": "dunkle Nordsee",
+    "visualConcept": "Aufgewühlte Nordsee nachts, Kriegsschiff am Horizont mit wenigen Signallampen und spürbarer Unruhe",
+    "worldLifeDetail": "Wellen, Nebel"
+  },
+  {
+    "paragraph": 4,
+    "visualForm": "character-scene",
+    "shotScale": "medium",
+    "dominantSubject": "Matrosen beraten über Torpedogerüchte",
+    "visualConcept": "Wachsame Marineoffiziere diskutieren auf schwach beleuchteter Brücke eine Warnmeldung, noch keine Feindsichtung",
+    "worldLifeDetail": "Signalrohr, Öllampe"
+  },
+  {
+    "paragraph": 4,
+    "visualForm": "map-geography",
+    "shotScale": "top-down",
+    "dominantSubject": "Japan liegt weit entfernt",
+    "visualConcept": "Reduzierte Karte zeigt extreme Distanz zwischen Japan und der nordeuropäischen Doggerbank",
+    "worldLifeDetail": "Nordsee, Japan"
+  },
+  {
+    "paragraph": 4,
+    "visualForm": "object-focus",
+    "shotScale": "close",
+    "dominantSubject": "unklare Lichter in der Dunkelheit",
+    "visualConcept": "Vom Deck sieht ein Matrose kleine entfernte Laternenpunkte auf schwarzer See ohne erkennbare Identität",
+    "worldLifeDetail": "Hand am Geländer"
+  },
+  {
+    "paragraph": 4,
+    "visualForm": "character-scene",
+    "shotScale": "medium-wide",
+    "dominantSubject": "Artilleristen auf Alarm",
+    "visualConcept": "Marinebesatzung im Bereitschaftsraum neben Kanone, angespannt aber noch kein Schuss",
+    "worldLifeDetail": "Geschützverschluss"
+  },
+  {
+    "paragraph": 4,
+    "visualForm": "environment-only",
+    "shotScale": "wide",
+    "dominantSubject": "kleine Silhouetten vor Kriegsschiff",
+    "visualConcept": "Schwache Umrisse kleiner ziviler Fangboote am Horizont vor großer russischer Schiffssilhouette nachts",
+    "worldLifeDetail": "Fischernetz, Licht"
+  },
+  {
+    "paragraph": 5,
+    "visualForm": "battle-city-overview",
+    "shotScale": "wide",
+    "dominantSubject": "Doggerbank Nacht 21 auf 22 Oktober",
+    "visualConcept": "Russische Schiffe feuern in nächtlicher Nordsee auf entfernte kleine Boote, ohne japanische Kriegsschiffe zu zeigen",
+    "worldLifeDetail": "Mündungsfeuer, See"
+  },
+  {
+    "paragraph": 5,
+    "visualForm": "character-scene",
+    "shotScale": "medium-wide",
+    "dominantSubject": "britische Fischer bei der Arbeit",
+    "visualConcept": "Fischer auf britischen Trawlern setzen Netze aus, erleben plötzlich grelles Artilleriefeuer",
+    "worldLifeDetail": "Netz, Bootsplanke"
+  },
+  {
+    "paragraph": 5,
+    "visualForm": "cause-effect",
+    "shotScale": "wide",
+    "dominantSubject": "zivile Fangboote werden getroffen",
+    "visualConcept": "Eine Artilleriegranate trifft in der Nähe eines Fischerbootes auf Wasser, aufgewühlte Männer weichen aus",
+    "worldLifeDetail": "Wassersäule, Trawler"
+  },
+  {
+    "paragraph": 5,
+    "visualForm": "comparison",
+    "shotScale": "wide",
+    "dominantSubject": "Fehlfeuer unter eigenen Schiffen",
+    "visualConcept": "Zwei russische Kriegsschiffe zeigen versehentlich gegeneinander gerichtete Geschütze im Nebel, keine erfundenen Trefferdetails",
+    "worldLifeDetail": "Rauch, Suchlicht"
+  },
+  {
+    "paragraph": 5,
+    "visualForm": "character-scene",
+    "shotScale": "medium",
+    "dominantSubject": "Fischer zwischen Netzen und Geschossen",
+    "visualConcept": "Zivile britische Besatzung duckt sich an Deck beim Artilleriebeschuss; respektvoll ohne grafische Verletzungen",
+    "worldLifeDetail": "Fischkisten, Segeltuch"
+  },
+  {
+    "paragraph": 5,
+    "visualForm": "object-focus",
+    "shotScale": "detail",
+    "dominantSubject": "beschädigtes britisches Fischerboot",
+    "visualConcept": "Durchschossener Schiffsrumpf und zerrissenes Netz am Morgen nach Beschuss, dokumentierter zivilen Schäden",
+    "worldLifeDetail": "nasses Holz, Anker"
+  },
+  {
+    "paragraph": 5,
+    "visualForm": "architecture-city",
+    "shotScale": "wide",
+    "dominantSubject": "britischer Hafen nach dem Vorfall",
+    "visualConcept": "Britische Hafenarbeiter und Fischer sammeln sich wütend beim Anlaufen beschädigter Trawler",
+    "worldLifeDetail": "Backsteingebäude, Kai"
+  },
+  {
+    "paragraph": 6,
+    "visualForm": "battle-city-overview",
+    "shotScale": "extreme-wide",
+    "dominantSubject": "britische Schiffe beobachten Russen",
+    "visualConcept": "Britische Kriegsschiffe folgen vorsichtig russischer Flotte in einer grauen See ohne aktives Gefecht",
+    "worldLifeDetail": "Mastensignale, Wasser"
+  },
+  {
+    "paragraph": 6,
+    "visualForm": "object-focus",
+    "shotScale": "detail",
+    "dominantSubject": "Diplomatische Depeschen und Untersuchungsakten",
+    "visualConcept": "Mehrere förmliche Dokumente und Telegramme auf britischem Diplomatenpult zeigen Krisenreaktion ohne lesbaren langen Text",
+    "worldLifeDetail": "Siegel, Feder"
+  },
+  {
+    "paragraph": 6,
+    "visualForm": "environment-only",
+    "shotScale": "wide",
+    "dominantSubject": "russische Schiffe wieder auf See",
+    "visualConcept": "Der Verband fährt unter schweren Wolken weiter Richtung Atlantik, Besatzung am Deck",
+    "worldLifeDetail": "Rauchspuren, Seevögel"
+  },
+  {
+    "paragraph": 6,
+    "visualForm": "multi-moment-illustration",
+    "shotScale": "medium-wide",
+    "dominantSubject": "Angst und Abstimmung als Ursache",
+    "visualConcept": "Auf einem zusammenhängenden Brückendeck zeigen nervöse Beobachter, ein unklarer Befehl und Artilleristen die Fehlkommunikationskette",
+    "worldLifeDetail": "Signalflagge, Fernrohr"
+  },
+  {
+    "paragraph": 6,
+    "visualForm": "character-scene",
+    "shotScale": "medium",
+    "dominantSubject": "Admiral befragt wachsame Offiziere",
+    "visualConcept": "Roschestwenski steht mit nervösen Offizieren an Kartenpult und versucht nach Irrtum Ordnung herzustellen",
+    "worldLifeDetail": "Schiffsuhr"
+  },
+  {
+    "paragraph": 7,
+    "visualForm": "object-focus",
+    "shotScale": "close",
+    "dominantSubject": "Kohle im Maschinenraum",
+    "visualConcept": "Schwarzer Kohlehaufen neben glühendem Feuerraum auf russischem Dampfschiff, keine Kanonen im Bild",
+    "worldLifeDetail": "Schaufel, Ruß"
+  },
+  {
+    "paragraph": 7,
+    "visualForm": "cutaway-section",
+    "shotScale": "sectional",
+    "dominantSubject": "Dampfschiffs-Kessel und Antrieb",
+    "visualConcept": "Historischer einfacher Schiffsquerschnitt mit Kohlekessel, Dampfleitung und Schraubenantrieb, ohne moderne Generatoren",
+    "worldLifeDetail": "Feuerrost, Welle"
+  },
+  {
+    "paragraph": 7,
+    "visualForm": "cause-effect",
+    "shotScale": "wide",
+    "dominantSubject": "kein Kohlevorrat, stehendes Schiff",
+    "visualConcept": "Ein halb leerer Kohlensack und stillliegendes Schiff im Meer gegenüber vorbeiziehendem Dampfschiff",
+    "worldLifeDetail": "Dampfrohr, Meer"
+  },
+  {
+    "paragraph": 7,
+    "visualForm": "character-scene",
+    "shotScale": "medium-wide",
+    "dominantSubject": "Kohleschaufler an Deck",
+    "visualConcept": "Russische Matrosen in verschmutzter Marinekleidung bilden Kette zur Kohleverladung, physische Anstrengung",
+    "worldLifeDetail": "Kohlesäcke, Eimer"
+  },
+  {
+    "paragraph": 7,
+    "visualForm": "comparison",
+    "shotScale": "wide",
+    "dominantSubject": "Neutraler Hafen verwehrt Hilfe",
+    "visualConcept": "In einem afrikanischen Hafen wartet russisches Kriegsschiff vor bewachter Kaimauer; nur wenige Versorgungskisten werden übergeben",
+    "worldLifeDetail": "Hafenamt, Wachboot"
+  },
+  {
+    "paragraph": 7,
+    "visualForm": "map-geography",
+    "shotScale": "top-down",
+    "dominantSubject": "Kohlenversorgung hängt an Zwischenstationen",
+    "visualConcept": "Seeweg auf Westafrika-Karte mit vereinzelten Versorgungsschiffen, symbolisierte begrenzte Reichweite",
+    "worldLifeDetail": "Küstenlinie, Kohlendampfer"
+  },
+  {
+    "paragraph": 7,
+    "visualForm": "system-hierarchy",
+    "shotScale": "elevated-overview",
+    "dominantSubject": "Kohlenschiffe warten entlang Route",
+    "visualConcept": "Mehrere Frachtdampfer mit Brennstoff verteilen sich in nacheinander erreichten Versorgungsstationen; klare logistische Staffelung",
+    "worldLifeDetail": "Kohlehafen"
+  },
+  {
+    "paragraph": 8,
+    "visualForm": "map-geography",
+    "shotScale": "top-down",
+    "dominantSubject": "Teilgeschwader durch Suez",
+    "visualConcept": "Historische Karte zeigt Nebenroute durch Suez für einen Teilverband, Hauptverband davon getrennt",
+    "worldLifeDetail": "Suezkanal, Küsten"
+  },
+  {
+    "paragraph": 8,
+    "visualForm": "map-geography",
+    "shotScale": "top-down",
+    "dominantSubject": "Hauptgeschwader um Afrika",
+    "visualConcept": "Großer historischer Globusausschnitt mit Route entlang Westafrika um Kap der Guten Hoffnung, unterschiedliche Route sichtbar",
+    "worldLifeDetail": "Kapspitze, Atlantik"
+  },
+  {
+    "paragraph": 8,
+    "visualForm": "environment-only",
+    "shotScale": "wide",
+    "dominantSubject": "schwerer Atlantik vor Afrika",
+    "visualConcept": "Großer russischer Kriegsschiffbug arbeitet sich durch hohen Seegang und Wolken unter afrikanischer Küste",
+    "worldLifeDetail": "Brandung, Gischt"
+  },
+  {
+    "paragraph": 8,
+    "visualForm": "process-sequence",
+    "shotScale": "medium-wide",
+    "dominantSubject": "Heizen Wache Reparieren Kohleschaufeln",
+    "visualConcept": "Ein verbundenes Querschnittsbild: Maschinist am Ofen, Matrose auf Wache, Techniker am Ventil, Kohleschaufler",
+    "worldLifeDetail": "Werkzeug, Ventil"
+  },
+  {
+    "paragraph": 8,
+    "visualForm": "character-scene",
+    "shotScale": "medium-wide",
+    "dominantSubject": "Kampftraining fällt Kohletransport zum Opfer",
+    "visualConcept": "Wachmannschaften warten mit Trainingsausrüstung, während alle an Bord neue Kohlesäcke tragen müssen",
+    "worldLifeDetail": "Geschützhülse, Kohle"
+  },
+  {
+    "paragraph": 8,
+    "visualForm": "architecture-city",
+    "shotScale": "wide",
+    "dominantSubject": "russische Flotte vor Madagaskar",
+    "visualConcept": "Dezember 1904: russische Kriegsschiffe liegen in tropischer Bucht vor Nosy Be; unterschiedliche Rumpfsilhouetten",
+    "worldLifeDetail": "Palmen, Boot"
+  },
+  {
+    "paragraph": 9,
+    "visualForm": "object-focus",
+    "shotScale": "detail",
+    "dominantSubject": "schlechte Nachricht aus Port Arthur",
+    "visualConcept": "Funkfreies historisches Telegramm und Karte auf Admiralstisch; militärische Lage in Ostasien bricht Anfang Januar 1905 zusammen",
+    "worldLifeDetail": "Feder, Seekarte"
+  },
+  {
+    "paragraph": 9,
+    "visualForm": "comparison",
+    "shotScale": "wide",
+    "dominantSubject": "ursprüngliche Hilfe kommt zu spät",
+    "visualConcept": "Links wartende russische Schiffe bei Madagaskar, rechts zeitgleich umkämpfter Hafen Port Arthur fällt; klare räumlich getrennte historische Situationen",
+    "worldLifeDetail": "Küsten, Rauch"
+  },
+  {
+    "paragraph": 9,
+    "visualForm": "character-scene",
+    "shotScale": "medium",
+    "dominantSubject": "Frage umkehren oder weiterfahren",
+    "visualConcept": "Offiziere in tropisch warmem Kajütenraum beraten am Kartentisch, Streit um Ziel und Versorgungsplanung",
+    "worldLifeDetail": "Fächer, Uniform"
+  },
+  {
+    "paragraph": 9,
+    "visualForm": "process-sequence",
+    "shotScale": "medium-wide",
+    "dominantSubject": "Tropischer Hafen als Wartestation",
+    "visualConcept": "Schwer arbeitende Matrosen laden nach, während Offiziere Depeschen erwarten und neue Schiffe am Horizont auftauchen",
+    "worldLifeDetail": "Kohlebucket, Kran"
+  },
+  {
+    "paragraph": 9,
+    "visualForm": "environment-only",
+    "shotScale": "wide",
+    "dominantSubject": "lange Wochen vor Madagaskar",
+    "visualConcept": "Stille tropische Ankerbucht mit russischen Schiffen, Hitze und monotonen Wartetagen",
+    "worldLifeDetail": "Spiegelung, Palmen"
+  },
+  {
+    "paragraph": 10,
+    "visualForm": "battle-city-overview",
+    "shotScale": "extreme-wide",
+    "dominantSubject": "Aufbruch über Indischen Ozean",
+    "visualConcept": "März 1905: Hauptverband läuft aus dem Schutz einer tropischen Bucht in offenen Indischen Ozean aus",
+    "worldLifeDetail": "Meer, Insel"
+  },
+  {
+    "paragraph": 10,
+    "visualForm": "map-geography",
+    "shotScale": "top-down",
+    "dominantSubject": "weiter Weg bis Südostasien",
+    "visualConcept": "Historische Karte von Madagaskar über Indischen Ozean Richtung Indochina, noch kein Kampf in Tsushima",
+    "worldLifeDetail": "Inselketten, Schiffslinie"
+  },
+  {
+    "paragraph": 10,
+    "visualForm": "comparison",
+    "shotScale": "wide",
+    "dominantSubject": "alte Schiffe treffen neue Einheiten",
+    "visualConcept": "Ältere, rauchende russische Küstenverteidigungsschiffe schließen sich moderneren Schlachtschiffen bei Indochina an",
+    "worldLifeDetail": "Flottenflaggen, See"
+  },
+  {
+    "paragraph": 10,
+    "visualForm": "map-geography",
+    "shotScale": "top-down",
+    "dominantSubject": "Wladiwostok als neues Ziel",
+    "visualConcept": "Karte zeigt Japan, Korea, Wladiwostok, Zielhafen nördlich Japans, mögliche Meerengen im Hintergrund",
+    "worldLifeDetail": "Küste, See"
+  },
+  {
+    "paragraph": 10,
+    "visualForm": "cause-effect",
+    "shotScale": "wide",
+    "dominantSubject": "japanische Inselkette als Hindernis",
+    "visualConcept": "Karte und Küstenquerschnitt betonen, dass russischer Verband japanische Gewässer passieren muss",
+    "worldLifeDetail": "Inselspitze, Schiff"
+  },
+  {
+    "paragraph": 10,
+    "visualForm": "character-scene",
+    "shotScale": "medium",
+    "dominantSubject": "Seeleute wissen von wartendem Gegner",
+    "visualConcept": "Drei müde Matrosen studieren von Deck aus die fernen Küsten im Morgendunst",
+    "worldLifeDetail": "Seekarte, Fernglas"
+  },
+  {
+    "paragraph": 10,
+    "visualForm": "environment-only",
+    "shotScale": "wide",
+    "dominantSubject": "unsichere Route vor Japan",
+    "visualConcept": "Großer russischer Verband verschwindet in Dunst einer schmaler werdenden Seestraße, Spannung ohne verfrühten Angriff",
+    "worldLifeDetail": "Horizont, Seewellen"
+  },
+  {
+    "paragraph": 11,
+    "visualForm": "character-scene",
+    "shotScale": "medium",
+    "dominantSubject": "Admiral Togo auf japanischer Brücke",
+    "visualConcept": "Japanischer Admiral Tōgō als individuell stilisierte Figur in Marineuniform auf eigener Flottenbrücke, ruhiger Planungsblick",
+    "worldLifeDetail": "Fernglas, Karte"
+  },
+  {
+    "paragraph": 11,
+    "visualForm": "architecture-city",
+    "shotScale": "wide",
+    "dominantSubject": "japanischer Marinehafen vorbereitet",
+    "visualConcept": "Japanische Kriegsschiffe liegen in Heimathafen und Mannschaften üben vor Tsushima; saisonal Frühling 1905",
+    "worldLifeDetail": "Kaimauer, Lager"
+  },
+  {
+    "paragraph": 11,
+    "visualForm": "map-geography",
+    "shotScale": "top-down",
+    "dominantSubject": "Straße von Tsushima als Passage",
+    "visualConcept": "Historische Karte zeigt Korea, Japan und die enge Meerstraße, russischer Anmarsch von Süden",
+    "worldLifeDetail": "Inseln, Meer"
+  },
+  {
+    "paragraph": 11,
+    "visualForm": "battle-city-overview",
+    "shotScale": "extreme-wide",
+    "dominantSubject": "Gegner treffen einander am 27 Mai 1905",
+    "visualConcept": "Russische und japanische Flotten stehen sich im Dunst der Straße Tsushima in Entfernung gegenüber, noch vor vollem Gefecht",
+    "worldLifeDetail": "Wolken, See"
+  },
+  {
+    "paragraph": 11,
+    "visualForm": "object-focus",
+    "shotScale": "close",
+    "dominantSubject": "Brückenuhr vor dem Gefecht",
+    "visualConcept": "Russischer Kompass und nautische Brückenuhr, Meer mit entfernten Schiffen vor Fenster",
+    "worldLifeDetail": "Messing, Holz"
+  },
+  {
+    "paragraph": 11,
+    "visualForm": "system-hierarchy",
+    "shotScale": "elevated-overview",
+    "dominantSubject": "Ausbildung und gemeinsame Manöver",
+    "visualConcept": "Japanische Schiffe bewegen sich als koordinierter Verband, russische Linie an anderer Position, klare statt chaotischer Übersicht",
+    "worldLifeDetail": "Rauchfahnen"
+  },
+  {
+    "paragraph": 11,
+    "visualForm": "comparison",
+    "shotScale": "wide",
+    "dominantSubject": "viele Geschütze gegen eingespielte Abläufe",
+    "visualConcept": "Zwei räumlich getrennte Verbände: russischer mit schweren Kalibern, japanischer mit gleichmäßiger Formation und Signalflaggen",
+    "worldLifeDetail": "Flaggen, Geschützrohre"
+  },
+  {
+    "paragraph": 12,
+    "visualForm": "cause-effect",
+    "shotScale": "wide",
+    "dominantSubject": "japanische konzentrierte Feuerlinie",
+    "visualConcept": "Japanische Schiffe drehen in koordinierter Kurve und nehmen führende russische Einheiten unter konzentriertes Feuer",
+    "worldLifeDetail": "Fahrwasser, Rauch"
+  },
+  {
+    "paragraph": 12,
+    "visualForm": "battle-city-overview",
+    "shotScale": "extreme-wide",
+    "dominantSubject": "Schlachtschiffe im Feuer Tsushima",
+    "visualConcept": "Mehrere russische Schlachtschiffe stehen im fernen Gefecht unter schweren Rauchwolken, respektvolle Darstellung",
+    "worldLifeDetail": "Gischt, Geschützfeuer"
+  },
+  {
+    "paragraph": 12,
+    "visualForm": "detail-inset",
+    "shotScale": "close",
+    "dominantSubject": "Rauch verdeckt Schiffssignale",
+    "visualConcept": "Nahaufnahme beschädigter Signalstation auf russischem Schlachtschiff; inset zeigt Schiffe im Rauch",
+    "worldLifeDetail": "Signalflagge, Holzsplitter"
+  },
+  {
+    "paragraph": 12,
+    "visualForm": "character-scene",
+    "shotScale": "medium",
+    "dominantSubject": "Admiral wird verwundet",
+    "visualConcept": "Auf russischer beschädigter Kommandobrücke kümmern sich Offiziere um verwundeten Admiral ohne grafische Gewalt",
+    "worldLifeDetail": "Fernglas, Geländer"
+  },
+  {
+    "paragraph": 12,
+    "visualForm": "environment-only",
+    "shotScale": "wide",
+    "dominantSubject": "Nachtangriffe auf hoher See",
+    "visualConcept": "Nacht mit kleinen Torpedoboot-Silhouetten und brennenden russischen Schiffen in Ferne, plausibel nicht überladen",
+    "worldLifeDetail": "Mond, Rauch"
+  },
+  {
+    "paragraph": 12,
+    "visualForm": "character-scene",
+    "shotScale": "medium-wide",
+    "dominantSubject": "russische Kapitulation am Folgetag",
+    "visualConcept": "Überlebende russische Mannschaft senkt Flagge gegenüber japanischen Einheiten auf ruhigerem grauen Meer",
+    "worldLifeDetail": "Signalmast, Deck"
+  },
+  {
+    "paragraph": 12,
+    "visualForm": "evidence-reconstruction",
+    "shotScale": "detail",
+    "dominantSubject": "Ausmaß der Verluste",
+    "visualConcept": "Historischer Schiffsverlustbericht neben beschädigter leerer Matrosenmütze auf Pult, keine falschen exakten Listen",
+    "worldLifeDetail": "Schiffsliste, Tinte"
+  },
+  {
+    "paragraph": 13,
+    "visualForm": "map-geography",
+    "shotScale": "top-down",
+    "dominantSubject": "Krieg endet nicht am Tag der Schlacht",
+    "visualConcept": "Historische Karte Ostasien mit noch sichtbaren Landfronten und Marineweg, kein einfaches Alles-Ende-Symbol",
+    "worldLifeDetail": "Korea, Mandschurei"
+  },
+  {
+    "paragraph": 13,
+    "visualForm": "character-scene",
+    "shotScale": "medium-wide",
+    "dominantSubject": "politische Spannungen und Friedensschluss",
+    "visualConcept": "Herbst 1905: Vertreter beider Seiten bei formeller Friedensverhandlung, ohne erfundene Rede oder Handschlag",
+    "worldLifeDetail": "Akten, Federn"
+  },
+  {
+    "paragraph": 13,
+    "visualForm": "object-focus",
+    "shotScale": "close",
+    "dominantSubject": "Kriegsschiff ist mehr als Kanonen",
+    "visualConcept": "Ein nautischer Werkzeugtisch mit Kohlesack, Seekarte, Signalflagge und Geschützteil geordnet als Voraussetzungen",
+    "worldLifeDetail": "Kompass, Leine"
+  },
+  {
+    "paragraph": 13,
+    "visualForm": "system-hierarchy",
+    "shotScale": "medium-wide",
+    "dominantSubject": "Verbund braucht viele Fähigkeiten",
+    "visualConcept": "Zusammenhängende Szene mit Offizier, Steuermann, Maschinist, Signalgeber und Kohlemann in passenden getrennten Schiffszonen",
+    "worldLifeDetail": "Kessel, Signalflagge"
+  },
+  {
+    "paragraph": 13,
+    "visualForm": "map-geography",
+    "shotScale": "top-down",
+    "dominantSubject": "von der Ostsee zur Tsushima-Straße",
+    "visualConcept": "Historische Route zeigt lange Strecke von Libau um Afrika bis Japan, jetzt gesamte tatsächlich absolvierte Reise",
+    "worldLifeDetail": "Atlantik, Indischer Ozean"
+  },
+  {
+    "paragraph": 13,
+    "visualForm": "comparison",
+    "shotScale": "wide",
+    "dominantSubject": "langer Weg und fehlende Bereitschaft",
+    "visualConcept": "Gegenüberstellung erschöpfter Matrosen und ungeübter Flottenformation nach langer Anfahrt, Ursachen statt Karikatur",
+    "worldLifeDetail": "Kohlenstaub"
+  },
+  {
+    "paragraph": 13,
+    "visualForm": "environment-only",
+    "shotScale": "extreme-wide",
+    "dominantSubject": "letztes ruhiges Meer als Nachhall",
+    "visualConcept": "Stiller offener Ozean mit verblassender russischer Dampfwolke und einzelner unbemannter Matrosenmütze im Vordergrund, keine Schlacht",
+    "worldLifeDetail": "Horizont, Licht"
+  }
+]

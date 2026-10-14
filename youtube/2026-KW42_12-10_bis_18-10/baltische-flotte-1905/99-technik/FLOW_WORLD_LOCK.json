@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "status": "READY",
+  "settingName": "Russische Zweite Pazifikflotte und Route 1904–1905",
+  "settingDescription": "Handgezeichnete historische 2D-Welt der spätkaiserlichen russischen Dampfflotte von baltischem Abfahrtshafen über Nordsee, West- und Südafrika, Madagaskar, Indochina zur Tsushima-Straße, mit echter Geografie, Schiffsklassen und saisonalem Wetter.",
+  "recurringPlaces": [
+    "Libau/Liepāja 1904: Backstein-Marinehafen mit Kaimauer, Lagerhallen, Schuppen, Kohledepot und Hafenmole, kein modernes Containerterminal",
+    "Doggerbank: flache Nordsee mit Fischertrawlern und kleinen Arbeitslichtern, keine japanischen Torpedoboote tatsächlich anwesend",
+    "Schiffskesselraum: historische kohlebefeuerte Dampfkessel, Schaufeln, Kohlenstaub, Rohrleitungen; keine moderne Elektronik",
+    "Russische Schiffsbrücke: Messingkompass, Seekarten, analoge Schiffsuhren, Fernrohre, Signalflaggen",
+    "Afrika und Kaproute: wechselnde Küste und Wetter, unterschiedliche Ankerplätze, keine generische Tropenpalette überall",
+    "Madagaskar Nosy Be: tropische Ankerbucht, monatelanges Warten, Schiffsmannschaften auf Deck",
+    "Indochina Cam Ranh: geschützte tropische Bucht als Treffpunkt von Verstärkung",
+    "Tsushima: enge Meerenge zwischen Korea und Japan, graue See mit Morgennebel, danach differenzierte Kampfszenen",
+    "Japanische Flottenhäfen vor Tsushima: historisch passende Geschützschiffe und japanische Uniformen"
+  ],
+  "recurringCharacters": [
+    "Admiral Sinowi Roschestwenski: russischer Marineoffizier, ca. 50, passende Uniform und Kappe, distinguiertes Gesicht, kein Klon",
+    "Admiral Tōgō Heihachirō: japanischer Marineoffizier, ca. 50, passende Uniform und Kappe, konsistente Frisur und Gesicht"
+  ],
+  "recurringProps": [
+    "Russisches frühes 20.-Jh.-Panzerschiff mit markanten Mehrfach-Schornsteinen, Masten, Geschütztürmen und Kohlerauch; unterschiedliche Schiffsklassen dürfen nicht vertauscht werden",
+    "Britische Fischtrawler: viel kleinere zivile Fangboote mit Netz, Fischkisten, Laternen; keine japanischen Torpedoboote",
+    "Kohlenschiffe und Lastkähne mit Körben und Säcken, Schiffsschraube und historische Dampfkessel",
+    "Nautische Karten, Fernglas, Signalflaggen, zivile Versorgungslisten, keine erfundenen lesbaren Brieftexte",
+    "Japanische Kriegsschiffe 1905: geschützte Kreuzer und Schlachtschiffe der Epoche, nicht moderne Flugzeugträger"
+  ],
+  "basePalette": [
+    "klares ostseeblau mit Messing und Hafenbraun",
+    "Nordsee-Sturmgrau mit warmen Fangboot-Laternen",
+    "Kohle-Schwarz mit Ofenorange",
+    "atlantisches Türkis, Tropengrün und spätere verblasste Hafenfarben",
+    "Tsushima-Graphit mit klarer Sicht- und Rauchhierarchie",
+    "stilles Blau und warmes Pergament nach der Schlacht"
+  ],
+  "timeWeatherLogic": "Oktober 1904 Ostsee zu dunkler Nordsee, Ende 1904 Westafrika/Kap/Indischer Ozean, Dezember 1904 bis März 1905 tropische Wartezeit Madagaskar, Frühjahr 1905 Indochina, Mai 1905 nebliges Tsushima, zeitlich konsistenter Nachhall im Rest von 1905.",
+  "continuityRules": [
+    "Keine modernen Flugzeugträger, Radar, Jets, U-Boote als angebliche Doggerbank-Angreifer, modernen Dieselcontainer oder Raketen.",
+    "Keine tatsächlichen japanischen Torpedoboote in der Nordsee zeichnen; Angst beruht auf Fehlmeldungen.",
+    "Britische Fischer sind zivile Opfer und kein feindlicher Teil des Krieges.",
+    "Nicht alle Russen fuhren um das Kap: kleine Gruppen nutzten den Suezkanal, Hauptkräfte um Afrika.",
+    "Stil wie gesamter Kanal: individuelle historisch vereinfachte 2D-Menschen, keine photorealistischen Porträts, keine Stickman-Klone.",
+    "Abfahrt, Doggerbank, afrikanische Reise, Madagaskar, Indochina, Tsushima, Nachwirkungen strikt in erzählter Reihenfolge.",
+    "Schiffsklassen, Maßstab zwischen Kriegsschiffen und Fischernetzen, Beiboote, Marineuniformen und technische Details konsistent.",
+    "Keine internen Bildnummern oder unbelegten exakten textlichen Angaben in Bildern."
+  ]
+}

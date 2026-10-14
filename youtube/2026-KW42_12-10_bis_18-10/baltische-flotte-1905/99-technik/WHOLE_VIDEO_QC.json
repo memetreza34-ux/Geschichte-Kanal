@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 3,
+  "status": "APPROVED",
+  "reviewMethod": "script-first-and-sequence-review",
+  "scriptContinuousProse": true,
+  "scriptReadAloudPassed": true,
+  "visualsDerivedAfterScript": true,
+  "coherentVisualArc": true,
+  "chronologyMode": "strict-chronological",
+  "chronologyReviewed": true,
+  "historicalEventOrderReviewed": true,
+  "visualOrderMatchesNarrationOrder": true,
+  "temporalJumpsExplicitlySignposted": true,
+  "unnecessaryFlashbacksAbsent": true,
+  "narrationVisualAlignmentReviewed": true,
+  "everyVisualMatchesCurrentNarration": true,
+  "visualClarityReviewed": true,
+  "unclearVisualsAbsent": true,
+  "onePrimaryTakeawayPerVisual": true,
+  "futureEventLeakageAbsent": true,
+  "explanationOnlyVisualShare": 0.24096385542168675,
+  "maxConsecutiveExplanationOnlyVisuals": 1,
+  "historicalWorldReturnsAfterExplanation": true,
+  "editorialTextUsedOnlyWhenUseful": true,
+  "transitionsReviewed": true,
+  "overallCoherenceScore": 9.1,
+  "approved": true,
+  "notes": [
+    "83 Bilder aus vollständigem Sprechertext abgeleitet, nicht umgekehrt.",
+    "Event-led mit konkreten individuellen Matrosen und japanischen sowie britischen Betroffenen.",
+    "Gleiche Kriegsschiffe sollen nicht in identischen Horizont-Kompositionen wiederholt werden."
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 2,
+  "motionPolicy": "content-aware-v1",
+  "colorArc": [
+    {
+      "id": "ostsee-start",
+      "storyFunction": "Abfahrt mit ungewissem Ziel",
+      "paletteBias": "marine blue, warm copper, pale Baltic dawn",
+      "lighting": "calm October harbor morning"
+    },
+    {
+      "id": "ostasia-war",
+      "storyFunction": "Russland und Japan im Krieg",
+      "paletteBias": "ink blue, jade green, muted terracotta",
+      "lighting": "cool East Asian coastal light"
+    },
+    {
+      "id": "squadron",
+      "storyFunction": "Ungleiche Kriegsschiffe und Mannschaften",
+      "paletteBias": "rust red, navy blue, timber brown",
+      "lighting": "crisp naval yard daylight"
+    },
+    {
+      "id": "nordsee-uncertainty",
+      "storyFunction": "Angst und vermeintlicher Gegner",
+      "paletteBias": "slate blue, pale fog, signal amber",
+      "lighting": "dim northern sea at night"
+    },
+    {
+      "id": "dogger-bank",
+      "storyFunction": "Tragischer Angriff auf Fischer",
+      "paletteBias": "deep midnight blue, stark lantern orange, muted steel",
+      "lighting": "cold North Sea darkness then dawn"
+    },
+    {
+      "id": "diplomatic-crisis",
+      "storyFunction": "Empörung und Kontrollverlust",
+      "paletteBias": "rain gray, damp green, red-brown paper",
+      "lighting": "low diplomatic office daylight"
+    },
+    {
+      "id": "coal-labor",
+      "storyFunction": "Kohle als unsichtbare Grenze",
+      "paletteBias": "coal charcoal, furnace orange, dark teal",
+      "lighting": "warm engine room heat"
+    },
+    {
+      "id": "africa-route",
+      "storyFunction": "Lange Anstrengung an Afrika vorbei",
+      "paletteBias": "Atlantic turquoise, cloudy white, sea-worn brown",
+      "lighting": "alternating storms and bright tropic sun"
+    },
+    {
+      "id": "madagascar-stall",
+      "storyFunction": "Hoffnung schwindet vor Madagaskar",
+      "paletteBias": "tropical olive, faded coral, stagnant pale blue",
+      "lighting": "humid anchorage afternoons"
+    },
+    {
+      "id": "asia-approach",
+      "storyFunction": "Letzte Fahrt Richtung Japan",
+      "paletteBias": "Indian Ocean indigo, ochre, mist gray",
+      "lighting": "changing open ocean sky"
+    },
+    {
+      "id": "tsushima-contact",
+      "storyFunction": "Konfrontation vor Tsushima",
+      "paletteBias": "mist silver, Japanese red accents, deep navy",
+      "lighting": "cool hazy May morning"
+    },
+    {
+      "id": "tsushima-battle",
+      "storyFunction": "Schlacht und Verlust",
+      "paletteBias": "smoke graphite, muted scarlet, churned sea teal",
+      "lighting": "cloudy battle light, night into following dawn"
+    },
+    {
+      "id": "aftermath",
+      "storyFunction": "Bedeutung und Konsequenzen",
+      "paletteBias": "sea parchment blue, old wood, soft evening gold",
+      "lighting": "somber clear horizon"
+    }
+  ],
+  "backgroundMusic": false,
+  "motionOverrides": [],
+  "soundEffects": []
+}
