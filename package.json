@@ -25,7 +25,8 @@
     "studio:youtube": "remotion studio src/youtube-renderer/index.jsx",
     "test": "node --test test/*.test.js",
     "review:youtube": "node src/cli/review-youtube-video.js",
-    "validate:youtube-postmortem": "node src/cli/review-youtube-video.js --validate"
+    "validate:youtube-postmortem": "node src/cli/review-youtube-video.js --validate",
+    "audit:youtube-images": "node src/cli/audit-youtube-images.js"
   },
   "dependencies": {
     "@remotion/cli": "4.0.500",
