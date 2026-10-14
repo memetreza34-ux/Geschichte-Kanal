@@ -23,7 +23,9 @@
     "render:youtube": "node src/cli/render-youtube.js",
     "finalize:youtube-export": "node src/cli/finalize-youtube-export.js",
     "studio:youtube": "remotion studio src/youtube-renderer/index.jsx",
-    "test": "node --test test/*.test.js"
+    "test": "node --test test/*.test.js",
+    "review:youtube": "node src/cli/review-youtube-video.js",
+    "validate:youtube-postmortem": "node src/cli/review-youtube-video.js --validate"
   },
   "dependencies": {
     "@remotion/cli": "4.0.500",
