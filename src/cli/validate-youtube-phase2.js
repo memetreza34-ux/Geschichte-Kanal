@@ -3,6 +3,7 @@
 import { readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { arg, discoverAudioFiles, exists, listFinalImages, projectPaths, readJson, sha256 } from '../lib/pipeline.js';
+import { inspectPng } from '../lib/image-integrity.js';
 
 function validScore(value, minimum) {
   const score = Number(value);
@@ -96,6 +97,13 @@ export async function validatePhase2(projectDirectory) {
     for (let i = 1; i <= count; i += 1) {
       const expected = `Bild ${String(i).padStart(2, '0')}.png`;
       if (!images.some((item) => item.name === expected)) errors.push(`Bild fehlt: ${expected}`);
+    }
+  }
+
+  if (Number(meta.imageIntegrityGateVersion ?? 0) >= 1) {
+    for (const image of images) {
+      const result = await inspectPng(image.path);
+      errors.push(...result.errors.map((message) => image.name + ': ' + message));
     }
   }
 

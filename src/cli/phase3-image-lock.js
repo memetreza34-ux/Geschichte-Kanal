@@ -3,6 +3,7 @@
 import { readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { arg, exists, fileSize, listFinalImages, projectPaths, readJson, sha256, writeJson } from '../lib/pipeline.js';
+import { inspectPng } from '../lib/image-integrity.js';
 
 async function snapshotImages(projectDirectory) {
   const p = projectPaths(projectDirectory);
@@ -37,6 +38,10 @@ async function snapshotImages(projectDirectory) {
     if (!image) throw new Error(`Bild fehlt: ${expected}. Phase 3 bricht ab und erzeugt keinen Ersatz.`);
     const size = await fileSize(image.path);
     if (size <= 0) throw new Error(`Bild ist leer/ungültig: ${expected}. Phase 3 bricht ab.`);
+    if (Number(meta.imageIntegrityGateVersion ?? 0) >= 1) {
+      const result = await inspectPng(image.path);
+      if (!result.passed) throw new Error(`Bild ungültig: ${expected}: ${result.errors.join(' | ')}. Phase 3 bricht ab.`);
+    }
     snapshot.push({
       imageNumber: i,
       file: expected,
@@ -49,7 +54,14 @@ async function snapshotImages(projectDirectory) {
 }
 
 export async function createPhase3ImageLock(projectDirectory) {
-  const { p, meta, snapshot } = await snapshotImages(projectDirectory);
+  const p = projectPaths(projectDirectory);
+  // Never overwrite a previous lock. Otherwise a rerun after an image
+  // replacement could silently turn the altered bytes into the new baseline.
+  if (await exists(p.phase3ImageLock)) {
+    await verifyPhase3ImageLock(projectDirectory);
+    return readJson(p.phase3ImageLock);
+  }
+  const { meta, snapshot } = await snapshotImages(projectDirectory);
   const lock = {
     schemaVersion: 1,
     status: 'LOCKED',

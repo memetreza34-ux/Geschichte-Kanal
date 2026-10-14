@@ -186,6 +186,22 @@ Dann darf genau dieser Text erscheinen und nichts anderes.
 
 Immer verboten: `BILD`, `IMAGE`, `SCENE`, interne Nummern, Prompt-Metadaten, Wasserzeichen und Pseudo-Schrift.
 
+## 7a. Flow-Bilder zählen und benennen
+
+Nach Google Flow, aber vor Phase 2:
+
+```bash
+npm run audit:youtube-images -- --dir "youtube/<week>/<slug>" --write-report
+```
+
+Fehlende / beschädigte / überzählige Bilder stehen im `99-technik/FLOW_IMAGE_AUDIT.json`. Falls Flow numerische Dateinamen wie `Bild 1.png` oder `image_2.png` liefert, ist **nur vor der QC-Freigabe** ein eindeutiges Umbenennen erlaubt:
+
+```bash
+npm run audit:youtube-images -- --dir "youtube/<week>/<slug>" --repair-names --write-report
+```
+
+Kein automatisches Nachgenerieren in Phase 3. Nach vorhandenem PHASE3_IMAGE_LOCK.json wird dieser Bildlock auch bei erneutem Phase-3-Start **niemals** überschrieben.
+
 ## 8. Phase 2 — echte Bildprüfung
 
 Vor Phase 3 jedes Bild in `PHASE2_VISUAL_QC.json` prüfen:

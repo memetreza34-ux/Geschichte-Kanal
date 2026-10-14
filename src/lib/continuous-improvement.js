@@ -1,6 +1,6 @@
 import path from 'node:path';
 import { readdir } from 'node:fs/promises';
-import { exists, projectPaths, readJson, writeJson } from './pipeline.js';
+import { exists, projectPaths, readJson, sha256, writeJson } from './pipeline.js';
 
 export const REVIEW_FILENAME = 'POST_VIDEO_REVIEW.json';
 export const REQUIRED_DIMENSIONS = [
@@ -146,10 +146,34 @@ export async function findUnreviewedExports(root = process.cwd(), ignoreProjectD
       const dir=path.join(weekPath, project.name);
       if (ignoreProjectDir && path.resolve(dir)===path.resolve(ignoreProjectDir)) continue;
       const p=projectPaths(dir);
-      if (!(await exists(p.meta)) || !(await exists(path.join(p.techDir,'EXPORT_REPORT.json')))) continue;
+      if (!(await exists(p.meta))) continue;
+      const reportPath = path.join(p.techDir, 'EXPORT_REPORT.json');
+      const videoPath = path.join(p.exportDir, 'FINAL_VIDEO.mp4');
+      const [hasReport, hasVideo] = await Promise.all([exists(reportPath), exists(videoPath)]);
+      if (!hasReport && !hasVideo) continue;
       const meta = await readJson(p.meta);
       if (Number(meta.postVideoImprovementGateVersion ?? 0) < 1) continue;
-      const report = await readJson(path.join(p.techDir, 'EXPORT_REPORT.json'));
+      if (!hasReport) {
+        failures.push({ project: path.relative(root,dir), reason: 'FINAL_VIDEO.mp4 vorhanden, aber EXPORT_REPORT.json fehlt. Export finalisieren, bevor ein Review möglich ist.' });
+        continue;
+      }
+      let report;
+      try {
+        report = await readJson(reportPath);
+        if (!/^[a-f0-9]{64}$/i.test(String(report.videoSha256 ?? ''))) {
+          failures.push({ project: path.relative(root,dir), reason: 'EXPORT_REPORT.json enthält keinen gültigen Video-SHA-256.' });
+          continue;
+        }
+        // MP4 files are gitignored and can be absent in a fresh checkout. When the
+        // media exists, never trust only the stored report or review hash.
+        if (hasVideo && (await sha256(videoPath)) !== report.videoSha256) {
+          failures.push({ project: path.relative(root,dir), reason: 'FINAL_VIDEO.mp4 stimmt nicht mit EXPORT_REPORT.json überein (Video-SHA-256).' });
+          continue;
+        }
+      } catch (error) {
+        failures.push({ project: path.relative(root,dir), reason: 'Exportbericht ungültig: ' + error.message });
+        continue;
+      }
       const reviewPath = path.join(p.techDir, REVIEW_FILENAME);
       if (!(await exists(reviewPath))) {
         failures.push({ project: path.relative(root,dir), reason: 'POST_VIDEO_REVIEW.json fehlt trotz Export.' });

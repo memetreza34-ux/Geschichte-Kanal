@@ -107,5 +107,6 @@
   "renderReady": false,
   "createdAt": "",
   "updatedAt": "",
-  "postVideoImprovementGateVersion": 1
+  "postVideoImprovementGateVersion": 1,
+  "imageIntegrityGateVersion": 1
 }
