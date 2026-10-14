@@ -99,6 +99,12 @@ test('Legacy-Projekte werden nicht zu Reviews gezwungen, opt-in Exports werden e
   await writeFile(path.join(f.dir,'99-technik','POST_VIDEO_REVIEW.json'),JSON.stringify(finishedReview()));
   assert.equal((await findUnreviewedExports(f.root)).length,0);
   assert.equal((await assertImprovementLoopReady(f.root)).passed,true);
+  const invalid = finishedReview();
+  invalid.verifiedImprovements[0].regressionTestPath = 'test/missing-review-regression-does-not-exist.js';
+  await writeFile(path.join(f.dir,'99-technik','POST_VIDEO_REVIEW.json'),JSON.stringify(invalid));
+  assert.match((await findUnreviewedExports(f.root))[0].reason,/als umgesetzt behauptete Code-/);
+  await assert.rejects(()=>assertImprovementLoopReady(f.root),/POST-VIDEO-IMPROVEMENT-HARD-GATE/);
+  await writeFile(path.join(f.dir,'99-technik','POST_VIDEO_REVIEW.json'),JSON.stringify(finishedReview()));
   await writeFile(path.join(f.dir,'99-technik','video.json'),JSON.stringify({...meta,postVideoImprovementGateVersion:0}));
   await rm(path.join(f.dir,'99-technik','POST_VIDEO_REVIEW.json'));
   assert.equal((await findUnreviewedExports(f.root)).length,0);
