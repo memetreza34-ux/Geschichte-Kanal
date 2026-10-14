@@ -152,19 +152,22 @@ npm run validate:youtube-phase1 -- --dir "youtube/<week>/<slug>"
 
 Phase 1 revalidiert Topic, Story und bei neuen Projekten Whole-Video-Coherence.
 
-### Cover Gate
+### Eigenständiges Thumbnail für neue Produktionen
 
 Stage 1:
 
-- genau drei Bild-01-Kandidaten
-- nur exakter Covertext
-- danach STOP
-- Nutzer wählt
+- Genau drei **separate Thumbnail-Kandidaten** A/B/C mit nur dem freigegebenen deutschen Covertext
+- Danach **STOP**; Nutzer wählt
+- Gewinner als `00-bildprompts/thumbnail.png` speichern — **nicht** unter `images/` und niemals als Szene 1
 
 Stage 2:
 
-- Gewinner = `Bild 01.png`
-- Bild 02–NN erzeugen
+- **Bild 01.png ist der erste echte Erzählschritt ohne Covertext oder Titelfolie**
+- Alle Bilder 01–NN passend zu Sprechertext und Szene erzeugen
+- Fehlerhafte Körperproportionen, comicartige Gesichter, unplausible Hände und Gesten, geklonte Figuren und Kleidung außerhalb der Epoche in Phase 2 aussortieren
+- Thumbnail separat visuell prüfen, in `PHASE2_VISUAL_QC.json.thumbnail` freigeben und mit SHA-256 sperren; ohne Freigabe kein Phase-3-Export
+
+**Alte bereits produzierte Projekte** mit `coverPolicy.firstSceneIsCover=true` bleiben unverändert.
 
 ### Text auf Nicht-Cover-Bildern
 

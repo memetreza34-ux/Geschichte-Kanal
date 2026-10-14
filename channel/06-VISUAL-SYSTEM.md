@@ -261,17 +261,16 @@ Wenn ein Detail unsicher ist, neutraler darstellen oder die Unsicherheit in der 
 
 ## 12. Text im Bild
 
-### Cover / Bild 01
+### Separate YouTube-Thumbnails (neue Produktionen)
 
-- 2–5 deutsche Wörter ideal
-- exakt vorgegeben
-- groß und sofort lesbar
-- hoher Kontrast
-- Hauptmotiv nicht verdecken
+- 2–5 deutsche Wörter ideal, exakt, groß, gut lesbar, Hauptmotiv nicht verdecken
+- drei eigenständige Varianten und explizite Nutzerauswahl
+- Datei `00-bildprompts/thumbnail.png`, nicht im Videobilderordner
+- der Covertext erscheint **niemals in Bild 01 oder einer anderen normalen Szene**
 
-### Bild 02–NN
+### Bild 01–NN
 
-Standard: **kein sichtbarer Text**.
+Alle Story-Szenen zeigen nur das gerade erzählte historische Ereignis und haben standardmäßig **keinen sichtbaren Text**. Bei alten Projekten mit `firstSceneIsCover=true` gilt aus Rückwärtskompatibilität noch Bild 01 als Cover.
 
 Auch Detail-Inset, Cutaway und Evidence-Reconstruction funktionieren möglichst ohne Labels.
 
@@ -286,7 +285,7 @@ Der Compiler muss:
 - individuelle Figuren statt Klone erzwingen
 - World Lock erhalten
 - Style Anchor pro Bild wiederholen
-- Cover-Gate beibehalten
+- separates Thumbnail-Gate beibehalten; erste Videoszene ohne Covertext
 
 Neue Visual Forms:
 

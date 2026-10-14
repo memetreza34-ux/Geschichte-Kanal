@@ -152,9 +152,9 @@ Negativer Treffer → in Phase 2 neu generieren.
 
 ## 7. Sichtbarer Text — kontrolliert statt pauschal verboten
 
-### Bild 01
+### Bild 01 (neue Projekte)
 
-Nur der exakte Cover-Text.
+Die erste Szene erzählt Geschichte, **ohne** Covertext. Der exakte Covertext ist nur auf dem separaten Thumbnail erlaubt. Alte Projekte mit `firstSceneIsCover=true` dürfen Bild 01 weiterhin als Cover verwenden.
 
 Immer verboten:
 
@@ -230,7 +230,8 @@ Pflicht pro Bild:
 
 Textprüfung:
 
-- Bild 01: `visibleTextExact` = exakter Cover-Text
+- Neue Projekte: Thumbnail separat mit `PHASE2_VISUAL_QC.thumbnail` (SHA-256, exakter Covertext, Lesbarkeit, Style), `Bild 01` folgt der normalen Szenen-Textregel. Nur Legacy-Projekte prüfen den Covertext auf Bild 01.
+- Für `figureReviewGateVersion>=1` muss pro Bild `prominentPeopleVisible` wahrheitsgemäß gesetzt sein; falls `true` oder `visualForm=character-scene`, müssen alle sechs Figurenprüfungen bestanden sein.
 - `NO_VISIBLE_TEXT`: `visibleTextDetected=false`, `visibleTextExact` leer
 - `EDITORIAL_TEXT`: `visibleTextDetected=true`, `visibleTextExact` = exakt freigegebener `editorialText`
 

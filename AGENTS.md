@@ -25,8 +25,9 @@ See `channel/17-WHOLE-VIDEO-COHERENCE-GATE.md`.
 
 ## Visible text policy
 
-- Bild 01 may contain only the exact approved cover text.
-- Bild 02–NN default to `visibleTextPolicy=NO_VISIBLE_TEXT`.
+- For future productions with `coverPolicy.firstSceneIsCover=false`, Bild 01 is a normal narration scene and MUST NOT contain thumbnail text. All BILD 01–NN default to `NO_VISIBLE_TEXT`.
+- The cover belongs only to `00-bildprompts/thumbnail.png` and must pass independent visual QC + SHA-256 before Phase 3. New projects use `figureReviewGateVersion=1`.
+- Only legacy projects with `firstSceneIsCover=true` allow the exact cover text on Bild 01.
 - A non-cover image may contain visible text only if its Scene Card explicitly uses `visibleTextPolicy=EDITORIAL_TEXT` and defines both `editorialText` and `editorialTextPurpose`.
 - Approved editorial text is limited to one short useful orientation unit such as a year, date, place, time jump or short comparison. Render exactly the approved text and nothing else.
 - `BILD`, `IMAGE`, `SCENE`, image numbers, internal prompt metadata, watermarks and pseudo-writing are always hard failures.
@@ -38,8 +39,8 @@ For every AI/coding agent working in this repository, new productions must pass 
 - Inspect every final image against its assigned narration and Scene Card.
 - Reject images that are merely related but do not support the current sentence/beat.
 - Reject visually boring repetition and sequences that feel like unrelated illustrations.
-- Reject accidental weirdness, clone-like people, implausible staging or confusing compositions.
-- Verify visible text against the Scene Card: cover text on Bild 01, exact approved editorial text only when explicitly allowed, otherwise no text.
+- Reject accidental weirdness, exaggerated cartoon expressions, oversized heads, clone-like officers, implausible body proportions, fused/extra fingers, impossible grips, period-inaccurate clothing or confusing compositions. For figure-gated projects explicitly record whether prominent people are visible and pass all six human-quality checks.
+- Verify visible text against the Scene Card: in new projects, no cover text on any story scene; only approved editorial text when explicitly allowed. Review the separate thumbnail independently and verify its approved hash.
 - Record narration support, visual interest and style consistency at >= 8/10 per image in `99-technik/PHASE2_VISUAL_QC.json`.
 - Record the exact `fileName` and SHA-256 of each reviewed image for hash-gated productions.
 - Replacing an image after review invalidates Phase 2.
