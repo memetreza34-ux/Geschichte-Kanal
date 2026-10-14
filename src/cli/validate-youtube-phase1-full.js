@@ -5,6 +5,7 @@ import path from 'node:path';
 import { arg, projectPaths, readJson } from '../lib/pipeline.js';
 import { validateNarrationAlignmentProject } from '../lib/narration-alignment.js';
 import { validateDirectingPlan } from '../lib/directing.js';
+import { findUnreviewedExports } from '../lib/continuous-improvement.js';
 import { validatePhase1 } from './validate-youtube-phase1.js';
 
 export async function validatePhase1Full(projectDirectory) {
@@ -21,6 +22,11 @@ export async function validatePhase1Full(projectDirectory) {
     ]);
     const alignment = validateNarrationAlignmentProject({ meta, mapping, policy, script });
     errors.push(...alignment.errors.map((error) => `Narration Alignment: ${error}`));
+  }
+
+  if (Number(meta.postVideoImprovementGateVersion ?? 0) >= 1) {
+    const unreviewed = await findUnreviewedExports(process.cwd(), p.projectDir);
+    errors.push(...unreviewed.map(x=>`Continuous Improvement: ${x.project} — ${x.reason}`));
   }
 
   if (Number(meta.directingGateVersion ?? 0) >= 1) {

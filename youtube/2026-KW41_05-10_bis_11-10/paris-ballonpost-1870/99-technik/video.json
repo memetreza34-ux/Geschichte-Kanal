@@ -123,5 +123,6 @@
   "renderReady": false,
   "createdAt": "2026-10-08T17:00:00+02:00",
   "updatedAt": "2026-10-08T15:19:05.890Z",
-  "flowPromptBuiltAt": "2026-10-08T15:19:05.890Z"
+  "flowPromptBuiltAt": "2026-10-08T15:19:05.890Z",
+  "postVideoImprovementGateVersion": 1
 }

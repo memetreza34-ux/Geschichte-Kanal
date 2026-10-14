@@ -127,6 +127,19 @@ Diese Entscheidung ersetzt die frühere starke Betonung einer identischen Stickm
 - Bereits vorhandene Projektdateien und veröffentlichte Videos werden **nicht nachträglich geändert**.
 - Maßgeblich: `channel/21-YOUTUBE-CAPTION-V2.md`.
 
+## 2026-10-14 — HÖCHSTE PRIORITÄT: Nach jedem Video drastisch dazulernen
+
+Diese ausdrückliche Entscheidung hat Vorrang vor bloßem Erhöhen des Produktionsumfangs und vor kosmetischen Pipeline-Optimierungen.
+
+- **Jedes neue fertige Video ist verpflichtend ein Test der gesamten Produktionskette.** Es wird vollständig auf Inhalt, Hook, Geschichte, Bilder, Bewegung, Timing, Sprache, historische Richtigkeit und Upload-Verpackung geprüft.
+- **Drei konkret belegte Befunde und mindestens eine verifizierte, im Repo umgesetzte Systemverbesserung** pro abgeschlossenem Video. Ein tatsächlicher Videoausschnitt/Timecode plus Ursachenanalyse ist nötig.
+- **Regressionstest und grüne CI** für jede als erledigt behauptete Hauptverbesserung; Vorher/Nachher und mindestens zwei nächste Lernziele dokumentieren.
+- Neues Video nicht beginnen, solange für ein vorheriges reviewpflichtiges, erfolgreich exportiertes Video `POST_VIDEO_REVIEW.json` fehlt oder nicht `VERIFIED` ist.
+- Kein erzwungener Scheinerfolg: Es gibt **keine Garantie**, dass das nächste Video subjektiv besser ankommt; gemessen und verbessert werden konkrete, nachvollziehbare Fehler.
+- Alte Videos ohne Opt-in bleiben kompatibel, ab jetzt neue Projektvorlagen und das noch unfertige Pariser Video mit Gate aktiviert.
+- **Einzelne abgeschlossene Video-Bilder niemals ändern**; Phase-3-Bildlock bleibt gültig.
+- Zentrale Autorität: `channel/22-CONTINUOUS-IMPROVEMENT.md`.
+
 ## Aktuelle Style-Autorität
 
 ```text

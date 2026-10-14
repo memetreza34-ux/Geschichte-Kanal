@@ -219,5 +219,39 @@
     "validator": "src/cli/validate-youtube-preproduction.js",
     "phase1MustRevalidate": true
   },
-  "brainIndex": "channel/00-BRAIN-INDEX.md"
+  "brainIndex": "channel/00-BRAIN-INDEX.md",
+  "highestOperationalPriority": "CONTINUOUS_IMPROVEMENT_AFTER_EVERY_VIDEO",
+  "continuousImprovement": {
+    "version": 1,
+    "status": "MANDATORY_FOR_NEW_PROJECTS",
+    "priority": 0,
+    "authority": "channel/22-CONTINUOUS-IMPROVEMENT.md",
+    "file": "99-technik/POST_VIDEO_REVIEW.json",
+    "enabledForNewProjects": true,
+    "exportCreatesPendingReview": true,
+    "requireRealFinalVideo": true,
+    "requireVideoHash": true,
+    "requiredReviewDimensions": [
+      "hookAndStory",
+      "historicalAccuracy",
+      "visualVariety",
+      "narrationImageMatch",
+      "pacingAndTransitions",
+      "cameraMotion",
+      "audioAndVoice",
+      "uploadPackage"
+    ],
+    "minimumConcreteFindings": 3,
+    "minimumVerifiedSystemUpgrades": 1,
+    "minimumNextVideoLessons": 2,
+    "requireTimecodedEvidence": true,
+    "requireRootCause": true,
+    "requireBeforeAfter": true,
+    "requireRegressionTest": true,
+    "requireGreenCiReference": true,
+    "blockNextProjectIfPreviousVideoUnreviewed": true,
+    "neverFabricateResults": true,
+    "neverChangeLockedImagesInPhase3": true,
+    "noAutomationClaimWithoutActualExecution": true
+  }
 }

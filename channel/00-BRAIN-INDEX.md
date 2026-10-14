@@ -31,6 +31,12 @@ config/flow-style-lock.json
 
 Der technische Style-ID `history-stickman-adaptive-v1` ist ein Legacy-Name. Er bedeutet keine generischen Stickman-Klone.
 
+## PRIORITÄT 0 — Kontinuierliche Verbesserung nach jedem Video
+
+Oberste operative Regel: **Nach jedem echten fertigen Video die tatsächliche Ausgabe anschauen, Fehler und Chancen mit Timecodes dokumentieren, Ursachen beheben, mindestens eine Systemänderung mit Regressionstest und CI verifizieren und die Erkenntnisse in das nächste Video übertragen.** Kein bloßes „Video fertig“ als Ende der Pipeline. Der nächste Produktionsstart ist blockiert, wenn der `POST_VIDEO_REVIEW.json`-Bericht eines reviewpflichtigen Exports fehlt oder nicht `VERIFIED` ist. Kein Review darf ohne Sichtung behauptet werden.
+
+**Autorität:** `channel/22-CONTINUOUS-IMPROVEMENT.md`, `config/channel-policy.json.continuousImprovement`, `src/lib/continuous-improvement.js`.
+
 ## Preproduction
 
 Neue Projekte starten als `preproduction-review`.
@@ -146,6 +152,7 @@ Der Flow-Prompt-Build, `validate:youtube-phase1` und Phase 3 blockieren neue Pro
 - `16-STORY-QUALITY-GATE.md` — Story statt Anekdoten-Kette
 - `17-WHOLE-VIDEO-COHERENCE-GATE.md` — Fließtext + Gesamtsequenz + Erkläranteil
 - `18-NARRATION-ALIGNMENT-GATE.md` — harte Bild-Skript-Passung + Chronologie + Klarheit
+- `22-CONTINUOUS-IMPROVEMENT.md` — höchste Priorität, Postvideo-Rückkopplung und Hard-Gate
 - `21-YOUTUBE-CAPTION-V2.md` — Uploadbeschreibung mit zwei Absätzen und fünf Hashtags für zukünftige Videos
 - `99-DECISION-LOG.md` — chronologische Entscheidungen
 
@@ -192,7 +199,13 @@ config/pipeline.json
 → PHASE3_IMAGE_LOCK
 → Audio / Alignment / Timeline / Pacing
 → Remotion
-→ FINAL_VIDEO + THUMBNAIL + CAPTION
+→ FINAL_VIDEO + THUMBNAIL + CAPTION + SRT
+→ POST_VIDEO_REVIEW PENDING
+→ reales Video sichten, 3 konkrete Befunde
+→ Ursache und mind. 1 systemische Verbesserung
+→ Regressionstest + grüne CI
+→ POST_VIDEO_REVIEW VERIFIED
+→ erst dann nächste reguläre Produktion
 ```
 
 ## Bildregeln
@@ -253,6 +266,7 @@ Ab `PHASE3_IMAGE_LOCK` ist `00-bildprompts/images/` read-only. Bei Asset-Fehlern
 FINAL_VIDEO.mp4
 THUMBNAIL.png
 CAPTION.txt
+SUBTITLES.srt
 ```
 
 Den kompilierten `google-flow-prompt.txt` nicht manuell pflegen; Quelldaten ändern und neu bauen.

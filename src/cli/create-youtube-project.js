@@ -4,6 +4,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { arg, copyDirectory, exists, readJson, slugify, writeJson } from '../lib/pipeline.js';
 import { evaluateTopic } from './check-youtube-topic.js';
+import { assertImprovementLoopReady } from '../lib/continuous-improvement.js';
 
 async function main() {
   const topic = arg('--topic');
@@ -14,6 +15,9 @@ async function main() {
   if (!topic || !title || !week || !slug) {
     throw new Error('Nutzung: npm run create:youtube -- --topic "THEMA" --title "TITEL" --week "YYYY-KWNN_DD-MM_bis_DD-MM" [--slug "slug"]');
   }
+
+  // Finished, review-enabled videos are reviewed and improved BEFORE the next project starts.
+  await assertImprovementLoopReady();
 
   const topicCheck = await evaluateTopic(topic);
   if (topicCheck.decision !== 'APPROVED_NEW') {
@@ -103,7 +107,8 @@ async function main() {
   if (promptSystemVersion >= 3) {
     console.log('Hinweis: FLOW_WORLD_LOCK.json und Scene Cards vollständig ausfüllen, dann npm run build:youtube-flow ausführen.');
   }
-  console.log('Hinweis: youtubeUpload.description, hashtags und keywords in video.json vor Finalisierung pflegen; daraus entsteht 03-export/CAPTION.txt.');
+  console.log('Hinweis: youtubeUpload.description und hashtags in video.json vor Finalisierung pflegen; daraus entsteht 03-export/CAPTION.txt.');
+  console.log('HÖCHSTE PRIORITÄT: Nach jedem fertigen Video Review, konkrete Verbesserungen, Regressionstest und Lerntransfer dokumentieren.');
 }
 
 main().catch((error) => {
