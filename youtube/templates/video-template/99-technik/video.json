@@ -106,5 +106,6 @@
   "audioReady": false,
   "renderReady": false,
   "createdAt": "",
-  "updatedAt": ""
+  "updatedAt": "",
+  "postVideoImprovementGateVersion": 1
 }
