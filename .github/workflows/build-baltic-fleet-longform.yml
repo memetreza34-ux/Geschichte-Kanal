@@ -1,0 +1,39 @@
+name: Build Baltic Fleet Longform
+
+on:
+  push:
+    branches: [video/baltic-fleet-voyage-1904-1905]
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: video/baltic-fleet-voyage-1904-1905
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Generiere Script-first Scene Cards
+        run: node youtube/2026-KW42_12-10_bis_18-10/baltische-flotte-1905/99-technik/generate-longform-plan.mjs
+      - name: Baue Flow Masterprompt
+        run: npm run build:youtube-flow -- --dir "youtube/2026-KW42_12-10_bis_18-10/baltische-flotte-1905"
+      - name: Erzeuge Cover- und Bildpakete
+        run: node youtube/2026-KW42_12-10_bis_18-10/baltische-flotte-1905/99-technik/split-flow-batches.mjs
+      - name: Prüfe Preproduction und Phase 1
+        run: |
+          npm run validate:youtube-preproduction -- --dir "youtube/2026-KW42_12-10_bis_18-10/baltische-flotte-1905"
+          npm run validate:youtube-phase1 -- --dir "youtube/2026-KW42_12-10_bis_18-10/baltische-flotte-1905"
+      - name: Speichere generierte Dateien
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add youtube/2026-KW42_12-10_bis_18-10/baltische-flotte-1905
+          if ! git diff --cached --quiet; then
+            git commit -m "Generiere Ostseeflotte Scene Cards und Flow-Batches"
+            git push origin HEAD:video/baltic-fleet-voyage-1904-1905
+          fi
