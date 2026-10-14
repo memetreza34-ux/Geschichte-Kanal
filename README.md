@@ -156,6 +156,24 @@ npm run validate:youtube-phase1 -- --dir "youtube/<week>/<slug>"
 
 Cover-Gate: Flow erzeugt zuerst genau drei Bild-01-Kandidaten und stoppt bis zur Nutzerauswahl.
 
+## Flow-Bildvollständigkeit und sichere Dateinamen
+
+Nach der Google-Flow-Erzeugung und **vor** der Phase-2-Bildfreigabe:
+
+```bash
+npm run audit:youtube-images -- --dir "youtube/<week>/<slug>" --write-report
+```
+
+Der Bericht `99-technik/FLOW_IMAGE_AUDIT.json` nennt alle fehlenden, beschädigten oder überzähligen Bilder und enthält Bilddateinamen, Auflösungen und SHA-256. Fehlende Bilder müssen **in Phase 2** erzeugt und geprüft werden. Das Audit generiert keine Bilder.
+
+Eine optionale, explizit auszuführende Reparatur für eindeutig benannte Dateien wie `Bild 1.png` oder `image_2.png`:
+
+```bash
+npm run audit:youtube-images -- --dir "youtube/<week>/<slug>" --repair-names --write-report
+```
+
+Bei Konflikten wird vor der ersten Änderung abgebrochen. Nach Phase-2-Freigabe oder aktivem Phase-3-Bildlock ist Umbenennen verboten. Neue Produktionen prüfen darüber hinaus echte PNG-Struktur und CRC, Mindestauflösung 1280×720 und 16:9-Format. Eine technische Prüfung ersetzt **keine** tatsächliche visuelle Kontrolle.
+
 ## Phase 2
 
 Jedes finale Bild wird in `99-technik/PHASE2_VISUAL_QC.json` geprüft auf:

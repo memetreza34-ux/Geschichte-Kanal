@@ -103,3 +103,32 @@ test('Improvement-Backlog findet fehlende Exportberichte und manipulierte vorhan
     assert.match(pending[0].reason, /Video-SHA-256/);
   } finally { await rm(root, { recursive: true, force: true }); }
 });
+
+test('Ein bestehender Phase-3-Lock kann nach Bildersatz nicht neu geschrieben werden', async () => {
+  const dir = await fixture();
+  try {
+    const folder = path.join(dir, '00-bildprompts', 'images');
+    const file1 = path.join(folder, 'Bild 01.png');
+    const file2 = path.join(folder, 'Bild 02.png');
+    await writeFile(file1, png(1280, 720));
+    await writeFile(file2, png(1280, 720));
+    const lock = await createPhase3ImageLock(dir);
+    await writeFile(file2, png(1920, 1080));
+    await assert.rejects(() => createPhase3ImageLock(dir), /verändert oder ersetzt/i);
+    const stored = JSON.parse(await readFile(path.join(dir, '99-technik', 'PHASE3_IMAGE_LOCK.json'), 'utf8'));
+    assert.equal(stored.images[1].sha256, lock.images[1].sha256);
+  } finally { await rm(dir, { recursive: true, force: true }); }
+});
+
+test('Bild-Audit erkennt überzählige Bilder trotz formal richtigem Dateinamen', async () => {
+  const dir = await fixture();
+  try {
+    const folder = path.join(dir, '00-bildprompts', 'images');
+    for (const name of ['Bild 01.png', 'Bild 02.png', 'Bild 03.png']) {
+      await writeFile(path.join(folder, name), png(1280, 720));
+    }
+    const audit = await auditYoutubeImages(dir);
+    assert.deepEqual(audit.unexpected, ['Bild 03.png']);
+    assert.equal(audit.status, 'INCOMPLETE');
+  } finally { await rm(dir, { recursive: true, force: true }); }
+});

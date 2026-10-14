@@ -48,7 +48,8 @@ export async function auditYoutubeImages(projectDirectory, { writeReport = false
   if (!Number.isInteger(planned) || planned < 1 || planned > 999) throw new Error('plannedImageCount ungültig (1–999).');
   const entries = await (await exists(p.imagesDir) ? readdir(p.imagesDir, { withFileTypes: true }) : Promise.resolve([]));
   const files = new Set(entries.filter(e => e.isFile() && e.name !== '.gitkeep').map(e => e.name));
-  const unexpected = [...files].filter(name => !/^Bild \d{2,3}\.png$/.test(name));
+  const expectedNames = new Set(Array.from({ length: planned }, (_, i) => 'Bild ' + String(i + 1).padStart(2, '0') + '.png'));
+  const unexpected = [...files].filter(name => !expectedNames.has(name));
   const subdirectories = entries.filter(e => e.isDirectory()).map(e => e.name);
   const images = [];
   const errors = [];

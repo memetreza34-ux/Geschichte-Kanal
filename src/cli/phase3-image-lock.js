@@ -54,7 +54,14 @@ async function snapshotImages(projectDirectory) {
 }
 
 export async function createPhase3ImageLock(projectDirectory) {
-  const { p, meta, snapshot } = await snapshotImages(projectDirectory);
+  const p = projectPaths(projectDirectory);
+  // Never overwrite a previous lock. Otherwise a rerun after an image
+  // replacement could silently turn the altered bytes into the new baseline.
+  if (await exists(p.phase3ImageLock)) {
+    await verifyPhase3ImageLock(projectDirectory);
+    return readJson(p.phase3ImageLock);
+  }
+  const { meta, snapshot } = await snapshotImages(projectDirectory);
   const lock = {
     schemaVersion: 1,
     status: 'LOCKED',
