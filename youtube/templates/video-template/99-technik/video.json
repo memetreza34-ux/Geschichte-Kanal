@@ -1,6 +1,7 @@
 {
   "schemaVersion": 5,
   "creativeEvidenceVersion": 1,
+  "figureDirectionVersion": 1,
   "pipelineVersion": 4,
   "preproductionQualityGateVersion": 1,
   "topicScorecardRequired": true,

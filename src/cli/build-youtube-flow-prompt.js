@@ -41,7 +41,7 @@ export async function buildYoutubeFlowPrompt(projectDirectory) {
 
   const research = usesCreativeEvidence(meta) ? await readJson(p.researchEvidence) : null;
   let prompt = compileFlowPrompt({ meta, mapping, styleLock, worldLock, research });
-  if (narrationAlignmentPolicy && !usesCreativeEvidence(meta)) prompt = injectNarrationAlignmentIntoPrompt(prompt, mapping);
+  if (narrationAlignmentPolicy) prompt = injectNarrationAlignmentIntoPrompt(prompt, mapping);
   if (directingPolicy && !usesCreativeEvidence(meta)) prompt = injectDirectingIntoPrompt(prompt, mapping, renderPlan);
 
   await writeFile(p.prompt, prompt, 'utf8');

@@ -49,6 +49,8 @@ Die vorhandenen Topic-, Story-, Whole-Video- und Stilprüfungen gelten zusätzli
 
 Jede Scene Card ergänzt `sequenceId`, `beatFunction` (orientation/cause/decision/action/reaction/consequence/evidence/payoff), `knowledgeChange`, `visibleEvidence`, `claimIds`, `visualReferenceIds`, `focusPoint`, `continuity` und `overlays`.
 
+Die aktuelle Vorlage aktiviert außerdem `figureDirectionVersion=1`: `peoplePresence` unterscheidet keine, kleine Hintergrund- und prominente Personen. Prominente Personen brauchen konkrete Regie in `figureDirection.identity`, `.expression`, `.actionAndGaze` und `.poseAndHands`. Der Compiler übernimmt sie auch in den kompakten Promptmodus. Siehe `channel/10-STYLE-DNA-V2.md` und die Prüfbeispiele unter `recherche/2026-10-21/FIGUREN-VERFEINERUNG.md`.
+
 Wiederkehrende Objekte erhalten in `FLOW_WORLD_LOCK.json.entities` eine feste `id`, eine konkrete `identity` und einen `initialState`. Jede erneute Darstellung führt den letzten Zustand weiter:
 
 ```json

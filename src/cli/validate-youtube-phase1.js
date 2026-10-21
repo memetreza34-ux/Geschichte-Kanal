@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { arg, exists, projectPaths, readJson } from '../lib/pipeline.js';
 import { findHighRiskPromptWords } from '../lib/flow-prompt.js';
+import { matchesSceneStyleAnchor } from '../lib/figure-direction.js';
 import { validateVisualInterestScene, validateVisualInterestSequence } from '../lib/visual-interest.js';
 import { validateWholeVideoQc } from '../lib/whole-video-quality.js';
 import { validatePreproduction } from './validate-youtube-preproduction.js';
@@ -255,8 +256,7 @@ export async function validatePhase1(projectDirectory) {
           errors.push(`Comparison bei Bild ${expected} wird im finalen Prompt nicht klar als Vergleich inszeniert.`);
         }
         if (compilerV3 && styleLock?.sceneStyleAnchor) {
-          const anchorLead = styleLock.sceneStyleAnchor.slice(0, 70);
-          if (!block.includes(anchorLead)) errors.push(`Bild ${expected} wiederholt den kompakten Style Anchor nicht.`);
+          if (!matchesSceneStyleAnchor(block, styleLock, meta)) errors.push(`Bild ${expected} wiederholt den kompakten Style Anchor nicht.`);
         }
         if (expected === 1 && meta.coverPolicy?.firstSceneIsCover !== false && coverText && !block.includes(`"${coverText}"`)) errors.push('BILD 01 enthält den exakten Cover-Text nicht im Prompt.');
         if ((expected > 1 || meta.coverPolicy?.firstSceneIsCover === false) && !/No visible text|ZERO visible text|TEXT SAFETY/i.test(block)) errors.push(`Bild ${expected} enthält keine explizite Text-Sicherheitsregel.`);

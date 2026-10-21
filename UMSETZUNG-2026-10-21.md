@@ -31,7 +31,7 @@ Details und Datenbeispiele: [channel/23-RESEARCH-AND-SCENE-EVIDENCE.md](channel/
 
 ## Prüfung
 
-- 87 Tests bestanden, darunter neue Fehlertests für Cache-Veraltung, Löschpfade, manipulierte Qualitätsgrenzen, falsche Bilddaten, MP4-Attrappen, direkte Render-Umgehung, Quellen-/Planbindung und Kontinuität.
+- 93 Tests bestanden, darunter Fehlertests für Cache-Veraltung, Löschpfade, manipulierte Qualitätsgrenzen, falsche Bilddaten, MP4-Attrappen, direkte Render-Umgehung, Quellen-/Planbindung und Kontinuität sowie sechs Tests zur Figurenregie und ihrer Einbindung in Phase 1.
 - Echter Remotion-Testrender mit synthetischen Farbbalken, zwei Szenen, Fokusbewegung, Beschriftungen, Route und Testton: 1280×720, 30 fps, 61 Frames bei geplanter Dauer 2,001 s.
 - Export mit ffprobe und vollständiger FFmpeg-Decodierung geprüft. Schlussframe 60 tatsächlich angesehen: Bild, Route und lesbare Beschriftung vorhanden, kein leerer Schlussframe.
 - Test zur Audiopause: 2,800 s Quelle → 2,797 s Ausgabe; innere Pause erhalten, Original-SHA-256 unverändert.
@@ -41,8 +41,16 @@ Der synthetische Render ist ein technischer Nachweis, kein fertiges Geschichtsvi
 
 ## Grenzen und nächster Produktionsschritt
 
-**Korrektur nach ausdrücklicher Nutzerentscheidung:** Codex übernimmt ausschließlich Phase 1 und Phase 3. Bilder, Thumbnails und Audio erzeugt der Nutzer mit seinen eigenen KI-Werkzeugen. Die zentrale Stil-Konfiguration blieb gegenüber dem geprüften Ausgangsstand unverändert. Der eigenständig begonnene Apollo-13-Entwurf samt erzeugten Thumbnail-Varianten ist nicht freigegeben, wurde aus der aktiven Produktion genommen und darf nicht als Kanalstil-Referenz dienen.
+**Korrektur nach ausdrücklicher Nutzerentscheidung:** Codex übernimmt ausschließlich Phase 1 und Phase 3. Bilder, Thumbnails und Audio erzeugt der Nutzer mit seinen eigenen KI-Werkzeugen. Nach der anschließenden Nutzerfreigabe für kleine Stilkorrekturen wurden die Figurenprompts gezielt verfeinert; Linien, Farben und gezeichnete Umgebungen bleiben die Grundlage. Der eigenständig begonnene Apollo-13-Entwurf samt erzeugten Thumbnail-Varianten ist nicht freigegeben, wurde aus der aktiven Produktion genommen und darf nicht als Kanalstil-Referenz dienen.
 
 Automatische Prüfungen können weder Quelleninterpretation noch eine wirkliche Bildsichtung garantieren. Die numerischen Pacing-Grenzen der bisherigen Regie-Policy gelten weiter; ein flexibleres, ebenfalls belegpflichtiges Ausnahmeverfahren ist hier nicht eingeführt. Auch eine bessere Vorlage allein beweist noch keine bessere fertige Produktion.
 
 Die nächste neue Produktion muss Quellen, Skript und die zusammenhängende Bildfolge tatsächlich durchlaufen. Vor dem vollständigen Bildsatz werden Einstieg, Erklärmoment und Übergang als Probe geprüft. Das vorhandene Thumbnail-Auswahlverfahren bleibt bestehen: drei konkrete Kandidaten, danach ausdrückliche Nutzerauswahl vor den Storybildern. Alte Videos werden nicht dafür neu bearbeitet.
+
+## Gezielte Figurenverfeinerung
+
+Drei tatsächlich betrachtete Flotten-Frames in voller Exportauflösung zeigen besonders überzeichnete Augen/Münder und konkurrierende Gesten. Die ruhigere Dokumentübergabe ist eine brauchbare Richtung. Die neue Promptfassung beschreibt zusätzlich konkrete Identitäten, passende Mimik, Blickziele, Körpergewicht und Handkontakte. Hintergrundpersonen werden einfacher geführt; Objektbilder erhalten keinen Figurenblock. Neue Vorlagen aktivieren diese Prüfung mit `figureDirectionVersion=1`; bestehende Pläne und Exporte bleiben unverändert.
+
+Der Integrationstest baut einen neuen kompakten Prompt mit konkreter Figurenregie und exaktem Narrationskontext und prüft ihn durch Phase 1. Dabei wurde auch behoben, dass der kompakte Prompt bisher Pflichtüberschriften und die Narrations-Injektion ausließ. Synthetische Testfreigaben sind ausschließlich temporäre Testdaten und keine Produktionsfreigaben.
+
+Sichtbefunde: [FIGUREN-VERFEINERUNG.md](recherche/2026-10-21/FIGUREN-VERFEINERUNG.md). Drei kopierfertige, nicht ausgeführte Prüfbeispiele für das KI-Werkzeug des Nutzers: [FIGUREN-TESTPROMPTS.md](recherche/2026-10-21/FIGUREN-TESTPROMPTS.md). Eine sichtbare Verbesserung muss noch an diesen vom Nutzer erzeugten Bildern beurteilt werden. Hier wurden keine Bilder oder Audiodateien generiert.

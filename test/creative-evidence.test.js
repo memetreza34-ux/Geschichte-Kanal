@@ -89,6 +89,7 @@ test('Kompakter Prompt nennt konkrete historische Muss-/Ausschlussmerkmale und h
   assert.match(prompt, /Must show: The rectangular stone gate opening/);
   assert.match(prompt, /Must avoid: Modern concrete/);
   assert.match(prompt, /Visible evidence that must be legible/);
+  assert.ok(prompt.includes(`Narration context, never draw these words: ${input.mapping.images[0].narrationBeat}`));
   assert.match(prompt, /STOP for explicit user selection/);
   assert.match(prompt, /ZERO visible text/);
   const block = prompt.split('\n\nBILD 01\n')[1];

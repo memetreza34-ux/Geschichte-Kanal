@@ -1,5 +1,5 @@
 {
-  "visualPolicyVersion": 12,
+  "visualPolicyVersion": 13,
   "status": "READY",
   "styleId": "history-stickman-adaptive-v1",
   "promptSystemVersion": 3,
@@ -37,11 +37,12 @@
     "Bild 01 ist Cover und erste Szene mit kurzem passendem deutschem Cover-Text. Google Flow erzeugt zuerst genau drei Cover-Kandidaten und stoppt danach bis zur Nutzerauswahl.",
     "Auf Bild 01 ist ausschließlich der exakte Cover-Text erlaubt. Keine Bildnummer, kein Zusatztext, keine zweite Überschrift.",
     "Bild 02 bis Bild NN sind standardmäßig textfrei. Wenn visibleTextPolicy=EDITORIAL_TEXT gesetzt ist, darf ausschließlich editorialText exakt gerendert werden.",
-    "Neue Produktionen benötigen vor Phase 3 eine vollständig freigegebene PHASE2_VISUAL_QC.json und vor Phase 1 ein freigegebenes WHOLE_VIDEO_QC.json."
+    "Neue Produktionen benötigen vor Phase 3 eine vollständig freigegebene PHASE2_VISUAL_QC.json und vor Phase 1 ein freigegebenes WHOLE_VIDEO_QC.json.",
+    "Figurenverfeinerung V1: kleine ruhig gezeichnete Augen, sparsame Gesichtslinien, glaubwürdige Körperkontakte und eine klar geführte Haupthandlung; bestehende Linien-, Farb- und Umgebungswelt erhalten."
   ],
   "forbidden": [
     "photorealism",
-    "realistic human portrait style",
+    "photorealistic human portrait rendering",
     "3D rendering",
     "Pixar or animated-feature look",
     "anime",
@@ -213,5 +214,6 @@
     "Prompt-QC: channel/12-PROMPT-QC.md",
     "Flow Style Lock: config/flow-style-lock.json",
     "Compiler: src/lib/flow-prompt.js und src/cli/build-youtube-flow-prompt.js"
-  ]
+  ],
+  "figureRefinementVersion": 1
 }

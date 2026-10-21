@@ -46,6 +46,8 @@
       "depthPlan": "",
       "lightingMood": "",
       "supportingElements": [],
+      "peoplePresence": null,
+      "figureDirection": null,
       "continuityNote": "",
       "historicalAccuracyNote": "",
       "promptQcScore": null,

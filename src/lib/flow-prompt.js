@@ -1,4 +1,5 @@
 import { buildHardTextInstruction, buildVisualInterestPromptParts } from './visual-interest.js';
+import { buildFigureDirectionPrompt } from './figure-direction.js';
 
 const REQUIRED_SCENE_FIELDS = [
   'viewerTakeaway',
@@ -108,7 +109,7 @@ function escapeRegex(value) {
 }
 
 export function findHighRiskPromptWords(scene, styleLock) {
-  const haystack = REQUIRED_SCENE_FIELDS.map((field) => text(scene?.[field])).join(' ').toLowerCase();
+  const haystack = [...REQUIRED_SCENE_FIELDS.map((field) => text(scene?.[field])), ...Object.values(scene?.figureDirection ?? {}).map(text)].join(' ').toLowerCase();
   const words = Array.isArray(styleLock?.highRiskPromptWords) ? styleLock.highRiskPromptWords : [];
 
   return words.filter((word) => {
@@ -159,7 +160,8 @@ export function compileScenePrompt(scene, { styleLock, coverText = '', isCover =
   }
 
   const guard = VISUAL_FORM_GUARDS[text(scene.visualForm)];
-  if (guard && !creativeEvidence) parts.push(sentence(guard));
+  if (guard && !creativeEvidence && !(scene.visualForm === 'character-scene' && scene.peoplePresence !== undefined)) parts.push(sentence(guard));
+  parts.push(buildFigureDirectionPrompt(scene, styleLock));
 
   if (creativeEvidence) {
     parts.push(sentence(`Visible evidence that must be legible at video size: ${scene.visibleEvidence}`));
@@ -219,10 +221,11 @@ export function compileFlowPrompt({ meta, mapping, styleLock, worldLock, researc
         if (!reference) throw new Error(`Unbekannte Bildreferenz: ${id}`);
         return reference;
       });
-      return `BILD ${String(index + 1).padStart(2, '0')}\nNarration context, never draw these words: ${scene.narrationBeat}\n${compileScenePrompt(scene, { styleLock, creativeEvidence: true, references })}`;
+      const narration = Number(meta.narrationAlignmentGateVersion ?? 0) >= 1 ? '' : `Narration context, never draw these words: ${scene.narrationBeat}\n`;
+      return `BILD ${String(index + 1).padStart(2, '0')}\n${narration}${compileScenePrompt(scene, { styleLock, creativeEvidence: true, references })}`;
     });
     const entities = (worldLock.entities ?? []).map(entity => `${entity.id}: ${entity.identity}`).join('\n');
-    return `ACTIVE_STYLE_ID: ${styleLock.styleId}\nPROMPT_SYSTEM: flow-compiler-v3\nCREATIVE_EVIDENCE: 1\n\n${title}\nCreate ${mapping.images.length} separate ${aspectRatio} historical illustrations.\n\nSTYLE LOCK:\n${styleLock.masterStylePrompt}\n${styleReferenceInstruction}\n\nWORLD LOCK:\n${worldText}\n${entities}\n\nSTAGE 1 — SEPARATE THUMBNAIL ONLY\nGenerate exactly three distinct thumbnail candidates with exactly "${coverText}". STOP for explicit user selection. Save the reviewed selection to 00-bildprompts/thumbnail.png, outside images/.\n\nSTAGE 2 — STORY IMAGES AFTER USER SELECTION\nBILD headings, narration context and instructions are metadata. Never draw them. Every story image, including BILD 01, is a narration scene with ZERO visible text, numbers, labels, pseudo-writing or watermarks. Labels and routes are added later in the renderer. Each image must show its assigned visible evidence, not merely illustrate the general topic. Preserve recurring identities and changed states; do not reset destruction, positions or weather. Use the same viewpoint when a before/after comparison benefits from it.\n\n${blocks.join('\n\n')}\n\nNEGATIVE STYLE:\n${styleLock.globalNegativePrompt}\n\nREVIEW:\nInspect every final image against narration, historical reference, continuity and visible text. Reject mismatches before approval; do not grant scores automatically. Save exactly Bild 01.png through Bild ${String(mapping.images.length).padStart(2, '0')}.png in images/. No more than five active generations. Phase 3 consumes existing approved images only.\n`;
+    return `ACTIVE_STYLE_ID: ${styleLock.styleId}\nPROMPT_SYSTEM: flow-compiler-v3\nCREATIVE_EVIDENCE: 1\n\n${title}\nCreate ${mapping.images.length} separate ${aspectRatio} historical illustrations.\n\nCHANNEL STYLE — IMMUTABLE:\n${styleLock.masterStylePrompt}\n${styleReferenceInstruction}\n\nVIDEO WORLD LOCK — IMMUTABLE WITHIN THIS VIDEO:\n${worldText}\n${entities}\n\nVISUAL INTEREST RULE — HARD:\nUse one clear visible idea, readable focus and purposeful spatial relationships. Change staging when the story requires it; preserve a viewpoint when a changed state is the point.\n\nINTERNAL METADATA RULE — HARD:\nBILD headings and narration are metadata only and must NEVER appear as artwork text.\n\nSTAGE 1 — SEPARATE THUMBNAIL ONLY\nGenerate exactly three distinct thumbnail candidates with exactly "${coverText}". STOP for explicit user selection. Save the reviewed selection to 00-bildprompts/thumbnail.png, outside images/.\n\nSTAGE 2 — STORY IMAGES AFTER USER SELECTION\nBILD headings, narration context and instructions are metadata. Never draw them. Every story image, including BILD 01, is a narration scene with ZERO visible text, numbers, labels, pseudo-writing or watermarks. Labels and routes are added later in the renderer. Each image must show its assigned visible evidence, not merely illustrate the general topic. Preserve recurring identities and changed states; do not reset destruction, positions or weather. Use the same viewpoint when a before/after comparison benefits from it.\n\n${blocks.join('\n\n')}\n\nNEGATIVE STYLE:\n${styleLock.globalNegativePrompt}\n\nREVIEW:\nInspect every final image against narration, historical reference, continuity and visible text. Reject mismatches before approval; do not grant scores automatically. Save exactly Bild 01.png through Bild ${String(mapping.images.length).padStart(2, '0')}.png in images/. No more than five active generations. Phase 3 consumes existing approved images only.\n`;
   }
 
   const imageBlocks = mapping.images.map((scene, index) => {

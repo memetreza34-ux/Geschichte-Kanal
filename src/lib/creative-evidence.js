@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { projectPaths, readJson, sha256 } from './pipeline.js';
 import { fingerprint } from './production-integrity.js';
+import { validateFigureDirection } from './figure-direction.js';
 
 const filled = value => typeof value === 'string' && value.trim().length >= 12 && !/\[[^\]]+\]|\bTODO\b|\bTBD\b|PLACEHOLDER|UNSET/i.test(value);
 const list = value => Array.isArray(value) ? value : [];
@@ -30,6 +31,9 @@ export async function creativeInputs(projectDirectory) {
 export function validateCreativeEvidence(input) {
   const { meta, mapping, research, review, worldLock, script, scriptSha256 } = input;
   const errors = [];
+  if (Number(meta?.figureDirectionVersion ?? 0) >= 1) {
+    for (const scene of list(mapping?.images)) errors.push(...validateFigureDirection(scene));
+  }
   if (!usesCreativeEvidence(meta)) {
     if (Number(meta?.schemaVersion) >= 5) errors.push('Schema 5 benötigt creativeEvidenceVersion=1.');
     return { passed: errors.length === 0, errors };
