@@ -6,9 +6,12 @@ import { arg, projectPaths, readJson, writeJson } from '../lib/pipeline.js';
 import { compileFlowPrompt } from '../lib/flow-prompt.js';
 import { injectNarrationAlignmentIntoPrompt, validateNarrationAlignmentProject } from '../lib/narration-alignment.js';
 import { injectDirectingIntoPrompt, validateDirectingPlan } from '../lib/directing.js';
+import { usesCreativeEvidence, validateCreativeProject } from '../lib/creative-evidence.js';
 
 export async function buildYoutubeFlowPrompt(projectDirectory) {
   const p = projectPaths(projectDirectory);
+  const creative = await validateCreativeProject(projectDirectory);
+  if (!creative.passed) throw new Error(`Creative-Evidence-Gate blockiert den Prompt-Build:\n${creative.errors.join('\n')}`);
   const [meta, mapping, styleLock, worldLock, script, renderPlan] = await Promise.all([
     readJson(p.meta),
     readJson(p.mapping),
@@ -36,9 +39,10 @@ export async function buildYoutubeFlowPrompt(projectDirectory) {
     }
   }
 
-  let prompt = compileFlowPrompt({ meta, mapping, styleLock, worldLock });
-  if (narrationAlignmentPolicy) prompt = injectNarrationAlignmentIntoPrompt(prompt, mapping);
-  if (directingPolicy) prompt = injectDirectingIntoPrompt(prompt, mapping, renderPlan);
+  const research = usesCreativeEvidence(meta) ? await readJson(p.researchEvidence) : null;
+  let prompt = compileFlowPrompt({ meta, mapping, styleLock, worldLock, research });
+  if (narrationAlignmentPolicy && !usesCreativeEvidence(meta)) prompt = injectNarrationAlignmentIntoPrompt(prompt, mapping);
+  if (directingPolicy && !usesCreativeEvidence(meta)) prompt = injectDirectingIntoPrompt(prompt, mapping, renderPlan);
 
   await writeFile(p.prompt, prompt, 'utf8');
 

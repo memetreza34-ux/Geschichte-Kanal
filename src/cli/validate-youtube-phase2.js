@@ -5,6 +5,7 @@ import path from 'node:path';
 import { arg, discoverAudioFiles, exists, listFinalImages, projectPaths, readJson, sha256 } from '../lib/pipeline.js';
 import { inspectPng } from '../lib/image-integrity.js';
 import { validateStandaloneThumbnail } from '../lib/thumbnail-policy.js';
+import { usesCreativeEvidence, validateCreativeImageReview } from '../lib/creative-evidence.js';
 
 function validScore(value, minimum) {
   const score = Number(value);
@@ -22,9 +23,9 @@ async function validateVisualQc(qc, meta, images, mapping) {
     if (String(qc.hashAlgorithm ?? '').toLowerCase() !== 'sha256') errors.push('PHASE2_VISUAL_QC.hashAlgorithm muss sha256 sein.');
   }
 
-  const minimumNarration = Number(qc.minimumNarrationSupportScore ?? 8);
-  const minimumInterest = Number(qc.minimumVisualInterestScore ?? 8);
-  const minimumStyle = Number(qc.minimumStyleConsistencyScore ?? 8);
+  const minimumNarration = Math.max(8, Number(qc.minimumNarrationSupportScore ?? 8));
+  const minimumInterest = Math.max(8, Number(qc.minimumVisualInterestScore ?? 8));
+  const minimumStyle = Math.max(8, Number(qc.minimumStyleConsistencyScore ?? 8));
   const entries = Array.isArray(qc.images) ? qc.images : [];
   const plannedScenes = Array.isArray(mapping?.images) ? mapping.images : [];
 
@@ -130,6 +131,7 @@ export async function validatePhase2(projectDirectory) {
       errors.push('Neue Produktion benötigt 99-technik/PHASE2_VISUAL_QC.json vor Phase 3.');
     } else if (Number.isInteger(count) && count > 0) {
       const qc = await readJson(p.phase2VisualQc);
+      if (usesCreativeEvidence(meta) || Number(meta.schemaVersion) >= 5) errors.push(...(await validateCreativeImageReview(projectDirectory, qc)).errors);
       errors.push(...await validateVisualQc(qc, meta, images, mapping));
       errors.push(...await validateStandaloneThumbnail(p, meta, qc));
     }

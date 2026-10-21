@@ -218,7 +218,7 @@ test('Projekt-Template nutzt Pipeline V4, Upload-Metadaten und neue Bilddichte',
   const wholeVideoQc = JSON.parse(await readFile('youtube/templates/video-template/99-technik/WHOLE_VIDEO_QC.json', 'utf8'));
   const prompt = await readFile('youtube/templates/video-template/00-bildprompts/google-flow-prompt.txt', 'utf8');
 
-  assert.equal(meta.schemaVersion, 3);
+  assert.equal(meta.schemaVersion, 5);
   assert.equal(meta.pipelineVersion, 4);
   assert.equal(meta.visualStyleId, 'UNSET');
   assert.equal(meta.coverPolicy.firstSceneIsCover, false);
@@ -231,7 +231,8 @@ test('Projekt-Template nutzt Pipeline V4, Upload-Metadaten und neue Bilddichte',
   assert.ok(Object.hasOwn(meta, 'youtubeUpload'));
   assert.equal(meta.youtubeUpload.title, '');
   assert.equal(meta.youtubeUpload.description, '');
-  assert.equal(meta.audioPolicy.playbackRate, 1.05);
+  assert.equal(meta.audioPolicy.playbackRate, 1);
+  assert.equal(meta.audioPolicy.preserveInternalPauses, true);
   assert.equal(mapping.schemaVersion, 2);
   assert.ok(Object.hasOwn(mapping.images[0], 'viewerTakeaway'));
   assert.ok(Object.hasOwn(mapping.images[0], 'visualConcept'));

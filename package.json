@@ -9,6 +9,7 @@
     "topic:youtube": "node src/cli/check-youtube-topic.js",
     "validate:youtube-preproduction": "node src/cli/validate-youtube-preproduction.js",
     "build:youtube-flow": "node src/cli/build-youtube-flow-prompt.js",
+    "preview:youtube-plan": "node src/cli/preview-youtube-plan.js",
     "validate:youtube-phase1": "node src/cli/validate-youtube-phase1-full.js",
     "validate:youtube-phase2": "node src/cli/validate-youtube-phase2.js",
     "lock:youtube-phase3-images": "node src/cli/phase3-image-lock.js",

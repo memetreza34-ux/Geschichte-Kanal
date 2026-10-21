@@ -53,7 +53,20 @@
       "holdReason": "",
       "actualStartSeconds": null,
       "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "alignmentConfidence": null,
+      "sequenceId": "",
+      "beatFunction": "",
+      "knowledgeChange": "",
+      "visibleEvidence": "",
+      "claimIds": [],
+      "visualReferenceIds": [],
+      "focusPoint": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "continuity": [],
+      "overlays": []
     }
-  ]
+  ],
+  "planningStartedAt": null
 }

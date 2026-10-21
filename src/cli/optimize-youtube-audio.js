@@ -31,10 +31,14 @@ function buildFilter(policy) {
   const keep = Number(policy.retainedPauseSeconds);
   const speed = Number(policy.playbackRate);
   return [
-    `silenceremove=start_periods=1:start_duration=0.12:start_threshold=-38dB:start_silence=0.02:stop_periods=-1:stop_duration=${longPause}:stop_threshold=${threshold}dB:stop_silence=${keep}:detection=rms`,
+    policy.preserveInternalPauses === true
+      ? 'silenceremove=start_periods=1:start_duration=0:start_threshold=-50dB:start_silence=0.05'
+      : `silenceremove=start_periods=1:start_duration=0.12:start_threshold=-38dB:start_silence=0.02:stop_periods=-1:stop_duration=${longPause}:stop_threshold=${threshold}dB:stop_silence=${keep}:detection=rms`,
     `atempo=${speed}`,
     'areverse',
-    `silenceremove=start_periods=1:start_duration=0.10:start_threshold=${threshold}dB:start_silence=0.05:detection=rms`,
+    policy.preserveInternalPauses === true
+      ? 'silenceremove=start_periods=1:start_duration=0:start_threshold=-50dB:start_silence=0.05:detection=rms'
+      : `silenceremove=start_periods=1:start_duration=0.10:start_threshold=${threshold}dB:start_silence=0.05:detection=rms`,
     'areverse',
     loudnormFilter(policy),
     `aresample=${Number(policy.outputSampleRateHz)}`
@@ -95,7 +99,8 @@ export async function optimizeAudio(projectDirectory) {
   }
 
   const loudnessOk = measurement.measured && Math.abs(measurement.integratedLufs - Number(policy.loudnessTargetLufs)) <= 1.2 && measurement.truePeakDbtp <= Number(policy.truePeakDbtp) + 0.25;
-  if (!(after < before)) throw new Error(`Audio wurde nicht verkürzt (${before}s → ${after}s).`);
+  if (policy.preserveInternalPauses !== true && !(after < before)) throw new Error(`Audio wurde nicht verkürzt (${before}s → ${after}s).`);
+  if (policy.preserveInternalPauses === true && after > before / Number(policy.playbackRate) + 0.1) throw new Error('Audio wurde unerwartet verlängert.');
   if (!loudnessOk) throw new Error(`Lautheitsmessung außerhalb des Ziels: ${JSON.stringify(measurement)}`);
   if (await sha256(source) !== sourceHash) throw new Error('Nutzeroriginal wurde verändert.');
 
@@ -110,6 +115,7 @@ export async function optimizeAudio(projectDirectory) {
     afterSeconds: after,
     removedSeconds: Number((before - after).toFixed(3)),
     playbackRate: policy.playbackRate,
+    preserveInternalPauses: policy.preserveInternalPauses === true,
     pitchPreserved: true,
     loudnessTargetLufs: policy.loudnessTargetLufs,
     truePeakDbtp: policy.truePeakDbtp,

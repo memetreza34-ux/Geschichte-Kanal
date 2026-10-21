@@ -1,0 +1,97 @@
+{
+  "retrievedOn": "2026-10-20",
+  "purpose": "Quellen und beobachtbare Erzähl-/Bildprinzipien für zukünftige Zeitkulisse-Produktionen",
+  "status": "RESEARCH_AND_RECOMMENDATIONS_ONLY",
+  "productionChangesImplemented": false,
+  "oldVideosModified": false,
+  "channel": "https://www.youtube.com/@Zeitkulisse",
+  "methods": [
+    "Öffentliche Kanalansicht im Browser",
+    "Direkt abgerufene reguläre YouTube-Untertitel; Verfasser nicht verifiziert",
+    "Visuelle Einzelbilder aus Referenzvideos und pausierte Browserwiedergabe",
+    "Ein Frame aus jeder Szene der beiden lokalen eigenen finalen MP4s",
+    "Abgleich mit eigenen Skripten, Szenenplanung, Renderdaten und ausgewählten QC-Einträgen",
+    "Offizielle historische Quelle, Originalartikel zum multimedialen Lernen und YouTube-Dokumentation"
+  ],
+  "limits": [
+    "Kein vollständiger Kanal-Audit und keine repräsentative Erfolgsstatistik",
+    "Keine privaten Prompts, Skriptentwürfe, CTR oder Retention der Referenzkanäle",
+    "Keine vollständige historische Prüfung aller Referenzvideos",
+    "Die eigene vollständige Bildfolge wurde über Szenenframes untersucht; keine abschließende Beurteilung der Stimmwirkung",
+    "Kommentare dienen als einzelne Reaktionen, nicht als historische Quellen oder repräsentative Publikumsbefragung"
+  ],
+  "ownVideos": [
+    {"id":"RWEsmeCwmc0","title":"Warum der Große Brand von London 1666 vier Tage nicht zu stoppen war","url":"https://www.youtube.com/watch?v=RWEsmeCwmc0","localFramesInspected":84},
+    {"id":"hcpiM7UfDyk","title":"Warum Russlands Flotte 1905 nach einer halben Weltreise scheiterte","url":"https://www.youtube.com/watch?v=hcpiM7UfDyk","localFramesInspected":83}
+  ],
+  "referenceVideos": [
+    {
+      "channel":"OverSimplified","id":"BXpu6tbFCsI","title":"Emu War – Mini-Wars #4","uploadDate":"2018-11-15",
+      "url":"https://www.youtube.com/watch?v=BXpu6tbFCsI","method":"Reguläre englische Untertitel",
+      "observations":[{"seconds":195,"endSeconds":280,"observation":"Problem, Handlungsdruck und folgende Militärentscheidung"},{"seconds":353,"endSeconds":458,"observation":"Mehrere Versuche mit veränderter Taktik und neuen Fehlerursachen"},{"seconds":575,"endSeconds":584,"observation":"Schlussbezug auf früheres Motiv"}]
+    },
+    {
+      "channel":"OverSimplified","id":"QLq6GEiHqR8","title":"The Pig War","uploadDate":"2021-12-06",
+      "url":"https://www.youtube.com/watch?v=QLq6GEiHqR8","method":"Reguläre englische Untertitel",
+      "observations":[{"seconds":566,"endSeconds":585,"observation":"Grenzfrage entsteht aus einer Vertragsformulierung"},{"seconds":1358,"endSeconds":1401,"observation":"Umstrittene Motive werden von beobachtbarer Handlung unterschieden"},{"seconds":1441,"endSeconds":1472,"observation":"Nachrichtenverzögerung erklärt Eskalationsgefahr"}]
+    },
+    {
+      "channel":"OverSimplified","id":"1BVJzaXv3rk","title":"The Second Punic War – Part 3","uploadDate":"2025-01-18",
+      "url":"https://www.youtube.com/watch?v=1BVJzaXv3rk","method":"Offizieller Videos-Tab und reguläre en-US-Untertitel; aktueller Gegencheck einer 2025 veröffentlichten Folge",
+      "observations":[{"seconds":85,"endSeconds":92,"observation":"Explizite Leitfrage"},{"seconds":135,"endSeconds":157,"observation":"Verlust führt zu Zeitdruck und konkreter Ersatzfrage"},{"seconds":460,"endSeconds":514,"observation":"Strategische Lage motiviert Wechsel zu anderen Fronten"}]
+    },
+    {
+      "channel":"Extra History","id":"EbBHk_zLTmY","title":"Punic Wars Part 1","uploadDate":"2013-09-06",
+      "url":"https://www.youtube.com/watch?v=EbBHk_zLTmY","method":"Englische Untertitel und tatsächlich betrachtete Einzelbilder",
+      "observations":[{"seconds":160,"observation":"Lesbare Figurenkennzeichnung"},{"seconds":195,"observation":"Karte mit Legende und fokussierendem Pfeil"},{"seconds":210,"endSeconds":225,"observation":"Zweierbild gefolgt von enger Figurenreaktion"},{"seconds":300,"observation":"Eigenes Erklärbild für abstrakte Verbindung"}]
+    },
+    {
+      "channel":"Extra History","id":"AG5jzaocy4I","title":"Nathanael Greene: The Fighting Quaker | U.S. Revolutionary War History","uploadDate":"2026-10-17",
+      "url":"https://www.youtube.com/watch?v=AG5jzaocy4I","method":"Offizieller Videos-Tab, direkte Metadaten, drei pausierte Browserbilder mit sichtbarer Playerzeit",
+      "observations":[{"seconds":179,"observation":"Beziehung über Schultergeste und NG-Kennzeichnung"},{"seconds":269,"observation":"Enge emotionale Reaktion"},{"seconds":359,"observation":"Figurenidentität bleibt trotz verändertem Kostüm erkennbar"}]
+    },
+    {
+      "channel":"Simple History","id":"Fk-LjY16zdM","title":"Christmas Truce (1914)","uploadDate":"2016-12-23",
+      "url":"https://www.youtube.com/watch?v=Fk-LjY16zdM","method":"Englische Untertitel, tatsächlich betrachtete Einzelbilder und Browserstichprobe",
+      "observations":[{"seconds":8,"endSeconds":15,"observation":"Räumliche Trennung und gemeinsame Übersicht"},{"seconds":24,"endSeconds":30,"observation":"Handlung und Reaktion"},{"seconds":36,"observation":"Quellenmoment mit Bild und Briefdarstellung; Provenienz der einzelnen Objekte hier nicht geprüft"},{"seconds":68,"endSeconds":75,"observation":"Verschiedene konkrete Handlungen"}]
+    },
+    {
+      "channel":"Simple History","id":"HKYQqRcAeEU","title":"This Gas Mask Has a Rhino Horn, and Changed Everything","uploadDate":"2026-10-20",
+      "url":"https://www.youtube.com/watch?v=HKYQqRcAeEU","method":"Offizieller Videos-Tab, direkte Metadaten, drei pausierte Browserbilder mit sichtbarer Playerzeit",
+      "observations":[{"seconds":55,"observation":"Objektlabel mit Zeigelinie"},{"seconds":110,"observation":"Detailfokus mit Handhandlung an Sichtscheibe"},{"seconds":165,"observation":"Objekt in verständlicher Gefahrenumgebung"}]
+    }
+  ],
+  "additionalSources": [
+    {
+      "title":"Cathedral Church of St Paul – National Heritage List 1079157",
+      "url":"https://historicengland.org.uk/listing/the-list/list-entry/1079157",
+      "publisher":"Historic England","type":"Offizieller Gebäudeeintrag",
+      "supports":"Wren-Neubau 1675–1710 mit zentraler Kuppel; früherer mittelalterlicher Bau beim Brand 1666 zerstört"
+    },
+    {
+      "title":"Effective Educational Videos: Principles and Guidelines for Maximizing Student Learning from Video Content",
+      "author":"Cynthia J. Brame","year":2016,"doi":"10.1187/cbe.16-03-0125",
+      "url":"https://pdfs.semanticscholar.org/5394/611ef0b659787a015634c479b048dbc92949.pdf",
+      "type":"Originalartikel, sechs Seiten, über einen Spiegel gelesen",
+      "supports":"Aufmerksamkeitslenkung, Entfernen irrelevanter Informationen und passende Ergänzung von Narration und Bild",
+      "limit":"Lernkontexte; keine garantierten YouTube-Erfolgswerte oder universellen Schnittintervalle"
+    },
+    {
+      "title":"Measure key moments for audience retention",
+      "url":"https://support.google.com/youtube/answer/9314415","publisher":"YouTube Help","type":"Offizielle Plattformdokumentation",
+      "supports":"Interpretation von Intro, starken Stellen, Spitzen und Einbrüchen; Daten statt vermuteter Retention verwenden"
+    },
+    {
+      "title":"Extra Credits FAQ","url":"https://www.extracredits.site/faq","publisher":"Extra Credits","type":"Creator-eigene Produktionsbeschreibung",
+      "supports":"Unterschiedene Arbeitsschritte für Illustration, Schnitt und Audio werden beschrieben",
+      "limit":"Kein Nachweis einer bestimmten internen Freigaberegel und keine Erfolgskausalität"
+    }
+  ],
+  "commentSamples": {
+    "viewers":38,"creatorPins":2,"selection":"Je die ersten 20 geladenen sichtbaren Hauptkommentare, inklusive Pin; keine zufällige Auswahl und keine Antworten geöffnet",
+    "videos":["https://www.youtube.com/watch?v=8qRZcXIODNU","https://www.youtube.com/watch?v=ypswk9-DP9M"],
+    "keyCreatorEvidence":"https://www.youtube.com/watch?v=ypswk9-DP9M&lc=UgwgULNeyC99G6gDBW54AaABAg",
+    "observation":"Extra History erklärt selbst eine gekürzte Neuveröffentlichung wegen einer verwirrenden Passage",
+    "limit":"Einzelne qualitative Hinweise; keine repräsentativen Präferenzen und keine historische Faktenprüfung"
+  }
+}

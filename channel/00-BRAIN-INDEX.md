@@ -153,6 +153,7 @@ Der Flow-Prompt-Build, `validate:youtube-phase1` und Phase 3 blockieren neue Pro
 - `17-WHOLE-VIDEO-COHERENCE-GATE.md` — Fließtext + Gesamtsequenz + Erkläranteil
 - `18-NARRATION-ALIGNMENT-GATE.md` — harte Bild-Skript-Passung + Chronologie + Klarheit
 - `22-CONTINUOUS-IMPROVEMENT.md` — höchste Priorität, Postvideo-Rückkopplung und Hard-Gate
+- `23-RESEARCH-AND-SCENE-EVIDENCE.md` — Quellenbelege, Kausalität, Zustandskontinuität und reale Sichtbefunde für neue Produktionen
 - `21-YOUTUBE-CAPTION-V2.md` — Uploadbeschreibung mit zwei Absätzen und fünf Hashtags für zukünftige Videos
 - `99-DECISION-LOG.md` — chronologische Entscheidungen
 
@@ -226,7 +227,7 @@ Neue Produktionen:
 
 ### Bild 01
 
-Nur exakter Covertext. Keine Bildnummer, Zusatzüberschrift oder Labels.
+Bei neuen Produktionen eine normale Erzählszene ohne generierten Text. Das separate Thumbnail gehört nach `00-bildprompts/thumbnail.png`. Nur Legacy-Projekte mit `firstSceneIsCover=true` erlauben hier ihren exakten Covertext.
 
 ### Bild 02–NN
 
@@ -252,6 +253,8 @@ Textprüfung folgt exakt der Scene Card:
 - Cover → exakter Covertext
 - NO_VISIBLE_TEXT → kein Text
 - EDITORIAL_TEXT → exakt der freigegebene `editorialText`
+
+Schema 5: Alle generierten Storybilder bleiben textfrei. Exakte Beschriftungen und Routen stehen in `overlays` und werden im Renderer gesetzt. Zusätzlich sind Quellen-/Plan-Fingerprints und konkrete Sichtbefunde Pflicht; siehe Datei 23.
 
 Wird ein freigegebenes Bild ersetzt, fällt Phase 2 durch.
 

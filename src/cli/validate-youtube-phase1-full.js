@@ -7,12 +7,14 @@ import { validateNarrationAlignmentProject } from '../lib/narration-alignment.js
 import { validateDirectingPlan } from '../lib/directing.js';
 import { findUnreviewedExports } from '../lib/continuous-improvement.js';
 import { validatePhase1 } from './validate-youtube-phase1.js';
+import { validateCreativeProject } from '../lib/creative-evidence.js';
 
 export async function validatePhase1Full(projectDirectory) {
   const base = await validatePhase1(projectDirectory);
   const errors = [...base.errors];
   const p = projectPaths(projectDirectory);
   const meta = await readJson(p.meta);
+  errors.push(...(await validateCreativeProject(projectDirectory)).errors.map(error => `Creative Evidence: ${error}`));
 
   if (Number(meta.narrationAlignmentGateVersion ?? 0) >= 1) {
     const [mapping, script, policy] = await Promise.all([

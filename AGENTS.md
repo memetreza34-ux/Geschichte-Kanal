@@ -1,5 +1,10 @@
 # Agent Policy
 
+## Evidence for future productions
+
+New schema-5 projects require `creativeEvidenceVersion=1` and the process in `channel/23-RESEARCH-AND-SCENE-EVIDENCE.md`.
+Record sources, claim support and historical visual references before approval. Record script review before scene planning. Preserve declared entity states across scenes. Bind script, sequence and image reviews to their current fingerprints. Never generate APPROVED states, scores or visual observations as a substitute for actually reviewing the corresponding material. Use the current template and CLI for new projects; project-specific legacy generators are historical artifacts, not templates.
+
 ## Preproduction quality is mandatory for new projects
 
 For every AI/coding agent working in this repository, new productions with `preproductionQualityGateVersion >= 1` must pass:

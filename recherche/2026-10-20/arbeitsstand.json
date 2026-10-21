@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-20",
+  "goalStatus": "active",
+  "completedPhase": "Recherche, Repo-Verbesserungen und lokale Verifikation",
+  "requirements": [
+    {
+      "requirement": "Eigene zwei Zeitkulisse-Videos identifizieren",
+      "status": "complete",
+      "evidence": "Öffentliche Kanalansicht und zugehörige Antigravity-Exports"
+    },
+    {
+      "requirement": "Skripte und Bildfolge der eigenen Videos untersuchen",
+      "status": "complete_with_limits",
+      "evidence": "Sprechertexte, Szenenplanung und 167 Szenenframes; keine abschließende Echtzeit-Audiobeurteilung"
+    },
+    {
+      "requirement": "Größere vergleichbare Kanäle recherchieren",
+      "status": "complete",
+      "evidence": "Drei verifizierte Kanäle, sieben Fallstudien/Gegenchecks, Untertitel und tatsächliche Bildstichproben"
+    },
+    {
+      "requirement": "Quellen und konkrete Verbesserungen für Skripte, Prompts und Szenen liefern",
+      "status": "complete",
+      "evidence": "KREATIV-ANALYSE-2026-10-20.md und quellenregister.json"
+    },
+    {
+      "requirement": "Bestehende Videos nicht überarbeiten",
+      "status": "respected",
+      "evidence": "Ausschließlich lesender Zugriff auf alte Produktionen; neue Analyseartefakte im aktuellen Arbeitsordner"
+    },
+    {
+      "requirement": "Repo für zukünftige Produktionen verbessern",
+      "status": "implemented_locally_verified",
+      "evidence": "UMSETZUNG-2026-10-21.md; 86 Tests, echtes Remotion-Bundle und synthetischer MP4-Testrender"
+    },
+    {
+      "requirement": "Danach ein vollständig neues Video produzieren",
+      "status": "not_started",
+      "evidence": "Folgt erst nach Umsetzung und Prüfung der Repo-Verbesserungen"
+    }
+  ],
+  "canonicalRepositoryCommit": "09eee4f18f0619508218a1a18e7d96fd7b731b7d",
+  "sourceWorkingCopy": "/Users/arman/.gemini/antigravity/scratch/Youtube-dingestickman",
+  "sourceWorkingCopyNote": "Enthält fremde lokale Änderungen und liegt zwei Commits hinter dem geprüften GitHub-Stand; nicht überschreiben.",
+  "report": "/Users/arman/Documents/ChatGPT/Geschichte-Kanal/KREATIV-ANALYSE-2026-10-20.md",
+  "updatedAt": "2026-10-21T04:16:44.126Z",
+  "implementationBranch": "codex/production-quality",
+  "nextStep": "Neue Produktion: Apollo 13 recherchieren; Quellen und Skript vor Szenenplanung prüfen."
+}

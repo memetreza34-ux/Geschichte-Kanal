@@ -3,6 +3,7 @@
 import { mkdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { arg, execFileAsync, normalizeText, probeDuration, projectPaths, readJson, sha256, tokens, writeJson } from '../lib/pipeline.js';
+import { alignedMappingErrors, alignmentFingerprint, fingerprint } from '../lib/production-integrity.js';
 
 function flattenWords(whisperJson) {
   const words = [];
@@ -48,14 +49,18 @@ export async function alignProject(projectDirectory, { model = 'small', refresh 
   const p = projectPaths(projectDirectory);
   const mapping = await readJson(p.mapping);
   const audioHash = await sha256(p.optimizedAudio);
+  const language = (await readJson(p.meta)).language ?? 'de';
+  const scriptSha256 = await sha256(p.script);
+  const inputFingerprint = alignmentFingerprint(mapping, { model, language, scriptSha256 });
   const evidenceExisting = await readJson(p.alignmentEvidence, null);
-  if (!refresh && evidenceExisting?.audioFingerprintSha256 === audioHash && evidenceExisting?.passed === true) {
+  if (!refresh && evidenceExisting?.audioFingerprintSha256 === audioHash && evidenceExisting?.passed === true &&
+      evidenceExisting.inputFingerprint === inputFingerprint && evidenceExisting.mappingFingerprint === fingerprint(mapping) &&
+      alignedMappingErrors(mapping.images).length === 0) {
     return { reused: true, mapping, evidence: evidenceExisting };
   }
 
   const whisperDir = path.join(p.techDir, 'whisper');
   await mkdir(whisperDir, { recursive: true });
-  const language = (await readJson(p.meta)).language ?? 'de';
 
   await execFileAsync('whisper', [
     p.optimizedAudio,
@@ -79,7 +84,7 @@ export async function alignProject(projectDirectory, { model = 'small', refresh 
     if (index === 0) {
       const first = findAnchor(words, image.startAnchor, 0);
       if (!first) misses.push({ imageNumber: image.imageNumber, startAnchor: image.startAnchor });
-      else cursor = first.wordIndex;
+      else cursor = first.wordIndex + 1;
       return { ...image, actualStartSeconds: 0, alignmentConfidence: first?.confidence ?? 0 };
     }
     const match = findAnchor(words, image.startAnchor, cursor);
@@ -87,7 +92,7 @@ export async function alignProject(projectDirectory, { model = 'small', refresh 
       misses.push({ imageNumber: image.imageNumber, startAnchor: image.startAnchor });
       return { ...image, actualStartSeconds: null, alignmentConfidence: 0 };
     }
-    cursor = match.wordIndex;
+    cursor = match.wordIndex + 1;
     return { ...image, actualStartSeconds: Number(match.startSeconds.toFixed(3)), alignmentConfidence: match.confidence };
   });
 
@@ -108,19 +113,24 @@ export async function alignProject(projectDirectory, { model = 'small', refresh 
   await writeJson(p.mapping, updated);
 
   const evidence = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     createdAt: new Date().toISOString(),
     model,
     language,
     audioFingerprintSha256: audioHash,
+    scriptSha256,
+    inputFingerprint,
+    mappingFingerprint: fingerprint(updated),
     wordCount: words.length,
     matchedImages: aligned.length - misses.length,
     totalImages: aligned.length,
     misses,
-    passed: misses.length === 0
+    errors: alignedMappingErrors(aligned),
+    passed: misses.length === 0 && alignedMappingErrors(aligned).length === 0
   };
   await writeJson(p.alignmentEvidence, evidence);
   if (misses.length) throw new Error(`Whisper konnte ${misses.length} Bildanker nicht sicher finden.`);
+  if (!evidence.passed) throw new Error(evidence.errors.join('\n'));
   return { reused: false, mapping: updated, evidence };
 }
 

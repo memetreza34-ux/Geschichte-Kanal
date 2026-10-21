@@ -1,0 +1,92 @@
+{
+  "root": "/tmp/geschichte-review-proof-YjEEaW",
+  "results": {
+    "renderPathTraversal": {
+      "sentinelDeleted": true,
+      "pathOutsideRenderRoot": "/tmp/geschichte-review-proof-YjEEaW/work/victim"
+    },
+    "prepareWithoutQcOrLock": {
+      "accepted": true,
+      "phase2QcExists": false,
+      "imageLockExists": false
+    },
+    "alignmentCache": {
+      "reused": true,
+      "timings": {
+        "imageNumber": 1,
+        "startAnchor": "Geänderter neuer Anker",
+        "actualStartSeconds": null,
+        "actualEndSeconds": null
+      },
+      "whisperWasRequired": false
+    },
+    "pngValidation": {
+      "validator": {
+        "passed": true,
+        "width": 1280,
+        "height": 720,
+        "errors": []
+      },
+      "decoder": {
+        "accepted": false,
+        "exitCode": 187,
+        "error": "[png @ 0xa92c3c380] inflate returned error -3\n[png @ 0xa92c3d180] inflate returned error -3\n[vist#0:0/png @ 0xa93034180] [dec:png @ 0xa9303c280] Decoding error: Generic error in an external library\n[vist#0:0/png @ 0xa93034180] [dec:png @ 0xa9303c280] Error processing packet in decoder: Generic error in an external library\n[vist#0:0/png @ 0xa93034180] [dec:png @ 0xa9303c280] Task finished with erro"
+      }
+    },
+    "qcThresholdOverride": {
+      "defaultPassed": false,
+      "defaultErrors": [
+        "Bild 1: narrationSupportScore muss mindestens 8/10 sein.",
+        "Bild 1: visualInterestScore muss mindestens 8/10 sein.",
+        "Bild 1: styleConsistencyScore muss mindestens 8/10 sein."
+      ],
+      "loweredPassed": true,
+      "loweredErrors": []
+    },
+    "lastFrameMath": {
+      "durationSeconds": 10.001,
+      "fps": 30,
+      "compositionFrames": 301,
+      "lastSequenceExclusiveEnd": 300,
+      "uncoveredFrames": 1
+    },
+    "missingResearch": {
+      "passed": true,
+      "errors": []
+    },
+    "staleAudioReports": {
+      "passed": true,
+      "errors": []
+    },
+    "invalidMp4PostRender": {
+      "passed": true,
+      "errors": [],
+      "bytes": 100001,
+      "content": "ASCII A, no media container"
+    }
+  },
+  "repository": "https://github.com/memetreza34-ux/Geschichte-Kanal",
+  "commit": "09eee4f18f0619508218a1a18e7d96fd7b731b7d",
+  "reviewDate": "2026-10-20",
+  "testSuite": {
+    "node": "24.15.0",
+    "tests": 72,
+    "passed": 72,
+    "failed": 0
+  },
+  "projectValidation": {
+    "projects": 12,
+    "phase1Passed": 10,
+    "phase1Failed": 2,
+    "failedLegacyProjects": [
+      "test-kenilworth-belagerung",
+      "test-pompeji-vesuv"
+    ]
+  },
+  "scopeLimits": {
+    "trackedMediaFiles": 0,
+    "trackedExportReports": 0,
+    "trackedPostVideoReviews": 0,
+    "fullRemotionRenderPerformed": false
+  }
+}

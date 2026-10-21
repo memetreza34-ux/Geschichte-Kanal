@@ -120,7 +120,7 @@ export function findHighRiskPromptWords(scene, styleLock) {
   });
 }
 
-export function compileScenePrompt(scene, { styleLock, coverText = '', isCover = false } = {}) {
+export function compileScenePrompt(scene, { styleLock, coverText = '', isCover = false, creativeEvidence = false, references = [] } = {}) {
   validateStyleLock(styleLock, styleLock?.styleId);
   for (const field of REQUIRED_SCENE_FIELDS) {
     if (!text(scene?.[field]) || containsPlaceholder(scene[field])) {
@@ -149,7 +149,7 @@ export function compileScenePrompt(scene, { styleLock, coverText = '', isCover =
     sentence(`Make ${scene.dominantSubject} the unmistakable dominant subject; ${scene.actionState}`),
     sentence(scene.composition),
     sentence(`Use ${scene.camera}`),
-    ...buildVisualInterestPromptParts(scene).map((part) => sentence(part)),
+    ...(creativeEvidence ? [] : buildVisualInterestPromptParts(scene).map((part) => sentence(part))),
     sentence(`Organize depth as follows: ${scene.depthPlan}`),
     sentence(`Lighting and mood: ${scene.lightingMood}`)
   ];
@@ -159,7 +159,21 @@ export function compileScenePrompt(scene, { styleLock, coverText = '', isCover =
   }
 
   const guard = VISUAL_FORM_GUARDS[text(scene.visualForm)];
-  if (guard) parts.push(sentence(guard));
+  if (guard && !creativeEvidence) parts.push(sentence(guard));
+
+  if (creativeEvidence) {
+    parts.push(sentence(`Visible evidence that must be legible at video size: ${scene.visibleEvidence}`));
+    parts.push(sentence(`Local color, weather and activity: ${scene.colorIntent}; ${scene.worldLifeDetail}`));
+    for (const reference of references) {
+      parts.push(sentence(`Historical reference: ${reference.description}`));
+      parts.push(sentence(`Must show: ${listSentence(reference.mustShow)}`));
+      parts.push(sentence(`Must avoid: ${listSentence(reference.mustAvoid)}`));
+    }
+    for (const change of scene.continuity ?? []) parts.push(sentence(`Preserve the established identity of ${change.entityId}; show the current state: ${change.toState}`));
+    for (const overlay of scene.overlays ?? []) {
+      if (overlay.type === 'label') parts.push(sentence(`Keep the area around ${Math.round(overlay.x * 100)}% across and ${Math.round(overlay.y * 100)}% down visually quiet for a later editorial label; do not draw that label`));
+    }
+  }
 
   parts.push(sentence(scene.continuityNote));
   parts.push(sentence(scene.historicalAccuracyNote));
@@ -177,7 +191,7 @@ export function compileScenePrompt(scene, { styleLock, coverText = '', isCover =
   return parts.filter(Boolean).join(' ');
 }
 
-export function compileFlowPrompt({ meta, mapping, styleLock, worldLock }) {
+export function compileFlowPrompt({ meta, mapping, styleLock, worldLock, research }) {
   validateStyleLock(styleLock, meta?.visualStyleId);
   if (!meta || typeof meta !== 'object') throw new Error('video.json fehlt.');
   if (!mapping || !Array.isArray(mapping.images) || !mapping.images.length) throw new Error('BILD_AUDIO_ZUORDNUNG.json enthält keine Bilder.');
@@ -194,6 +208,22 @@ export function compileFlowPrompt({ meta, mapping, styleLock, worldLock }) {
   const title = text(meta.title);
   const topic = text(meta.topic);
   const aspectRatio = text(meta.aspectRatio) || '16:9';
+
+  if (Number(meta.creativeEvidenceVersion ?? 0) >= 1) {
+    if (firstSceneIsCover) throw new Error('Creative Evidence benötigt ein separates Thumbnail.');
+    if (!Array.isArray(research?.visualReferences) || !research.visualReferences.length) throw new Error('Historische Bildreferenzen fehlen.');
+    const blocks = mapping.images.map((scene, index) => {
+      if (scene.imageNumber !== index + 1) throw new Error('Bildnummern sind nicht lückenlos.');
+      const references = (scene.visualReferenceIds ?? []).map(id => {
+        const reference = research.visualReferences.find(item => item.id === id);
+        if (!reference) throw new Error(`Unbekannte Bildreferenz: ${id}`);
+        return reference;
+      });
+      return `BILD ${String(index + 1).padStart(2, '0')}\nNarration context, never draw these words: ${scene.narrationBeat}\n${compileScenePrompt(scene, { styleLock, creativeEvidence: true, references })}`;
+    });
+    const entities = (worldLock.entities ?? []).map(entity => `${entity.id}: ${entity.identity}`).join('\n');
+    return `ACTIVE_STYLE_ID: ${styleLock.styleId}\nPROMPT_SYSTEM: flow-compiler-v3\nCREATIVE_EVIDENCE: 1\n\n${title}\nCreate ${mapping.images.length} separate ${aspectRatio} historical illustrations.\n\nSTYLE LOCK:\n${styleLock.masterStylePrompt}\n${styleReferenceInstruction}\n\nWORLD LOCK:\n${worldText}\n${entities}\n\nSTAGE 1 — SEPARATE THUMBNAIL ONLY\nGenerate exactly three distinct thumbnail candidates with exactly "${coverText}". STOP for explicit user selection. Save the reviewed selection to 00-bildprompts/thumbnail.png, outside images/.\n\nSTAGE 2 — STORY IMAGES AFTER USER SELECTION\nBILD headings, narration context and instructions are metadata. Never draw them. Every story image, including BILD 01, is a narration scene with ZERO visible text, numbers, labels, pseudo-writing or watermarks. Labels and routes are added later in the renderer. Each image must show its assigned visible evidence, not merely illustrate the general topic. Preserve recurring identities and changed states; do not reset destruction, positions or weather. Use the same viewpoint when a before/after comparison benefits from it.\n\n${blocks.join('\n\n')}\n\nNEGATIVE STYLE:\n${styleLock.globalNegativePrompt}\n\nREVIEW:\nInspect every final image against narration, historical reference, continuity and visible text. Reject mismatches before approval; do not grant scores automatically. Save exactly Bild 01.png through Bild ${String(mapping.images.length).padStart(2, '0')}.png in images/. No more than five active generations. Phase 3 consumes existing approved images only.\n`;
+  }
 
   const imageBlocks = mapping.images.map((scene, index) => {
     const expectedNumber = index + 1;

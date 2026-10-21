@@ -1,0 +1,18 @@
+[
+  {
+    "scene": 51,
+    "approvedHash": "d33c446ed3e577a12fc93b9fcdcf1e373abd8fa7ee95a76b733c24a25f763d17",
+    "actualHash": "d33c446ed3e577a12fc93b9fcdcf1e373abd8fa7ee95a76b733c24a25f763d17",
+    "matchesApprovedHash": true,
+    "qcImageNumberVisible": false,
+    "observedImageNumberVisible": true
+  },
+  {
+    "scene": 66,
+    "approvedHash": "12098804f770d974aa17f89d43826cddf5db5586cb6f4f4fc10b5e3e35d912c9",
+    "actualHash": "12098804f770d974aa17f89d43826cddf5db5586cb6f4f4fc10b5e3e35d912c9",
+    "matchesApprovedHash": true,
+    "qcImageNumberVisible": false,
+    "observedImageNumberVisible": true
+  }
+]
