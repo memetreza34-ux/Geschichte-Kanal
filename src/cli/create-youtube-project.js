@@ -5,6 +5,7 @@ import path from 'node:path';
 import { arg, copyDirectory, exists, readJson, slugify, writeJson } from '../lib/pipeline.js';
 import { evaluateTopic } from './check-youtube-topic.js';
 import { assertImprovementLoopReady } from '../lib/continuous-improvement.js';
+import { validateVideoId } from '../lib/production-integrity.js';
 
 async function main() {
   const topic = arg('--topic');
@@ -15,6 +16,9 @@ async function main() {
   if (!topic || !title || !week || !slug) {
     throw new Error('Nutzung: npm run create:youtube -- --topic "THEMA" --title "TITEL" --week "YYYY-KWNN_DD-MM_bis_DD-MM" [--slug "slug"]');
   }
+  validateVideoId(week);
+  validateVideoId(slug);
+  validateVideoId(`${week}_${slug}`);
 
   // Finished, review-enabled videos are reviewed and improved BEFORE the next project starts.
   await assertImprovementLoopReady();

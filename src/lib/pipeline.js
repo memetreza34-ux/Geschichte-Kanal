@@ -93,7 +93,7 @@ export function ensureInside(root, candidate) {
 }
 
 export async function copyDirectory(source, destination) {
-  await mkdir(destination, { recursive: true });
+  await mkdir(path.dirname(destination), { recursive: true });
   await cp(source, destination, { recursive: true, force: false, errorOnExist: true });
 }
 

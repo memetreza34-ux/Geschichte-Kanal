@@ -26,11 +26,12 @@ Details und Datenbeispiele: [channel/23-RESEARCH-AND-SCENE-EVIDENCE.md](channel/
 7. MP4-Prüfung kontrolliert Container, H.264, Auflösung, Bildrate, Audiospur und Dauer und decodiert den vollständigen Export.
 8. Der letzte Bildabschnitt deckt auch den durch Aufrunden entstehenden Schlussframe ab.
 9. Render-Kopien von Bildern und Audio müssen mit den freigegebenen Hashes übereinstimmen.
-10. Node-Abhängigkeiten besitzen eine Lockdatei; CI verwendet `npm ci` und installiert FFmpeg.
+10. Projekterstellung kopiert die Vorlage ohne selbst erzeugten Zielkonflikt; Woche und Slug dürfen keine Pfade enthalten.
+11. Node-Abhängigkeiten besitzen eine Lockdatei; CI verwendet `npm ci` und installiert FFmpeg.
 
 ## Prüfung
 
-- 86 Tests bestanden, darunter neue Fehlertests für Cache-Veraltung, Löschpfade, manipulierte Qualitätsgrenzen, falsche Bilddaten, MP4-Attrappen, direkte Render-Umgehung, Quellen-/Planbindung und Kontinuität.
+- 87 Tests bestanden, darunter neue Fehlertests für Cache-Veraltung, Löschpfade, manipulierte Qualitätsgrenzen, falsche Bilddaten, MP4-Attrappen, direkte Render-Umgehung, Quellen-/Planbindung und Kontinuität.
 - Echter Remotion-Testrender mit synthetischen Farbbalken, zwei Szenen, Fokusbewegung, Beschriftungen, Route und Testton: 1280×720, 30 fps, 61 Frames bei geplanter Dauer 2,001 s.
 - Export mit ffprobe und vollständiger FFmpeg-Decodierung geprüft. Schlussframe 60 tatsächlich angesehen: Bild, Route und lesbare Beschriftung vorhanden, kein leerer Schlussframe.
 - Test zur Audiopause: 2,800 s Quelle → 2,797 s Ausgabe; innere Pause erhalten, Original-SHA-256 unverändert.
