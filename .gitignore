@@ -5,6 +5,12 @@ public/__render/
 .DS_Store
 .env
 
+# Lokale Bildbelege der Kanalanalyse; Berichte und Quellen bleiben versioniert.
+recherche/**/*-frames/
+recherche/**/*-kontakt-*.jpg
+recherche/**/eigene-videos-belege.json
+recherche/2026-10-21/nicht-freigegebener-apollo-entwurf/
+
 # Generierte Projekt-Artefakte
 **/99-technik/YOUTUBE_AUDIO_OPTIMIZED.wav
 **/99-technik/whisper/

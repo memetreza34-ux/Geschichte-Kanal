@@ -27,13 +27,13 @@ function chunk(name, data) {
   crc.writeUInt32BE(crc32(Buffer.concat([label, data])));
   return Buffer.concat([length, label, data, crc]);
 }
-function png(width, height) {
+function png(width, height, pixels = null) {
   const head = Buffer.alloc(13);
   head.writeUInt32BE(width);
   head.writeUInt32BE(height, 4);
   head[8] = 8;
   head[9] = 2;
-  const rows = Buffer.alloc(height * (width * 3 + 1));
+  const rows = pixels ?? Buffer.alloc(height * (width * 3 + 1));
   return Buffer.concat([
     Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]),
     chunk('IHDR', head), chunk('IDAT', deflateSync(rows)), chunk('IEND', Buffer.alloc(0))
@@ -55,6 +55,15 @@ test('PNG-Prüfung erkennt echte 16:9-Bilddaten, Dateifehler und falsche Maße',
   corrupt[corrupt.length - 17] ^= 1;
   assert.equal(validatePngBytes(corrupt).passed, false);
   assert.match(validatePngBytes(png(1024, 768)).errors.join(' '), /Auflösung|Seitenverhältnis/);
+});
+
+test('PNG mit korrekter CRC, aber unvollständigen Pixelzeilen besteht keine echte Decodierung', async () => {
+  const dir = await fixture();
+  try {
+    const file = path.join(dir, '00-bildprompts', 'images', 'Bild 01.png');
+    await writeFile(file, png(1280, 720, Buffer.from([0, 0, 0, 0])));
+    assert.equal((await inspectPng(file)).passed, false);
+  } finally { await rm(dir, { recursive: true, force: true }); }
 });
 
 test('Flow-Bild-Audit meldet Lücken und benennt nur vor Bildfreigabe sicher um', async () => {
@@ -189,6 +198,14 @@ test('Separates Thumbnail ist ein eigener freigegebener Asset-Hash und nie das e
     };
     await writeFile(path.join(tech, 'PHASE2_VISUAL_QC.json'), JSON.stringify(review));
     assert.equal((await validatePhase2(dir)).passed, true);
+    review.minimumNarrationSupportScore = 0;
+    review.minimumVisualInterestScore = 0;
+    review.minimumStyleConsistencyScore = 0;
+    review.images[0].narrationSupportScore = 0;
+    await writeFile(path.join(tech, 'PHASE2_VISUAL_QC.json'), JSON.stringify(review));
+    assert.match((await validatePhase2(dir)).errors.join(' '), /narrationSupportScore muss mindestens 8/);
+    review.images[0].narrationSupportScore = 9;
+    await writeFile(path.join(tech, 'PHASE2_VISUAL_QC.json'), JSON.stringify(review));
     const report = await finalizeYoutubeExport(dir);
     assert.equal(report.thumbnailIdenticalToCover, false);
     assert.equal(report.thumbnailVerifiedAgainstSource, true);

@@ -1,4 +1,4 @@
-# Style DNA V3 — history-stickman-adaptive
+# Style DNA V3 — history-stickman-adaptive, Figurenverfeinerung 1
 
 ## Zweck
 
@@ -16,16 +16,33 @@ Alle menschlichen Figuren gehören sichtbar zur selben **Illustrationsfamilie**,
 
 Grundkonstruktion:
 
-- Kopf ungefähr 1/6 bis 1/7 der sichtbaren Körperhöhe, mit kontrollierter Variation
+- Bei einem vollständig stehenden Erwachsenen ungefähr sieben Kopflängen Gesamthöhe, mit natürlicher Variation nach Alter und Haltung. Niemals die angeschnittene sichtbare Körperhöhe als Maßstab verwenden.
 - rund, oval oder leicht kantig stilisierte Kopfform
-- kleine expressive Augen und Augenbrauen
-- zurückhaltende Mundform
+- kleine Augen innerhalb sparsam gezeichneter Lider; wenig überzeichnetes Augenweiß und ruhige Augenbrauen
+- eine entspannte oder geschlossene Mundform als Ruhezustand; größere Mimik nur passend zur konkreten Handlung
 - Nase optional als reduzierte Linie
 - vereinfachte, aber menschlich lesbare Anatomie
 - Torso, Arme und Beine klar proportioniert, ohne realistische Muskelstudien
 - vereinfachte Hände/Füße, aber ausreichend lesbar für Gesten und Werkzeuge
 - keine Chibi-Proportionen
 - keine Meme-Gesichter
+
+### Figurenverfeinerung vom 21.10.2026
+
+Die bisherige Bildwelt bleibt die Grundlage. Verfeinert wird die Figurenführung: sparsame Gesichtslinien, glaubwürdige Hals-/Schulterübergänge, nachvollziehbares Körpergewicht, konkrete Griffe und eine gerichtete Aufmerksamkeit. Menschen und Umgebung verwenden dieselbe Kontur- und Flächenbehandlung. Anatomische Plausibilität verlangt keine fotorealistischen oder aufwendig schraffierten Gesichter.
+
+Der Befund aus den bisherigen Flottenbildern betrifft besonders überzeichnete Augen/Münder und viele gleichzeitig gestikulierende Figuren. Die ruhigere Dokumentübergabe zeigt eine brauchbare Richtung; daraus wird keine neue globale Referenzkomposition gemacht. Es gibt weiterhin Raum für sichtbare Angst, Anstrengung oder Freude, wenn die Szene das verlangt.
+
+Neue Scene Cards mit `figureDirectionVersion=1` kennzeichnen `peoplePresence` als `none`, `background` oder `prominent`. Bei prominenten Menschen benennt `figureDirection` vier konkrete Punkte:
+
+- `identity`: Erkennbare Erscheinung und Unterschiede der tatsächlich benötigten Personen.
+- `expression`: Die zur Situation passende, konkret sichtbare Mimik.
+- `actionAndGaze`: Wer tut was und worauf richtet sich sein Blick?
+- `poseAndHands`: Körperstützung, Gewichtsverteilung und Hand-/Objektkontakt.
+
+In Gruppen erhält eine Handlung Vorrang; Nebenfiguren müssen nicht alle zeigen, schreien oder die Hände heben. Kleine Hintergrundpersonen bleiben einfache, schlüssige Silhouetten. Figurenfreie Szenen erhalten keinen Figurenblock. Pauschale Angaben wie „natürliche Hände“ ersetzen keine beschriebene Handlung.
+
+Codex liefert diese Prompts in Phase 1. Bilder erzeugt ausschließlich der Nutzer mit seinen KI-Werkzeugen. Die Verfeinerung ist zunächst eine überprüfte Promptfassung, kein visuell bewiesenes Ergebnis. Vor einem neuen vollständigen Bildsatz empfiehlt sich ein kleiner Stilvergleich mit einer Person, einer Interaktion und einer Gruppe; die Bilder werden anhand konkreter Sichtbefunde beurteilt. Alte Videos werden dafür nicht geändert.
 
 ### Prominente nicht wiederkehrende Figuren
 

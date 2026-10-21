@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "script": {
+    "status": "PLANNED",
+    "reviewer": "",
+    "reviewedAt": null,
+    "scriptSha256": null,
+    "researchFingerprint": null,
+    "centralQuestion": "",
+    "endingAnswer": "",
+    "readAloudReviewed": false,
+    "causalLinks": [],
+    "observations": []
+  },
+  "sequence": {
+    "status": "PLANNED",
+    "reviewer": "",
+    "reviewedAt": null,
+    "planFingerprint": null,
+    "openingMatchesPromise": false,
+    "endingAnswersQuestion": false,
+    "continuityReviewed": false,
+    "observations": []
+  }
+}

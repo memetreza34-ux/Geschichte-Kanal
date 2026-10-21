@@ -1,5 +1,21 @@
 # Agent Policy
 
+## Production ownership — explicit user instruction, 21 October 2026
+
+- Codex is responsible for Phase 1: research, complete voice-over script, scene planning, consistent image prompts and a clear handoff package.
+- The user performs Phase 2 with their own AI tools: all image, thumbnail and voice/audio generation. Codex must not call image-generation or text-to-speech services, create alternative production images/audio, or choose a different generator on its own.
+- Codex is responsible for Phase 3: assemble, align, render and validate the final images and audio supplied by the user. Never generate replacements for missing assets.
+- Generated Flow instructions address the user's image-generation tool. They do not authorize Codex to execute image generation.
+- Keep the established channel visual style. Changes to script quality, scene logic or prompt clarity must not silently introduce a new illustration style.
+- The user explicitly permits modest, evidence-based refinements to the existing visual style and figure prompts (21 October 2026), especially less exaggerated faces and more coherent gestures. This does not authorize Codex to generate images/audio or replace the overall visual identity. For new figure-directed plans use peoplePresence and concrete identity, expression, action/gaze and body/hand direction; judge the actual user-generated output before calling the refinement visually proven.
+- Do not independently select or start a new production topic. Agree on the topic with the user first.
+- The unsolicited Apollo 13 draft is not an approved production or a style reference.
+
+## Evidence for future productions
+
+New schema-5 projects require `creativeEvidenceVersion=1` and the process in `channel/23-RESEARCH-AND-SCENE-EVIDENCE.md`.
+Record sources, claim support and historical visual references before approval. Record script review before scene planning. Preserve declared entity states across scenes. Bind script, sequence and image reviews to their current fingerprints. Never generate APPROVED states, scores or visual observations as a substitute for actually reviewing the corresponding material. Use the current template and CLI for new projects; project-specific legacy generators are historical artifacts, not templates.
+
 ## Preproduction quality is mandatory for new projects
 
 For every AI/coding agent working in this repository, new productions with `preproductionQualityGateVersion >= 1` must pass:

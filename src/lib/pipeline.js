@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { createReadStream } from 'node:fs';
 import { access, cp, mkdir, readFile, readdir, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { execFile } from 'node:child_process';
@@ -36,7 +37,9 @@ export async function writeJson(filePath, value) {
 }
 
 export async function sha256(filePath) {
-  return createHash('sha256').update(await readFile(filePath)).digest('hex');
+  const hash = createHash('sha256');
+  for await (const chunk of createReadStream(filePath)) hash.update(chunk);
+  return hash.digest('hex');
 }
 
 export function toPosix(value) {
@@ -90,7 +93,7 @@ export function ensureInside(root, candidate) {
 }
 
 export async function copyDirectory(source, destination) {
-  await mkdir(destination, { recursive: true });
+  await mkdir(path.dirname(destination), { recursive: true });
   await cp(source, destination, { recursive: true, force: false, errorOnExist: true });
 }
 
@@ -161,6 +164,8 @@ export function projectPaths(projectDirectory) {
     topicScorecard: path.join(projectDir, '99-technik', 'TOPIC_SCORECARD.json'),
     storyQc: path.join(projectDir, '99-technik', 'STORY_QC.json'),
     wholeVideoQc: path.join(projectDir, '99-technik', 'WHOLE_VIDEO_QC.json'),
+    researchEvidence: path.join(projectDir, '99-technik', 'RESEARCH_EVIDENCE.json'),
+    creativeReview: path.join(projectDir, '99-technik', 'CREATIVE_REVIEW.json'),
     phase2VisualQc: path.join(projectDir, '99-technik', 'PHASE2_VISUAL_QC.json'),
     renderPlan: path.join(projectDir, '99-technik', 'YOUTUBE_RENDER_PLAN.json'),
     status: path.join(projectDir, '99-technik', 'status.json'),

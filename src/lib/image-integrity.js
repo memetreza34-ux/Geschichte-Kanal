@@ -1,4 +1,6 @@
 import { readFile } from 'node:fs/promises';
+import { inflateSync } from 'node:zlib';
+import { execFileAsync } from './pipeline.js';
 
 // Validate actual PNG structure instead of trusting a .png suffix, a nonzero
 // file size, or a matching hash. No image generation or mutation happens here.
@@ -26,6 +28,7 @@ export function validatePngBytes(bytes, { minWidth = 1280, minHeight = 720, aspe
   let foundEnd = false;
   let width = null;
   let height = null;
+  const imageData = [];
   while (offset < bytes.length) {
     if (offset + 12 > bytes.length) { errors.push('PNG-Chunk unvollständig.'); break; }
     const length = bytes.readUInt32BE(offset);
@@ -47,7 +50,10 @@ export function validatePngBytes(bytes, { minWidth = 1280, minHeight = 720, aspe
         errors.push('PNG-IHDR enthält ungültige Bildmaße oder Pixelformat.');
       }
     }
-    if (name === 'IDAT') foundIdat = true;
+    if (name === 'IDAT') {
+      foundIdat = true;
+      imageData.push(bytes.subarray(payloadStart, crcOffset));
+    }
     if (name === 'IEND') {
       if (length !== 0 || !foundIdat || crcOffset + 4 !== bytes.length) errors.push('PNG-Ende/IDAT-Struktur ungültig.');
       foundEnd = true;
@@ -59,6 +65,14 @@ export function validatePngBytes(bytes, { minWidth = 1280, minHeight = 720, aspe
   }
   if (!foundIdat) errors.push('PNG hat keine Bilddaten (IDAT).');
   if (!foundEnd) errors.push('PNG ist nicht vollständig abgeschlossen (IEND).');
+  if (!errors.length) {
+    try {
+      const pixels = inflateSync(Buffer.concat(imageData), { maxOutputLength: 256 * 1024 * 1024 });
+      if (!pixels.length) errors.push('PNG-Bilddaten sind leer.');
+    } catch {
+      errors.push('PNG-IDAT enthält keine gültigen komprimierten Bilddaten.');
+    }
+  }
   if (width !== null && height !== null) {
     if (width < minWidth || height < minHeight) errors.push('PNG-Auflösung ' + width + 'x' + height + ' liegt unter ' + minWidth + 'x' + minHeight + '.');
     if (Math.abs(width / height - aspectRatio) > aspectTolerance) errors.push('PNG-Seitenverhältnis ' + width + ':' + height + ' weicht von 16:9 ab.');
@@ -67,5 +81,14 @@ export function validatePngBytes(bytes, { minWidth = 1280, minHeight = 720, aspe
 }
 
 export async function inspectPng(filePath, options = {}) {
-  return validatePngBytes(await readFile(filePath), options);
+  const result = validatePngBytes(await readFile(filePath), options);
+  if (result.passed) {
+    try {
+      await execFileAsync('ffmpeg', ['-v', 'error', '-xerror', '-i', filePath, '-frames:v', '1', '-f', 'null', '-'], { timeout: 30_000, maxBuffer: 1024 * 1024 });
+    } catch (error) {
+      result.errors.push(`PNG kann nicht decodiert werden: ${String(error.stderr || error.message).trim().slice(0, 180)}`);
+      result.passed = false;
+    }
+  }
+  return result;
 }

@@ -2,24 +2,35 @@
 
 Kanalspezifische Produktionsbasis für einen deutschen **History × Storytelling × Curiosity**-Kanal.
 
+**Zuständigkeit:** Codex übernimmt Phase 1 (Recherche, Skript, Szenen und Bildprompts im bestehenden Stil) und Phase 3 (Zusammenbau der gelieferten Dateien). Der Nutzer erstellt Bilder, Thumbnails und Audio mit seinen eigenen KI-Werkzeugen. Keine eigenständige Bild-/Sprachgenerierung oder Themenwahl durch Codex.
+
 ## HÖCHSTE OPERATIVE PRIORITÄT: Jedes Video verbessert die Pipeline
 
 Nach jedem fertigen Video: **komplett sichten → zeitcodierte Beobachtungen → Ursachen → systemischer Fix → Regressionstest und CI → konkrete Lehren für das nächste Video**. Neue Exports legen automatisch `POST_VIDEO_REVIEW.json` an. Solange ein Review unvollständig ist, ist die nächste reguläre Projekterstellung gesperrt. **Technische CI alleine bewertet kein Video.** Siehe `channel/22-CONTINUOUS-IMPROVEMENT.md`.
 
 ## Aktueller Status
 
-- Topic Director: **V2 + technisches Scorecard-Gate READY**
-- History Storytelling: **V3 READY**
+- Topic Director: **V3 + technisches Scorecard-Gate READY**
+- History Storytelling: **V4 READY**
 - Story Quality Gate: **V1 + technisches STORY_QC READY**
 - Visual System: **Narration-first + Visual Interest Gate READY**
 - Flow Compiler: **V3 READY**
 - Pipeline: **V4 READY**
 - Phase-2-Visual-QC: **SHA-256-gebunden**
 - Phase-3-Bildlock: **READY**
+- Neue Projektvorlage: **Schema 5 mit Quellen- und Szenenbelegen**
 - Export mit `CAPTION.txt`: **READY**
 - globale feste Master-Referenzbilder: **NICHT VERWENDET**
 
 Der technische Style-ID bleibt aus Kompatibilitätsgründen `history-stickman-adaptive-v1`, bedeutet aber **keine generischen Stickman-Klone**. Menschen sind stilisierte, individuell gestaltete historische Figuren in einer konsistenten handgezeichneten 2D-Illustrationswelt.
+
+## Neue Produktionen: belegte Recherche und Szenenprüfung
+
+Siehe [Recherche und sichtbare Szenenbelege](channel/23-RESEARCH-AND-SCENE-EVIDENCE.md). Neue Projekte verlangen Quellen mit Fundstellen, belegte historische Aussagen, historische Bildreferenzen, konkrete sichtbare Belege und fortgeführte Zustände wiederkehrender Orte/Objekte. Skript-, Sequenz- und Bildprüfungen werden an den geprüften Stand gebunden. APPROVED-Werte oder Bewertungen dürfen nie automatisch eine echte Prüfung ersetzen.
+
+`npm run preview:youtube-plan -- --dir "<projekt>"` erzeugt eine lokale Szenenübersicht und gibt die aktuellen Review-Fingerprints aus. Kurze geprüfte Beschriftungen und Routen werden über `overlays` im Renderer gesetzt; generierte Storybilder bleiben textfrei. Die Audiovorlage erhält innere Pausen und verwendet normale Sprechgeschwindigkeit. Bestehende Projektdateien werden nicht umgeschrieben.
+
+Voraussetzungen: Node.js 24+, FFmpeg/ffprobe und für die Audioausrichtung Whisper. Installation der festgeschriebenen Node-Abhängigkeiten: `npm ci`; Prüfungen: `npm test`. Auch der direkte Render-Befehl prüft alle Produktionsgates vor dem Kopieren von Assets. PNGs und der fertige MP4-Export werden tatsächlich decodiert.
 
 ## Struktur
 
@@ -39,7 +50,7 @@ youtube/     Templates und konkrete Produktionen
 → Duplicate Check
 → TOPIC_SCORECARD >= 7.6/10
 → Recherche
-→ Script V3
+→ Script V4 als vollständiger Fließtext
 → STORY_QC APPROVED
 → Story Beats
 → Viewer Takeaway
@@ -201,7 +212,7 @@ Phase 3 verwendet ausschließlich vorhandene freigegebene Bilder. `PHASE3_IMAGE_
 └── CAPTION.txt
 ```
 
-`CAPTION.txt` enthält mindestens YouTube-Titel und Beschreibung sowie optional Hashtags/Keywords und den Thumbnail-Text.
+`CAPTION.txt` enthält YouTube-Titel, Beschreibung und Hashtags. Neue Vorlagen verwenden Caption V2 mit zwei Absätzen und fünf unterschiedlichen Hashtags. Interne Keywords und Thumbnail-Text gehören nicht in die Caption.
 
 ## Autorität
 

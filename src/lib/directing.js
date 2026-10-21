@@ -78,7 +78,7 @@ export function motionFromScene(scene, durationSeconds) {
   const durationFactor = Math.min(1, Math.max(0.45, duration / 4));
   const travel = 14 * base * durationFactor;
   const zoom = 0.028 * base * durationFactor;
-  const result = { type, intensity, focus: text(scene?.motionFocus), scaleFrom: 1.01, scaleTo: 1.01, xFrom: 0, xTo: 0, yFrom: 0, yTo: 0 };
+  const result = { type, intensity, focus: text(scene?.motionFocus), focusPoint: scene?.focusPoint ?? { x: 0.5, y: 0.5 }, scaleFrom: 1.01, scaleTo: 1.01, xFrom: 0, xTo: 0, yFrom: 0, yTo: 0 };
 
   if (type === 'push-in') result.scaleTo = 1.01 + zoom;
   else if (type === 'pull-out') result.scaleFrom = 1.01 + zoom;

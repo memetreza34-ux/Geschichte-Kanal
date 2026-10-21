@@ -1,5 +1,8 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
+  "reviewer": "",
+  "reviewedAt": null,
+  "planFingerprint": null,
   "status": "PLANNED",
   "reviewMethod": "human-or-vision-review",
   "hashAlgorithm": "sha256",
