@@ -2,6 +2,10 @@
 
 Gilt für neue Projekte mit `schemaVersion=5` und `creativeEvidenceVersion=1`. Bestehende Produktionen werden nicht migriert oder neu gerendert. Neue Projekte immer mit `create:youtube` aus der aktuellen Vorlage starten; Generatoren in alten Videoordnern sind keine freigegebenen Vorlagen.
 
+## Zuständigkeit
+
+Ausdrückliche Nutzerentscheidung vom 21.10.2026: Codex bearbeitet Phase 1 und Phase 3. Phase 1 liefert Recherche, fertiges Skript, Szenenplanung und Bildprompts im bestehenden Kanalstil. Der Nutzer erzeugt sämtliche Bilder, Thumbnails und Audiodateien selbst mit seinen KI-Werkzeugen. Codex führt keine Bild- oder Sprachgenerierung aus. Die Anweisungen im Flow-Prompt sind eine Übergabe an das Werkzeug des Nutzers. Phase 3 verarbeitet ausschließlich dessen bereitgestellte finale Dateien. Ein neues Thema wird vorher mit dem Nutzer abgestimmt.
+
 ## Reihenfolge und Freigaben
 
 1. Quellen und historische Aussagen in `RESEARCH_EVIDENCE.json` dokumentieren. Eine URL allein reicht nicht: konkrete Fundstelle und inhaltlicher Beleg sind Pflicht. Interpretation und Unsicherheit im Skript kenntlich machen.

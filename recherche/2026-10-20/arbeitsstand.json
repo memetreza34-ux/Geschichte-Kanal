@@ -31,7 +31,7 @@
     {
       "requirement": "Repo für zukünftige Produktionen verbessern",
       "status": "implemented_locally_verified",
-      "evidence": "UMSETZUNG-2026-10-21.md; 86 Tests, echtes Remotion-Bundle und synthetischer MP4-Testrender"
+      "evidence": "UMSETZUNG-2026-10-21.md; 87 Tests, echtes Remotion-Bundle und synthetischer MP4-Testrender; GitHub-CI grün für c59d3eb."
     },
     {
       "requirement": "Danach ein vollständig neues Video produzieren",
@@ -43,7 +43,20 @@
   "sourceWorkingCopy": "/Users/arman/.gemini/antigravity/scratch/Youtube-dingestickman",
   "sourceWorkingCopyNote": "Enthält fremde lokale Änderungen und liegt zwei Commits hinter dem geprüften GitHub-Stand; nicht überschreiben.",
   "report": "/Users/arman/Documents/ChatGPT/Geschichte-Kanal/KREATIV-ANALYSE-2026-10-20.md",
-  "updatedAt": "2026-10-21T04:16:44.126Z",
+  "updatedAt": "2026-10-21T14:05:30.067Z",
   "implementationBranch": "codex/production-quality",
-  "nextStep": "Neue Produktion: Apollo 13 recherchieren; Quellen und Skript vor Szenenplanung prüfen."
+  "nextStep": "Phase-1-Übergabe mit Skript und passenden Prompts vorbereiten; neues Thema vor Produktionsbeginn mit dem Nutzer abstimmen. Keine Bild- oder Audiogenerierung durch Codex.",
+  "productionOwnership": {
+    "phase1": "Codex: Recherche, fertiges Skript, Szenenplanung und Bildprompts im bestehenden Stil",
+    "phase2": "Nutzer: Erzeugung sämtlicher Bilder, Thumbnails und Audio mit eigenen KI-Werkzeugen",
+    "phase3": "Codex: Zusammenbau und Prüfung der vom Nutzer gelieferten finalen Dateien",
+    "noAgentMediaGeneration": true,
+    "topicRequiresUserAgreement": true
+  },
+  "unapprovedDraft": {
+    "topic": "Apollo 13",
+    "status": "withdrawn_unapproved",
+    "archive": "recherche/2026-10-21/nicht-freigegebener-apollo-entwurf"
+  },
+  "pullRequest": "https://github.com/memetreza34-ux/Geschichte-Kanal/pull/15"
 }

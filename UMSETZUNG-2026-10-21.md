@@ -41,6 +41,8 @@ Der synthetische Render ist ein technischer Nachweis, kein fertiges Geschichtsvi
 
 ## Grenzen und nächster Produktionsschritt
 
+**Korrektur nach ausdrücklicher Nutzerentscheidung:** Codex übernimmt ausschließlich Phase 1 und Phase 3. Bilder, Thumbnails und Audio erzeugt der Nutzer mit seinen eigenen KI-Werkzeugen. Die zentrale Stil-Konfiguration blieb gegenüber dem geprüften Ausgangsstand unverändert. Der eigenständig begonnene Apollo-13-Entwurf samt erzeugten Thumbnail-Varianten ist nicht freigegeben, wurde aus der aktiven Produktion genommen und darf nicht als Kanalstil-Referenz dienen.
+
 Automatische Prüfungen können weder Quelleninterpretation noch eine wirkliche Bildsichtung garantieren. Die numerischen Pacing-Grenzen der bisherigen Regie-Policy gelten weiter; ein flexibleres, ebenfalls belegpflichtiges Ausnahmeverfahren ist hier nicht eingeführt. Auch eine bessere Vorlage allein beweist noch keine bessere fertige Produktion.
 
 Die nächste neue Produktion muss Quellen, Skript und die zusammenhängende Bildfolge tatsächlich durchlaufen. Vor dem vollständigen Bildsatz werden Einstieg, Erklärmoment und Übergang als Probe geprüft. Das vorhandene Thumbnail-Auswahlverfahren bleibt bestehen: drei konkrete Kandidaten, danach ausdrückliche Nutzerauswahl vor den Storybildern. Alte Videos werden nicht dafür neu bearbeitet.

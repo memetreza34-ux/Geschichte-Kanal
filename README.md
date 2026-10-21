@@ -2,6 +2,8 @@
 
 Kanalspezifische Produktionsbasis für einen deutschen **History × Storytelling × Curiosity**-Kanal.
 
+**Zuständigkeit:** Codex übernimmt Phase 1 (Recherche, Skript, Szenen und Bildprompts im bestehenden Stil) und Phase 3 (Zusammenbau der gelieferten Dateien). Der Nutzer erstellt Bilder, Thumbnails und Audio mit seinen eigenen KI-Werkzeugen. Keine eigenständige Bild-/Sprachgenerierung oder Themenwahl durch Codex.
+
 ## HÖCHSTE OPERATIVE PRIORITÄT: Jedes Video verbessert die Pipeline
 
 Nach jedem fertigen Video: **komplett sichten → zeitcodierte Beobachtungen → Ursachen → systemischer Fix → Regressionstest und CI → konkrete Lehren für das nächste Video**. Neue Exports legen automatisch `POST_VIDEO_REVIEW.json` an. Solange ein Review unvollständig ist, ist die nächste reguläre Projekterstellung gesperrt. **Technische CI alleine bewertet kein Video.** Siehe `channel/22-CONTINUOUS-IMPROVEMENT.md`.
