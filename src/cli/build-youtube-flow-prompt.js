@@ -2,7 +2,7 @@
 
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { arg, projectPaths, readJson, writeJson } from '../lib/pipeline.js';
+import { arg, isMainModule, projectPaths, readJson, writeJson } from '../lib/pipeline.js';
 import { compileFlowPrompt } from '../lib/flow-prompt.js';
 import { injectNarrationAlignmentIntoPrompt, validateNarrationAlignmentProject } from '../lib/narration-alignment.js';
 import { injectDirectingIntoPrompt, validateDirectingPlan } from '../lib/directing.js';
@@ -58,7 +58,7 @@ async function main() {
   console.log(`Google-Flow-Prompt gebaut: ${path.relative(process.cwd(), result.promptPath)} (${result.imageCount} Bilder)`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMainModule(import.meta.url)) {
   main().catch((error) => {
     console.error(`Flow-Prompt-Build: FEHLER — ${error.message}`);
     process.exitCode = 1;

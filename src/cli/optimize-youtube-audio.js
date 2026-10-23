@@ -3,7 +3,7 @@
 import { execFile } from 'node:child_process';
 import path from 'node:path';
 import { promisify } from 'node:util';
-import { arg, discoverAudioFiles, probeDuration, projectPaths, readJson, sha256, writeJson } from '../lib/pipeline.js';
+import { arg, discoverAudioFiles, isMainModule, probeDuration, projectPaths, readJson, sha256, writeJson } from '../lib/pipeline.js';
 
 const execFileAsync = promisify(execFile);
 
@@ -130,7 +130,7 @@ async function main() {
   await optimizeAudio(dir);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMainModule(import.meta.url)) {
   main().catch((error) => {
     console.error(`Audio-Optimierung: FEHLER — ${error.message}`);
     process.exitCode = 1;

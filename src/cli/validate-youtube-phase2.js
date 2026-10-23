@@ -2,7 +2,7 @@
 
 import { readdir } from 'node:fs/promises';
 import path from 'node:path';
-import { arg, discoverAudioFiles, exists, listFinalImages, projectPaths, readJson, sha256 } from '../lib/pipeline.js';
+import { arg, discoverAudioFiles, exists, isMainModule, listFinalImages, projectPaths, readJson, sha256 } from '../lib/pipeline.js';
 import { inspectPng } from '../lib/image-integrity.js';
 import { validateStandaloneThumbnail } from '../lib/thumbnail-policy.js';
 
@@ -152,7 +152,7 @@ async function main() {
   console.log('YouTube Phase 2: BESTANDEN');
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMainModule(import.meta.url)) {
   main().catch((error) => {
     console.error(`YouTube Phase 2: FEHLER — ${error.message}`);
     process.exitCode = 1;

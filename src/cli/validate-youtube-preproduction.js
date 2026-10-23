@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import path from 'node:path';
-import { arg, exists, normalizeText, projectPaths, readJson } from '../lib/pipeline.js';
+import { arg, exists, isMainModule, normalizeText, projectPaths, readJson } from '../lib/pipeline.js';
 import { validateTopicScorecard } from '../lib/topic-quality.js';
 import { validateStoryQc } from '../lib/story-quality.js';
 import { evaluateTopic } from './check-youtube-topic.js';
@@ -79,7 +79,7 @@ async function main() {
   if (result.duplicateWarning) console.log(`WARNUNG: ${result.duplicateWarning}`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMainModule(import.meta.url)) {
   main().catch((error) => {
     console.error(`YouTube Preproduction: FEHLER — ${error.message}`);
     process.exitCode = 1;

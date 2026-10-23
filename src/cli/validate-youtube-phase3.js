@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import path from 'node:path';
-import { arg, exists, fileSize, projectPaths, readJson, sha256 } from '../lib/pipeline.js';
+import { arg, exists, fileSize, isMainModule, projectPaths, readJson, sha256 } from '../lib/pipeline.js';
 import { verifyPhase3ImageLock } from './phase3-image-lock.js';
 import { usesStandaloneThumbnail, thumbnailSourcePath, validateStandaloneThumbnail } from '../lib/thumbnail-policy.js';
 
@@ -64,7 +64,7 @@ async function main() {
   console.log(`YouTube Phase 3 ${process.argv.includes('--post-render') ? 'Post-Render' : 'Pre-Render'}: BESTANDEN`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMainModule(import.meta.url)) {
   main().catch((error) => {
     console.error(`YouTube Phase 3: FEHLER — ${error.message}`);
     process.exitCode = 1;

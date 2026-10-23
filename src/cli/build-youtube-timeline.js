@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import path from 'node:path';
-import { arg, probeDuration, projectPaths, readJson, writeJson } from '../lib/pipeline.js';
+import { arg, isMainModule, probeDuration, projectPaths, readJson, writeJson } from '../lib/pipeline.js';
 import { motionFromScene } from '../lib/directing.js';
 
 export async function buildTimeline(projectDirectory) {
@@ -64,7 +64,7 @@ async function main() {
   await buildTimeline(dir);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMainModule(import.meta.url)) {
   main().catch((error) => {
     console.error(`Timeline: FEHLER — ${error.message}`);
     process.exitCode = 1;
