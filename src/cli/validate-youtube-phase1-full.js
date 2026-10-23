@@ -2,7 +2,7 @@
 
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
-import { arg, projectPaths, readJson } from '../lib/pipeline.js';
+import { arg, isMainModule, projectPaths, readJson } from '../lib/pipeline.js';
 import { validateNarrationAlignmentProject } from '../lib/narration-alignment.js';
 import { validateDirectingPlan } from '../lib/directing.js';
 import { findUnreviewedExports } from '../lib/continuous-improvement.js';
@@ -53,7 +53,7 @@ async function main() {
   console.log('YouTube Phase 1: BESTANDEN — inklusive Narration Alignment, Chronologie und Directing Gate.');
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMainModule(import.meta.url)) {
   main().catch((error) => {
     console.error(`YouTube Phase 1: FEHLER — ${error.message}`);
     process.exitCode = 1;

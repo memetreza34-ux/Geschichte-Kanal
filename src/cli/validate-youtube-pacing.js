@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import path from 'node:path';
-import { arg, projectPaths, readJson } from '../lib/pipeline.js';
+import { arg, isMainModule, projectPaths, readJson } from '../lib/pipeline.js';
 
 export async function validatePacing(projectDirectory) {
   const p = projectPaths(projectDirectory);
@@ -71,7 +71,7 @@ async function main() {
   console.log(`YouTube Pacing: BESTANDEN — Ø ${result.averageHoldSeconds}s/Bild`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMainModule(import.meta.url)) {
   main().catch((error) => {
     console.error(`YouTube Pacing: FEHLER — ${error.message}`);
     process.exitCode = 1;

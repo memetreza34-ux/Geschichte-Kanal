@@ -2,7 +2,7 @@
 
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
-import { arg, exists, projectPaths, readJson } from '../lib/pipeline.js';
+import { arg, exists, isMainModule, projectPaths, readJson } from '../lib/pipeline.js';
 import { findHighRiskPromptWords } from '../lib/flow-prompt.js';
 import { validateVisualInterestScene, validateVisualInterestSequence } from '../lib/visual-interest.js';
 import { validateWholeVideoQc } from '../lib/whole-video-quality.js';
@@ -298,7 +298,7 @@ async function main() {
   console.log('YouTube Phase 1: BESTANDEN');
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMainModule(import.meta.url)) {
   main().catch((error) => {
     console.error(`YouTube Phase 1: FEHLER — ${error.message}`);
     process.exitCode = 1;

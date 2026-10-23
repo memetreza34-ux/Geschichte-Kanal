@@ -2,7 +2,7 @@
 
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
-import { arg, normalizeText, readJson, similarity, walkFiles } from '../lib/pipeline.js';
+import { arg, isMainModule, normalizeText, readJson, similarity, walkFiles } from '../lib/pipeline.js';
 
 const SOFT_STATUS_RE = /(test|paused|rejected|archived|cancelled|legacy)/i;
 
@@ -101,7 +101,7 @@ async function main() {
   if (result.decision !== 'APPROVED_NEW') process.exitCode = 1;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMainModule(import.meta.url)) {
   main().catch((error) => {
     console.error(`DUPLICATE-CHECK: FEHLER — ${error.message}`);
     process.exitCode = 1;

@@ -3,7 +3,7 @@
 import { copyFile, mkdir, rm } from 'node:fs/promises';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { arg, exists, projectPaths, readJson, writeJson } from '../lib/pipeline.js';
+import { arg, exists, isMainModule, projectPaths, readJson, writeJson } from '../lib/pipeline.js';
 
 export async function prepareRender(projectDirectory) {
   const p = projectPaths(projectDirectory);
@@ -69,7 +69,7 @@ async function main() {
   console.log(`YouTube Render: ${output}`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMainModule(import.meta.url)) {
   main().catch((error) => {
     console.error(`YouTube Render: FEHLER — ${error.message}`);
     process.exitCode = 1;

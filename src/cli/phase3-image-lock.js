@@ -2,7 +2,7 @@
 
 import { readdir } from 'node:fs/promises';
 import path from 'node:path';
-import { arg, exists, fileSize, listFinalImages, projectPaths, readJson, sha256, writeJson } from '../lib/pipeline.js';
+import { arg, exists, fileSize, isMainModule, listFinalImages, projectPaths, readJson, sha256, writeJson } from '../lib/pipeline.js';
 import { inspectPng } from '../lib/image-integrity.js';
 
 async function snapshotImages(projectDirectory) {
@@ -125,7 +125,7 @@ async function main() {
   console.log(`Phase-3-Bildlock erstellt: ${lock.images.length} vorhandene Bilder sind jetzt read-only für Phase 3.`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMainModule(import.meta.url)) {
   main().catch((error) => {
     console.error(`Phase-3-Bildlock: FEHLER — ${error.message}`);
     process.exitCode = 1;

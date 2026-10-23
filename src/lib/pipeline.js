@@ -1,7 +1,9 @@
 import { createHash } from 'node:crypto';
 import { access, cp, mkdir, readFile, readdir, stat, writeFile } from 'node:fs/promises';
+import { realpathSync } from 'node:fs';
 import path from 'node:path';
 import { execFile } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 
 export const execFileAsync = promisify(execFile);
@@ -11,6 +13,17 @@ export const IMAGE_RE = /^Bild (\d{2,3})\.png$/i;
 export function arg(name, argv = process.argv) {
   const index = argv.indexOf(name);
   return index >= 0 ? argv[index + 1] : undefined;
+}
+
+// Compare real file paths instead of hand-built file:// strings. Otherwise
+// spaces (%20), symlinks or Windows paths silently skip main() with exit 0.
+export function isMainModule(moduleUrl, argv = process.argv) {
+  if (!argv[1]) return false;
+  try {
+    return realpathSync(fileURLToPath(moduleUrl)) === realpathSync(path.resolve(argv[1]));
+  } catch {
+    return false;
+  }
 }
 
 export async function exists(filePath) {

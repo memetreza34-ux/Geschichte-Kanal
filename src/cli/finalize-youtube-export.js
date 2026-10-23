@@ -2,7 +2,7 @@
 
 import { copyFile, mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { arg, exists, projectPaths, readJson, sha256, writeJson } from '../lib/pipeline.js';
+import { arg, exists, isMainModule, projectPaths, readJson, sha256, writeJson } from '../lib/pipeline.js';
 import { validateYoutubeUpload } from '../lib/upload-metadata.js';
 import { ensurePendingPostVideoReview } from '../lib/continuous-improvement.js';
 import { usesStandaloneThumbnail, thumbnailSourcePath, validateStandaloneThumbnail } from '../lib/thumbnail-policy.js';
@@ -137,7 +137,7 @@ async function main() {
   console.log(`Export finalisiert: FINAL_VIDEO.mp4 + THUMBNAIL.png + CAPTION.txt + SUBTITLES.srt (${report.subtitleCueCount} Untertitel)`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMainModule(import.meta.url)) {
   main().catch((error) => {
     console.error(`Export-Finalisierung: FEHLER — ${error.message}`);
     process.exitCode = 1;

@@ -2,7 +2,7 @@
 
 import { mkdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
-import { arg, execFileAsync, normalizeText, probeDuration, projectPaths, readJson, sha256, tokens, writeJson } from '../lib/pipeline.js';
+import { arg, execFileAsync, isMainModule, normalizeText, probeDuration, projectPaths, readJson, sha256, tokens, writeJson } from '../lib/pipeline.js';
 
 function flattenWords(whisperJson) {
   const words = [];
@@ -131,7 +131,7 @@ async function main() {
   console.log(`Audio-Alignment: BESTANDEN (${result.mapping.autoAlignment?.matched ?? result.mapping.images.length}/${result.mapping.images.length})`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMainModule(import.meta.url)) {
   main().catch((error) => {
     console.error(`Audio-Alignment: FEHLER — ${error.message}`);
     process.exitCode = 1;
