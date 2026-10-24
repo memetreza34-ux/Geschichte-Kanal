@@ -22,6 +22,9 @@ test('Melasse-Flut 1919: erstes V4-Video besteht Story Engine, Bildplan und Phas
   const noon = mapping.images.findIndex((x) => x.narrationBeat.startsWith('Gegen halb eins'));
   assert.ok(wave > noon, 'Keine Welle vor 12:30 Uhr zeigen');
 
+  // 00-bildprompts holds only what goes into Flow; the long master prompt lives in 99-technik.
+  assert.deepEqual((await readdir(`${dir}/00-bildprompts`)).filter((name) => !name.startsWith('.')).sort(), ['FLOW_PROMPTS', 'images']);
+  assert.ok((await readdir(`${dir}/99-technik`)).includes('FLOW_MASTER_PROMPT.txt'));
   const prompts = (await readdir(`${dir}/00-bildprompts/FLOW_PROMPTS`)).filter((name) => /^Bild \d+\.txt$/.test(name));
   assert.equal(prompts.length, 83);
   for (const name of prompts) {

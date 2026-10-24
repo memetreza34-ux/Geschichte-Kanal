@@ -32,7 +32,7 @@ Erstes Video nach **Story Engine V4** und **Bildplan V4** (`channel/24`, `channe
 2. **Figurenkarten:** `FLOW_PROMPTS/CAST_isaac-gonzalez.txt` usw. einfügen. Die beste Variante unter `00-bildprompts/cast/<id>.png` speichern und in Flow als Ingredient mit dem Namen aus dem Prompt anlegen (z. B. `@IsaacGonzalez`).
 3. **Thumbnail:** drei Varianten mit exakt „TÖDLICHE WELLE AUS SIRUP“. Dann STOPP, auswählen und als `00-bildprompts/thumbnail.png` speichern.
 4. **Szenen:** `FLOW_PROMPTS/Bild 01.txt` bis `Bild 83.txt` **einzeln** einfügen. **Immer** die Stil-Referenz als Ingredient anhängen, bei `@Name` zusätzlich die Figurenkarte. Die Prompts sind bewusst kurz (Median 480 Zeichen): Aussehen und Stil kommen aus den Referenzbildern. Speichern als `images/Bild NN.png`.
-5. **Nicht** den Master-Prompt `google-flow-prompt.txt` am Stück in Flow kopieren. Genau dadurch sind in London die `BILD NN`-Texte im Bild gelandet.
+5. Der lange technische Master-Prompt liegt bewusst in `99-technik/FLOW_MASTER_PROMPT.txt` und gehört **nicht** in Flow. Ein Master-Prompt am Stück hat in London die `BILD NN`-Texte ins Bild gebracht.
 
 ## Phase-2-Checkliste pro Bild
 

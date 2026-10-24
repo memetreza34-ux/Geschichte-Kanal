@@ -2,7 +2,7 @@
 
 import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { arg, exists, isMainModule, projectPaths, readJson, writeJson } from '../lib/pipeline.js';
+import { arg, exists, isMainModule, masterPromptPath, projectPaths, readJson, writeJson } from '../lib/pipeline.js';
 import { compileFlowPrompt } from '../lib/flow-prompt.js';
 import { injectNarrationAlignmentIntoPrompt, validateNarrationAlignmentProject } from '../lib/narration-alignment.js';
 import { injectDirectingIntoPrompt, validateDirectingPlan } from '../lib/directing.js';
@@ -65,7 +65,9 @@ export async function buildYoutubeFlowPrompt(projectDirectory) {
   if (narrationAlignmentPolicy) prompt = injectNarrationAlignmentIntoPrompt(prompt, mapping);
   if (directingPolicy) prompt = injectDirectingIntoPrompt(prompt, mapping, renderPlan);
 
-  await writeFile(p.prompt, prompt, 'utf8');
+  const promptPath = masterPromptPath(p, meta);
+  await writeFile(promptPath, prompt, 'utf8');
+  if (promptPath !== p.prompt && (await exists(p.prompt))) await rm(p.prompt);
   const promptFiles = Number(meta.visualPlanGateVersion ?? 0) >= 1 ? await writeFlowPromptFiles(p, { meta, mapping }) : 0;
 
   meta.promptSystemVersion = 3;
@@ -74,7 +76,7 @@ export async function buildYoutubeFlowPrompt(projectDirectory) {
   meta.updatedAt = meta.flowPromptBuiltAt;
   await writeJson(p.meta, meta);
 
-  return { promptPath: p.prompt, imageCount: mapping.images.length, promptFiles };
+  return { promptPath, imageCount: mapping.images.length, promptFiles };
 }
 
 async function main() {

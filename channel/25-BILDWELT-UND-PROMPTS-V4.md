@@ -93,5 +93,5 @@ Das Bildplan-Gate blockiert Scene Cards, wenn …
 
 1. **Stil-Referenz:** Ein festes Kanal-Referenzbild (`config/visual-policy.json → visualPlanV4.channelStyleReferenceImage`) einmal erzeugen, als Ingredient anlegen und in jedem Video verwenden. So sehen London und die Ostseeflotte nach demselben Kanal aus.
 2. **Figurenkarten:** Für jede Figur aus der `CAST_BIBLE` die Datei `00-bildprompts/FLOW_PROMPTS/CAST_<id>.txt` erzeugen, das Bild speichern und als Ingredient anlegen.
-3. **Szenen:** Die Dateien `Bild NN.txt` einzeln in Flow einfügen, nie den ganzen Master-Prompt. Das Ergebnis wird als `Bild NN.png` gespeichert.
+3. **Szenen:** Die Dateien `Bild NN.txt` einzeln in Flow einfügen. Der lange technische Master-Prompt liegt bei V4-Projekten in `99-technik/FLOW_MASTER_PROMPT.txt` und gehört nicht in Flow. Das Ergebnis wird als `Bild NN.png` gespeichert.
 4. **Phase 2:** Bei jedem Bild prüfen: Ist irgendwo Text zu sehen? Stimmt die Epoche? Ist es dieselbe Figur? Wiederholt sich die Kamera?

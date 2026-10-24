@@ -2,7 +2,7 @@
 
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
-import { arg, exists, isMainModule, projectPaths, readJson } from '../lib/pipeline.js';
+import { arg, exists, isMainModule, masterPromptPath, projectPaths, readJson } from '../lib/pipeline.js';
 import { findHighRiskPromptWords } from '../lib/flow-prompt.js';
 import { validateVisualInterestScene, validateVisualInterestSequence } from '../lib/visual-interest.js';
 import { validateWholeVideoQc } from '../lib/whole-video-quality.js';
@@ -66,7 +66,9 @@ export async function validatePhase1(projectDirectory) {
   const p = projectPaths(projectDirectory);
   const errors = [];
 
-  for (const required of [p.meta, p.mapping, p.prompt, p.script, p.renderPlan]) {
+  if (!(await exists(p.meta))) return { passed: false, errors: ['Pflichtdatei fehlt: 99-technik/video.json'] };
+  const promptPath = masterPromptPath(p, await readJson(p.meta));
+  for (const required of [p.mapping, promptPath, p.script, p.renderPlan]) {
     if (!(await exists(required))) errors.push(`Pflichtdatei fehlt: ${path.relative(p.projectDir, required)}`);
   }
   if (errors.length) return { passed: false, errors };
@@ -76,7 +78,7 @@ export async function validatePhase1(projectDirectory) {
     readJson(p.mapping),
     readJson(path.resolve('config/visual-policy.json')),
     readJson(path.resolve('config/pipeline.json')),
-    readFile(p.prompt, 'utf8'),
+    readFile(promptPath, 'utf8'),
     readFile(p.script, 'utf8')
   ]);
 
