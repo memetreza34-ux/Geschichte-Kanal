@@ -12,3 +12,10 @@ public/__render/
 **/99-technik/RENDER_PLAN.json
 **/03-export/*.mp4
 **/03-export/THUMBNAIL.png
+
+# Große Medien bleiben lokal (Bilder, Audio, Flow-Downloads)
+**/00-bildprompts/images/*.png
+**/00-bildprompts/thumbnail.png
+**/00-bildprompts/flow-export/
+**/02-audio/originale/
+**/02-audio/*.wav

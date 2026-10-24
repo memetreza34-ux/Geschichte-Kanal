@@ -110,9 +110,9 @@ Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural propor
 
 Bild 05 → speichern als „Bild 05.png“
 Prompt:
-Simple cutaway of the tank filled to the top with dark molasses pressing outward against thin riveted steel walls, small stress lines at the lower plates.
+Clean diagram-like side section of the intact new tank, completely undamaged, filled to the brim with dark molasses that presses against its thin riveted walls, slight outward bulge at the lowest plates.
 Boston North End waterfront, 1915, cool autumn daylight.
-Straight side view in clean section.
+Straight side view in clean section, the tank alone against a plain sky.
 Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
 
 Bild 06 → speichern als „Bild 06.png“
@@ -274,7 +274,7 @@ Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural propor
 
 Bild 26 → speichern als „Bild 26.png“
 Prompt:
-An empty South End street at night with gas lamps and a single lit window in a brick rooming house.
+An empty South End street at night with gas lamps and a single lit window in a brick rooming house, the scene filling the whole image edge to edge.
 Boston, a summer night in 1918, moonlight and a single lantern.
 Wide still view down the sleeping street.
 Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
@@ -480,9 +480,9 @@ Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural propor
 
 Bild 52 → speichern als „Bild 52.png“
 Prompt:
-Fresh newspapers come off a printing press, a newsboy grabs a bundle, the headline areas are blank grey blocks.
-Commercial Street, Boston, 15 January 1919, minutes after 12:30 pm, warm lamplight in the press room.
-Medium view along the printing press.
+A newsboy runs out of a print shop door into the street with a bundle of tied, folded newspapers under his arm, the papers seen only from their plain folded edges.
+Boston street outside a print shop, 16 January 1919, morning, grey winter morning light.
+Medium view from the street, the boy in motion.
 Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
 
 Bild 53 → speichern als „Bild 53.png“
@@ -660,8 +660,8 @@ Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural propor
 
 Bild 75 → speichern als „Bild 75.png“
 Prompt:
-A mother in black mourning dress holds an envelope at her small kitchen table, a framed photograph of a child beside her.
-Boston courtroom, April 1925, soft window light.
+A mother in black mourning clothes sits at a small kitchen table and looks at an unopened envelope, an empty child's chair beside her.
+Small tenement kitchen, North End, Boston, 1925, soft window light.
 Medium shot from across the kitchen table.
 People in 1910s Boston working-class clothing.
 Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
@@ -715,7 +715,7 @@ Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural propor
 
 Bild 82 → speichern als „Bild 82.png“
 Prompt:
-An elderly man in a 1950s hat sits on a park bench by the harbor and tells a story to a listening child on a warm evening.
+An elderly man in a 1950s hat sits on a park bench by the old 1950s harbor and tells a story to a listening child on a warm evening, only old wharves and warehouses in the background.
 Langone Park, North End, Boston, present day, warm summer evening.
 Medium shot from the side of the bench.
 Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism.
