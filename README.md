@@ -67,10 +67,10 @@ Neue Projekte durchlaufen zusätzlich die **Story Engine** (`channel/24-STORY-EN
 ```bash
 npm run story:youtube -- --dir "youtube/<week>/<slug>"          # Blueprint gegen Skript
 npm run story:youtube -- --dir "youtube/<week>/<slug>" --lint   # nur das Skript prüfen
-npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"     # schreibt auch FLOW_PROMPTS/Bild NN.txt
+npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"     # eine google-flow-prompt.txt mit Ablauf und kurzen Prompts
 ```
 
-In Google Flow die Dateien aus `00-bildprompts/FLOW_PROMPTS/` **einzeln** einfügen, zuerst die `CAST_*.txt`-Figurenkarten als Ingredients.
+Die Struktur bleibt wie gewohnt: `01-voice-script/voice-script.txt` ist der Fließtext, `00-bildprompts/google-flow-prompt.txt` enthält den ganzen Ablauf (3 Cover → Auswahl → Figurenkarten → Bilder in 10er-Schritten → Umbenennen → Prüfen → ein Ordner) mit kurzen Szenen-Prompts. Stil und Figuren kommen über die Ingredients (Kanal-Stil-Referenz, gewähltes Cover, Figurenkarten).
 
 ## Preproduction: Thema und Skript
 

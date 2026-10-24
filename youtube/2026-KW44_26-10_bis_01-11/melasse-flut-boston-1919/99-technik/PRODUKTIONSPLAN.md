@@ -17,7 +17,7 @@ Erstes Video nach **Story Engine V4** und **Bildplan V4** (`channel/24`, `channe
 - [x] Recherche mit Quellen (`RECHERCHE.md`)
 - [x] `STORY_BLUEPRINT.json` + Skript, Story Engine bestanden
 - [x] Figurenbibel, World Lock, 83 Scene Cards, Phase 1 bestanden
-- [x] 83 Einzel-Prompts + 5 Figurenkarten in `00-bildprompts/FLOW_PROMPTS/`
+- [x] `00-bildprompts/google-flow-prompt.txt` mit ganzem Ablauf und kurzen Prompts (52 KB)
 - [ ] Voice-over aufnehmen → `02-audio/`
 - [ ] Figurenkarten in Flow erzeugen
 - [ ] Thumbnail A/B/C → Auswahl → `00-bildprompts/thumbnail.png`
@@ -28,11 +28,16 @@ Erstes Video nach **Story Engine V4** und **Bildplan V4** (`channel/24`, `channe
 
 ## Workflow in Google Flow
 
-1. **Stil-Referenz:** `assets/style/kanal-stil-referenz.png` als Ingredient laden (siehe `assets/style/README.md`). Sind die ersten Melasse-Bilder freigegeben, das beste davon als zweite Referenz dazunehmen, damit kein Fachwerk aus London nach Boston wandert.
-2. **Figurenkarten:** `FLOW_PROMPTS/CAST_isaac-gonzalez.txt` usw. einfügen. Die beste Variante unter `00-bildprompts/cast/<id>.png` speichern und in Flow als Ingredient mit dem Namen aus dem Prompt anlegen (z. B. `@IsaacGonzalez`).
-3. **Thumbnail:** drei Varianten mit exakt „TÖDLICHE WELLE AUS SIRUP“. Dann STOPP, auswählen und als `00-bildprompts/thumbnail.png` speichern.
-4. **Szenen:** `FLOW_PROMPTS/Bild 01.txt` bis `Bild 83.txt` **einzeln** einfügen. **Immer** die Stil-Referenz als Ingredient anhängen, bei `@Name` zusätzlich die Figurenkarte. Die Prompts sind bewusst kurz (Median 480 Zeichen): Aussehen und Stil kommen aus den Referenzbildern. Speichern als `images/Bild NN.png`.
-5. Der lange technische Master-Prompt liegt bewusst in `99-technik/FLOW_MASTER_PROMPT.txt` und gehört **nicht** in Flow. Ein Master-Prompt am Stück hat in London die `BILD NN`-Texte ins Bild gebracht.
+1. In Flow die **Kanal-Stil-Referenz** `assets/style/kanal-stil-referenz.png` als Ingredient anhängen.
+2. Die komplette `00-bildprompts/google-flow-prompt.txt` einfügen. Sie führt durch alle sieben Schritte:
+   1. drei Cover-Varianten, dann STOPP
+   2. du wählst eine, die anderen beiden werden gelöscht, die gewählte wird `thumbnail.png`
+   3. fünf Figurenkarten als Ingredients (`@IsaacGonzalez` usw.)
+   4. Szenenbilder in Zehnerschritten mit Cover und Stil-Referenz als Vorlage
+   5. umbenennen in `Bild 01.png` bis `Bild 83.png`
+   6. alles nochmal prüfen
+   7. alle Bilder in einen Ordner `images`
+3. Sind die ersten Bilder freigegeben, kann das beste Melasse-Bild als zusätzliche Vorlage dazukommen, damit kein Fachwerk aus London nach Boston wandert.
 
 ## Phase-2-Checkliste pro Bild
 

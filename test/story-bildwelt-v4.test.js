@@ -4,9 +4,9 @@ import path from 'node:path';
 import { tmpdir } from 'node:os';
 import test from 'node:test';
 import { lintScript, validateStoryBlueprint } from '../src/lib/story-engine.js';
-import { compileFlowPromptFiles, compileScenePromptV4, validateCastBible, validateVisualPlan } from '../src/lib/visual-plan.js';
+import { compileFlowMasterV4, compileScenePromptV4, validateCastBible, validateVisualPlan } from '../src/lib/visual-plan.js';
 import { compileScenePrompt } from '../src/lib/flow-prompt.js';
-import { writeFlowPromptFiles } from '../src/cli/build-youtube-flow-prompt.js';
+import { compileCompactFlowPrompt } from '../src/cli/build-youtube-flow-prompt.js';
 import { projectPaths } from '../src/lib/pipeline.js';
 
 const storyPolicy = JSON.parse(await readFile('config/story-engine-policy.json', 'utf8'));
@@ -154,10 +154,28 @@ test('Prompt V4 kompakt: Szene im Text, Stil und Figur über Ingredients, ohne B
   assert.match(crowd, /People in 1660s London clothing\./);
   const today = compileScenePromptV4({ ...card, castIds: [], modernScene: true }, { cast: CAST, policy: visualPolicy });
   assert.doesNotMatch(today, /tricorn hats|People in/);
-  const { files, passed } = compileFlowPromptFiles({ mapping: { images: [card] }, cast: CAST, policy: visualPolicy });
+});
+
+test('Flow-Prompt V4: eine Datei mit 3 Covern, Auswahl, Figurenkarten, 10er-Schritten, Umbenennen, Prüfen, Ordner', () => {
+  const images = Array.from({ length: 12 }, (_, i) => scene(i + 1, i === 4 ? { castIds: ['pepys'], visualForm: 'character-scene' } : {}));
+  const meta = { title: 'Der große Brand', visualStyleId: 'style-x', coverPolicy: { coverText: 'LONDON BRENNT', coverConcept: 'The burning skyline of London seen from the Thames' } };
+  const { passed, prompt } = compileFlowMasterV4({ meta, mapping: { images }, cast: CAST, policy: visualPolicy });
   assert.equal(passed, true);
-  assert.deepEqual(files.map((file) => file.name), ['Bild 35.txt', 'CAST_pepys.txt']);
-  assert.ok(files[1].content.includes(CAST.characters[0].identity), 'Figurenkarte trägt die volle Identität');
+  const order = ['SCHRITT 1 — COVER: DREI VARIANTEN', 'SCHRITT 2 — AUSWAHL', 'SCHRITT 3 — FIGURENKARTEN', 'SCHRITT 4 — SZENENBILDER IN 10ER-SCHRITTEN', '── Schritt 4.1: Bilder 01–10 ──', '── Schritt 4.2: Bilder 11–12 ──', 'SCHRITT 5 — UMBENENNEN', 'SCHRITT 6 — ALLES NOCHMAL PRÜFEN', 'SCHRITT 7 — EIN ORDNER'];
+  let at = -1;
+  for (const marker of order) {
+    const next = prompt.indexOf(marker);
+    assert.ok(next > at, `${marker} fehlt oder steht an falscher Stelle`);
+    at = next;
+  }
+  assert.match(prompt, /genau drei deutlich unterschiedliche Cover-Varianten A, B und C mit exakt dem Text „LONDON BRENNT“/);
+  assert.match(prompt, /Lösche die beiden anderen/);
+  assert.match(prompt, /The burning skyline of London seen from the Thames/);
+  assert.match(prompt, /Nimm das gewählte Cover und die Kanal-Stil-Referenz als Vorlage/);
+  assert.equal((prompt.match(/^Bild \d{2} → speichern als „Bild \d{2}\.png“$/gm) || []).length, 12);
+  assert.ok(prompt.includes(CAST.characters[0].identity), 'Figurenkarte trägt die volle Identität');
+  assert.match(prompt, /@SamuelPepys \(naval official, brown periwig, band collar\)/);
+  assert.ok(prompt.length < 12 * 600 + 5000, 'kompakt');
 });
 
 test('Flow Compiler V3: Vergleichsbilder bekommen die Single-Frame-Sperre und keine doppelten Sätze', () => {
@@ -172,21 +190,18 @@ test('Flow Compiler V3: Vergleichsbilder bekommen die Single-Frame-Sperre und ke
   assert.equal(prompt.split('Narrow timber lane beside a firebreak.').length - 1, 1);
 });
 
-test('Flow-Build V4 schreibt Einzel-Prompts und ersetzt nur generierte Dateien', async () => {
+test('Flow-Build V4 prüft Figurenbibel und Bildplan vor dem Schreiben', async () => {
   const root = await mkdtemp(path.join(tmpdir(), 'flow v4 '));
   try {
     const p = projectPaths(root);
     await mkdir(p.techDir, { recursive: true });
-    await mkdir(p.flowPromptDir, { recursive: true });
-    await writeFile(p.castBible, JSON.stringify(CAST), 'utf8');
-    await writeFile(path.join(p.flowPromptDir, 'Bild 99.txt'), 'alt', 'utf8');
-    await writeFile(path.join(p.flowPromptDir, 'NOTIZEN.md'), 'eigene Notiz', 'utf8');
+    const meta = { title: 'Test', visualStyleId: 'style-x', coverPolicy: { coverText: 'TEST COVER' } };
     const mapping = { images: [scene(1), scene(2, { castIds: ['pepys'], visualForm: 'character-scene' })] };
-    assert.equal(await writeFlowPromptFiles(p, { meta: {}, mapping }), 3);
-    assert.deepEqual((await readdir(p.flowPromptDir)).sort(), ['Bild 01.txt', 'Bild 02.txt', 'CAST_pepys.txt', 'NOTIZEN.md']);
-    assert.ok((await readFile(path.join(p.flowPromptDir, 'Bild 02.txt'), 'utf8')).includes('@SamuelPepys'));
+    await assert.rejects(compileCompactFlowPrompt(p, { meta, mapping }), /CAST_BIBLE\.json/);
+    await writeFile(p.castBible, JSON.stringify(CAST), 'utf8');
+    assert.match(await compileCompactFlowPrompt(p, { meta, mapping }), /PROMPT_SYSTEM: flow-compiler-v4-compact/);
     mapping.images[1].locationKey = 'Kein Kebab';
-    await assert.rejects(writeFlowPromptFiles(p, { meta: {}, mapping }), /locationKey fehlt/);
+    await assert.rejects(compileCompactFlowPrompt(p, { meta, mapping }), /locationKey fehlt/);
   } finally {
     await rm(root, { recursive: true, force: true });
   }

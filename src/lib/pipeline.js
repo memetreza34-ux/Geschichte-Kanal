@@ -159,12 +159,6 @@ export async function fileSize(filePath) {
   return (await stat(filePath)).size;
 }
 
-// V4 projects keep the long technical master prompt out of 00-bildprompts, which holds only
-// what goes into Flow (FLOW_PROMPTS, images, thumbnail). Pasting it whole leaked BILD headings.
-export function masterPromptPath(p, meta) {
-  return Number(meta?.visualPlanGateVersion ?? 0) >= 1 ? path.join(p.techDir, 'FLOW_MASTER_PROMPT.txt') : p.prompt;
-}
-
 export function projectPaths(projectDirectory) {
   const projectDir = path.resolve(projectDirectory);
   return {

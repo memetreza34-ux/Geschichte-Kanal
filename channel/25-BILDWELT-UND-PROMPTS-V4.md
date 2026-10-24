@@ -53,7 +53,7 @@ Wenn ein Ort wiederkommt, wechselt die **Kamera**: von oben, vom Boden, aus dem 
 | Figurenkarte (Ingredient `@Name`) | Gesicht, Haare, Kleidung der Figur |
 | **Prompt-Text** | Handlung, Ort und Zeit, Licht, Kamera, kurzer Stil-Anker, die wichtigsten Ausschlüsse |
 
-Pro Szene eine eigene Datei `00-bildprompts/FLOW_PROMPTS/Bild NN.txt`, ohne Bildnummer und ohne Überschrift:
+Alles steht in **einer** Datei `00-bildprompts/google-flow-prompt.txt` (siehe Abschnitt 5). Jede Szene hat dort die Zeile `Bild NN → speichern als „Bild NN.png“` und darunter nach `Prompt:` den kurzen Szenen-Prompt:
 
 ```text
 1. Subjekt + Handlung       Who/what does what, in one sentence.
@@ -89,9 +89,16 @@ Das Bildplan-Gate blockiert Scene Cards, wenn …
 - ein Szenenprompt länger als 600 Zeichen ist,
 - eine Figur aus der `CAST_BIBLE` in der Szene genannt wird, aber in `castIds` fehlt.
 
-## 5. Workflow in Google Flow
+## 5. Workflow in Google Flow: eine Datei, sieben Schritte
 
-1. **Stil-Referenz:** Ein festes Kanal-Referenzbild (`config/visual-policy.json → visualPlanV4.channelStyleReferenceImage`) einmal erzeugen, als Ingredient anlegen und in jedem Video verwenden. So sehen London und die Ostseeflotte nach demselben Kanal aus.
-2. **Figurenkarten:** Für jede Figur aus der `CAST_BIBLE` die Datei `00-bildprompts/FLOW_PROMPTS/CAST_<id>.txt` erzeugen, das Bild speichern und als Ingredient anlegen.
-3. **Szenen:** Die Dateien `Bild NN.txt` einzeln in Flow einfügen. Der lange technische Master-Prompt liegt bei V4-Projekten in `99-technik/FLOW_MASTER_PROMPT.txt` und gehört nicht in Flow. Das Ergebnis wird als `Bild NN.png` gespeichert.
-4. **Phase 2:** Bei jedem Bild prüfen: Ist irgendwo Text zu sehen? Stimmt die Epoche? Ist es dieselbe Figur? Wiederholt sich die Kamera?
+`npm run build:youtube-flow` schreibt bei V4-Projekten **eine** `00-bildprompts/google-flow-prompt.txt` (beim Melasse-Video 52 KB statt 332 KB). Sie enthält den ganzen Ablauf:
+
+1. **Cover:** genau drei Varianten mit exaktem Cover-Text, dann STOPP.
+2. **Auswahl:** Du wählst eine Variante, die beiden anderen werden gelöscht, die gewählte wird `thumbnail.png`.
+3. **Figurenkarten:** eine Karte pro Figur, angelegt als Ingredient `@Name`.
+4. **Szenen in 10er-Schritten:** Cover und Kanal-Stil-Referenz (`config/visual-policy.json → visualPlanV4.channelStyleReferenceImage`) dienen als Vorlage für dieselbe Bildwelt. Nach jedem 10er-Block wird kurz geprüft.
+5. **Umbenennen:** exakt `Bild 01.png` … `Bild NN.png`.
+6. **Alles nochmal prüfen:** Fehlt etwas? Ist Text im Bild? Stimmen Figur und Epoche? Fehlerhafte Bilder neu erzeugen.
+7. **Ein Ordner:** alle Szenenbilder in `images`, Thumbnail und Figurenkarten liegen außerhalb.
+
+Nur der Text unter `Prompt:` beschreibt ein Bild. Schritte, Überschriften und Dateinamen sind Arbeitsanweisungen und werden nie gezeichnet. Phase 1 prüft, dass alle sieben Schritte, alle Szenenblöcke, die Kamera aus der Scene Card und der Text-Ausschluss vorhanden sind.

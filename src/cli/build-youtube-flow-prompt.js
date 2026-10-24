@@ -1,35 +1,27 @@
 #!/usr/bin/env node
 
-import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { arg, exists, isMainModule, masterPromptPath, projectPaths, readJson, writeJson } from '../lib/pipeline.js';
+import { arg, exists, isMainModule, projectPaths, readJson, writeJson } from '../lib/pipeline.js';
 import { compileFlowPrompt } from '../lib/flow-prompt.js';
 import { injectNarrationAlignmentIntoPrompt, validateNarrationAlignmentProject } from '../lib/narration-alignment.js';
 import { injectDirectingIntoPrompt, validateDirectingPlan } from '../lib/directing.js';
-import { compileFlowPromptFiles, validateCastBible, validateVisualPlan } from '../lib/visual-plan.js';
+import { COMPACT_PROMPT_SYSTEM, compileFlowMasterV4, validateCastBible, validateVisualPlan } from '../lib/visual-plan.js';
 
-const GENERATED_PROMPT_FILE = /^(Bild \d{2,3}|CAST_[a-z0-9-]+)\.txt$/;
-
-// One file per scene: the content never carries a BILD heading that Flow could draw.
-export async function writeFlowPromptFiles(p, { meta, mapping }) {
+// V4: one google-flow-prompt.txt with the whole workflow and short scene prompts.
+export async function compileCompactFlowPrompt(p, { meta, mapping, worldLock }) {
   const visual = await readJson(path.resolve(meta.visualPolicyFile || 'config/visual-policy.json'));
   const policy = visual.visualPlanV4 ?? {};
   if (!(await exists(p.castBible))) throw new Error('Bildplan V4 benötigt 99-technik/CAST_BIBLE.json.');
   const cast = await readJson(p.castBible);
+  const compiled = compileFlowMasterV4({ meta, mapping, cast, policy, worldLock });
   const errors = [
     ...validateCastBible(cast, policy).errors.map((error) => `Cast: ${error}`),
-    ...validateVisualPlan({ mapping, cast, policy }).errors
+    ...validateVisualPlan({ mapping, cast, policy }).errors,
+    ...compiled.errors
   ];
-  const compiled = compileFlowPromptFiles({ mapping, cast, policy });
-  errors.push(...compiled.errors);
   if (errors.length) throw new Error(`Bildplan-V4-Gate blockiert den Prompt-Build:\n${errors.map((error) => `- ${error}`).join('\n')}`);
-
-  await mkdir(p.flowPromptDir, { recursive: true });
-  for (const name of await readdir(p.flowPromptDir)) {
-    if (GENERATED_PROMPT_FILE.test(name)) await rm(path.join(p.flowPromptDir, name));
-  }
-  for (const file of compiled.files) await writeFile(path.join(p.flowPromptDir, file.name), file.content, 'utf8');
-  return compiled.files.length;
+  return compiled.prompt;
 }
 
 export async function buildYoutubeFlowPrompt(projectDirectory) {
@@ -61,22 +53,29 @@ export async function buildYoutubeFlowPrompt(projectDirectory) {
     }
   }
 
-  let prompt = compileFlowPrompt({ meta, mapping, styleLock, worldLock });
-  if (narrationAlignmentPolicy) prompt = injectNarrationAlignmentIntoPrompt(prompt, mapping);
-  if (directingPolicy) prompt = injectDirectingIntoPrompt(prompt, mapping, renderPlan);
+  const compact = Number(meta.visualPlanGateVersion ?? 0) >= 1;
+  let prompt;
+  if (compact) {
+    prompt = await compileCompactFlowPrompt(p, { meta, mapping, worldLock });
+  } else {
+    prompt = compileFlowPrompt({ meta, mapping, styleLock, worldLock });
+    if (narrationAlignmentPolicy) prompt = injectNarrationAlignmentIntoPrompt(prompt, mapping);
+    if (directingPolicy) prompt = injectDirectingIntoPrompt(prompt, mapping, renderPlan);
+  }
 
-  const promptPath = masterPromptPath(p, meta);
-  await writeFile(promptPath, prompt, 'utf8');
-  if (promptPath !== p.prompt && (await exists(p.prompt))) await rm(p.prompt);
-  const promptFiles = Number(meta.visualPlanGateVersion ?? 0) >= 1 ? await writeFlowPromptFiles(p, { meta, mapping }) : 0;
+  await writeFile(p.prompt, prompt, 'utf8');
+  // Leftovers of the short-lived split layout (per-scene files, master in 99-technik).
+  for (const stale of [p.flowPromptDir, path.join(p.techDir, 'FLOW_MASTER_PROMPT.txt')]) {
+    if (await exists(stale)) await rm(stale, { recursive: true, force: true });
+  }
 
-  meta.promptSystemVersion = 3;
-  meta.promptSystem = 'flow-compiler-v3';
+  meta.promptSystemVersion = compact ? 4 : 3;
+  meta.promptSystem = compact ? COMPACT_PROMPT_SYSTEM : 'flow-compiler-v3';
   meta.flowPromptBuiltAt = new Date().toISOString();
   meta.updatedAt = meta.flowPromptBuiltAt;
   await writeJson(p.meta, meta);
 
-  return { promptPath, imageCount: mapping.images.length, promptFiles };
+  return { promptPath: p.prompt, imageCount: mapping.images.length, compact };
 }
 
 async function main() {
@@ -84,7 +83,7 @@ async function main() {
   if (!dir) throw new Error('Nutzung: npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"');
   const result = await buildYoutubeFlowPrompt(dir);
   console.log(`Google-Flow-Prompt gebaut: ${path.relative(process.cwd(), result.promptPath)} (${result.imageCount} Bilder)`);
-  if (result.promptFiles) console.log(`Einzel-Prompts: ${result.promptFiles} Dateien in 00-bildprompts/FLOW_PROMPTS/ — einzeln in Flow einfügen, nie den Master-Prompt.`);
+  if (result.compact) console.log('Format V4 kompakt: eine Datei mit Ablauf (3 Cover → Auswahl → Figurenkarten → 10er-Schritte → Umbenennen → Prüfen → Ordner) und kurzen Szenen-Prompts.');
 }
 
 if (isMainModule(import.meta.url)) {

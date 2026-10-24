@@ -28,8 +28,8 @@
   "flowStyleLockFile": "config/flow-style-lock.json",
   "narrationAlignmentPolicyFile": "config/narration-alignment-policy.json",
   "visualStyleId": "history-stickman-adaptive-v1",
-  "promptSystemVersion": 3,
-  "promptSystem": "flow-compiler-v3",
+  "promptSystemVersion": 4,
+  "promptSystem": "flow-compiler-v4-compact",
   "scenePlanningSchemaVersion": 2,
   "promptQcMinimumScore": 8,
   "chronologyPolicy": {
@@ -61,7 +61,8 @@
     "flowMustStopAfterCoverCandidates": true,
     "selectedCoverRequiredBeforeRemainingImages": true,
     "selectedCoverCandidate": null,
-    "thumbnailSourceFile": "00-bildprompts/thumbnail.png"
+    "thumbnailSourceFile": "00-bildprompts/thumbnail.png",
+    "coverConcept": "A towering brown wave of molasses bursts from a split riveted steel tank and rushes down a cobblestone street under an elevated railway, a small worker in a flat cap running away in the foreground, strong scale contrast"
   },
   "imageDensityPolicy": {
     "contentDrivenImageCountRequired": true,
@@ -143,9 +144,9 @@
   "audioReady": false,
   "renderReady": false,
   "createdAt": "2026-10-24T06:29:18.403Z",
-  "updatedAt": "2026-10-24T11:38:43.192Z",
+  "updatedAt": "2026-10-24T11:44:08.359Z",
   "postVideoImprovementGateVersion": 1,
   "imageIntegrityGateVersion": 1,
   "figureReviewGateVersion": 1,
-  "flowPromptBuiltAt": "2026-10-24T11:38:43.192Z"
+  "flowPromptBuiltAt": "2026-10-24T11:44:08.359Z"
 }

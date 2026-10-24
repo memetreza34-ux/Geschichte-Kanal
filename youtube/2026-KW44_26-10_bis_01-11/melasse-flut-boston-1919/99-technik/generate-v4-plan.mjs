@@ -243,6 +243,7 @@ Object.assign(meta, {
   phase1Ready: true
 });
 meta.coverPolicy.coverText = 'TÖDLICHE WELLE AUS SIRUP';
+meta.coverPolicy.coverConcept = 'A towering brown wave of molasses bursts from a split riveted steel tank and rushes down a cobblestone street under an elevated railway, a small worker in a flat cap running away in the foreground, strong scale contrast';
 meta.imageDensityPolicy.targetAverageHoldSeconds = [2.5, 4.5];
 meta.youtubeUpload = {
   captionPolicyVersion: 2,

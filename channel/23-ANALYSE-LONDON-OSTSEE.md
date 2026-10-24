@@ -61,7 +61,7 @@ Das `POST_VIDEO_REVIEW.json` der Ostseeflotte stand noch auf `PENDING_REVIEW`. D
 | Befund | Neue Regel bzw. neues Werkzeug |
 |---|---|
 | S1–S6 | `channel/24-STORY-ENGINE-V4.md` und `99-technik/STORY_BLUEPRINT.json`. Das Gate prüft den **echten Skripttext**: Hook, offene Schleifen mit Auflösung, konkrete Details, Führungsfigur, verbotene Lexikonformeln, Aufzählungs-Ende. |
-| B1, B2 | Zusätzlich pro Szene eine eigene Prompt-Datei `00-bildprompts/FLOW_PROMPTS/Bild NN.txt` **ohne** Bildnummer im Inhalt. Flow sieht dadurch keine `BILD NN`-Überschrift mehr. |
+| B1, B2 | In der einen `google-flow-prompt.txt` beschreibt nur der Text unter `Prompt:` ein Bild; die Szenen-Prompts sind kurz und enthalten keine Bildnummer. Die Regel „Überschriften nie zeichnen“ steht oben im Ablauf. |
 | B3–B5 | Neues Bildplan-Gate: Pflichtfeld `locationKey` pro Bild, Grenzen für denselben Ort und dieselbe Kamera, Kartenanteil höchstens 12 %, Split-Screen nur mit ausdrücklicher Freigabe. |
 | B6–B8 | `99-technik/CAST_BIBLE.json`: feste Figurenbeschreibung und Referenzbild pro Hauptfigur, plus Kleidungsmerkmale der Epoche. Der Compiler fügt die Beschreibung automatisch in jede Szene ein, in der die Figur vorkommt. |
 | Ursache 1–3 | Erkennung von Schablonen-Cards, kürzere Prompts im Format Subjekt → Ort und Zeit → Kamera → Licht → Figuren. |

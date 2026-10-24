@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { arg, copyDirectory, exists, masterPromptPath, projectPaths, readJson, slugify, writeJson } from '../lib/pipeline.js';
+import { arg, copyDirectory, exists, readJson, slugify, writeJson } from '../lib/pipeline.js';
 import { evaluateTopic } from './check-youtube-topic.js';
 import { assertImprovementLoopReady } from '../lib/continuous-improvement.js';
 
@@ -89,8 +89,6 @@ async function main() {
     .replace('[VIDEO-TITEL]', title)
     .replace(/^ACTIVE_STYLE_ID:\s*.*$/m, `ACTIVE_STYLE_ID: ${activeStyleId}`);
   await writeFile(promptPath, prompt, 'utf8');
-  const masterPath = masterPromptPath(projectPaths(destination), meta);
-  if (masterPath !== promptPath) await rename(promptPath, masterPath);
 
   const registryPath = path.resolve('config/topic-registry.json');
   const registry = await readJson(registryPath, { version: 1, entries: [] });

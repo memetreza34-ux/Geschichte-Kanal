@@ -155,22 +155,103 @@ export function compileCastPrompt(member, { policy = {} } = {}) {
   ].filter(Boolean).join('\n');
 }
 
-export function compileFlowPromptFiles({ mapping, cast, policy = {} }) {
+export const COMPACT_PROMPT_SYSTEM = 'flow-compiler-v4-compact';
+
+const pad = (value) => String(value).padStart(2, '0');
+
+// One google-flow-prompt.txt with the full workflow (3 covers, choice, cast sheets, scenes in
+// steps of ten, naming, final check, one folder) and short scene prompts. Headings never contain
+// "Bild NN " except the scene markers, so the Phase-1 extractor and Flow see clean blocks.
+export function compileFlowMasterV4({ meta, mapping, cast, policy = {}, worldLock = null }) {
   const errors = [];
-  const files = [];
+  const images = mapping?.images ?? [];
+  const total = images.length;
+  const last = pad(total);
   const minChars = Number(policy.minPromptChars ?? 150);
   const maxChars = Number(policy.maxPromptChars ?? 600);
-  for (const scene of mapping?.images ?? []) {
-    const number = String(scene.imageNumber).padStart(2, '0');
+  const batch = Number(policy.batchSize ?? 10);
+  const coverText = text(meta?.coverPolicy?.coverText);
+  const reference = text(policy.channelStyleReferenceImage) || 'assets/style/kanal-stil-referenz.png';
+  const exclusions = (policy.exclusions ?? []).filter((item) => !/^(text|letters)$/i.test(item));
+  const members = cast?.characters ?? [];
+
+  const scenePrompts = images.map((scene) => {
     const prompt = compileScenePromptV4(scene, { cast, policy });
     if (prompt.length < minChars || prompt.length > maxChars) {
-      errors.push(`Bild ${number}: Prompt hat ${prompt.length} Zeichen (erlaubt ${minChars}–${maxChars}).`);
+      errors.push(`Bild ${pad(scene.imageNumber)}: Prompt hat ${prompt.length} Zeichen (erlaubt ${minChars}–${maxChars}).`);
     }
-    if (/\b(BILD|IMAGE|SCENE)\s*\d/i.test(prompt)) errors.push(`Bild ${number}: Prompt enthält eine Bildnummer.`);
-    files.push({ name: `Bild ${number}.txt`, content: `${prompt}\n` });
+    if (/\b(BILD|IMAGE|SCENE)\s*\d/i.test(prompt)) errors.push(`Bild ${pad(scene.imageNumber)}: Prompt enthält eine Bildnummer.`);
+    return prompt;
+  });
+
+  const steps = [];
+  for (let start = 0; start < total; start += batch) {
+    const end = Math.min(start + batch, total);
+    const part = Math.floor(start / batch) + 1;
+    const blocks = [];
+    for (let i = start; i < end; i += 1) {
+      const name = `Bild ${pad(images[i].imageNumber)}`;
+      blocks.push(`${name} → speichern als „${name}.png“\nPrompt:\n${scenePrompts[i]}`);
+    }
+    steps.push(`── Schritt 4.${part}: Bilder ${pad(start + 1)}–${pad(end)} ──\n\n${blocks.join('\n\n')}\n\nPrüfe diese ${end - start} Bilder kurz (kein Text, richtige Figur, richtige Epoche), dann weiter.`);
   }
-  for (const member of cast?.characters ?? []) {
-    files.push({ name: `CAST_${member.id}.txt`, content: `${compileCastPrompt(member, { policy })}\n` });
-  }
-  return { passed: errors.length === 0, errors, files };
+
+  const castBlocks = members.map((member) => `Figur: ${text(member.name)} → speichern als „cast-${member.id}.png“, als Ingredient @${member.name.replace(/\s+/g, '')}\nPrompt:\n${compileCastPrompt(member, { policy })}`);
+  const world = text(worldLock?.settingDescription);
+  const coverPrompt = [
+    `YouTube thumbnail for a history video: ${text(meta?.title)}.`,
+    text(meta?.coverPolicy?.coverConcept) ? sentence(meta.coverPolicy.coverConcept) : 'One strong central subject from this story, dramatic but clear composition.',
+    world ? sentence(world) : '',
+    `Large, correctly spelled German title text "${coverText}" in a calm, high-contrast area that does not cover the main subject.`,
+    sentence(policy.shortStyleAnchor),
+    `Exclude: any other text, ${exclusions.join(', ')}.`
+  ].filter(Boolean).join('\n');
+
+  const master = `ACTIVE_STYLE_ID: ${text(meta?.visualStyleId)}
+PROMPT_SYSTEM: ${COMPACT_PROMPT_SYSTEM}
+
+GOOGLE FLOW — ${text(meta?.title)}
+
+Auftrag: ${total} Szenenbilder im Format 16:9 für ein deutsches YouTube-Geschichtsvideo, plus Cover und Figurenkarten. Arbeite die Schritte 1 bis 7 der Reihe nach ab.
+
+VORLAGEN (als Ingredients anhängen)
+- Kanal-Stil-Referenz „${reference}“: bei jedem Bild.
+- Das ausgewählte Cover: ab Schritt 3 bei jedem Bild, damit die Bildwelt gleich bleibt.
+- Die Figurenkarten aus Schritt 3: bei jeder Szene, in der @Name vorkommt.
+
+REGELN FÜR ALLE BILDER
+- Nur der Text unter „Prompt:“ beschreibt ein Bild. Schritte, Überschriften, Dateinamen und Nummern sind Arbeitsanweisungen und erscheinen nie im Bild.
+- Kein Text, keine Buchstaben, keine Zahlen im Bild. Einzige Ausnahme ist der Cover-Text auf dem Cover.
+- Jedes Bild ist ein durchgehendes Bild: kein Split-Screen, keine Panels, kein Rahmen.
+- Gleicher Zeichenstil wie die Kanal-Stil-Referenz, natürliche Proportionen und ruhige, natürliche Gesichter.
+- Jede Figur sieht in jedem Bild aus wie auf ihrer Figurenkarte.
+
+SCHRITT 1 — COVER: DREI VARIANTEN
+Erzeuge genau drei deutlich unterschiedliche Cover-Varianten A, B und C mit exakt dem Text „${coverText}“ und sonst keinem Text. Danach STOPP: Wähle nicht selbst aus und erzeuge noch keine Szenen, sondern warte auf meine Auswahl.
+Prompt:
+${coverPrompt}
+
+SCHRITT 2 — AUSWAHL
+Ich nenne die beste Variante. Lösche die beiden anderen. Speichere die gewählte als „thumbnail.png“, nicht im Ordner images. Das Cover ist das YouTube-Thumbnail und erscheint nicht im Video.
+
+SCHRITT 3 — FIGURENKARTEN
+Erzeuge für jede Figur eine Figurenkarte im Stil des gewählten Covers und lege sie als Ingredient mit dem angegebenen @Namen an.
+
+${castBlocks.join('\n\n')}
+
+SCHRITT 4 — SZENENBILDER IN 10ER-SCHRITTEN
+Nimm das gewählte Cover und die Kanal-Stil-Referenz als Vorlage für dieselbe Bildwelt. Erzeuge immer 10 Bilder, prüfe sie kurz und mache dann mit den nächsten 10 weiter. Erzeuge jedes Bild genau einmal.
+
+${steps.join('\n\n')}
+
+SCHRITT 5 — UMBENENNEN
+Alle Szenenbilder heißen exakt „Bild 01.png“ bis „Bild ${last}.png“: zweistellig, mit Leerzeichen, ohne Zusätze. Namen wie „image_1.png“ oder „Bild 1.png“ korrigieren.
+
+SCHRITT 6 — ALLES NOCHMAL PRÜFEN
+Gehe alle ${total} Bilder noch einmal durch: Fehlt ein Bild? Ist Text, eine Zahl oder Pseudo-Schrift zu sehen? Stimmt die Figur? Stimmt die Epoche? Gibt es einen Split-Screen oder Rahmen? Fehlende oder fehlerhafte Bilder neu erzeugen und mir die Liste nennen.
+
+SCHRITT 7 — EIN ORDNER
+Lege alle ${total} Szenenbilder zusammen in den Ordner „images“. Das Thumbnail und die Figurenkarten liegen nicht in images.
+`;
+  return { passed: errors.length === 0, errors, prompt: master };
 }

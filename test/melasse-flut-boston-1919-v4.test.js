@@ -22,15 +22,18 @@ test('Melasse-Flut 1919: erstes V4-Video besteht Story Engine, Bildplan und Phas
   const noon = mapping.images.findIndex((x) => x.narrationBeat.startsWith('Gegen halb eins'));
   assert.ok(wave > noon, 'Keine Welle vor 12:30 Uhr zeigen');
 
-  // 00-bildprompts holds only what goes into Flow; the long master prompt lives in 99-technik.
-  assert.deepEqual((await readdir(`${dir}/00-bildprompts`)).filter((name) => !name.startsWith('.')).sort(), ['FLOW_PROMPTS', 'images']);
-  assert.ok((await readdir(`${dir}/99-technik`)).includes('FLOW_MASTER_PROMPT.txt'));
-  const prompts = (await readdir(`${dir}/00-bildprompts/FLOW_PROMPTS`)).filter((name) => /^Bild \d+\.txt$/.test(name));
-  assert.equal(prompts.length, 83);
-  for (const name of prompts) {
-    const prompt = await readFile(`${dir}/00-bildprompts/FLOW_PROMPTS/${name}`, 'utf8');
-    assert.doesNotMatch(prompt, /\bBILD\b|\bIMAGE \d|\bSCENE \d/, name);
-    assert.ok(prompt.length <= 1200, `${name} ist zu lang`);
+  // Bewährte Struktur: eine google-flow-prompt.txt mit dem ganzen Ablauf, Bilder in images/.
+  assert.deepEqual((await readdir(`${dir}/00-bildprompts`)).filter((name) => !name.startsWith('.')).sort(), ['google-flow-prompt.txt', 'images']);
+  const prompt = await readFile(`${dir}/00-bildprompts/google-flow-prompt.txt`, 'utf8');
+  assert.ok(prompt.length < 60000, `Flow-Prompt ist ${prompt.length} Zeichen lang`);
+  assert.match(prompt, /SCHRITT 1 — COVER: DREI VARIANTEN[\s\S]*SCHRITT 7 — EIN ORDNER/);
+  assert.equal((prompt.match(/^── Schritt 4\.\d+: Bilder /gm) || []).length, 9);
+  const blocks = prompt.split(/^Bild \d{2} → speichern als .*$/m).slice(1);
+  assert.equal(blocks.length, 83);
+  for (const block of blocks) {
+    const scenePrompt = block.split('\n\n')[0].replace(/^\s*Prompt:\n/, '');
+    assert.ok(scenePrompt.length <= 600, `Szenen-Prompt zu lang: ${scenePrompt.slice(0, 60)}`);
+    assert.doesNotMatch(scenePrompt, /\bBILD\b|\bIMAGE \d|\bSCENE \d/);
   }
 
   const pre = await validatePreproduction(dir);
