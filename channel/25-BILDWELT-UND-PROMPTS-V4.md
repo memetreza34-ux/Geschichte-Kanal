@@ -22,6 +22,7 @@ Jede Figur, die mehr als einmal sichtbar ist, bekommt einen festen Eintrag:
 - `identity` steht auf Englisch, umfasst 12–45 Wörter und nennt Alter, Gesicht, Haare, Kleidung und Erkennungsmerkmal. Der Compiler setzt diesen Text **wortgleich** in jede Szene, in der die Figur vorkommt.
 - `referenceImage` wird **vor** den Szenen einmal erzeugt: eine Figurenkarte mit Ansicht von vorne und im Dreiviertelprofil auf neutralem Hintergrund. In Google Flow wird sie als Ingredient gespeichert und mit `@Name` aufgerufen.
 - Höchstens 5 Hauptfiguren pro Video. Mit mehr Figuren bricht die Konsistenz zusammen.
+- Szenen aus der Gegenwart (z. B. der Ort heute) bekommen `modernScene=true` und damit keine Epochenkleidung und keine Epochen-Ausschlüsse.
 - `eraWardrobe` (pro Video): 3–6 konkrete Kleidungsmerkmale der Epoche plus `eraForbidden`, z. B. für 1666: `tricorn hats, 18th-century powdered wigs`.
 
 ## 2. Orte und Kameraplan

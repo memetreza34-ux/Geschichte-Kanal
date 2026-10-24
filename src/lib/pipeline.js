@@ -103,7 +103,8 @@ export function ensureInside(root, candidate) {
 }
 
 export async function copyDirectory(source, destination) {
-  await mkdir(destination, { recursive: true });
+  // Only the parent may exist: Node 24 cp with errorOnExist rejects an existing target directory.
+  await mkdir(path.dirname(destination), { recursive: true });
   await cp(source, destination, { recursive: true, force: false, errorOnExist: true });
 }
 

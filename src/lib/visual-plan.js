@@ -10,7 +10,8 @@ function text(value) {
 function sentence(value) {
   const clean = text(value);
   if (!clean) return '';
-  return /[.!?]$/.test(clean) ? clean : `${clean}.`;
+  const capitalized = clean[0].toUpperCase() + clean.slice(1);
+  return /[.!?]$/.test(capitalized) ? capitalized : `${capitalized}.`;
 }
 
 function wordCount(value) {
@@ -22,8 +23,9 @@ function mentions(haystack, name) {
   return Boolean(needle) && ` ${normalizeText(haystack)} `.includes(` ${needle} `);
 }
 
+// Only what is drawn counts: a person named in the narration may stay deliberately off-screen.
 function sceneText(scene) {
-  return ['narrationBeat', 'visualConcept', 'dominantSubject', 'actionState', 'composition', 'subjectAction']
+  return ['visualConcept', 'dominantSubject', 'actionState', 'composition', 'subjectAction']
     .map((key) => text(scene?.[key])).join(' ');
 }
 
@@ -115,12 +117,15 @@ export function compileScenePromptV4(scene, { cast = null, policy = {} } = {}) {
   const ids = Array.isArray(scene.castIds) ? scene.castIds : [];
   const people = members.filter((member) => ids.includes(member.id))
     .map((member) => `@${member.name.replace(/\s+/g, '')}: ${sentence(member.identity)}`);
-  const showsPeople = ids.length > 0 || text(scene.visualForm) === 'character-scene';
-  const wardrobe = showsPeople && Array.isArray(cast?.eraWardrobe) && cast.eraWardrobe.length
+  // Present-day epilogue scenes (modernScene=true) must not get the historical era lock.
+  const eraLocked = scene.modernScene !== true;
+  // Cast identities already fix their clothing; the era wardrobe guides anonymous people only.
+  const anonymousPeople = ids.length === 0 && text(scene.visualForm) === 'character-scene';
+  const wardrobe = eraLocked && anonymousPeople && Array.isArray(cast?.eraWardrobe) && cast.eraWardrobe.length
     ? `Period clothing: ${cast.eraWardrobe.map(text).filter(Boolean).join(', ')}.`
     : '';
-  const exclusions = [...(policy.exclusions ?? []), ...(Array.isArray(cast?.eraForbidden) ? cast.eraForbidden : [])]
-    .map(text).filter(Boolean);
+  const eraForbidden = eraLocked && Array.isArray(cast?.eraForbidden) ? cast.eraForbidden : [];
+  const exclusions = [...(policy.exclusions ?? []), ...eraForbidden].map(text).filter(Boolean);
 
   const lines = [
     sentence(scene.subjectAction || scene.visualConcept),

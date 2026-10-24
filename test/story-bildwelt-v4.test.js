@@ -143,7 +143,11 @@ test('Prompt V4: kurz, ohne Bildnummer, mit wortgleicher Figur und Ausschlüssen
   assert.doesNotMatch(prompt, /BILD|IMAGE \d|SCENE \d|35/);
   assert.ok(prompt.includes(CAST.characters[0].identity));
   assert.match(prompt, /Exclude: .*split screen.*tricorn hats/);
-  assert.match(prompt, /Period clothing: 1660s falling band collars/);
+  assert.doesNotMatch(prompt, /Period clothing/, 'Figurenbeschreibung reicht, keine doppelte Kleidung');
+  const crowd = compileScenePromptV4({ ...card, castIds: [], subjectAction: 'Londoners carry furniture to the river' }, { cast: CAST, policy: visualPolicy });
+  assert.match(crowd, /Period clothing: 1660s falling band collars/);
+  const today = compileScenePromptV4({ ...card, castIds: [], modernScene: true }, { cast: CAST, policy: visualPolicy });
+  assert.doesNotMatch(today, /tricorn hats|Period clothing/);
   const { files, passed } = compileFlowPromptFiles({ mapping: { images: [card] }, cast: CAST, policy: visualPolicy });
   assert.equal(passed, true);
   assert.deepEqual(files.map((file) => file.name), ['Bild 35.txt', 'CAST_pepys.txt']);

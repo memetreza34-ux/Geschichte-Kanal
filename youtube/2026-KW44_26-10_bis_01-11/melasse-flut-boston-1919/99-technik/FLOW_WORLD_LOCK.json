@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "status": "READY",
+  "settingName": "North End Boston 1915–1925",
+  "settingDescription": "Hand-drawn historical 2D world of Boston's poor Italian and Irish waterfront district: brick tenements, cobblestone Commercial Street with the elevated railway on riveted steel girders, wooden warehouse sheds, harbor wharves, a brick firehouse and one huge riveted steel molasses tank painted brown.",
+  "recurringPlaces": [
+    "Molasses tank: cylinder of riveted steel plates, as tall as a five-story tenement, painted brown after 1915, manhole cover at the base, valve pipe on the harbor side",
+    "Commercial Street: cobblestones, streetcar rails, elevated railway trestle on steel girders, horse wagons and early trucks",
+    "Firehouse 31: two-story brick building with an arched bay door and a horse-drawn fire engine",
+    "Tenement block: four-story brick houses with fire escapes, laundry lines and small porches",
+    "Hearing room: wood-paneled room with long tables, case files, tall windows"
+  ],
+  "recurringCharacters": [
+    "Isaac Gonzalez, Arthur Jell, Hugh Ogden, George Layhe and Bridget Clougherty exactly as defined in CAST_BIBLE.json"
+  ],
+  "recurringProps": [
+    "Tin cans catching molasses drips",
+    "Large iron valve wheel at the back of the tank",
+    "Hardened brown molasses with a glossy surface, thick and sticky"
+  ],
+  "basePalette": [
+    "molasses brown and amber",
+    "brick red and soot grey",
+    "harbor slate blue",
+    "winter white and pale sky"
+  ],
+  "timeWeatherLogic": "1915–1918 shown in mild seasons; 14 January 1919 freezing frost; 15 January 1919 sudden mild sunshine until the flood at 12:30, then cold afternoon; cleanup weeks later in winter; harbor still brown in summer 1919; court 1919–1925; epilogue today.",
+  "continuityRules": [
+    "Recurring places keep their layout, but each return uses a different camera position or shot scale.",
+    "Show the tank intact until the narration reaches 12:30 on 15 January 1919; never show the wave, damage or ruins earlier.",
+    "Victims are shown with dignity: no visible bodies, no gore; loss is expressed through objects, absence and reactions.",
+    "Recurring people keep the identity text from CAST_BIBLE.json word for word."
+  ]
+}
