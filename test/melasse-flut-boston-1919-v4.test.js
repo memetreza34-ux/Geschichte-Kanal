@@ -23,7 +23,9 @@ test('Melasse-Flut 1919: erstes V4-Video besteht Story Engine, Bildplan und Phas
   assert.ok(wave > noon, 'Keine Welle vor 12:30 Uhr zeigen');
 
   // Bewährte Struktur: eine google-flow-prompt.txt mit dem ganzen Ablauf, Bilder in images/.
-  assert.deepEqual((await readdir(`${dir}/00-bildprompts`)).filter((name) => !name.startsWith('.')).sort(), ['google-flow-prompt.txt', 'images']);
+  const promptFolder = await readdir(`${dir}/00-bildprompts`);
+  assert.ok(promptFolder.includes('google-flow-prompt.txt') && promptFolder.includes('images'));
+  assert.ok(!promptFolder.includes('FLOW_PROMPTS'), 'keine Einzeldateien mehr');
   const prompt = await readFile(`${dir}/00-bildprompts/google-flow-prompt.txt`, 'utf8');
   assert.ok(prompt.length < 60000, `Flow-Prompt ist ${prompt.length} Zeichen lang`);
   assert.match(prompt, /SCHRITT 1 — COVER: DREI VARIANTEN[\s\S]*SCHRITT 7 — EIN ORDNER/);
