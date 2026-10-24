@@ -213,5 +213,60 @@
     "Prompt-QC: channel/12-PROMPT-QC.md",
     "Flow Style Lock: config/flow-style-lock.json",
     "Compiler: src/lib/flow-prompt.js und src/cli/build-youtube-flow-prompt.js"
-  ]
+  ],
+  "visualPlanV4": {
+    "version": 1,
+    "doc": "channel/25-BILDWELT-UND-PROMPTS-V4.md",
+    "channelStyleReferenceImage": "assets/style/kanal-stil-referenz.png",
+    "shortStyleAnchor": "Hand-drawn 2D historical illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading, light paper-and-ink texture, natural adult proportions and restrained faces.",
+    "exclusions": [
+      "text",
+      "letters",
+      "numbers",
+      "captions",
+      "labels",
+      "signage text",
+      "split screen",
+      "panels",
+      "comic panels",
+      "border",
+      "frame",
+      "picture-in-picture",
+      "watermark",
+      "photorealism",
+      "3D render",
+      "anime"
+    ],
+    "maxSameLocationScaleRun": 2,
+    "maxLocationShare": 0.2,
+    "maxMapShare": 0.12,
+    "maxIdenticalCompositionShare": 0.25,
+    "minPromptChars": 200,
+    "maxPromptChars": 1200,
+    "maxCastMembers": 5,
+    "castIdentityWords": [
+      12,
+      45
+    ],
+    "minEraWardrobeItems": 3,
+    "splitScreenForms": [
+      "detail-inset"
+    ],
+    "splitScreenTerms": [
+      "split screen",
+      "split-screen",
+      "side by side",
+      "side-by-side",
+      "two panels",
+      "panel",
+      "panels",
+      "left half",
+      "right half",
+      "inset",
+      "picture-in-picture",
+      "zweigeteilt",
+      "nebeneinander",
+      "geteiltes bild"
+    ]
+  }
 }

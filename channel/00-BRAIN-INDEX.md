@@ -37,6 +37,15 @@ Oberste operative Regel: **Nach jedem echten fertigen Video die tatsächliche Au
 
 **Autorität:** `channel/22-CONTINUOUS-IMPROVEMENT.md`, `config/channel-policy.json.continuousImprovement`, `src/lib/continuous-improvement.js`.
 
+## V4 — Story Engine, Figurenbibel und Einzel-Prompts
+
+Aus der Sichtung der ersten zwei Longform-Videos (`channel/23-ANALYSE-LONDON-OSTSEE.md`):
+
+- `channel/24-STORY-ENGINE-V4.md` + `99-technik/STORY_BLUEPRINT.json`: Cold Open, Führungsfigur, offene Schleifen, konkrete Details, Rückgriff am Ende. Das Gate prüft den echten Skripttext (`npm run story:youtube`).
+- `channel/25-BILDWELT-UND-PROMPTS-V4.md` + `99-technik/CAST_BIBLE.json`: feste Figuren, `locationKey`, Karten- und Split-Screen-Grenzen, ein kurzer Prompt pro Szene in `00-bildprompts/FLOW_PROMPTS/`.
+
+Aktiv bei `storyEngineGateVersion >= 1` bzw. `visualPlanGateVersion >= 1` (Standard für neue Projekte).
+
 ## Preproduction
 
 Neue Projekte starten als `preproduction-review`.

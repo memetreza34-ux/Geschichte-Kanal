@@ -8,6 +8,7 @@ import { validateVisualInterestScene, validateVisualInterestSequence } from '../
 import { validateWholeVideoQc } from '../lib/whole-video-quality.js';
 import { validatePreproduction } from './validate-youtube-preproduction.js';
 import { validateYoutubeUpload } from '../lib/upload-metadata.js';
+import { validateCastBible, validateVisualPlan } from '../lib/visual-plan.js';
 
 function nonEmpty(value) {
   return typeof value === 'string' && value.trim().length > 0;
@@ -91,6 +92,21 @@ export async function validatePhase1(projectDirectory) {
       const wholeVideoQc = await readJson(p.wholeVideoQc);
       const wholeVideoResult = validateWholeVideoQc(wholeVideoQc, visual);
       errors.push(...wholeVideoResult.errors.map((error) => `Whole Video: ${error}`));
+    }
+  }
+
+  if (Number(meta.visualPlanGateVersion ?? 0) >= 1) {
+    const policy = visual.visualPlanV4 ?? {};
+    if (!(await exists(p.castBible))) {
+      errors.push('Bildplan V4 benötigt 99-technik/CAST_BIBLE.json.');
+    } else {
+      const cast = await readJson(p.castBible);
+      errors.push(...validateCastBible(cast, policy).errors.map((error) => `Cast: ${error}`));
+      errors.push(...validateVisualPlan({ mapping, cast, policy }).errors.map((error) => `Bildplan: ${error}`));
+      for (const scene of mapping.images ?? []) {
+        const file = path.join(p.flowPromptDir, `Bild ${String(scene.imageNumber).padStart(2, '0')}.txt`);
+        if (!(await exists(file))) errors.push(`Einzel-Prompt fehlt: 00-bildprompts/FLOW_PROMPTS/${path.basename(file)}. npm run build:youtube-flow ausführen.`);
+      }
     }
   }
 
