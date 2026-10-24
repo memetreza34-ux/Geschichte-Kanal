@@ -47,11 +47,16 @@ export function validateCastBible(cast, policy = {}) {
     const words = wordCount(member?.identity);
     if (words < minWords || words > maxWords) errors.push(`Figur ${label}: identity braucht ${minWords}–${maxWords} Wörter (aktuell ${words}).`);
     if (!/\.png$/i.test(text(member?.referenceImage))) errors.push(`Figur ${label}: referenceImage (.png) fehlt.`);
+    const [minTag, maxTag] = policy.castTagWords ?? [2, 8];
+    const tagWords = wordCount(member?.tag);
+    if (tagWords < minTag || tagWords > maxTag) errors.push(`Figur ${label}: tag (Kurzmerkmale für Szenenprompts) braucht ${minTag}–${maxTag} Wörter (aktuell ${tagWords}).`);
   }
   const wardrobe = Array.isArray(cast.eraWardrobe) ? cast.eraWardrobe.map(text).filter(Boolean) : [];
   const minWardrobe = Number(policy.minEraWardrobeItems ?? 3);
   if (wardrobe.length < minWardrobe) errors.push(`eraWardrobe braucht mindestens ${minWardrobe} konkrete Kleidungsmerkmale der Epoche.`);
   if (!Array.isArray(cast.eraForbidden)) errors.push('eraForbidden fehlt (z. B. Kleidung einer falschen Epoche).');
+  const eraTagWords = wordCount(cast.eraTag);
+  if (eraTagWords < 2 || eraTagWords > 8) errors.push('eraTag braucht 2–8 Wörter, z. B. „1910s Boston working-class clothing“.');
   return { passed: errors.length === 0, errors };
 }
 
@@ -115,34 +120,29 @@ export function validateVisualPlan({ mapping, cast, policy = {} }) {
 export function compileScenePromptV4(scene, { cast = null, policy = {} } = {}) {
   const members = Array.isArray(cast?.characters) ? cast.characters : [];
   const ids = Array.isArray(scene.castIds) ? scene.castIds : [];
+  // Compact format: the Flow ingredients (style reference, cast sheets) carry look and identity,
+  // the text carries only what makes this scene unique.
   const people = members.filter((member) => ids.includes(member.id))
-    .map((member) => `@${member.name.replace(/\s+/g, '')}: ${sentence(member.identity)}`);
+    .map((member) => `@${member.name.replace(/\s+/g, '')} (${text(member.tag)})`);
   // Present-day epilogue scenes (modernScene=true) must not get the historical era lock.
   const eraLocked = scene.modernScene !== true;
-  // Cast identities already fix their clothing; the era wardrobe guides anonymous people only.
   const anonymousPeople = ids.length === 0 && text(scene.visualForm) === 'character-scene';
-  const wardrobe = eraLocked && anonymousPeople && Array.isArray(cast?.eraWardrobe) && cast.eraWardrobe.length
-    ? `Period clothing: ${cast.eraWardrobe.map(text).filter(Boolean).join(', ')}.`
-    : '';
-  const eraForbidden = eraLocked && Array.isArray(cast?.eraForbidden) ? cast.eraForbidden : [];
-  const exclusions = [...(policy.exclusions ?? []), ...eraForbidden].map(text).filter(Boolean);
+  const era = eraLocked && anonymousPeople && text(cast?.eraTag) ? `People in ${text(cast.eraTag)}.` : '';
+  const eraForbidden = eraLocked && Array.isArray(cast?.eraForbidden)
+    ? cast.eraForbidden.slice(0, Number(policy.maxEraExclusions ?? 3))
+    : [];
+  const exclusions = [...new Set([...(policy.exclusions ?? []), ...eraForbidden].map(text).filter(Boolean))];
+  const light = text(scene.lightingMood).replace(/[.!?]$/, '');
+  const where = text(scene.placeTime || scene.timeContext).replace(/[.!?]$/, '');
 
-  const lines = [
+  return [
     sentence(scene.subjectAction || scene.visualConcept),
-    sentence(scene.placeTime || scene.timeContext),
+    sentence([where, light ? light[0].toLowerCase() + light.slice(1) : ''].filter(Boolean).join(', ')),
     sentence(scene.camera),
-    sentence(scene.lightingMood),
-    ...people,
-    wardrobe,
-    sentence(policy.shortStyleAnchor),
-    exclusions.length ? `Exclude: ${[...new Set(exclusions)].join(', ')}.` : ''
-  ];
-  const seen = new Set();
-  return lines.filter((line) => {
-    if (!line || seen.has(line)) return false;
-    seen.add(line);
-    return true;
-  }).join('\n');
+    people.length ? `${people.join(', ')}.` : '',
+    era,
+    [sentence(policy.shortStyleAnchor), exclusions.length ? `Exclude: ${exclusions.join(', ')}.` : ''].filter(Boolean).join(' ')
+  ].filter(Boolean).join('\n');
 }
 
 export function compileCastPrompt(member, { policy = {} } = {}) {
@@ -150,7 +150,7 @@ export function compileCastPrompt(member, { policy = {} } = {}) {
     `Character reference sheet of ${text(member.name)}: front view and three-quarter view side by side, full body, neutral standing pose.`,
     sentence(member.identity),
     'Plain light paper background, even soft light.',
-    sentence(policy.shortStyleAnchor),
+    sentence(policy.castStyleAnchor || policy.shortStyleAnchor),
     'Exclude: text, letters, numbers, captions, labels, watermark, photorealism, 3D render.'
   ].filter(Boolean).join('\n');
 }
@@ -158,8 +158,8 @@ export function compileCastPrompt(member, { policy = {} } = {}) {
 export function compileFlowPromptFiles({ mapping, cast, policy = {} }) {
   const errors = [];
   const files = [];
-  const minChars = Number(policy.minPromptChars ?? 200);
-  const maxChars = Number(policy.maxPromptChars ?? 1200);
+  const minChars = Number(policy.minPromptChars ?? 150);
+  const maxChars = Number(policy.maxPromptChars ?? 600);
   for (const scene of mapping?.images ?? []) {
     const number = String(scene.imageNumber).padStart(2, '0');
     const prompt = compileScenePromptV4(scene, { cast, policy });

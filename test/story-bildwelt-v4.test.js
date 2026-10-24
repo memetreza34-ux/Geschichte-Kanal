@@ -83,11 +83,13 @@ test('Story Engine: Aufzählungs-Ende und späte Frage werden erkannt', () => {
 const CAST = {
   status: 'READY',
   eraWardrobe: ['1660s falling band collars', 'shoulder-length periwigs', 'wide-brimmed felt hats'],
+  eraTag: '1660s London clothing',
   eraForbidden: ['tricorn hats', '18th-century powdered wigs'],
   characters: [{
     id: 'pepys',
     name: 'Samuel Pepys',
     identity: '33-year-old English naval official, shoulder-length dark brown periwig, clean-shaven round face, dark wool coat with white linen falling band collar',
+    tag: 'naval official, brown periwig, band collar',
     referenceImage: '00-bildprompts/cast/pepys.png'
   }]
 };
@@ -128,29 +130,34 @@ test('Bildplan V4: Ortswiederholung, Karten, Split-Screen und Schablonen werden 
 
 test('Bildplan V4: Figurenbibel verlangt feste Identität, Referenzbild und Epochenkleidung', () => {
   assert.equal(validateCastBible(CAST, visualPolicy).passed, true);
-  const bad = { status: 'READY', eraWardrobe: [], characters: [{ id: 'Pepys', name: 'Pepys', identity: 'man with wig' }] };
+  const bad = { status: 'READY', eraWardrobe: [], characters: [{ id: 'Pepys', name: 'Pepys', identity: 'man with wig', tag: 'man' }] };
   const errors = validateCastBible(bad, visualPolicy).errors.join('\n');
   assert.match(errors, /id nur aus/);
   assert.match(errors, /identity braucht/);
   assert.match(errors, /referenceImage/);
   assert.match(errors, /eraWardrobe/);
+  assert.match(errors, /tag \(Kurzmerkmale/);
+  assert.match(errors, /eraTag/);
 });
 
-test('Prompt V4: kurz, ohne Bildnummer, mit wortgleicher Figur und Ausschlüssen', () => {
+test('Prompt V4 kompakt: Szene im Text, Stil und Figur über Ingredients, ohne Bildnummer', () => {
   const card = scene(35, { castIds: ['pepys'], visualForm: 'character-scene', subjectAction: 'Samuel Pepys writes in a small notebook on the Thames bank while the city burns' });
   const prompt = compileScenePromptV4(card, { cast: CAST, policy: visualPolicy });
   assert.ok(prompt.length >= visualPolicy.minPromptChars && prompt.length <= visualPolicy.maxPromptChars, `Länge ${prompt.length}`);
   assert.doesNotMatch(prompt, /BILD|IMAGE \d|SCENE \d|35/);
-  assert.ok(prompt.includes(CAST.characters[0].identity));
+  assert.match(prompt, /@SamuelPepys \(naval official, brown periwig, band collar\)/);
+  assert.doesNotMatch(prompt, /clean-shaven round face/, 'volle Identität nur in der Figurenkarte');
+  assert.match(prompt, /London, 2 September 1666, night, orange firelight/);
   assert.match(prompt, /Exclude: .*split screen.*tricorn hats/);
-  assert.doesNotMatch(prompt, /Period clothing/, 'Figurenbeschreibung reicht, keine doppelte Kleidung');
+  assert.doesNotMatch(prompt, /People in/, 'Figur mit Ingredient braucht keine Epochenzeile');
   const crowd = compileScenePromptV4({ ...card, castIds: [], subjectAction: 'Londoners carry furniture to the river' }, { cast: CAST, policy: visualPolicy });
-  assert.match(crowd, /Period clothing: 1660s falling band collars/);
+  assert.match(crowd, /People in 1660s London clothing\./);
   const today = compileScenePromptV4({ ...card, castIds: [], modernScene: true }, { cast: CAST, policy: visualPolicy });
-  assert.doesNotMatch(today, /tricorn hats|Period clothing/);
+  assert.doesNotMatch(today, /tricorn hats|People in/);
   const { files, passed } = compileFlowPromptFiles({ mapping: { images: [card] }, cast: CAST, policy: visualPolicy });
   assert.equal(passed, true);
   assert.deepEqual(files.map((file) => file.name), ['Bild 35.txt', 'CAST_pepys.txt']);
+  assert.ok(files[1].content.includes(CAST.characters[0].identity), 'Figurenkarte trägt die volle Identität');
 });
 
 test('Flow Compiler V3: Vergleichsbilder bekommen die Single-Frame-Sperre und keine doppelten Sätze', () => {

@@ -143,9 +143,9 @@
   "audioReady": false,
   "renderReady": false,
   "createdAt": "2026-10-24T06:29:18.403Z",
-  "updatedAt": "2026-10-24T09:11:58.696Z",
+  "updatedAt": "2026-10-24T11:18:57.119Z",
   "postVideoImprovementGateVersion": 1,
   "imageIntegrityGateVersion": 1,
   "figureReviewGateVersion": 1,
-  "flowPromptBuiltAt": "2026-10-24T09:11:58.696Z"
+  "flowPromptBuiltAt": "2026-10-24T11:18:57.119Z"
 }

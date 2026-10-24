@@ -8,50 +8,88 @@
     "long dark wool overcoats, waistcoats and suspenders",
     "ankle-length wool skirts with aprons and knitted shawls"
   ],
+  "eraTag": "1910s Boston working-class clothing",
   "eraForbidden": [
     "modern clothing",
+    "post-1920 cars",
+    "tricorn hats",
     "baseball caps",
     "sneakers",
     "plastic objects",
-    "automobiles from after 1920",
-    "neon signs",
-    "tricorn hats"
+    "neon signs"
   ],
   "characters": [
     {
       "id": "isaac-gonzalez",
       "name": "Isaac Gonzalez",
       "identity": "young adult laborer with short black hair, thin black mustache, lean build, worn grey flat cap, brown canvas work jacket over a collarless white shirt, dark trousers with suspenders, scuffed work boots",
+      "tag": "young laborer, grey flat cap, thin mustache",
       "referenceImage": "00-bildprompts/cast/isaac-gonzalez.png",
-      "appearsIn": [4, 22, 23, 24, 25, 27, 28, 29, 31, 32, 33, 37, 69, 70]
+      "appearsIn": [
+        4,
+        22,
+        23,
+        24,
+        25,
+        27,
+        28,
+        29,
+        31,
+        32,
+        33,
+        37,
+        69,
+        70
+      ]
     },
     {
       "id": "arthur-jell",
       "name": "Arthur Jell",
       "identity": "middle-aged company treasurer, round wire spectacles, neatly parted greying hair, clean-shaven pale face, dark three-piece wool suit with a gold watch chain, stiff white collar, black tie",
+      "tag": "treasurer, round spectacles, dark three-piece suit",
       "referenceImage": "00-bildprompts/cast/arthur-jell.png",
-      "appearsIn": [10, 11, 12, 23, 24, 66]
+      "appearsIn": [
+        10,
+        11,
+        12,
+        23,
+        24,
+        66
+      ]
     },
     {
       "id": "hugh-ogden",
       "name": "Hugh Ogden",
       "identity": "Colonel Hugh Ogden, distinguished man in his fifties, short grey hair, grey moustache, upright military posture, dark civilian suit with white wing collar, reading glasses in hand",
+      "tag": "grey-haired colonel, grey moustache, dark suit",
       "referenceImage": "00-bildprompts/cast/hugh-ogden.png",
-      "appearsIn": [68, 69, 71, 72]
+      "appearsIn": [
+        68,
+        69,
+        71,
+        72
+      ]
     },
     {
       "id": "george-layhe",
       "name": "George Layhe",
       "identity": "Boston firefighter in his thirties, broad shoulders, short brown hair, clean-shaven, dark navy 1910s fire department uniform with brass buttons, black leather fire helmet",
+      "tag": "firefighter, navy uniform, black leather helmet",
       "referenceImage": "00-bildprompts/cast/george-layhe.png",
-      "appearsIn": [42, 50]
+      "appearsIn": [
+        42,
+        50
+      ]
     },
     {
       "id": "bridget-clougherty",
       "name": "Bridget Clougherty",
       "identity": "65-year-old Irish-American woman, grey hair pinned in a low bun, kind lined face, ankle-length dark wool skirt, white apron, green knitted shawl over her shoulders",
+      "tag": "elderly woman, grey bun, green shawl",
       "referenceImage": "00-bildprompts/cast/bridget-clougherty.png",
-      "appearsIn": [40]
+      "appearsIn": [
+        40
+      ]
     }
   ]
 }

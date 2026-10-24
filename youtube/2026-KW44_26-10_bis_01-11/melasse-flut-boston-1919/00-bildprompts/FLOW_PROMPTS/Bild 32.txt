@@ -1,7 +1,5 @@
 The tiny figure of Isaac Gonzalez stands alone before the enormous brown tank in the dawn mist.
-Boston, a summer night in 1918.
+Boston, a summer night in 1918, moonlight and a single lantern.
 Extreme wide shot with dramatic scale contrast.
-Moonlight and a single lantern.
-@IsaacGonzalez: Young adult laborer with short black hair, thin black mustache, lean build, worn grey flat cap, brown canvas work jacket over a collarless white shirt, dark trousers with suspenders, scuffed work boots.
-Hand-drawn 2D historical illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading, light paper-and-ink texture, natural adult proportions and restrained faces.
-Exclude: text, letters, numbers, captions, labels, signage text, split screen, panels, comic panels, border, frame, picture-in-picture, watermark, photorealism, 3D render, anime, modern clothing, baseball caps, sneakers, plastic objects, automobiles from after 1920, neon signs, tricorn hats.
+@IsaacGonzalez (young laborer, grey flat cap, thin mustache).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.

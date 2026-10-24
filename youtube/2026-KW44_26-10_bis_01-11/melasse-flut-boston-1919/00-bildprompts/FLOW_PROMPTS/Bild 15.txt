@@ -1,6 +1,4 @@
 The waterfront block from above: the tank, a brick firehouse, tenements and the elevated railway trestle crowded together along Commercial Street.
-Boston, 1915, during the First World War.
+Boston, 1915, during the First World War, hazy industrial daylight.
 Elevated bird's-eye view following the curve of the street.
-Hazy industrial daylight.
-Hand-drawn 2D historical illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading, light paper-and-ink texture, natural adult proportions and restrained faces.
-Exclude: text, letters, numbers, captions, labels, signage text, split screen, panels, comic panels, border, frame, picture-in-picture, watermark, photorealism, 3D render, anime, modern clothing, baseball caps, sneakers, plastic objects, automobiles from after 1920, neon signs, tricorn hats.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.

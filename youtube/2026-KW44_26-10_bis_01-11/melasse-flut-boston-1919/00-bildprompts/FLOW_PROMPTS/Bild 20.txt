@@ -1,7 +1,5 @@
 Children play tag between wooden warehouse sheds while dockworkers carry heavy sacks across the wharf behind them.
-Commercial Street, North End, Boston, 1916.
+Commercial Street, North End, Boston, 1916, warm hazy summer light.
 Medium-wide shot with children in the foreground and dockworkers behind.
-Warm hazy summer light.
-Period clothing: 1910s wool flat caps and bowler hats, long dark wool overcoats, waistcoats and suspenders, ankle-length wool skirts with aprons and knitted shawls.
-Hand-drawn 2D historical illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading, light paper-and-ink texture, natural adult proportions and restrained faces.
-Exclude: text, letters, numbers, captions, labels, signage text, split screen, panels, comic panels, border, frame, picture-in-picture, watermark, photorealism, 3D render, anime, modern clothing, baseball caps, sneakers, plastic objects, automobiles from after 1920, neon signs, tricorn hats.
+People in 1910s Boston working-class clothing.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
