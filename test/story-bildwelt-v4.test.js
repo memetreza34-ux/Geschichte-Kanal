@@ -191,3 +191,10 @@ test('Flow-Build V4 schreibt Einzel-Prompts und ersetzt nur generierte Dateien',
     await rm(root, { recursive: true, force: true });
   }
 });
+
+test('Kanal-Stil-Referenz existiert, ist ein gültiges 16:9-PNG und ist dokumentiert', async () => {
+  const { inspectPng } = await import('../src/lib/image-integrity.js');
+  const result = await inspectPng(visualPolicy.channelStyleReferenceImage);
+  assert.equal(result.passed, true, result.errors.join(' | '));
+  assert.match(await readFile('assets/style/README.md', 'utf8'), /Great Fire of London 1666, Bild 11/);
+});
