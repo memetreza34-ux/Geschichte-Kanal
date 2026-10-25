@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "status": "PLANNED",
+  "doc": "channel/24-STORY-ENGINE-V4.md",
+  "coldOpen": {
+    "scene": "",
+    "firstWords": ""
+  },
+  "centralQuestion": "",
+  "guideCharacter": {
+    "name": "",
+    "why": ""
+  },
+  "acts": {
+    "context": "",
+    "act1TurningPoint": "",
+    "act2Midpoint": "",
+    "act3Climax": "",
+    "resolution": ""
+  },
+  "openLoops": [
+    { "setupQuote": "", "payoffQuote": "" },
+    { "setupQuote": "", "payoffQuote": "" },
+    { "setupQuote": "", "payoffQuote": "" }
+  ],
+  "vividDetails": [
+    { "quote": "", "source": "" },
+    { "quote": "", "source": "" },
+    { "quote": "", "source": "" },
+    { "quote": "", "source": "" },
+    { "quote": "", "source": "" }
+  ],
+  "eyewitness": {
+    "quote": "",
+    "source": ""
+  },
+  "endingCallback": {
+    "quote": ""
+  }
+}

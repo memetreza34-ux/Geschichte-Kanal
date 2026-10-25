@@ -103,7 +103,8 @@ export function ensureInside(root, candidate) {
 }
 
 export async function copyDirectory(source, destination) {
-  await mkdir(destination, { recursive: true });
+  // Only the parent may exist: Node 24 cp with errorOnExist rejects an existing target directory.
+  await mkdir(path.dirname(destination), { recursive: true });
   await cp(source, destination, { recursive: true, force: false, errorOnExist: true });
 }
 
@@ -173,6 +174,9 @@ export function projectPaths(projectDirectory) {
     flowWorldLock: path.join(projectDir, '99-technik', 'FLOW_WORLD_LOCK.json'),
     topicScorecard: path.join(projectDir, '99-technik', 'TOPIC_SCORECARD.json'),
     storyQc: path.join(projectDir, '99-technik', 'STORY_QC.json'),
+    storyBlueprint: path.join(projectDir, '99-technik', 'STORY_BLUEPRINT.json'),
+    castBible: path.join(projectDir, '99-technik', 'CAST_BIBLE.json'),
+    flowPromptDir: path.join(projectDir, '00-bildprompts', 'FLOW_PROMPTS'),
     wholeVideoQc: path.join(projectDir, '99-technik', 'WHOLE_VIDEO_QC.json'),
     phase2VisualQc: path.join(projectDir, '99-technik', 'PHASE2_VISUAL_QC.json'),
     renderPlan: path.join(projectDir, '99-technik', 'YOUTUBE_RENDER_PLAN.json'),

@@ -157,3 +157,9 @@ neueste Nutzerentscheidung / dieses Decision Log
 - Alle Szenen erhalten standardmäßig keinen Covertext. Altes Material wird nicht rückwirkend geändert.
 - Menschen bleiben als 2D-Zeichnungen in der bestehenden Bildwelt, aber mit reiferen Proportionen, weniger comicartiger Mimik, glaubwürdigen Händen und Handlungen, historisch passender Kleidung und individuellen Gesichtern.
 - Der neue Figuren-QC-Gate verlangt explizite Sichtbarkeitsangabe und sechs bestandene Figurenkontrollen. Fehlerhafte Bilder werden vor Phase-3-Lock abgelehnt.
+
+## 2026-10-24 — Feste Kanal-Stil-Referenz
+
+- Entscheidung: `assets/style/kanal-stil-referenz.png` (London 1666, Bild 11) ist ab sofort bei jedem Szenenbild in Google Flow als Ingredient angehängt.
+- Grund: Die Analyse (`channel/23`) zeigte zwei verschiedene Kanal-Looks (London gemalt, Ostsee Comic), weil der Stil nur als Text vorgegeben war. Die kompakten V4-Prompts verlassen sich auf das Referenzbild.
+- Wechsel nur per neuem Eintrag hier.

@@ -1,0 +1,731 @@
+ACTIVE_STYLE_ID: history-stickman-adaptive-v1
+PROMPT_SYSTEM: flow-compiler-v4-compact
+
+GOOGLE FLOW — Warum eine Welle aus Melasse 1919 Boston überrollte
+
+Auftrag: 82 Szenenbilder im Format 16:9 für ein deutsches YouTube-Geschichtsvideo, plus Cover und Figurenkarten. Arbeite die Schritte 1 bis 7 der Reihe nach ab.
+
+VORLAGEN (als Ingredients anhängen)
+- Kanal-Stil-Referenz „assets/style/kanal-stil-referenz.png“: bei jedem Bild.
+- Das ausgewählte Cover: ab Schritt 3 bei jedem Bild, damit die Bildwelt gleich bleibt.
+- Die Figurenkarten aus Schritt 3: bei jeder Szene, in der @Name vorkommt.
+
+REGELN FÜR ALLE BILDER
+- Nur der Text unter „Prompt:“ beschreibt ein Bild. Schritte, Überschriften, Dateinamen und Nummern sind Arbeitsanweisungen und erscheinen nie im Bild.
+- Kein Text, keine Buchstaben, keine Zahlen im Bild. Einzige Ausnahme ist der Cover-Text auf dem Cover.
+- Jedes Bild ist ein durchgehendes Bild: kein Split-Screen, keine Panels, kein Rahmen.
+- Gleicher Zeichenstil wie die Kanal-Stil-Referenz, natürliche Proportionen und ruhige, natürliche Gesichter.
+- Jede Figur sieht in jedem Bild aus wie auf ihrer Figurenkarte.
+
+SCHRITT 1 — COVER: DREI VARIANTEN
+Erzeuge genau drei deutlich unterschiedliche Cover-Varianten A, B und C mit exakt dem Text „TÖDLICHE WELLE AUS SIRUP“ und sonst keinem Text. Danach STOPP: Wähle nicht selbst aus und erzeuge noch keine Szenen, sondern warte auf meine Auswahl.
+Prompt:
+YouTube thumbnail for a history video: Warum eine Welle aus Melasse 1919 Boston überrollte.
+A towering brown wave of molasses bursts from a split riveted steel tank and rushes down a cobblestone street under an elevated railway, a small worker in a flat cap running away in the foreground, strong scale contrast.
+Hand-drawn historical 2D world of Boston's poor Italian and Irish waterfront district: brick tenements, cobblestone Commercial Street with the elevated railway on riveted steel girders, wooden warehouse sheds, harbor wharves, a brick firehouse and one huge riveted steel molasses tank painted brown.
+Large, correctly spelled German title text "TÖDLICHE WELLE AUS SIRUP" in a calm, high-contrast area that does not cover the main subject.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions.
+Exclude: any other text, numbers, split screen, border, watermark, photorealism.
+
+SCHRITT 2 — AUSWAHL
+Ich nenne die beste Variante. Lösche die beiden anderen. Speichere die gewählte als „thumbnail.png“, nicht im Ordner images. Das Cover ist das YouTube-Thumbnail und erscheint nicht im Video.
+
+SCHRITT 3 — FIGURENKARTEN
+Erzeuge für jede Figur eine Figurenkarte im Stil des gewählten Covers und lege sie als Ingredient mit dem angegebenen @Namen an.
+
+Figur: Isaac Gonzalez → speichern als „cast-isaac-gonzalez.png“, als Ingredient @IsaacGonzalez
+Prompt:
+Character reference sheet of Isaac Gonzalez: front view and three-quarter view side by side, full body, neutral standing pose.
+Young adult laborer with short black hair, thin black mustache, lean build, worn grey flat cap, brown canvas work jacket over a collarless white shirt, dark trousers with suspenders, scuffed work boots.
+Plain light paper background, even soft light.
+Hand-drawn 2D historical illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading, light paper-and-ink texture, natural adult proportions and restrained faces.
+Exclude: text, letters, numbers, captions, labels, watermark, photorealism, 3D render.
+
+Figur: Arthur Jell → speichern als „cast-arthur-jell.png“, als Ingredient @ArthurJell
+Prompt:
+Character reference sheet of Arthur Jell: front view and three-quarter view side by side, full body, neutral standing pose.
+Middle-aged company treasurer, round wire spectacles, neatly parted greying hair, clean-shaven pale face, dark three-piece wool suit with a gold watch chain, stiff white collar, black tie.
+Plain light paper background, even soft light.
+Hand-drawn 2D historical illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading, light paper-and-ink texture, natural adult proportions and restrained faces.
+Exclude: text, letters, numbers, captions, labels, watermark, photorealism, 3D render.
+
+Figur: Hugh Ogden → speichern als „cast-hugh-ogden.png“, als Ingredient @HughOgden
+Prompt:
+Character reference sheet of Hugh Ogden: front view and three-quarter view side by side, full body, neutral standing pose.
+Colonel Hugh Ogden, distinguished man in his fifties, short grey hair, grey moustache, upright military posture, dark civilian suit with white wing collar, reading glasses in hand.
+Plain light paper background, even soft light.
+Hand-drawn 2D historical illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading, light paper-and-ink texture, natural adult proportions and restrained faces.
+Exclude: text, letters, numbers, captions, labels, watermark, photorealism, 3D render.
+
+Figur: George Layhe → speichern als „cast-george-layhe.png“, als Ingredient @GeorgeLayhe
+Prompt:
+Character reference sheet of George Layhe: front view and three-quarter view side by side, full body, neutral standing pose.
+Boston firefighter in his thirties, broad shoulders, short brown hair, clean-shaven, dark navy 1910s fire department uniform with brass buttons, black leather fire helmet.
+Plain light paper background, even soft light.
+Hand-drawn 2D historical illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading, light paper-and-ink texture, natural adult proportions and restrained faces.
+Exclude: text, letters, numbers, captions, labels, watermark, photorealism, 3D render.
+
+Figur: Bridget Clougherty → speichern als „cast-bridget-clougherty.png“, als Ingredient @BridgetClougherty
+Prompt:
+Character reference sheet of Bridget Clougherty: front view and three-quarter view side by side, full body, neutral standing pose.
+65-year-old Irish-American woman, grey hair pinned in a low bun, kind lined face, ankle-length dark wool skirt, white apron, green knitted shawl over her shoulders.
+Plain light paper background, even soft light.
+Hand-drawn 2D historical illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading, light paper-and-ink texture, natural adult proportions and restrained faces.
+Exclude: text, letters, numbers, captions, labels, watermark, photorealism, 3D render.
+
+SCHRITT 4 — SZENENBILDER IN 10ER-SCHRITTEN
+Nimm das gewählte Cover und die Kanal-Stil-Referenz als Vorlage für dieselbe Bildwelt. Erzeuge immer 10 Bilder, prüfe sie kurz und mache dann mit den nächsten 10 weiter. Erzeuge jedes Bild genau einmal.
+
+── Schritt 4.1: Bilder 01–10 ──
+
+Bild 01 → speichern als „Bild 01.png“
+Prompt:
+A huge new riveted steel storage tank towers over brick tenements at the Boston waterfront while thin dark streaks of molasses run down its seams.
+Boston North End waterfront, 1915, cool autumn daylight.
+Low-angle wide shot from the cobblestone street looking up at the tank.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 02 → speichern als „Bild 02.png“
+Prompt:
+A thick glossy drop of dark molasses slowly forms on a row of steel rivets.
+Boston North End waterfront, 1915, cool autumn daylight.
+Extreme close-up of the riveted seam, the drop in sharp focus.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 03 → speichern als „Bild 03.png“
+Prompt:
+Neighbors from the tenements hold tin cans under the leaking seam to catch the sweet syrup, a boy licks molasses from his finger.
+Boston North End waterfront, 1915, cool autumn daylight.
+Medium shot at child height beside the tank wall.
+People in 1910s Boston working-class clothing.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 04 → speichern als „Bild 04.png“
+Prompt:
+Isaac Gonzalez stops walking along the base of the tank and turns his head toward the steel wall, listening, while neighbors chat behind him.
+Boston North End waterfront, 1915, cool autumn daylight.
+Medium-wide shot from behind the neighbors, Gonzalez in the middle ground.
+@IsaacGonzalez (young laborer, grey flat cap, thin mustache).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 05 → speichern als „Bild 05.png“
+Prompt:
+Clean diagram-like side section of the intact new tank, completely undamaged, filled to the brim with dark molasses that presses against its thin riveted walls, slight outward bulge at the lowest plates.
+Boston North End waterfront, 1915, cool autumn daylight.
+Straight side view in clean section, the tank alone against a plain sky.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 06 → speichern als „Bild 06.png“
+Prompt:
+The whole North End waterfront seen from the harbor: the intact tank, the elevated railway on steel girders, tenements and a brick firehouse in calm weather.
+Boston North End waterfront, 1915, cool autumn daylight.
+Extreme wide panoramic view from a boat on the harbor.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 07 → speichern als „Bild 07.png“
+Prompt:
+A single tin can filled with molasses stands on a tenement windowsill while the huge dark silhouette of the tank looms outside the window.
+Boston North End waterfront, 1915, cool autumn daylight.
+Medium shot from inside the room through the window.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 08 → speichern als „Bild 08.png“
+Prompt:
+Workers in a brick distillery guide molasses through pipes into large wooden fermentation vats beside a copper still.
+Boston, 1915, during the First World War, hazy industrial daylight.
+Medium-wide view along the row of vats, pipes leading the eye.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 09 → speichern als „Bild 09.png“
+Prompt:
+Barrels of industrial alcohol are loaded next to stacked crates of artillery shells at a busy dock while a foreman waves workers to hurry.
+Boston, 1915, during the First World War, hazy industrial daylight.
+Wide shot along the loading dock with strong diagonal movement.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 10 → speichern als „Bild 10.png“
+Prompt:
+Arthur Jell stands on the construction site holding a ledger while workers rivet curved steel plates behind him.
+Boston, 1915, during the First World War, hazy industrial daylight.
+Medium shot, Jell in the foreground, rising steel plates behind.
+@ArthurJell (treasurer, round spectacles, dark three-piece suit).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Prüfe diese 10 Bilder kurz (kein Text, richtige Figur, richtige Epoche), dann weiter.
+
+── Schritt 4.2: Bilder 11–20 ──
+
+Bild 11 → speichern als „Bild 11.png“
+Prompt:
+Arthur Jell frowns over a large construction drawing full of lines, his finger hovering uncertainly above it.
+Boston, 1915, during the First World War, hazy industrial daylight.
+Close view over the drawing toward his puzzled face.
+@ArthurJell (treasurer, round spectacles, dark three-piece suit).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 12 → speichern als „Bild 12.png“
+Prompt:
+Arthur Jell rolls up the drawings and locks them in his desk drawer, an empty chair for an engineer beside the desk.
+Boston, 1915, during the First World War, hazy industrial daylight.
+Medium shot from the side of the desk.
+@ArthurJell (treasurer, round spectacles, dark three-piece suit).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 13 → speichern als „Bild 13.png“
+Prompt:
+A coiled unused fire hose and a closed hydrant lie beside the newly finished empty tank, dust on the hose.
+Boston, 1915, during the First World War, hazy industrial daylight.
+Medium-wide view with the hose in the foreground and the tank behind.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 14 → speichern als „Bild 14.png“
+Prompt:
+The brown-grey tank stands beside a five-story brick tenement and a horse cart, as tall as the building, showing its enormous size.
+Boston, 1915, during the First World War, hazy industrial daylight.
+Wide street-level view with tenement and cart as scale references.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 15 → speichern als „Bild 15.png“
+Prompt:
+The waterfront block from above: the tank, a brick firehouse, tenements and the elevated railway trestle crowded together along Commercial Street.
+Boston, 1915, during the First World War, hazy industrial daylight.
+Elevated bird's-eye view following the curve of the street.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 16 → speichern als „Bild 16.png“
+Prompt:
+Workers on tall ladders press putty into the tank seams while fresh dark streaks run down below them.
+Commercial Street, North End, Boston, 1916, warm hazy summer light.
+Medium-wide view from the ground up the ladders.
+People in 1910s Boston working-class clothing.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 17 → speichern als „Bild 17.png“
+Prompt:
+Painters on hanging scaffolds roll brown paint over the streaked steel, the leak marks disappearing under the new color.
+Commercial Street, North End, Boston, 1916, warm hazy summer light.
+Wide shot of the whole tank wall, half painted, half streaked.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 18 → speichern als „Bild 18.png“
+Prompt:
+A wet brown brushstroke covers a dark leak streak on the riveted steel, the edge of the paint still glistening.
+Commercial Street, North End, Boston, 1916, warm hazy summer light.
+Extreme close-up on the paint edge over the leak.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 19 → speichern als „Bild 19.png“
+Prompt:
+Crowded brick tenements with laundry lines strung between windows, families on fire escapes and a pushcart vendor in the street below.
+Commercial Street, North End, Boston, 1916, warm hazy summer light.
+Wide view down the narrow street toward the brown tank at its end.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 20 → speichern als „Bild 20.png“
+Prompt:
+Children play tag between wooden warehouse sheds while dockworkers carry heavy sacks across the wharf behind them.
+Commercial Street, North End, Boston, 1916, warm hazy summer light.
+Medium-wide shot with children in the foreground and dockworkers behind.
+People in 1910s Boston working-class clothing.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Prüfe diese 10 Bilder kurz (kein Text, richtige Figur, richtige Epoche), dann weiter.
+
+── Schritt 4.3: Bilder 21–30 ──
+
+Bild 21 → speichern als „Bild 21.png“
+Prompt:
+The brown tank fills the end of a narrow alley between tenements, laundry flapping, a forgotten ball lying next to a sticky puddle.
+Commercial Street, North End, Boston, 1916, warm hazy summer light.
+Medium view down the alley framing the tank between the walls.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 22 → speichern als „Bild 22.png“
+Prompt:
+Isaac Gonzalez carries a toolbox and a coil of rope across the tank yard, nodding to a wagon driver.
+Tank yard and company office, North End, Boston, 1917, low indoor lamplight and grey daylight.
+Medium-wide tracking view, Gonzalez crossing the frame from left to right.
+@IsaacGonzalez (young laborer, grey flat cap, thin mustache).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 23 → speichern als „Bild 23.png“
+Prompt:
+Isaac Gonzalez stands in the office doorway, cap in hand, while Arthur Jell looks up from his desk.
+Tank yard and company office, North End, Boston, 1917, low indoor lamplight and grey daylight.
+Medium shot from inside the office toward the doorway.
+@IsaacGonzalez (young laborer, grey flat cap, thin mustache), @ArthurJell (treasurer, round spectacles, dark three-piece suit).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 24 → speichern als „Bild 24.png“
+Prompt:
+Isaac Gonzalez lays a popped rivet and a flake of brown paint on the desk, Arthur Jell leans back unimpressed.
+Tank yard and company office, North End, Boston, 1917, low indoor lamplight and grey daylight.
+Close over-the-shoulder view onto the desk.
+@IsaacGonzalez (young laborer, grey flat cap, thin mustache), @ArthurJell (treasurer, round spectacles, dark three-piece suit).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 25 → speichern als „Bild 25.png“
+Prompt:
+Isaac Gonzalez lies awake on a narrow bed in a small rented room at night, staring at the ceiling.
+Tank yard and company office, North End, Boston, 1917, low indoor lamplight and grey daylight.
+Medium shot from the foot of the bed, window in the background.
+@IsaacGonzalez (young laborer, grey flat cap, thin mustache).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 26 → speichern als „Bild 26.png“
+Prompt:
+An empty South End street at night with gas lamps and a single lit window in a brick rooming house, the scene filling the whole image edge to edge.
+Boston, a summer night in 1918, moonlight and a single lantern.
+Wide still view down the sleeping street.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 27 → speichern als „Bild 27.png“
+Prompt:
+Isaac Gonzalez steps out of the rooming house door at night, pulling on his jacket and checking a pocket watch.
+Boston, a summer night in 1918, moonlight and a single lantern.
+Medium shot at the doorstep under a gas lamp.
+@IsaacGonzalez (young laborer, grey flat cap, thin mustache).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 28 → speichern als „Bild 28.png“
+Prompt:
+A small running figure of Isaac Gonzalez crosses empty moonlit Boston streets toward the harbor and the distant tank silhouette.
+Boston, a summer night in 1918, moonlight and a single lantern.
+Elevated view over rooftops, the street leading toward the tank.
+@IsaacGonzalez (young laborer, grey flat cap, thin mustache).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 29 → speichern als „Bild 29.png“
+Prompt:
+Isaac Gonzalez turns a large iron valve wheel at the base of the tank with both hands, lit by a small lantern.
+Boston, a summer night in 1918, moonlight and a single lantern.
+Close view of his hands and the wheel, face half in shadow.
+@IsaacGonzalez (young laborer, grey flat cap, thin mustache).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 30 → speichern als „Bild 30.png“
+Prompt:
+A thick stream of molasses pours from a pipe behind the tank into the black harbor water, the moon reflecting on the ripples.
+Boston, a summer night in 1918, moonlight and a single lantern.
+Wide view from the water toward the pipe and tank.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Prüfe diese 10 Bilder kurz (kein Text, richtige Figur, richtige Epoche), dann weiter.
+
+── Schritt 4.4: Bilder 31–40 ──
+
+Bild 31 → speichern als „Bild 31.png“
+Prompt:
+Isaac Gonzalez hurries away along the wharf at first dawn, looking back over his shoulder at the tank.
+Boston, a summer night in 1918, moonlight and a single lantern.
+Medium-wide view from the end of the wharf.
+@IsaacGonzalez (young laborer, grey flat cap, thin mustache).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 32 → speichern als „Bild 32.png“
+Prompt:
+The tiny figure of Isaac Gonzalez stands alone before the enormous brown tank in the dawn mist.
+Boston, a summer night in 1918, moonlight and a single lantern.
+Extreme wide shot with dramatic scale contrast.
+@IsaacGonzalez (young laborer, grey flat cap, thin mustache).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 33 → speichern als „Bild 33.png“
+Prompt:
+Isaac Gonzalez lays his work key on the company counter and turns to leave while a clerk watches.
+Boston, a summer night in 1918, tired grey autumn daylight.
+Medium shot across the counter.
+@IsaacGonzalez (young laborer, grey flat cap, thin mustache).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 34 → speichern als „Bild 34.png“
+Prompt:
+Icy cobblestones and frozen puddles in the North End, frost on windows and steam rising from a horse's breath.
+North End, Boston, 14 January 1919, freezing day, hard cold winter light.
+Wide street view with the frosted tank in the background.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 35 → speichern als „Bild 35.png“
+Prompt:
+A steam tanker ship docks at the wharf beside the brown tank on a freezing day, crew throwing mooring lines.
+North End, Boston, 14 January 1919, freezing day, hard cold winter light.
+Medium-wide view from the pier toward the ship's side.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 36 → speichern als „Bild 36.png“
+Prompt:
+Cutaway of the tank: warm steaming molasses is pumped in on top of cold dark molasses until the level nearly reaches the top.
+North End, Boston, 14 January 1919, freezing day, hard cold winter light.
+Straight side section view.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 37 → speichern als „Bild 37.png“
+Prompt:
+Isaac Gonzalez walks to work in another part of the city carrying a lunch pail, far from the harbor.
+North End, Boston, 14 January 1919, freezing day, hard cold winter light.
+Medium shot on a snowy sidewalk.
+@IsaacGonzalez (young laborer, grey flat cap, thin mustache).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 38 → speichern als „Bild 38.png“
+Prompt:
+Icicles drip and melt from a tenement gutter in sudden sunshine, a mercury thermometer on the brick wall with its red line rising.
+North End, Boston, 15 January 1919, late morning, unexpected mild winter sunshine.
+Close view of the dripping icicles and thermometer.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 39 → speichern als „Bild 39.png“
+Prompt:
+Tenement windows swing open, people lean out into the mild air and children run in the street below.
+North End, Boston, 15 January 1919, late morning, unexpected mild winter sunshine.
+Medium-wide view up the tenement facades.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 40 → speichern als „Bild 40.png“
+Prompt:
+Bridget Clougherty hangs white sheets on a line on her wooden porch, the brown tank visible down the street.
+North End, Boston, 15 January 1919, late morning, unexpected mild winter sunshine.
+Medium shot from the porch steps.
+@BridgetClougherty (elderly woman, grey bun, green shawl).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Prüfe diese 10 Bilder kurz (kein Text, richtige Figur, richtige Epoche), dann weiter.
+
+── Schritt 4.5: Bilder 41–50 ──
+
+Bild 41 → speichern als „Bild 41.png“
+Prompt:
+A ten-year-old girl in a wool coat and knitted cap plays hopscotch on the cobblestones near the elevated railway girders.
+North End, Boston, 15 January 1919, late morning, unexpected mild winter sunshine.
+Wide view with the girl small in the foreground and the tank behind.
+People in 1910s Boston working-class clothing.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 42 → speichern als „Bild 42.png“
+Prompt:
+Through the open bay door of the brick firehouse, George Layhe and other firefighters sit at a table eating lunch beside a horse-drawn fire engine.
+North End, Boston, 15 January 1919, late morning, unexpected mild winter sunshine.
+Medium-wide view from the street into the firehouse.
+@GeorgeLayhe (firefighter, navy uniform, black leather helmet).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 43 → speichern als „Bild 43.png“
+Prompt:
+A woman at a window and a man in the street freeze and turn their heads toward the tank, listening in alarm.
+Commercial Street, Boston, 15 January 1919, 12:30 pm, flat midday light turning dark.
+Close two-level framing of the woman above and the man below.
+People in 1910s Boston working-class clothing.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 44 → speichern als „Bild 44.png“
+Prompt:
+Steel rivets shoot out of the seam one after another, paint chips and small sparks flying.
+Commercial Street, Boston, 15 January 1919, 12:30 pm, flat midday light turning dark.
+Extreme close-up along the seam with motion streaks.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 45 → speichern als „Bild 45.png“
+Prompt:
+A popped rivet bounces on the cobblestones while above it a steel plate splits open along empty rivet holes.
+Commercial Street, Boston, 15 January 1919, 12:30 pm, flat midday light turning dark.
+Close low view from the cobblestones upward.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 46 → speichern als „Bild 46.png“
+Prompt:
+The base of the tank bursts open at the manhole cover, steel plates peel outward and the whole tank collapses.
+Commercial Street, Boston, 15 January 1919, 12:30 pm, flat midday light turning dark.
+Wide shot of the full tank as it splits.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 47 → speichern als „Bild 47.png“
+Prompt:
+A towering brown wave of molasses surges down Commercial Street carrying wagons and debris while people run ahead of it.
+Commercial Street, Boston, 15 January 1919, 12:30 pm, flat midday light turning dark.
+Elevated view down the street in the direction of the wave.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 48 → speichern als „Bild 48.png“
+Prompt:
+Steel girders of the elevated railway buckle and snap under the brown flood, a train car tilting above.
+Commercial Street, Boston, 15 January 1919, minutes after 12:30 pm, muted overcast midday.
+Medium-wide low view from beneath the trestle.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 49 → speichern als „Bild 49.png“
+Prompt:
+Wooden houses lifted off their foundations and the brick firehouse crushed and leaning in a sea of molasses.
+Commercial Street, Boston, 15 January 1919, minutes after 12:30 pm, muted overcast midday.
+Wide view across the flooded block.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 50 → speichern als „Bild 50.png“
+Prompt:
+George Layhe is pinned beneath fallen timbers in the flooded firehouse, only his helmet and shoulders above the molasses, a fellow firefighter reaching toward him.
+Commercial Street, Boston, 15 January 1919, minutes after 12:30 pm, muted overcast midday.
+Medium shot, respectful, no injuries visible.
+@GeorgeLayhe (firefighter, navy uniform, black leather helmet).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Prüfe diese 10 Bilder kurz (kein Text, richtige Figur, richtige Epoche), dann weiter.
+
+── Schritt 4.6: Bilder 51–60 ──
+
+Bild 51 → speichern als „Bild 51.png“
+Prompt:
+A broken porch railing, a fallen laundry basket and a small knitted child's cap floating on dark still molasses.
+Commercial Street, Boston, 15 January 1919, minutes after 12:30 pm, quiet grey light after the disaster.
+Medium-wide quiet view without people.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 52 → speichern als „Bild 52.png“
+Prompt:
+A newsboy runs out of a print shop door into the street with a bundle of tied, folded newspapers under his arm, the papers seen only from their plain folded edges.
+Boston street outside a print shop, 16 January 1919, morning, grey winter morning light.
+Medium view from the street, the boy in motion.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 53 → speichern als „Bild 53.png“
+Prompt:
+A delivery wagon stuck in hardened molasses, a horse struggling to lift its legs, rescuers small in the distance.
+Commercial Street, Boston, 15 January 1919, minutes after 12:30 pm, muted overcast midday.
+Wide view across the sticky street.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 54 → speichern als „Bild 54.png“
+Prompt:
+Molasses rushes like a fast brown river over cobblestones and streetcar rails, ripples and swirls on its surface.
+Commercial Street, Boston, 15 January 1919, cold afternoon, cold low afternoon sun.
+Close low view at street level with the flow coming toward the viewer.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 55 → speichern als „Bild 55.png“
+Prompt:
+The molasses surface stiffens in the cold air, frost forming at its edges and a dropped shovel slowly sinking and sticking in place.
+Commercial Street, Boston, 15 January 1919, cold afternoon, cold low afternoon sun.
+Medium view of the shovel in the thickening surface.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 56 → speichern als „Bild 56.png“
+Prompt:
+A man stuck waist-deep in thick molasses reaches for a helper who is himself stuck up to his knees.
+Commercial Street, Boston, 15 January 1919, cold afternoon, cold low afternoon sun.
+Medium-wide view showing both men and the sticky surface.
+People in 1910s Boston working-class clothing.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 57 → speichern als „Bild 57.png“
+Prompt:
+Young navy cadets in dark blue uniforms run down a gangway from a training ship onto the wharf.
+Boston waterfront, 15 January 1919, afternoon and following nights, fading afternoon and lantern-lit nights.
+Wide view of the gangway and the running cadets.
+People in 1910s Boston working-class clothing.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 58 → speichern als „Bild 58.png“
+Prompt:
+The training ship USS Nantucket, a three-masted iron ship with a steam funnel, moored at the pier while a long line of cadets streams toward the flooded street.
+Boston waterfront, 15 January 1919, afternoon and following nights, fading afternoon and lantern-lit nights.
+Extreme wide harbor view with the ship and the ruined waterfront.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 59 → speichern als „Bild 59.png“
+Prompt:
+Navy cadets wade into the brown mass and pull a coated woman free by her arms.
+Boston waterfront, 15 January 1919, afternoon and following nights, fading afternoon and lantern-lit nights.
+Medium shot at the edge of the molasses.
+People in 1910s Boston working-class clothing.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 60 → speichern als „Bild 60.png“
+Prompt:
+Red Cross nurses in white aprons wade waist-deep through brown molasses carrying blankets, police and soldiers working behind them.
+Boston waterfront, 15 January 1919, afternoon and following nights, fading afternoon and lantern-lit nights.
+Wide view across the flooded street.
+People in 1910s Boston working-class clothing.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Prüfe diese 10 Bilder kurz (kein Text, richtige Figur, richtige Epoche), dann weiter.
+
+── Schritt 4.7: Bilder 61–70 ──
+
+Bild 61 → speichern als „Bild 61.png“
+Prompt:
+Night search over the brown-flooded ruins and the dark harbor, lanterns and small rowboats moving slowly.
+Boston waterfront, 15 January 1919, afternoon and following nights, cold night with scattered lantern light.
+Extreme wide elevated night view.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 62 → speichern als „Bild 62.png“
+Prompt:
+Firefighters spray fresh water from a hose onto hardened molasses, the water beading and running off without effect.
+Boston, weeks and months after 15 January 1919, grey winter days, then summer sun.
+Medium shot along the hose toward the crusted surface.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 63 → speichern als „Bild 63.png“
+Prompt:
+A fireboat in the harbor pumps seawater through long hoses onto the street while workers shovel sand over the softened molasses.
+Boston, weeks and months after 15 January 1919, grey winter days, then summer sun.
+Wide view from the harbor edge into the street.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 64 → speichern als „Bild 64.png“
+Prompt:
+Inside a crowded streetcar, sticky brown footprints cover the wooden floor and a woman lifts her shoe from a brown smear.
+Boston, weeks and months after 15 January 1919, grey winter days, then summer sun.
+Medium view down the streetcar aisle.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 65 → speichern als „Bild 65.png“
+Prompt:
+Boston harbor on a bright summer day, the water still stained brown near the North End wharves, sailboats passing.
+Boston, weeks and months after 15 January 1919, bright summer sun.
+Extreme wide view across the water.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 66 → speichern als „Bild 66.png“
+Prompt:
+Arthur Jell gestures toward the twisted steel remains of the tank while reporters with notepads crowd around him.
+Boston hearing room, 1920–1924, grey winter daylight.
+Medium shot with the twisted steel behind Jell.
+@ArthurJell (treasurer, round spectacles, dark three-piece suit).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 67 → speichern als „Bild 67.png“
+Prompt:
+A group of North End residents, workers and mothers in mourning clothes, climb the courthouse steps together with a lawyer.
+Boston hearing room, 1920–1924, window light through tall panes.
+Wide view up the stone steps.
+People in 1910s Boston working-class clothing.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 68 → speichern als „Bild 68.png“
+Prompt:
+Hugh Ogden sits at a long table covered with stacked case files next to a torn fragment of riveted steel brought in as evidence.
+Boston hearing room, 1920–1924, window light through tall panes.
+Medium shot across the table toward Ogden.
+@HughOgden (grey-haired colonel, grey moustache, dark suit).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 69 → speichern als „Bild 69.png“
+Prompt:
+Isaac Gonzalez stands at the witness stand with his right hand raised while Hugh Ogden listens from the bench.
+Boston hearing room, 1920–1924, window light through tall panes.
+Medium-wide view from the side of the room.
+@IsaacGonzalez (young laborer, grey flat cap, thin mustache), @HughOgden (grey-haired colonel, grey moustache, dark suit).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 70 → speichern als „Bild 70.png“
+Prompt:
+Isaac Gonzalez speaks earnestly, his hands miming the turning of a valve wheel.
+Boston hearing room, 1920–1924, window light through tall panes.
+Close view of his face and hands.
+@IsaacGonzalez (young laborer, grey flat cap, thin mustache).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Prüfe diese 10 Bilder kurz (kein Text, richtige Figur, richtige Epoche), dann weiter.
+
+── Schritt 4.8: Bilder 71–80 ──
+
+Bild 71 → speichern als „Bild 71.png“
+Prompt:
+Hugh Ogden lays a thick bound report on a courtroom table in spring light from tall windows.
+Boston courtroom, April 1925, bright spring daylight.
+Medium shot with the report in the foreground.
+@HughOgden (grey-haired colonel, grey moustache, dark suit).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 72 → speichern als „Bild 72.png“
+Prompt:
+Hugh Ogden examines a torn steel plate with clean tear edges and no blast marks, a technical drawing of the tank beside it.
+Boston courtroom, April 1925, bright spring daylight.
+Medium-wide view over the evidence table.
+@HughOgden (grey-haired colonel, grey moustache, dark suit).
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 73 → speichern als „Bild 73.png“
+Prompt:
+Cross-section of a thin cracked riveted steel wall with the outline of a much thicker sturdy wall drawn behind it.
+Boston courtroom, April 1925, bright spring daylight.
+Straight sectional view.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 74 → speichern als „Bild 74.png“
+Prompt:
+A scraper chips brown paint off a steel fragment, revealing old dark leak streaks underneath.
+Boston courtroom, April 1925, bright spring daylight.
+Close view of the scraper and the revealed streaks.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 75 → speichern als „Bild 75.png“
+Prompt:
+The Massachusetts State House with its golden dome on a clear day, legislators in dark coats walking up the steps.
+Massachusetts, late 1920s, clear crisp daylight.
+Wide view from the street toward the dome.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 76 → speichern als „Bild 76.png“
+Prompt:
+A licensed engineer measures the thickness of a steel plate on a new tank while an architect checks drawings beside him.
+Massachusetts, late 1920s, clear crisp daylight.
+Medium shot at the base of a new tank.
+People in 1910s Boston working-class clothing.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 77 → speichern als „Bild 77.png“
+Prompt:
+An empty office desk with a closed drawer and a worn grey flat cap resting on it, dust floating in a sunbeam.
+Massachusetts, late 1920s, clear crisp daylight.
+Close quiet view of the desk and cap.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
+
+Bild 78 → speichern als „Bild 78.png“
+Prompt:
+A present-day city park with a baseball diamond beside the harbor in the North End, brick buildings behind.
+Langone Park, North End, Boston, present day, warm summer evening.
+Wide elevated view across the park.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism.
+
+Bild 79 → speichern als „Bild 79.png“
+Prompt:
+Present-day children in casual clothes run across the green grass of the baseball field.
+Langone Park, North End, Boston, present day, warm summer evening.
+Medium-wide view at child height.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism.
+
+Bild 80 → speichern als „Bild 80.png“
+Prompt:
+Cross-section below the baseball field showing the round concrete foundation ring of the old tank buried under soil and grass.
+Langone Park, North End, Boston, present day, warm summer evening.
+Clean sectional side view.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism.
+
+Prüfe diese 10 Bilder kurz (kein Text, richtige Figur, richtige Epoche), dann weiter.
+
+── Schritt 4.9: Bilder 81–82 ──
+
+Bild 81 → speichern als „Bild 81.png“
+Prompt:
+An elderly man in a 1950s hat sits on a park bench by the old 1950s harbor and tells a story to a listening child on a warm evening, only old wharves and warehouses in the background.
+Langone Park, North End, Boston, present day, warm summer evening.
+Medium shot from the side of the bench.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism.
+
+Bild 82 → speichern als „Bild 82.png“
+Prompt:
+Warm summer evening over North End rooftops, a faint golden haze drifting in from the harbor.
+Langone Park, North End, Boston, present day, warm summer evening.
+Wide view over the rooftops toward the water.
+Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism.
+
+Prüfe diese 2 Bilder kurz (kein Text, richtige Figur, richtige Epoche), dann weiter.
+
+SCHRITT 5 — UMBENENNEN
+Alle Szenenbilder heißen exakt „Bild 01.png“ bis „Bild 82.png“: zweistellig, mit Leerzeichen, ohne Zusätze. Namen wie „image_1.png“ oder „Bild 1.png“ korrigieren.
+
+SCHRITT 6 — ALLES NOCHMAL PRÜFEN
+Gehe alle 82 Bilder noch einmal durch: Fehlt ein Bild? Ist Text, eine Zahl oder Pseudo-Schrift zu sehen? Stimmt die Figur? Stimmt die Epoche? Gibt es einen Split-Screen oder Rahmen? Fehlende oder fehlerhafte Bilder neu erzeugen und mir die Liste nennen.
+
+SCHRITT 7 — EIN ORDNER
+Lege alle 82 Szenenbilder zusammen in den Ordner „images“. Das Thumbnail und die Figurenkarten liegen nicht in images.

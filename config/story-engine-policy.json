@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "doc": "channel/24-STORY-ENGINE-V4.md",
+  "hookWindowWords": 120,
+  "minimumOpenLoops": 3,
+  "minimumVividDetails": 5,
+  "eyewitnessRequired": true,
+  "guideCharacterRequired": true,
+  "maximumListCommasInLastParagraph": 3,
+  "openingDateWindowWords": 6,
+  "openingDateWords": [
+    "januar", "februar", "märz", "april", "mai", "juni", "juli", "august",
+    "september", "oktober", "november", "dezember"
+  ],
+  "forbiddenOpeningPhrases": ["im jahr", "es war einmal"],
+  "forbiddenLecturePhrases": [
+    "das ist entscheidend",
+    "schon jetzt zeigt sich",
+    "es zeigt sich",
+    "etwas grundsätzliches",
+    "zusammenfassend",
+    "abschließend lässt sich sagen",
+    "in diesem video",
+    "lass uns",
+    "heute schauen wir uns",
+    "also nicht deshalb"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 3,
+  "createdAt": "2026-10-25T11:40:13.190Z",
+  "videoFile": "03-export/FINAL_VIDEO.mp4",
+  "thumbnailFile": "03-export/THUMBNAIL.png",
+  "captionFile": "03-export/CAPTION.txt",
+  "subtitleFile": "03-export/SUBTITLES.srt",
+  "subtitleCueCount": 82,
+  "subtitleTimingSource": "99-technik/BILD_AUDIO_ZUORDNUNG.json actualStartSeconds/actualEndSeconds",
+  "thumbnailSource": "00-bildprompts/thumbnail.png",
+  "coverSha256": null,
+  "thumbnailSourceSha256": "ab1122202abe33dce6ed286b1ba29507e95bfcaa14be8a21172db898e3c783ca",
+  "thumbnailSha256": "ab1122202abe33dce6ed286b1ba29507e95bfcaa14be8a21172db898e3c783ca",
+  "captionSha256": "e8f7e404bcf3e6effd27f5135c8fea6eeca117004b3b2f792c4c975e104fc306",
+  "subtitleSha256": "d7be79b0a1efecbfeac975825c17fd2be5d03771e0a7d86c90a2cfc4ff393dcc",
+  "videoSha256": "84f7991d6c5d32911c3d2998970b8f003c1ca3c8bb07430a5c03181a07edaa78",
+  "thumbnailIdenticalToCover": false,
+  "thumbnailVerifiedAgainstSource": true
+}

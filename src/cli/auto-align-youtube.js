@@ -23,22 +23,73 @@ function flattenWords(whisperJson) {
   return words.filter((word) => Number.isFinite(word.start));
 }
 
-function findAnchor(words, anchor, fromIndex = 0) {
-  const target = tokens(anchor);
+const GERMAN_NUMBERS = new Map(Object.entries({
+  eins: '1', zwei: '2', drei: '3', vier: '4', funf: '5', sechs: '6', sieben: '7', acht: '8', neun: '9', zehn: '10',
+  elf: '11', zwolf: '12', funfzehn: '15', zwanzig: '20', einundzwanzig: '21', siebenundzwanzig: '27',
+  dreissig: '30', hundert: '100', tausend: '1000', dreitausend: '3000', siebentausend: '7000', funfzig: '50'
+}));
+
+function editDistance(a, b) {
+  const row = Array.from({ length: b.length + 1 }, (_, i) => i);
+  for (let i = 1; i <= a.length; i += 1) {
+    let previous = row[0];
+    row[0] = i;
+    for (let j = 1; j <= b.length; j += 1) {
+      const current = row[j];
+      row[j] = Math.min(row[j] + 1, row[j - 1] + 1, previous + (a[i - 1] === b[j - 1] ? 0 : 1));
+      previous = current;
+    }
+  }
+  return row[b.length];
+}
+
+// Whisper writes names and numbers its own way ("Gonzales", "Gell", "21", "Lex"); exact
+// token equality missed 25 of 82 anchors on the first real voice-over.
+export function similarToken(a, b) {
+  if (!a || !b) return false;
+  if (a === b) return true;
+  const na = GERMAN_NUMBERS.get(a) ?? a;
+  const nb = GERMAN_NUMBERS.get(b) ?? b;
+  if (na === nb) return true;
+  const longest = Math.max(a.length, b.length);
+  if (longest < 3) return false;
+  return editDistance(a, b) <= (longest >= 6 ? 2 : 1);
+}
+
+function matchAt(words, target, start) {
+  // The first one to three anchor words may be merged or garbled ("Eisekonzales arbeitet ...").
+  for (let k = 0; k < Math.min(3, target.length); k += 1) {
+    if (!similarToken(words[start], target[k])) continue;
+    let matched = 1;
+    let w = start + 1;
+    for (let t = k + 1; t < target.length && w < words.length; t += 1) {
+      if (similarToken(words[w], target[t])) { matched += 1; w += 1; }
+      else if (similarToken(words[w + 1], target[t])) { matched += 1; w += 2; }
+      else if (similarToken(words[w], target[t + 1])) { t += 1; matched += 1; w += 1; }
+    }
+    return { matched, end: w, skippedLead: k };
+  }
+  return null;
+}
+
+// Anchors follow the voice-over in order, so search close to the previous one first and only
+// then further away with a stricter threshold.
+export function findAnchor(words, anchor, fromIndex = 0, { nearWindow = 90, farWindow = 400 } = {}) {
+  const target = tokens(anchor).slice(0, 8);
   if (!target.length) return null;
   const normalizedWords = words.map((word) => normalizeText(word.text));
-  const minMatch = Math.min(target.length, Math.max(4, Math.ceil(target.length * 0.65)));
-
-  for (let start = Math.max(0, fromIndex); start < normalizedWords.length; start += 1) {
-    let matched = 0;
-    for (let j = 0; j < target.length && start + j < normalizedWords.length; j += 1) {
-      if (normalizedWords[start + j] === target[j]) matched += 1;
-      else break;
-    }
-    if (matched >= minMatch) {
-      const slice = words.slice(start, start + matched);
-      const confidence = slice.reduce((sum, word) => sum + (Number.isFinite(word.probability) ? word.probability : 0.8), 0) / slice.length;
-      return { wordIndex: start, startSeconds: words[start].start, confidence: Number(confidence.toFixed(3)), matchedWords: matched };
+  const passes = [
+    { end: fromIndex + nearWindow, need: Math.min(target.length, Math.max(3, Math.ceil(target.length * 0.6))) },
+    { end: fromIndex + farWindow, need: Math.min(target.length, Math.max(4, Math.ceil(target.length * 0.8))) }
+  ];
+  for (const pass of passes) {
+    for (let start = Math.max(0, fromIndex); start < Math.min(normalizedWords.length, pass.end); start += 1) {
+      const hit = matchAt(normalizedWords, target, start);
+      if (!hit || hit.matched < pass.need) continue;
+      const at = hit.skippedLead && start - 1 >= fromIndex ? start - 1 : start;
+      const slice = words.slice(at, hit.end);
+      const probability = slice.reduce((sum, word) => sum + (Number.isFinite(word.probability) ? word.probability : 0.8), 0) / Math.max(1, slice.length);
+      return { wordIndex: at, startSeconds: words[at].start, confidence: Number((probability * hit.matched / target.length).toFixed(3)), matchedWords: hit.matched };
     }
   }
   return null;

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "status": "APPROVED",
+  "reviewMethod": "Story Engine V4: Skript vollständig gelesen, Blueprint gegen Skripttext geprüft (npm run story:youtube), kein Audio oder Video beurteilt",
+  "centralQuestion": "Wie kann ein Tank voller Sirup zur tödlichen Falle werden?",
+  "storySpine": "1915 leckt der neue Tank → Bau ohne Prüfung durch einen Schatzmeister im Kriegstempo → Lecks werden braun überstrichen → Gonzalez warnt, lässt nachts Melasse ab und kündigt → Frost, warme Lieferung, milder Tag → 12:30 Uhr reißt der Tank → Welle zerstört Hochbahn, Feuerwache, Häuser, 21 Tote → zäh werdende Melasse erschwert die Rettung → Kadetten und Rotes Kreuz → Reinigung → Ausrede Anarchisten → Ogden hört Gonzalez → Urteil 1925 enthüllt fehlenden Test, dünne Wände, braune Farbe → neue Prüfpflicht → heute Baseballfeld über dem Fundament.",
+  "historicalMeaning": "Eine Katastrophe aus Fahrlässigkeit, nicht aus Zufall: Ohne fachliche Prüfung und mit ignorierten Warnungen wird ein Alltagsprodukt tödlich. Der Prozess führt zu Zulassungs- und Prüfpflichten für Ingenieure und Architekten.",
+  "hookPromise": "Ein Tank, der von Anfang an weint, und ein Arbeiter, der es hört: Wie konnte daraus eine tödliche Welle werden?",
+  "scores": {
+    "hook": 9,
+    "storyProgression": 9,
+    "historicalMeaning": 8.8,
+    "payoff": 9
+  },
+  "centralStoryShare": 0.95,
+  "personalityCuriosityShare": 0.05,
+  "maxConsecutivePurePersonalityCuriosityBeats": 1,
+  "beatFunctionsReviewed": true,
+  "endingAnswersOpeningQuestion": true,
+  "approved": true,
+  "notes": [
+    "Cold Open in der Szene (1915), kein Datum am Anfang, Frage nach 85 Wörtern.",
+    "Drei offene Schleifen (Farbe, Eid, Wassertest) werden im Ogden-Kapitel wörtlich aufgelöst.",
+    "Schluss greift die Dosen unter den Nähten aus dem Cold Open wieder auf."
+  ]
+}

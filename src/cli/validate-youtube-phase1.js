@@ -8,6 +8,7 @@ import { validateVisualInterestScene, validateVisualInterestSequence } from '../
 import { validateWholeVideoQc } from '../lib/whole-video-quality.js';
 import { validatePreproduction } from './validate-youtube-preproduction.js';
 import { validateYoutubeUpload } from '../lib/upload-metadata.js';
+import { COMPACT_PROMPT_SYSTEM, validateCastBible, validateVisualPlan } from '../lib/visual-plan.js';
 
 function nonEmpty(value) {
   return typeof value === 'string' && value.trim().length > 0;
@@ -94,12 +95,25 @@ export async function validatePhase1(projectDirectory) {
     }
   }
 
+  if (Number(meta.visualPlanGateVersion ?? 0) >= 1) {
+    const policy = visual.visualPlanV4 ?? {};
+    if (!(await exists(p.castBible))) {
+      errors.push('Bildplan V4 benötigt 99-technik/CAST_BIBLE.json.');
+    } else {
+      const cast = await readJson(p.castBible);
+      errors.push(...validateCastBible(cast, policy).errors.map((error) => `Cast: ${error}`));
+      errors.push(...validateVisualPlan({ mapping, cast, policy }).errors.map((error) => `Bildplan: ${error}`));
+    }
+  }
+
   if (Number(meta.youtubeUpload?.captionPolicyVersion ?? 0) >= 2) {
     const channel = await readJson(path.resolve('config/channel-policy.json'));
     errors.push(...validateYoutubeUpload(meta, channel).errors);
   }
 
-  const compilerV3 = Number(meta.promptSystemVersion) >= 3 || meta.promptSystem === 'flow-compiler-v3';
+  // V4 compact: one file with the workflow and short scene prompts; style and cast come from Flow ingredients.
+  const compactV4 = Number(meta.visualPlanGateVersion ?? 0) >= 1;
+  const compilerV3 = !compactV4 && (Number(meta.promptSystemVersion) >= 3 || meta.promptSystem === 'flow-compiler-v3');
   const pipelineV4 = Number(meta.pipelineVersion) >= 4;
   const visualInterestGate = Number(meta.visualInterestGateVersion) >= 1;
   const interestPolicy = visual.visualInterestGate ?? {};
@@ -137,7 +151,13 @@ export async function validatePhase1(projectDirectory) {
   }
 
   const coverText = String(meta.coverPolicy?.coverText ?? '').trim();
-  if (meta.coverPolicy?.firstSceneIsCover === false && !prompt.includes('STAGE 1 — SEPARATE THUMBNAIL ONLY')) errors.push('Der separate Thumbnail-Workflow fehlt im generierten Flow-Prompt.');
+  if (compactV4) {
+    if (meta.promptSystem !== COMPACT_PROMPT_SYSTEM || !prompt.includes(`PROMPT_SYSTEM: ${COMPACT_PROMPT_SYSTEM}`)) errors.push(`Flow-Prompt wurde nicht mit ${COMPACT_PROMPT_SYSTEM} gebaut: npm run build:youtube-flow ausführen.`);
+    if (!meta.flowPromptBuiltAt) errors.push('flowPromptBuiltAt fehlt.');
+    for (const step of ['SCHRITT 1 — COVER', 'SCHRITT 2 — AUSWAHL', 'SCHRITT 3 — FIGURENKARTEN', 'SCHRITT 4 — SZENENBILDER IN 10ER-SCHRITTEN', 'SCHRITT 5 — UMBENENNEN', 'SCHRITT 6 — ALLES NOCHMAL PRÜFEN', 'SCHRITT 7 — EIN ORDNER', 'REGELN FÜR ALLE BILDER']) {
+      if (!prompt.includes(step)) errors.push(`Flow-Prompt: Abschnitt „${step}“ fehlt.`);
+    }
+  } else if (meta.coverPolicy?.firstSceneIsCover === false && !prompt.includes('STAGE 1 — SEPARATE THUMBNAIL ONLY')) errors.push('Der separate Thumbnail-Workflow fehlt im generierten Flow-Prompt.');
   if (!coverText) errors.push('coverPolicy.coverText fehlt.');
   else {
     const [minWords, maxWords] = Array.isArray(visual.coverTextWordRange) ? visual.coverTextWordRange : [2, 5];
@@ -247,6 +267,10 @@ export async function validatePhase1(projectDirectory) {
       const block = extractImagePrompt(prompt, expected, images.length);
       if (!block) {
         errors.push(`Finaler Promptblock für BILD ${String(expected).padStart(2, '0')} fehlt.`);
+      } else if (compactV4) {
+        if (!/^Prompt:/m.test(block)) errors.push(`Bild ${expected}: Block ohne „Prompt:“-Zeile.`);
+        if (!/Exclude: [^\n]*\btext\b/.test(block)) errors.push(`Bild ${expected}: Prompt schließt sichtbaren Text nicht aus.`);
+        if (!block.includes(String(image.camera ?? '').trim().slice(0, 40))) errors.push(`Bild ${expected}: Kamera aus der Scene Card fehlt im Prompt.`);
       } else {
         const minimumLength = compilerV3 ? 300 : 140;
         if (block.length < minimumLength) errors.push(`Prompt für Bild ${expected} ist zu knapp für das aktive Prompt-System.`);

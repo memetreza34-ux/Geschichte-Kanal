@@ -16,10 +16,13 @@ const REQUIRED_SCENE_FIELDS = [
   'historicalAccuracyNote'
 ];
 
+// Flow rendered comparisons as split screens (London 7, 33, 46, 73, 76, 78).
+const SINGLE_FRAME_GUARD = 'Render this as one continuous single scene: no split screen, no side-by-side halves, no panels, no borders or frames.';
+
 const VISUAL_FORM_GUARDS = {
-  comparison: 'Keep both comparison poles visible in the same frame and clearly opposed through space, scale, state or placement.',
+  comparison: 'Keep both comparison poles visible in the same frame and clearly opposed through space, scale, state or placement. ' + SINGLE_FRAME_GUARD,
   'cause-effect': 'Make the cause and its consequence visibly connected in one readable composition instead of showing only one side of the relationship.',
-  'process-sequence': 'Make the changed state immediately readable and preserve the established place and near-same viewpoint when continuity improves the comparison.',
+  'process-sequence': 'Make the changed state immediately readable and preserve the established place and near-same viewpoint when continuity improves the comparison. ' + SINGLE_FRAME_GUARD,
   'system-hierarchy': 'Express the hierarchy through physical height, distance, routes, grouping or spatial relationships; do not use corporate arrows or diagram boxes.',
   'battle-city-overview': 'Keep the spatial situation as the main idea; use the overview to show positions, routes, barriers or encirclement rather than turning it into a character close-up.',
   'object-focus': 'Let the main object carry the statement through scale, state and context; keep the background quiet and secondary.',
@@ -146,7 +149,9 @@ export function compileScenePrompt(scene, { styleLock, coverText = '', isCover =
   const parts = [
     sentence(styleLock.sceneStyleAnchor),
     sentence(scene.visualConcept),
-    sentence(`Make ${scene.dominantSubject} the unmistakable dominant subject; ${scene.actionState}`),
+    sentence(text(scene.actionState) === text(scene.visualConcept)
+      ? `Make ${scene.dominantSubject} the unmistakable dominant subject`
+      : `Make ${scene.dominantSubject} the unmistakable dominant subject; ${scene.actionState}`),
     sentence(scene.composition),
     sentence(`Use ${scene.camera}`),
     ...buildVisualInterestPromptParts(scene).map((part) => sentence(part)),
@@ -174,7 +179,15 @@ export function compileScenePrompt(scene, { styleLock, coverText = '', isCover =
 
   parts.push(buildHardTextInstruction({ isCover, coverText, scene }));
 
-  return parts.filter(Boolean).join(' ');
+  // Scene cards often repeat visualConcept inside actionState; say each sentence once.
+  const seen = new Set();
+  return parts.filter((part) => {
+    if (!part) return false;
+    const key = part.toLowerCase();
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).join(' ');
 }
 
 export function compileFlowPrompt({ meta, mapping, styleLock, worldLock }) {

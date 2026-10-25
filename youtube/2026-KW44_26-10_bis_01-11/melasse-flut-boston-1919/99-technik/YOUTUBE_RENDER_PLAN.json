@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 2,
+  "motionPolicy": "content-aware-v1",
+  "colorArc": [
+    {
+      "id": "first-leak",
+      "storyFunction": "Ein neuer Tank, der schon leckt",
+      "paletteBias": "pale steel blue, molasses amber, brick red",
+      "lighting": "cool autumn daylight"
+    },
+    {
+      "id": "war-rush",
+      "storyFunction": "Tempo statt Sorgfalt",
+      "paletteBias": "soot grey, munitions olive, brass",
+      "lighting": "hazy industrial daylight"
+    },
+    {
+      "id": "brown-paint",
+      "storyFunction": "Verdecken statt reparieren",
+      "paletteBias": "molasses brown, laundry white, brick red",
+      "lighting": "warm hazy summer light"
+    },
+    {
+      "id": "warning",
+      "storyFunction": "Ein einzelner Warner",
+      "paletteBias": "ochre, dark wood, steel grey",
+      "lighting": "low indoor lamplight and grey daylight"
+    },
+    {
+      "id": "night-valve",
+      "storyFunction": "Heimlicher Kampf in der Nacht",
+      "paletteBias": "midnight blue, lantern orange, black water",
+      "lighting": "moonlight and a single lantern"
+    },
+    {
+      "id": "frost",
+      "storyFunction": "Kälte und neue Ladung",
+      "paletteBias": "ice white, slate blue, rust",
+      "lighting": "hard cold winter light"
+    },
+    {
+      "id": "thaw",
+      "storyFunction": "Trügerische Wärme",
+      "paletteBias": "sunny cream, brick red, soft sky blue",
+      "lighting": "unexpected mild winter sunshine"
+    },
+    {
+      "id": "collapse",
+      "storyFunction": "Der Moment des Bruchs",
+      "paletteBias": "molasses brown, steel grey, shock white",
+      "lighting": "flat midday light turning dark"
+    },
+    {
+      "id": "destruction",
+      "storyFunction": "Zerstörung und Verlust",
+      "paletteBias": "deep brown, splintered wood, ash grey",
+      "lighting": "muted overcast midday"
+    },
+    {
+      "id": "sticky-trap",
+      "storyFunction": "Die Falle wird zäh",
+      "paletteBias": "dark amber, frost blue, grey",
+      "lighting": "cold low afternoon sun"
+    },
+    {
+      "id": "rescue",
+      "storyFunction": "Helfer im Sirup",
+      "paletteBias": "navy blue, nurse white, molasses brown",
+      "lighting": "fading afternoon and lantern-lit nights"
+    },
+    {
+      "id": "cleanup",
+      "storyFunction": "Die Stadt klebt",
+      "paletteBias": "salt grey, sand beige, harbor brown",
+      "lighting": "grey winter days, then summer sun"
+    },
+    {
+      "id": "court",
+      "storyFunction": "Wahrheit gegen Ausrede",
+      "paletteBias": "dark oak, paper cream, black suits",
+      "lighting": "window light through tall panes"
+    },
+    {
+      "id": "verdict",
+      "storyFunction": "Die Lecks werden sichtbar",
+      "paletteBias": "spring green light, paper white, brown steel",
+      "lighting": "bright spring daylight"
+    },
+    {
+      "id": "new-rules",
+      "storyFunction": "Aus Fehlern werden Regeln",
+      "paletteBias": "state house gold, clean stone, blueprint blue",
+      "lighting": "clear crisp daylight"
+    },
+    {
+      "id": "today",
+      "storyFunction": "Was bleibt",
+      "paletteBias": "grass green, warm evening gold, harbor blue",
+      "lighting": "warm summer evening"
+    }
+  ],
+  "backgroundMusic": false,
+  "motionOverrides": [],
+  "soundEffects": []
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "status": "APPROVED",
+  "doc": "channel/24-STORY-ENGINE-V4.md",
+  "coldOpen": {
+    "scene": "1915: Der neue Melassetank am Hafen leckt schon bei der ersten Füllung. Nachbarn fangen den Sirup in Dosen auf, Isaac Gonzalez hört den Stahl knacken.",
+    "firstWords": "Kaum ist der riesige Stahltank"
+  },
+  "centralQuestion": "Wie kann ein Tank voller Sirup zur tödlichen Falle werden?",
+  "guideCharacter": {
+    "name": "Isaac Gonzalez",
+    "why": "Er sieht die Gefahr als Einziger, warnt, handelt nachts allein, kündigt und sagt später unter Eid aus. Er trägt Anfang, Mitte und Ende."
+  },
+  "acts": {
+    "context": "Weltkrieg, Alkohol für Munition, Bau unter Zeitdruck durch einen Schatzmeister ohne Ingenieurwissen.",
+    "act1TurningPoint": "Der Tank leckt, wird aber nicht geprüft, sondern braun gestrichen. Gonzalez warnt vergeblich.",
+    "act2Midpoint": "Gonzalez öffnet nachts das Ventil und kündigt. Danach hört niemand mehr auf den Tank. Warme Melasse und ein plötzlich milder Tag.",
+    "act3Climax": "12:30 Uhr, die Nieten platzen, die Welle zerstört Hochbahn, Feuerwache und Häuser. 21 Tote.",
+    "resolution": "Rettung, Reinigung, Ausrede Anarchisten, Ogden-Urteil 1925, neue Prüfpflicht. Heute ein Baseballfeld über dem Fundament."
+  },
+  "openLoops": [
+    {
+      "setupQuote": "Was diese Farbe verbergen soll, wird erst Jahre später vor Gericht zur Sprache kommen",
+      "payoffQuote": "wozu die braune Farbe diente"
+    },
+    {
+      "setupQuote": "wird er später unter Eid erzählen",
+      "payoffQuote": "erzählt Isaac Gonzalez unter Eid"
+    },
+    {
+      "setupQuote": "einen Test hat er ausgelassen",
+      "payoffQuote": "der nie mit Wasser geprüft wurde"
+    }
+  ],
+  "vividDetails": [
+    { "quote": "Nachbarn halten Dosen unter die Nähte", "source": "Wikipedia, Great Molasses Flood (Anwohner sammelten ausgelaufene Melasse)" },
+    { "quote": "fast neun Millionen Litern Melasse", "source": "Wikipedia/Mass Moments: 2,3 Mio. Gallonen" },
+    { "quote": "als würde jemand mit einem Maschinengewehr feuern", "source": "Mass Moments: Zeugen beschreiben ein Rattern wie ein Maschinengewehr" },
+    { "quote": "116 Kadetten vom Schulschiff USS Nantucket", "source": "Wikipedia, Great Molasses Flood" },
+    { "quote": "bis zur Hüfte in der Melasse", "source": "Boston Post 1919 via Mass Moments: „Molasses, waist deep“" },
+    { "quote": "Das Hafenwasser bleibt bis zum Sommer braun", "source": "Wikipedia, Great Molasses Flood" },
+    { "quote": "Fünfzig Zentimeter unter dem Spielfeld", "source": "Wikipedia: Bodenradar 2019, Fundament ca. 20 Zoll unter dem Baseballfeld" }
+  ],
+  "eyewitness": {
+    "quote": "Pferde starben wie Fliegen auf klebrigem Fliegenpapier",
+    "source": "Boston Post, 16. Januar 1919 (zitiert nach Wikipedia)"
+  },
+  "endingCallback": {
+    "quote": "Dosen unter die Nähte"
+  }
+}

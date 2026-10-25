@@ -1,0 +1,507 @@
+{
+  "schemaVersion": 1,
+  "status": "LOCKED",
+  "policy": "phase3-existing-images-read-only",
+  "source": "00-bildprompts/images",
+  "plannedImageCount": 82,
+  "lockedAt": "2026-10-25T11:12:02.396Z",
+  "rules": [
+    "Phase 3 may only read the images that already existed when this lock was created.",
+    "Phase 3 must never generate, regenerate, replace, edit, delete or add images.",
+    "Any missing, added, renamed, resized or byte-modified image is a hard failure."
+  ],
+  "images": [
+    {
+      "imageNumber": 1,
+      "file": "Bild 01.png",
+      "sizeBytes": 1785633,
+      "sha256": "a95ca5810d3ed2d9c68d5e34542788f94805c1fe5e9018b45c937aeef287d5a5"
+    },
+    {
+      "imageNumber": 2,
+      "file": "Bild 02.png",
+      "sizeBytes": 1555615,
+      "sha256": "448e67e3b5299f6a28d3bfebb682df650927708f9c03006be8f94bc4b64f63cb"
+    },
+    {
+      "imageNumber": 3,
+      "file": "Bild 03.png",
+      "sizeBytes": 1829824,
+      "sha256": "f2ec38f3aaa033e2588e69a4f919d9a8a20f0eb804d5aac2fbf7b5f15d0559c9"
+    },
+    {
+      "imageNumber": 4,
+      "file": "Bild 04.png",
+      "sizeBytes": 1582397,
+      "sha256": "1bdf1ac825e408b698f1321769fa1b3567a33887d0d9c1542943acdde268d32c"
+    },
+    {
+      "imageNumber": 5,
+      "file": "Bild 05.png",
+      "sizeBytes": 1719246,
+      "sha256": "dabf33302d729f93e25e0432e6eae9a3257a9a07f22b1f45faed82c547ea6b23"
+    },
+    {
+      "imageNumber": 6,
+      "file": "Bild 06.png",
+      "sizeBytes": 1830124,
+      "sha256": "5b1c674b1934bab5e9b55683783e4d469e1d2d67ff4d473dac48eb0709407fca"
+    },
+    {
+      "imageNumber": 7,
+      "file": "Bild 07.png",
+      "sizeBytes": 1598687,
+      "sha256": "806f59963b7b7bd8fd6d45909a6bed0343a1253cfc23861e1e08e6c4e93045a7"
+    },
+    {
+      "imageNumber": 8,
+      "file": "Bild 08.png",
+      "sizeBytes": 1901196,
+      "sha256": "3af40780f1c3cdb6cbeb34c3890cb2bfc521d53d17971be7cbd612fde2ab4156"
+    },
+    {
+      "imageNumber": 9,
+      "file": "Bild 09.png",
+      "sizeBytes": 2013481,
+      "sha256": "952899377a8d55419b5b5b50a3d36530d860f7914f9981397168931e1c93b1e8"
+    },
+    {
+      "imageNumber": 10,
+      "file": "Bild 10.png",
+      "sizeBytes": 1841115,
+      "sha256": "adb4bf8150893f70ae399ed4cc4b498c594fcfb1f6c1a2012cb00c67b6b2d418"
+    },
+    {
+      "imageNumber": 11,
+      "file": "Bild 11.png",
+      "sizeBytes": 1864706,
+      "sha256": "1b1b8e5ea092a4b3b7da3c4e8b6f54764da46554b9f43eaa395cf5ade56badc4"
+    },
+    {
+      "imageNumber": 12,
+      "file": "Bild 12.png",
+      "sizeBytes": 1683137,
+      "sha256": "3868417d043c7b9bc91fc4d9ce269a68c6a3215ec714eaff6b19972352253a15"
+    },
+    {
+      "imageNumber": 13,
+      "file": "Bild 13.png",
+      "sizeBytes": 1737709,
+      "sha256": "90af144d31a949597251835f07143ea2395a7a61d85b22b5fdc8e447112499c9"
+    },
+    {
+      "imageNumber": 14,
+      "file": "Bild 14.png",
+      "sizeBytes": 1811690,
+      "sha256": "501e602d541d104681f03f2579fed5fded3e9aed8a141360c7d3c706af64471e"
+    },
+    {
+      "imageNumber": 15,
+      "file": "Bild 15.png",
+      "sizeBytes": 2200683,
+      "sha256": "a70dcdbf12077d03b6ecbb44a943bcd611d97533194db3250823d1eaa323eb3e"
+    },
+    {
+      "imageNumber": 16,
+      "file": "Bild 16.png",
+      "sizeBytes": 1859459,
+      "sha256": "9d645e178dccc338e489f962b40a5bb3b2d38dd8dbec7b1b669a988cf05c172d"
+    },
+    {
+      "imageNumber": 17,
+      "file": "Bild 17.png",
+      "sizeBytes": 1799906,
+      "sha256": "10cd98b789b53b64bd91104a05eb9360084aadd46a593f980f867df666954c14"
+    },
+    {
+      "imageNumber": 18,
+      "file": "Bild 18.png",
+      "sizeBytes": 1746451,
+      "sha256": "da5d9e5fce3eec0c53cf0d34de9ceafac65e926eafff619a923f4c18dce5e887"
+    },
+    {
+      "imageNumber": 19,
+      "file": "Bild 19.png",
+      "sizeBytes": 2088955,
+      "sha256": "8ac691e42eaa56127c310570d87c2d1654fcf52c305c1a299df9dbaca5de3cf9"
+    },
+    {
+      "imageNumber": 20,
+      "file": "Bild 20.png",
+      "sizeBytes": 2073605,
+      "sha256": "322862e9089bf81c576eaea71616ac6b3863701350d3e9af7c4d9132dc1687bf"
+    },
+    {
+      "imageNumber": 21,
+      "file": "Bild 21.png",
+      "sizeBytes": 2035969,
+      "sha256": "7107f4b8ff1bf87fa2d6bd8630a98a8e73e80e8f433752ff68891d6109d17d4f"
+    },
+    {
+      "imageNumber": 22,
+      "file": "Bild 22.png",
+      "sizeBytes": 1871272,
+      "sha256": "d0a62f9a9c8fd4d7dfc6294fc383feee7937f0e6c2c20435057d58a77e1465a7"
+    },
+    {
+      "imageNumber": 23,
+      "file": "Bild 23.png",
+      "sizeBytes": 1782395,
+      "sha256": "2387d6fd39e4b10a205fa730bb773b034d17378ddf886cfb5ba222ea6462e935"
+    },
+    {
+      "imageNumber": 24,
+      "file": "Bild 24.png",
+      "sizeBytes": 1798291,
+      "sha256": "b175d29ca377b985e4789869b2b7ede09fdee85d723817a6351c686a5169d1f5"
+    },
+    {
+      "imageNumber": 25,
+      "file": "Bild 25.png",
+      "sizeBytes": 1548586,
+      "sha256": "59e078d0f182d19a19e0697cb366fc12e28a989372fb6e001e641ff3f4c6d2c5"
+    },
+    {
+      "imageNumber": 26,
+      "file": "Bild 26.png",
+      "sizeBytes": 1653096,
+      "sha256": "4bcfc70c8846d92a05d751a394bddf9116dcb384179a19b6a028433115060004"
+    },
+    {
+      "imageNumber": 27,
+      "file": "Bild 27.png",
+      "sizeBytes": 1620097,
+      "sha256": "999ff22d1d766e894172e3a68cadc35bd7c300e7f9c07df1c172e65e86858263"
+    },
+    {
+      "imageNumber": 28,
+      "file": "Bild 28.png",
+      "sizeBytes": 1592637,
+      "sha256": "d272677a7bf3e6682f272890d745d13a2fbfc1a3c6de83d7911636384cb501a3"
+    },
+    {
+      "imageNumber": 29,
+      "file": "Bild 29.png",
+      "sizeBytes": 1572890,
+      "sha256": "2b07caaaf4f8cac9c60e6a3ec89ca4196027cacbc401cbbb06d53ceac9f2869b"
+    },
+    {
+      "imageNumber": 30,
+      "file": "Bild 30.png",
+      "sizeBytes": 1524440,
+      "sha256": "74a93088ee77bd28d7a02d0b4140c22188321b8cdc8bbf98b37f922a0ae334d6"
+    },
+    {
+      "imageNumber": 31,
+      "file": "Bild 31.png",
+      "sizeBytes": 1613461,
+      "sha256": "dba6a9f877475d1c089cdb08f9170a83099949dcc6ccb54bee93d7fa24e970ef"
+    },
+    {
+      "imageNumber": 32,
+      "file": "Bild 32.png",
+      "sizeBytes": 1347445,
+      "sha256": "2e4177dcf644fe83080465c054b8ff82d39e4e2c065819ebfde1be34c4f84300"
+    },
+    {
+      "imageNumber": 33,
+      "file": "Bild 33.png",
+      "sizeBytes": 1727003,
+      "sha256": "2754ddad662a9db55a3829a012efa29088e93b65935a9d762cbdbcc363e5f436"
+    },
+    {
+      "imageNumber": 34,
+      "file": "Bild 34.png",
+      "sizeBytes": 1831629,
+      "sha256": "27dd8cff4432b637714159d6cfee914d2eb105cf2cf247a94b5c37bddd9e7a1b"
+    },
+    {
+      "imageNumber": 35,
+      "file": "Bild 35.png",
+      "sizeBytes": 1825727,
+      "sha256": "53df882096e217b0b5647354c5e54c0129f13ca1ef0afe4619f15030e28a170b"
+    },
+    {
+      "imageNumber": 36,
+      "file": "Bild 36.png",
+      "sizeBytes": 1772135,
+      "sha256": "7051acb8900eb7953bb5ca9fc0071076783862eceb9579da04f67733872467f5"
+    },
+    {
+      "imageNumber": 37,
+      "file": "Bild 37.png",
+      "sizeBytes": 1944445,
+      "sha256": "99fc2833c5c1019d63db7fa0ec1185dfa9c6bdefd2eb0fc8828f698c3b552dc8"
+    },
+    {
+      "imageNumber": 38,
+      "file": "Bild 38.png",
+      "sizeBytes": 1900549,
+      "sha256": "1e0954be8b6a4317b21ae2765d78974bee61b7666e8cb9cc4cde9ea117165e73"
+    },
+    {
+      "imageNumber": 39,
+      "file": "Bild 39.png",
+      "sizeBytes": 2042347,
+      "sha256": "5407157c62184fe28ee25b67ce5a68795cd3939adf956d387854bdec22f47ab8"
+    },
+    {
+      "imageNumber": 40,
+      "file": "Bild 40.png",
+      "sizeBytes": 1898914,
+      "sha256": "bd47786fd90089734814ca1c671c86677673cc9dc7934dbb9eaca3eddcb9f987"
+    },
+    {
+      "imageNumber": 41,
+      "file": "Bild 41.png",
+      "sizeBytes": 1941921,
+      "sha256": "9af3b057412d25d6313b3ce9f449c8239511d3295034365d309076a930fe0f16"
+    },
+    {
+      "imageNumber": 42,
+      "file": "Bild 42.png",
+      "sizeBytes": 1703533,
+      "sha256": "0b4e4f712a709d07c1ea693ecb5cea9d8aabcfba0af09ee908e5df064f102153"
+    },
+    {
+      "imageNumber": 43,
+      "file": "Bild 43.png",
+      "sizeBytes": 1834517,
+      "sha256": "dfc5d7fb398db55ec9333964e25da9de0a71d76931eca0e3ceb011ea9a451d6b"
+    },
+    {
+      "imageNumber": 44,
+      "file": "Bild 44.png",
+      "sizeBytes": 1813274,
+      "sha256": "66d3424d80e0aa011b917af896bd1e27ec548bcae52b203bc45075ab33408bdd"
+    },
+    {
+      "imageNumber": 45,
+      "file": "Bild 45.png",
+      "sizeBytes": 1706889,
+      "sha256": "933a362788d6f52946e96d136341373839843b069a2e3885fee73a0ce66913a6"
+    },
+    {
+      "imageNumber": 46,
+      "file": "Bild 46.png",
+      "sizeBytes": 1808638,
+      "sha256": "4baecba5fb893da887f42622b8dc8af2057e22c8cf3bf3651eb8bea73cf6516c"
+    },
+    {
+      "imageNumber": 47,
+      "file": "Bild 47.png",
+      "sizeBytes": 2052220,
+      "sha256": "58ea4d3e50aabee99eec3c12a263500487eeb37ecc7de5c200b2d5892b050b6c"
+    },
+    {
+      "imageNumber": 48,
+      "file": "Bild 48.png",
+      "sizeBytes": 1928520,
+      "sha256": "eb9f17410fc5d1ca5d4fc91a89b886d5f557f9a8f22f521615a647a50fb3dc44"
+    },
+    {
+      "imageNumber": 49,
+      "file": "Bild 49.png",
+      "sizeBytes": 1908360,
+      "sha256": "07caa3edf4efec9d7c4925c47a6b33a4b3d9da9471fc91ad71d3cea817bb255d"
+    },
+    {
+      "imageNumber": 50,
+      "file": "Bild 50.png",
+      "sizeBytes": 1897007,
+      "sha256": "4c44c0c4aa98738dc85d191aa047cf19761ed7a830d756ed22083ea01d5b5a95"
+    },
+    {
+      "imageNumber": 51,
+      "file": "Bild 51.png",
+      "sizeBytes": 1780325,
+      "sha256": "3dbc3e481b04d1fa00b361b89cc6b060c075d68545519e4fd3576f2488e5fc67"
+    },
+    {
+      "imageNumber": 52,
+      "file": "Bild 52.png",
+      "sizeBytes": 2001766,
+      "sha256": "4841f3ecaf398e026fda4485869b029daef21db03b74eeff6f66c80cd1699660"
+    },
+    {
+      "imageNumber": 53,
+      "file": "Bild 53.png",
+      "sizeBytes": 1885971,
+      "sha256": "03817949b403e18199870e20a2b7df9e9e83cd8d4196ee7d2babf4731db3f0d2"
+    },
+    {
+      "imageNumber": 54,
+      "file": "Bild 54.png",
+      "sizeBytes": 1960596,
+      "sha256": "0a7103a72bfc9338533ae487294f9f67748e3df1203e0fc460a0f97eaa8fe832"
+    },
+    {
+      "imageNumber": 55,
+      "file": "Bild 55.png",
+      "sizeBytes": 1957981,
+      "sha256": "94ec83e897ff94aa3f850ad2e5385a4ceddaf92e37ed3e8744cb0c6c803d6c2d"
+    },
+    {
+      "imageNumber": 56,
+      "file": "Bild 56.png",
+      "sizeBytes": 1858557,
+      "sha256": "974b27721923b63d4b3e4976cecafc9523eedc61bc1eddca19d4a0919dd63bd1"
+    },
+    {
+      "imageNumber": 57,
+      "file": "Bild 57.png",
+      "sizeBytes": 2027375,
+      "sha256": "773cafeb1a1f692f66f46f15ee19d27ab1c14772cd3dd0147b29f907b25cffc5"
+    },
+    {
+      "imageNumber": 58,
+      "file": "Bild 58.png",
+      "sizeBytes": 1912317,
+      "sha256": "a77177ffd2c1c78e152b41638745898aa1a4f498c9188bdf74fe8e0935fdeb8d"
+    },
+    {
+      "imageNumber": 59,
+      "file": "Bild 59.png",
+      "sizeBytes": 1923743,
+      "sha256": "f0eebde11d7f1b1c698a7237c5acb24661de7e7364bf9dff8502f4da835f8269"
+    },
+    {
+      "imageNumber": 60,
+      "file": "Bild 60.png",
+      "sizeBytes": 1940049,
+      "sha256": "1b1f437056f2503b827ba21061576eccebf719ec28f6d4c3d33f8ee716fc784e"
+    },
+    {
+      "imageNumber": 61,
+      "file": "Bild 61.png",
+      "sizeBytes": 1712623,
+      "sha256": "e63c0c0a453701944fb3138068ae206b4dcc9f7fe48a3d8da50b2d9267fe0d17"
+    },
+    {
+      "imageNumber": 62,
+      "file": "Bild 62.png",
+      "sizeBytes": 1856513,
+      "sha256": "02045d3c444b726bb292a2613b36a9e11cc1194cf78c067c02f184ba0b4b12cb"
+    },
+    {
+      "imageNumber": 63,
+      "file": "Bild 63.png",
+      "sizeBytes": 2005186,
+      "sha256": "35d5f2393cd8dafc2d2730a828206e5d3da13819fe7a19656197bfb1d559937b"
+    },
+    {
+      "imageNumber": 64,
+      "file": "Bild 64.png",
+      "sizeBytes": 2064211,
+      "sha256": "7821c399f87b99970da9c4014c17738541ad992aaa3083fc80e2a1a34b3e382f"
+    },
+    {
+      "imageNumber": 65,
+      "file": "Bild 65.png",
+      "sizeBytes": 1837504,
+      "sha256": "9b2a350a981d17ed4d7899a69c6130ea7b5020c100c1b19498e38a2ad819a6a2"
+    },
+    {
+      "imageNumber": 66,
+      "file": "Bild 66.png",
+      "sizeBytes": 1833485,
+      "sha256": "444b6621953380eab5c76170fb6f8c63d6adae45c9e3f78fb8fc560f72ba6880"
+    },
+    {
+      "imageNumber": 67,
+      "file": "Bild 67.png",
+      "sizeBytes": 1933800,
+      "sha256": "afa5cee9dbedf3829e7c40be39dcfe4fafbb5b1dc1f98f4694a34ee9e062bfd0"
+    },
+    {
+      "imageNumber": 68,
+      "file": "Bild 68.png",
+      "sizeBytes": 1822098,
+      "sha256": "0c85b69b638db2677bb5d2022653713f4c0d649bce686c20e7229d26e6354e5f"
+    },
+    {
+      "imageNumber": 69,
+      "file": "Bild 69.png",
+      "sizeBytes": 1754771,
+      "sha256": "65ebd6dea2a2a311a90c1f8577ceb2e7102bdbd134849cb035b3421b87f82fab"
+    },
+    {
+      "imageNumber": 70,
+      "file": "Bild 70.png",
+      "sizeBytes": 1622333,
+      "sha256": "c4a7eaca85b4a5952d01a1b53abb0ac0f775ebf47723583e78ebcdf3a30ec8ca"
+    },
+    {
+      "imageNumber": 71,
+      "file": "Bild 71.png",
+      "sizeBytes": 1800101,
+      "sha256": "e0844a5465527c0758e0fb8e4fb0e5ece128b1edc1e93b2a5fdb9cc1329fcf5e"
+    },
+    {
+      "imageNumber": 72,
+      "file": "Bild 72.png",
+      "sizeBytes": 1848118,
+      "sha256": "b32d7f168bc94622faeda4c66d08ea488ef5eb14dc548b27251262a5516ee5c2"
+    },
+    {
+      "imageNumber": 73,
+      "file": "Bild 73.png",
+      "sizeBytes": 1721234,
+      "sha256": "63a7d2d398c88b7e9e667d540218f920abc0ce17313d4b050d155c5a141eb7af"
+    },
+    {
+      "imageNumber": 74,
+      "file": "Bild 74.png",
+      "sizeBytes": 1842731,
+      "sha256": "fe28b6ca33c54b9e503156f792e6d409fd8883021423df47e2cad9de45948bd9"
+    },
+    {
+      "imageNumber": 75,
+      "file": "Bild 75.png",
+      "sizeBytes": 1868112,
+      "sha256": "a4145a173383f1bccf521e3c2b3ddfc3cf23c5a2cf213b254063e8f332d4bde4"
+    },
+    {
+      "imageNumber": 76,
+      "file": "Bild 76.png",
+      "sizeBytes": 1798385,
+      "sha256": "a2080e0bef0ceda8736f82798358c6365473b7241615f654a40c3776ce89f541"
+    },
+    {
+      "imageNumber": 77,
+      "file": "Bild 77.png",
+      "sizeBytes": 1669451,
+      "sha256": "eda14d3cea433a197c782dbf8bbc7b88f308bb7e2d0e0da4111cb2844e1ab120"
+    },
+    {
+      "imageNumber": 78,
+      "file": "Bild 78.png",
+      "sizeBytes": 2056145,
+      "sha256": "3ea4b3223e2cf559ae3cada7923d49ccfefb545d4712b8142489e6b99ade9231"
+    },
+    {
+      "imageNumber": 79,
+      "file": "Bild 79.png",
+      "sizeBytes": 1823087,
+      "sha256": "3a4d8f8cc26476513d91d57e8b5ff25b5b481f949ef218229babb51143bc9059"
+    },
+    {
+      "imageNumber": 80,
+      "file": "Bild 80.png",
+      "sizeBytes": 1932767,
+      "sha256": "0bbc014a97b9c2d874029664fbbdcd22c5d922bda4383123d1684c598b2a6eb1"
+    },
+    {
+      "imageNumber": 81,
+      "file": "Bild 81.png",
+      "sizeBytes": 1708968,
+      "sha256": "1a2b32f797ff3e1dff4dcf50882222f858f91cdce22d8725cc20de34edc0e75e"
+    },
+    {
+      "imageNumber": 82,
+      "file": "Bild 82.png",
+      "sizeBytes": 1863248,
+      "sha256": "b3408ea275f06e8552915a0aedfcadcdf38630f64a30d293f164166651766a27"
+    }
+  ]
+}

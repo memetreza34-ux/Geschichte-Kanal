@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 3,
+  "status": "APPROVED",
+  "candidate": "Warum eine Welle aus Melasse 1919 Boston überrollte",
+  "proposedTitle": "Warum eine Welle aus Melasse 1919 Boston überrollte",
+  "topicFamily": "disaster_survival",
+  "storyMode": "event-led",
+  "mainCharacterRequired": false,
+  "humanRepresentationPlan": "Isaac Gonzalez (Arbeiter am Tank) führt durch die Geschichte, ohne zur erfundenen Hauptfigur zu werden. Arthur Jell (Schatzmeister, Bauleiter ohne Ingenieursausbildung), Feuerwehrmann George Layhe, die zehnjährige Maria Di Stasio, Kadetten der USS Nantucket und Auditor Hugh Ogden tragen einzelne Beats. Alle mit fester Figurenbibel.",
+  "discovery": {
+    "rawCandidateCount": 30,
+    "shortlistSize": 12,
+    "selectedRank": 1,
+    "selectedFromShortlist": true
+  },
+  "duplicateCheckDecision": "APPROVED_NEW",
+  "storyEnginePresent": true,
+  "isolatedAnecdoteOnly": false,
+  "diversityGatePassed": true,
+  "largerHistoricalPoint": "Ein Tank, den niemand Fachkundiges geprüft hat, tötet 21 Menschen. Der folgende Prozess entlarvt die Ausrede „Anarchisten“ und führt zu Pflichtprüfungen durch zugelassene Ingenieure und Architekten.",
+  "sourceabilityEvidence": "Wikipedia/Boston Post 1919 (Zahlen, Augenzeugen); Mass Moments (Ogden-Verfahren); Stephen Puleo, Dark Tide (2003), und Puleo-Interview (Isaac Gonzalez); Smithsonian 1983 (Edwards Park); Harvard-Studie 2016 (Fließverhalten).",
+  "historicalStoryCorePresent": true,
+  "mechanismOnlyTopic": false,
+  "concreteHumanStakes": "Arbeiter, Kinder und Familien im armen italienischen und irischen North End leben neben einem undichten Tank. 21 Tote, rund 150 Verletzte, Familien verlieren Kinder und Ernährer.",
+  "eventProgression": "1915 Bau ohne Prüfung → Tank leckt, wird braun gestrichen → Gonzalez warnt, öffnet nachts ein Ventil, kündigt 1918 → 15.1.1919 warmer Tag, Tank reißt → Welle zerstört Hochbahnträger und Feuerwache → Rettung durch Kadetten und Rotes Kreuz → wochenlange Reinigung → Prozess mit Ogden, Urteil 1925 → neue Bauvorschriften.",
+  "expectedExplanationMechanismShare": 0.2,
+  "titleDirections": [
+    "Warum eine Welle aus Melasse 1919 Boston überrollte",
+    "Boston 1919: Die tödliche Welle aus Sirup",
+    "Der Tank, der weinte – und 21 Menschen tötete"
+  ],
+  "visualForms": [
+    "character-scene",
+    "architecture-city",
+    "object-focus",
+    "cause-effect",
+    "cutaway-section",
+    "environment-only",
+    "evidence-reconstruction",
+    "battle-city-overview",
+    "process-sequence"
+  ],
+  "scores": {
+    "curiosityGap": 9.5,
+    "stakes": 8.9,
+    "storyEngine": 9.1,
+    "visualPotential": 9.2,
+    "historicalSignificance": 8.2,
+    "freshnessDistinctiveness": 9.3,
+    "titlePotential": 9.3,
+    "sourceability": 8.7
+  },
+  "weightedScore": 9.05,
+  "qualityBand": "PRIORITY",
+  "approvedByTopicDirector": true,
+  "notes": [
+    "Wellenhöhe in Quellen uneinheitlich (15–40 Fuß); im Skript nur „mehrere Meter“.",
+    "Entschädigung: 628.000 Dollar laut Wikipedia, Mass Moments nennt 1 Mio. angeordnet; im Skript keine Summe.",
+    "Kein Spott über Opfer: Die Absurdität steht im Titel, die Opfer werden ernst erzählt."
+  ]
+}

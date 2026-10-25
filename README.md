@@ -60,6 +60,18 @@ youtube/     Templates und konkrete Produktionen
 → VERIFIED → nächste Produktion
 ```
 
+## V4: besser erzählen, bessere Bilder
+
+Neue Projekte durchlaufen zusätzlich die **Story Engine** (`channel/24-STORY-ENGINE-V4.md`) und das **Bildplan-V4-Gate** (`channel/25-BILDWELT-UND-PROMPTS-V4.md`). Grundlage ist die Analyse der Videos London 1666 und Ostseeflotte 1905 (`channel/23-ANALYSE-LONDON-OSTSEE.md`).
+
+```bash
+npm run story:youtube -- --dir "youtube/<week>/<slug>"          # Blueprint gegen Skript
+npm run story:youtube -- --dir "youtube/<week>/<slug>" --lint   # nur das Skript prüfen
+npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"     # eine google-flow-prompt.txt mit Ablauf und kurzen Prompts
+```
+
+Die Struktur bleibt wie gewohnt: `01-voice-script/voice-script.txt` ist der Fließtext, `00-bildprompts/google-flow-prompt.txt` enthält den ganzen Ablauf (3 Cover → Auswahl → Figurenkarten → Bilder in 10er-Schritten → Umbenennen → Prüfen → ein Ordner) mit kurzen Szenen-Prompts. Stil und Figuren kommen über die Ingredients (Kanal-Stil-Referenz, gewähltes Cover, Figurenkarten).
+
 ## Preproduction: Thema und Skript
 
 Neue Projekte besitzen:

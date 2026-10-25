@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 
+import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { arg, exists, isMainModule, normalizeText, projectPaths, readJson } from '../lib/pipeline.js';
 import { validateTopicScorecard } from '../lib/topic-quality.js';
 import { validateStoryQc } from '../lib/story-quality.js';
+import { validateStoryBlueprint } from '../lib/story-engine.js';
 import { evaluateTopic } from './check-youtube-topic.js';
 
 export async function validatePreproduction(projectDirectory) {
@@ -55,6 +57,20 @@ export async function validatePreproduction(projectDirectory) {
 
   const storyResult = validateStoryQc(storyQc, channelPolicy);
   errors.push(...storyResult.errors.map((error) => `Story Gate: ${error}`));
+
+  if (Number(meta.storyEngineGateVersion ?? 0) >= 1) {
+    if (!(await exists(p.storyBlueprint))) {
+      errors.push('Story Engine: 99-technik/STORY_BLUEPRINT.json fehlt.');
+    } else {
+      const [blueprint, storyPolicy, script] = await Promise.all([
+        readJson(p.storyBlueprint),
+        readJson(path.resolve('config/story-engine-policy.json')),
+        exists(p.script).then((found) => (found ? readFile(p.script, 'utf8') : ''))
+      ]);
+      const engine = validateStoryBlueprint(blueprint, script, storyPolicy);
+      errors.push(...engine.errors.map((error) => `Story Engine: ${error}`));
+    }
+  }
 
   return {
     passed: errors.length === 0,
