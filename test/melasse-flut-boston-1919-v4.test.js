@@ -13,10 +13,10 @@ test('Melasse-Flut 1919: erstes V4-Video besteht Story Engine, Bildplan und Phas
   ]);
   assert.equal(meta.storyEngineGateVersion, 1);
   assert.equal(meta.visualPlanGateVersion, 1);
-  assert.equal(mapping.images.length, 83);
+  assert.equal(mapping.images.length, 82, "Bild 75 lieferte Flow nicht; Text liegt auf den Nachbarbildern");
   assert.equal(cast.characters.length, 5);
   assert.equal(mapping.images.filter((x) => x.visualForm === 'map-geography').length, 0);
-  assert.equal(new Set(mapping.images.map((x) => x.subjectAction)).size, 83, 'jede Szene individuell');
+  assert.equal(new Set(mapping.images.map((x) => x.subjectAction)).size, 82, 'jede Szene individuell');
 
   const wave = mapping.images.findIndex((x) => /wave of molasses|bursts open|tank collapses/i.test(x.subjectAction));
   const noon = mapping.images.findIndex((x) => x.narrationBeat.startsWith('Gegen halb eins'));
@@ -31,7 +31,7 @@ test('Melasse-Flut 1919: erstes V4-Video besteht Story Engine, Bildplan und Phas
   assert.match(prompt, /SCHRITT 1 — COVER: DREI VARIANTEN[\s\S]*SCHRITT 7 — EIN ORDNER/);
   assert.equal((prompt.match(/^── Schritt 4\.\d+: Bilder /gm) || []).length, 9);
   const blocks = prompt.split(/^Bild \d{2} → speichern als .*$/m).slice(1);
-  assert.equal(blocks.length, 83);
+  assert.equal(blocks.length, 82);
   for (const block of blocks) {
     const scenePrompt = block.split('\n\n')[0].replace(/^\s*Prompt:\n/, '');
     assert.ok(scenePrompt.length <= 600, `Szenen-Prompt zu lang: ${scenePrompt.slice(0, 60)}`);

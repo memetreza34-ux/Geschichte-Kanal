@@ -3,10 +3,10 @@
   "voiceoverMaster": "01-voice-script/voice-script.txt",
   "coverImageNumber": null,
   "videoFirstImageNumber": 1,
-  "videoLastImageNumber": 83,
+  "videoLastImageNumber": 82,
   "sourceVoiceoverFile": null,
-  "audioMasterFile": null,
-  "alignmentEvidenceFile": null,
+  "audioMasterFile": "99-technik/YOUTUBE_AUDIO_OPTIMIZED.wav",
+  "alignmentEvidenceFile": "99-technik/WHISPER_ALIGNMENT.json",
   "images": [
     {
       "imageNumber": 1,
@@ -59,9 +59,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 6,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 0,
+      "actualEndSeconds": 4.88,
+      "alignmentConfidence": 0.848
     },
     {
       "imageNumber": 2,
@@ -114,9 +114,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 2.5,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 4.88,
+      "actualEndSeconds": 7.76,
+      "alignmentConfidence": 0.822
     },
     {
       "imageNumber": 3,
@@ -169,9 +169,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.6,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 7.76,
+      "actualEndSeconds": 12.42,
+      "alignmentConfidence": 0.932
     },
     {
       "imageNumber": 4,
@@ -226,9 +226,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.6,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 12.42,
+      "actualEndSeconds": 16.64,
+      "alignmentConfidence": 0.561
     },
     {
       "imageNumber": 5,
@@ -281,9 +281,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.5,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 16.64,
+      "actualEndSeconds": 19.62,
+      "alignmentConfidence": 0.84
     },
     {
       "imageNumber": 6,
@@ -336,9 +336,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 5.7,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 19.62,
+      "actualEndSeconds": 24.16,
+      "alignmentConfidence": 0.918
     },
     {
       "imageNumber": 7,
@@ -391,9 +391,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 24.16,
+      "actualEndSeconds": 28.6,
+      "alignmentConfidence": 0.988
     },
     {
       "imageNumber": 8,
@@ -446,9 +446,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.5,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 28.6,
+      "actualEndSeconds": 32.56,
+      "alignmentConfidence": 0.881
     },
     {
       "imageNumber": 9,
@@ -501,9 +501,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 6,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 32.56,
+      "actualEndSeconds": 37.3,
+      "alignmentConfidence": 0.867
     },
     {
       "imageNumber": 10,
@@ -558,9 +558,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.5,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 37.3,
+      "actualEndSeconds": 40.4,
+      "alignmentConfidence": 0.954
     },
     {
       "imageNumber": 11,
@@ -615,9 +615,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.2,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 40.4,
+      "actualEndSeconds": 43.06,
+      "alignmentConfidence": 0.975
     },
     {
       "imageNumber": 12,
@@ -672,9 +672,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 5.3,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 43.06,
+      "actualEndSeconds": 46.98,
+      "alignmentConfidence": 0.958
     },
     {
       "imageNumber": 13,
@@ -727,9 +727,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.5,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 46.98,
+      "actualEndSeconds": 49.34,
+      "alignmentConfidence": 0.99
     },
     {
       "imageNumber": 14,
@@ -782,9 +782,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.6,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 49.34,
+      "actualEndSeconds": 54.02,
+      "alignmentConfidence": 0.95
     },
     {
       "imageNumber": 15,
@@ -837,9 +837,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 54.02,
+      "actualEndSeconds": 58.06,
+      "alignmentConfidence": 0.78
     },
     {
       "imageNumber": 16,
@@ -892,9 +892,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 5.7,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 58.06,
+      "actualEndSeconds": 62.54,
+      "alignmentConfidence": 0.87
     },
     {
       "imageNumber": 17,
@@ -947,9 +947,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.5,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 62.54,
+      "actualEndSeconds": 65.8,
+      "alignmentConfidence": 0.972
     },
     {
       "imageNumber": 18,
@@ -1001,9 +1001,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 65.8,
+      "actualEndSeconds": 69.48,
+      "alignmentConfidence": 0.973
     },
     {
       "imageNumber": 19,
@@ -1056,9 +1056,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 69.48,
+      "actualEndSeconds": 74.06,
+      "alignmentConfidence": 0.934
     },
     {
       "imageNumber": 20,
@@ -1111,9 +1111,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.2,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 74.06,
+      "actualEndSeconds": 77.94,
+      "alignmentConfidence": 0.963
     },
     {
       "imageNumber": 21,
@@ -1166,9 +1166,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.6,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 77.94,
+      "actualEndSeconds": 81.4,
+      "alignmentConfidence": 0.993
     },
     {
       "imageNumber": 22,
@@ -1223,9 +1223,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.6,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 81.4,
+      "actualEndSeconds": 84.84,
+      "alignmentConfidence": 0.74
     },
     {
       "imageNumber": 23,
@@ -1281,9 +1281,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 5.7,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 84.84,
+      "actualEndSeconds": 88.56,
+      "alignmentConfidence": 0.841
     },
     {
       "imageNumber": 24,
@@ -1339,9 +1339,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 2.8,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 88.56,
+      "actualEndSeconds": 90.8,
+      "alignmentConfidence": 0.964
     },
     {
       "imageNumber": 25,
@@ -1396,9 +1396,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.2,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 90.8,
+      "actualEndSeconds": 93.92,
+      "alignmentConfidence": 0.913
     },
     {
       "imageNumber": 26,
@@ -1451,9 +1451,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 5.7,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 93.92,
+      "actualEndSeconds": 98.68,
+      "alignmentConfidence": 0.981
     },
     {
       "imageNumber": 27,
@@ -1508,9 +1508,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 98.68,
+      "actualEndSeconds": 100.9,
+      "alignmentConfidence": 0.934
     },
     {
       "imageNumber": 28,
@@ -1565,9 +1565,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.2,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 100.9,
+      "actualEndSeconds": 104.34,
+      "alignmentConfidence": 0.947
     },
     {
       "imageNumber": 29,
@@ -1622,9 +1622,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 2.5,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 104.34,
+      "actualEndSeconds": 106.48,
+      "alignmentConfidence": 0.988
     },
     {
       "imageNumber": 30,
@@ -1677,9 +1677,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.2,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 106.48,
+      "actualEndSeconds": 110.14,
+      "alignmentConfidence": 0.942
     },
     {
       "imageNumber": 31,
@@ -1734,9 +1734,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 5.3,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 110.14,
+      "actualEndSeconds": 113.46,
+      "alignmentConfidence": 0.936
     },
     {
       "imageNumber": 32,
@@ -1790,9 +1790,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 2.8,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 113.46,
+      "actualEndSeconds": 116.56,
+      "alignmentConfidence": 0.965
     },
     {
       "imageNumber": 33,
@@ -1847,9 +1847,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 116.56,
+      "actualEndSeconds": 120.48,
+      "alignmentConfidence": 0.925
     },
     {
       "imageNumber": 34,
@@ -1902,16 +1902,16 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 120.48,
+      "actualEndSeconds": 125.42,
+      "alignmentConfidence": 0.976
     },
     {
       "imageNumber": 35,
       "imageFile": "Bild 35.png",
-      "startAnchor": "Am 14. Januar legt ein Schiff an",
+      "startAnchor": "Am 14. Januar legt ein Schiff an und pumpt warme Melasse",
       "endAnchor": null,
-      "narrationBeat": "Am 14. Januar legt ein Schiff an",
+      "narrationBeat": "Am 14. Januar legt ein Schiff an und pumpt warme Melasse",
       "timeContext": "14. Januar 1919, Frost und Lieferung",
       "placeTime": "North End, Boston, 14 January 1919, freezing day",
       "chronologyStep": 35,
@@ -1955,18 +1955,18 @@
       "continuityNote": "Use the North End World Lock and CAST_BIBLE identities; show only what the narration has reached.",
       "historicalAccuracyNote": "1915–1925 Boston: riveted steel, gas lamps, horse wagons, early trucks, 1910s clothing. Follow RECHERCHE.md.",
       "promptQcScore": 9,
-      "plannedHoldSeconds": 2.5,
+      "plannedHoldSeconds": 3.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 125.42,
+      "actualEndSeconds": 128.2,
+      "alignmentConfidence": 0.926
     },
     {
       "imageNumber": 36,
       "imageFile": "Bild 36.png",
-      "startAnchor": "und pumpt warme Melasse zu der kalten in den Tank, bis er fast voll ist.",
+      "startAnchor": "zu der kalten in den Tank, bis er fast voll ist.",
       "endAnchor": null,
-      "narrationBeat": "und pumpt warme Melasse zu der kalten in den Tank, bis er fast voll ist.",
+      "narrationBeat": "zu der kalten in den Tank, bis er fast voll ist.",
       "timeContext": "14. Januar 1919, Frost und Lieferung",
       "placeTime": "North End, Boston, 14 January 1919, freezing day",
       "chronologyStep": 36,
@@ -2010,11 +2010,11 @@
       "continuityNote": "Use the North End World Lock and CAST_BIBLE identities; show only what the narration has reached.",
       "historicalAccuracyNote": "1915–1925 Boston: riveted steel, gas lamps, horse wagons, early trucks, 1910s clothing. Follow RECHERCHE.md.",
       "promptQcScore": 9,
-      "plannedHoldSeconds": 5.3,
+      "plannedHoldSeconds": 3.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 128.2,
+      "actualEndSeconds": 130.76,
+      "alignmentConfidence": 0.949
     },
     {
       "imageNumber": 37,
@@ -2069,9 +2069,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 2.1,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 130.76,
+      "actualEndSeconds": 132.98,
+      "alignmentConfidence": 0.726
     },
     {
       "imageNumber": 38,
@@ -2123,9 +2123,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.6,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 132.98,
+      "actualEndSeconds": 136.3,
+      "alignmentConfidence": 0.994
     },
     {
       "imageNumber": 39,
@@ -2178,9 +2178,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.2,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 136.3,
+      "actualEndSeconds": 138.52,
+      "alignmentConfidence": 0.927
     },
     {
       "imageNumber": 40,
@@ -2235,9 +2235,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 2.8,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 138.52,
+      "actualEndSeconds": 141.32,
+      "alignmentConfidence": 0.877
     },
     {
       "imageNumber": 41,
@@ -2289,9 +2289,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.5,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 141.32,
+      "actualEndSeconds": 144.42,
+      "alignmentConfidence": 0.942
     },
     {
       "imageNumber": 42,
@@ -2346,9 +2346,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.2,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 144.42,
+      "actualEndSeconds": 146.84,
+      "alignmentConfidence": 0.913
     },
     {
       "imageNumber": 43,
@@ -2400,9 +2400,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.2,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 146.84,
+      "actualEndSeconds": 149.2,
+      "alignmentConfidence": 0.896
     },
     {
       "imageNumber": 44,
@@ -2455,16 +2455,16 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.5,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 149.2,
+      "actualEndSeconds": 152.06,
+      "alignmentConfidence": 0.953
     },
     {
       "imageNumber": 45,
       "imageFile": "Bild 45.png",
-      "startAnchor": "Es sind die Nieten, die aus dem Stahl springen.",
+      "startAnchor": "Es sind die Nieten, die aus dem Stahl springen. Am Boden des Tanks",
       "endAnchor": null,
-      "narrationBeat": "Es sind die Nieten, die aus dem Stahl springen.",
+      "narrationBeat": "Es sind die Nieten, die aus dem Stahl springen. Am Boden des Tanks",
       "timeContext": "15. Januar 1919, 12:30 Uhr, der Tank reißt",
       "placeTime": "Commercial Street, Boston, 15 January 1919, 12:30 pm",
       "chronologyStep": 45,
@@ -2507,18 +2507,18 @@
       "continuityNote": "Use the North End World Lock and CAST_BIBLE identities; show only what the narration has reached.",
       "historicalAccuracyNote": "1915–1925 Boston: riveted steel, gas lamps, horse wagons, early trucks, 1910s clothing. Follow RECHERCHE.md.",
       "promptQcScore": 9,
-      "plannedHoldSeconds": 3.2,
+      "plannedHoldSeconds": 4.6,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 152.06,
+      "actualEndSeconds": 154.7,
+      "alignmentConfidence": 0.959
     },
     {
       "imageNumber": 46,
       "imageFile": "Bild 46.png",
-      "startAnchor": "Am Boden des Tanks reißt eine Naht auf, und dann gibt der ganze Tank nach.",
+      "startAnchor": "reißt eine Naht auf, und dann gibt der ganze Tank nach.",
       "endAnchor": null,
-      "narrationBeat": "Am Boden des Tanks reißt eine Naht auf, und dann gibt der ganze Tank nach.",
+      "narrationBeat": "reißt eine Naht auf, und dann gibt der ganze Tank nach.",
       "timeContext": "15. Januar 1919, 12:30 Uhr, der Tank reißt",
       "placeTime": "Commercial Street, Boston, 15 January 1919, 12:30 pm",
       "chronologyStep": 46,
@@ -2561,11 +2561,11 @@
       "continuityNote": "Use the North End World Lock and CAST_BIBLE identities; show only what the narration has reached.",
       "historicalAccuracyNote": "1915–1925 Boston: riveted steel, gas lamps, horse wagons, early trucks, 1910s clothing. Follow RECHERCHE.md.",
       "promptQcScore": 9,
-      "plannedHoldSeconds": 5.3,
+      "plannedHoldSeconds": 3.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 154.7,
+      "actualEndSeconds": 157.72,
+      "alignmentConfidence": 0.928
     },
     {
       "imageNumber": 47,
@@ -2617,9 +2617,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 5.7,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 157.72,
+      "actualEndSeconds": 162.8,
+      "alignmentConfidence": 0.991
     },
     {
       "imageNumber": 48,
@@ -2671,9 +2671,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.2,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 162.8,
+      "actualEndSeconds": 165.2,
+      "alignmentConfidence": 0.976
     },
     {
       "imageNumber": 49,
@@ -2726,9 +2726,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 165.2,
+      "actualEndSeconds": 168.88,
+      "alignmentConfidence": 0.915
     },
     {
       "imageNumber": 50,
@@ -2783,9 +2783,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 2.8,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 168.88,
+      "actualEndSeconds": 171.72,
+      "alignmentConfidence": 0.774
     },
     {
       "imageNumber": 51,
@@ -2838,9 +2838,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 5.7,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 171.72,
+      "actualEndSeconds": 176.28,
+      "alignmentConfidence": 0.931
     },
     {
       "imageNumber": 52,
@@ -2893,9 +2893,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.2,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 176.28,
+      "actualEndSeconds": 179.42,
+      "alignmentConfidence": 0.965
     },
     {
       "imageNumber": 53,
@@ -2948,9 +2948,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 2.5,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 179.42,
+      "actualEndSeconds": 182.64,
+      "alignmentConfidence": 0.943
     },
     {
       "imageNumber": 54,
@@ -3002,9 +3002,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 182.64,
+      "actualEndSeconds": 186.74,
+      "alignmentConfidence": 0.898
     },
     {
       "imageNumber": 55,
@@ -3057,9 +3057,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 186.74,
+      "actualEndSeconds": 189.58,
+      "alignmentConfidence": 0.968
     },
     {
       "imageNumber": 56,
@@ -3111,9 +3111,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 189.58,
+      "actualEndSeconds": 193.24,
+      "alignmentConfidence": 0.886
     },
     {
       "imageNumber": 57,
@@ -3166,9 +3166,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 2.5,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 193.24,
+      "actualEndSeconds": 195.62,
+      "alignmentConfidence": 0.937
     },
     {
       "imageNumber": 58,
@@ -3221,9 +3221,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 195.62,
+      "actualEndSeconds": 200,
+      "alignmentConfidence": 0.858
     },
     {
       "imageNumber": 59,
@@ -3276,9 +3276,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.5,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 200,
+      "actualEndSeconds": 202.58,
+      "alignmentConfidence": 0.959
     },
     {
       "imageNumber": 60,
@@ -3331,9 +3331,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 6,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 202.58,
+      "actualEndSeconds": 207.52,
+      "alignmentConfidence": 0.973
     },
     {
       "imageNumber": 61,
@@ -3386,9 +3386,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 207.52,
+      "actualEndSeconds": 211.22,
+      "alignmentConfidence": 0.972
     },
     {
       "imageNumber": 62,
@@ -3441,9 +3441,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 2.5,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 211.22,
+      "actualEndSeconds": 214.18,
+      "alignmentConfidence": 0.992
     },
     {
       "imageNumber": 63,
@@ -3496,16 +3496,16 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.6,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 214.18,
+      "actualEndSeconds": 219.04,
+      "alignmentConfidence": 0.966
     },
     {
       "imageNumber": 64,
       "imageFile": "Bild 64.png",
-      "startAnchor": "An Schuhen und Mänteln wandert die Melasse durch ganz Boston, in Straßenbahnen, auf Bahnsteigen und an Telefonhörern.",
+      "startAnchor": "An Schuhen und Mänteln wandert die Melasse durch ganz Boston, in Straßenbahnen, auf Bahnsteigen",
       "endAnchor": null,
-      "narrationBeat": "An Schuhen und Mänteln wandert die Melasse durch ganz Boston, in Straßenbahnen, auf Bahnsteigen und an Telefonhörern.",
+      "narrationBeat": "An Schuhen und Mänteln wandert die Melasse durch ganz Boston, in Straßenbahnen, auf Bahnsteigen",
       "timeContext": "Januar bis Sommer 1919, Aufräumen",
       "placeTime": "Boston, weeks and months after 15 January 1919",
       "chronologyStep": 64,
@@ -3549,18 +3549,18 @@
       "continuityNote": "Use the North End World Lock and CAST_BIBLE identities; show only what the narration has reached.",
       "historicalAccuracyNote": "1915–1925 Boston: riveted steel, gas lamps, horse wagons, early trucks, 1910s clothing. Follow RECHERCHE.md.",
       "promptQcScore": 9,
-      "plannedHoldSeconds": 6,
+      "plannedHoldSeconds": 4.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 219.04,
+      "actualEndSeconds": 224.12,
+      "alignmentConfidence": 0.954
     },
     {
       "imageNumber": 65,
       "imageFile": "Bild 65.png",
-      "startAnchor": "Das Hafenwasser bleibt bis zum Sommer braun.",
+      "startAnchor": "und an Telefonhörern. Das Hafenwasser bleibt bis zum Sommer braun.",
       "endAnchor": null,
-      "narrationBeat": "Das Hafenwasser bleibt bis zum Sommer braun.",
+      "narrationBeat": "und an Telefonhörern. Das Hafenwasser bleibt bis zum Sommer braun.",
       "timeContext": "Januar bis Sommer 1919, Aufräumen",
       "placeTime": "Boston, weeks and months after 15 January 1919",
       "chronologyStep": 65,
@@ -3604,11 +3604,11 @@
       "continuityNote": "Use the North End World Lock and CAST_BIBLE identities; show only what the narration has reached.",
       "historicalAccuracyNote": "1915–1925 Boston: riveted steel, gas lamps, horse wagons, early trucks, 1910s clothing. Follow RECHERCHE.md.",
       "promptQcScore": 9,
-      "plannedHoldSeconds": 2.5,
+      "plannedHoldSeconds": 3.5,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 224.12,
+      "actualEndSeconds": 228.72,
+      "alignmentConfidence": 0.963
     },
     {
       "imageNumber": 66,
@@ -3663,9 +3663,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 228.72,
+      "actualEndSeconds": 232.78,
+      "alignmentConfidence": 0.916
     },
     {
       "imageNumber": 67,
@@ -3718,9 +3718,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 232.78,
+      "actualEndSeconds": 237.98,
+      "alignmentConfidence": 0.967
     },
     {
       "imageNumber": 68,
@@ -3775,9 +3775,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 5.3,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 237.98,
+      "actualEndSeconds": 242.78,
+      "alignmentConfidence": 0.822
     },
     {
       "imageNumber": 69,
@@ -3833,9 +3833,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 5.3,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 242.78,
+      "actualEndSeconds": 248.38,
+      "alignmentConfidence": 0.828
     },
     {
       "imageNumber": 70,
@@ -3889,9 +3889,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.2,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 248.38,
+      "actualEndSeconds": 251.72,
+      "alignmentConfidence": 0.751
     },
     {
       "imageNumber": 71,
@@ -3946,9 +3946,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 5.3,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 251.72,
+      "actualEndSeconds": 256.96,
+      "alignmentConfidence": 0.949
     },
     {
       "imageNumber": 72,
@@ -4003,9 +4003,9 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 5.3,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 256.96,
+      "actualEndSeconds": 261.36,
+      "alignmentConfidence": 0.989
     },
     {
       "imageNumber": 73,
@@ -4058,16 +4058,16 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 261.36,
+      "actualEndSeconds": 265.72,
+      "alignmentConfidence": 0.975
     },
     {
       "imageNumber": 74,
       "imageFile": "Bild 74.png",
-      "startAnchor": "Und er versteht, wozu die braune Farbe diente: Sie sollte die Lecks verstecken.",
+      "startAnchor": "Und er versteht, wozu die braune Farbe diente: Sie sollte die Lecks verstecken. Die Firma muss zahlen.",
       "endAnchor": null,
-      "narrationBeat": "Und er versteht, wozu die braune Farbe diente: Sie sollte die Lecks verstecken.",
+      "narrationBeat": "Und er versteht, wozu die braune Farbe diente: Sie sollte die Lecks verstecken. Die Firma muss zahlen.",
       "timeContext": "April 1925, Ogdens Urteil",
       "placeTime": "Boston courtroom, April 1925",
       "chronologyStep": 74,
@@ -4111,76 +4111,21 @@
       "continuityNote": "Use the North End World Lock and CAST_BIBLE identities; show only what the narration has reached.",
       "historicalAccuracyNote": "1915–1925 Boston: riveted steel, gas lamps, horse wagons, early trucks, 1910s clothing. Follow RECHERCHE.md.",
       "promptQcScore": 9,
-      "plannedHoldSeconds": 4.6,
+      "plannedHoldSeconds": 6,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 265.72,
+      "actualEndSeconds": 270.64,
+      "alignmentConfidence": 0.957
     },
     {
       "imageNumber": 75,
       "imageFile": "Bild 75.png",
-      "startAnchor": "Die Firma muss zahlen. Die Familien der Toten erhalten rund siebentausend Dollar pro Opfer.",
+      "startAnchor": "Die Familien der Toten erhalten rund siebentausend Dollar pro Opfer.\n\nDas Urteil verändert mehr als Boston.",
       "endAnchor": null,
-      "narrationBeat": "Die Firma muss zahlen. Die Familien der Toten erhalten rund siebentausend Dollar pro Opfer.",
-      "timeContext": "April 1925, Ogdens Urteil",
-      "placeTime": "small tenement kitchen, North End, Boston, 1925",
-      "chronologyStep": 75,
-      "visualAnswer": "Geld ersetzt den Verlust nicht. Sichtbar: A mother in black mourning clothes sits at a small kitchen table and looks at an unopened envelope, an empty child's chair beside her.",
-      "narrationMatchScore": 9.3,
-      "clarityScore": 9,
-      "viewerTakeaway": "Geld ersetzt den Verlust nicht.",
-      "visualPurpose": "Die Lecks werden sichtbar: Geld ersetzt den Verlust nicht.",
-      "topicAnchor": "Melasse-Flut im North End von Boston 1915–1925",
-      "visualForm": "character-scene",
-      "visualConcept": "A mother in black mourning clothes sits at a small kitchen table and looks at an unopened envelope, an empty child's chair beside her",
-      "subjectAction": "A mother in black mourning clothes sits at a small kitchen table and looks at an unopened envelope, an empty child's chair beside her",
-      "dominantSubject": "A mother in black mourning clothes sits at a small kitchen table and looks at an unopened envelope",
-      "actionState": "Geld ersetzt den Verlust nicht. (Umschlag, leerer Kinderstuhl)",
-      "composition": "Medium shot from across the kitchen table; foreground detail: Umschlag, leerer Kinderstuhl; location tenement-kitchen.",
-      "camera": "Medium shot from across the kitchen table",
-      "shotScale": "medium",
-      "locationKey": "tenement-kitchen",
-      "castIds": [],
-      "modernScene": false,
-      "visualEnergyDevice": "a readable human reaction or action as the focal point (Umschlag, leerer Kinderstuhl)",
-      "visualChangeFromPrevious": "New medium character-scene at tenement-kitchen.",
-      "visualInterestScore": 9,
-      "colorPhase": "verdict",
-      "colorIntent": "Die Lecks werden sichtbar; spring green light, paper white, brown steel; soft window light",
-      "worldLifeDetail": "Umschlag, leerer Kinderstuhl",
-      "motionType": "push-in",
-      "motionDirection": "center",
-      "motionIntensity": "subtle",
-      "motionFocus": "A mother in black mourning clothes sits at a small kitchen table and looks at an unopened envelope",
-      "visibleTextPolicy": "NO_VISIBLE_TEXT",
-      "editorialText": "",
-      "editorialTextPurpose": "",
-      "explanationOnly": false,
-      "depthPlan": "Foreground: Umschlag, leerer Kinderstuhl. Midground: the main action. Background: Boston courtroom, April 1925.",
-      "lightingMood": "soft window light",
-      "supportingElements": [
-        "Umschlag",
-        "leerer Kinderstuhl"
-      ],
-      "continuityNote": "Use the North End World Lock and CAST_BIBLE identities; show only what the narration has reached.",
-      "historicalAccuracyNote": "1915–1925 Boston: riveted steel, gas lamps, horse wagons, early trucks, 1910s clothing. Follow RECHERCHE.md.",
-      "promptQcScore": 9,
-      "plannedHoldSeconds": 4.9,
-      "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
-    },
-    {
-      "imageNumber": 76,
-      "imageFile": "Bild 76.png",
-      "startAnchor": "Das Urteil verändert mehr als Boston. Massachusetts und viele andere Bundesstaaten verlangen danach,",
-      "endAnchor": null,
-      "narrationBeat": "Das Urteil verändert mehr als Boston. Massachusetts und viele andere Bundesstaaten verlangen danach,",
+      "narrationBeat": "Die Familien der Toten erhalten rund siebentausend Dollar pro Opfer.\n\nDas Urteil verändert mehr als Boston.",
       "timeContext": "nach 1925, neue Prüfpflicht",
       "placeTime": "Massachusetts, late 1920s",
-      "chronologyStep": 76,
+      "chronologyStep": 75,
       "visualAnswer": "Die Politik reagiert. Sichtbar: The Massachusetts State House with its golden dome on a clear day, legislators in dark coats walking up the steps.",
       "narrationMatchScore": 9.3,
       "clarityScore": 9,
@@ -4221,21 +4166,21 @@
       "continuityNote": "Use the North End World Lock and CAST_BIBLE identities; show only what the narration has reached.",
       "historicalAccuracyNote": "1915–1925 Boston: riveted steel, gas lamps, horse wagons, early trucks, 1910s clothing. Follow RECHERCHE.md.",
       "promptQcScore": 9,
-      "plannedHoldSeconds": 4.6,
+      "plannedHoldSeconds": 5.7,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 270.64,
+      "actualEndSeconds": 275.52,
+      "alignmentConfidence": 0.901
     },
     {
-      "imageNumber": 77,
-      "imageFile": "Bild 77.png",
-      "startAnchor": "dass große Bauwerke von geprüften Ingenieuren und Architekten abgenommen werden.",
+      "imageNumber": 76,
+      "imageFile": "Bild 76.png",
+      "startAnchor": "Massachusetts und viele andere Bundesstaaten verlangen danach, dass große Bauwerke von geprüften Ingenieuren und Architekten",
       "endAnchor": null,
-      "narrationBeat": "dass große Bauwerke von geprüften Ingenieuren und Architekten abgenommen werden.",
+      "narrationBeat": "Massachusetts und viele andere Bundesstaaten verlangen danach, dass große Bauwerke von geprüften Ingenieuren und Architekten",
       "timeContext": "nach 1925, neue Prüfpflicht",
       "placeTime": "Massachusetts, late 1920s",
-      "chronologyStep": 77,
+      "chronologyStep": 76,
       "visualAnswer": "Jetzt prüfen Fachleute. Sichtbar: A licensed engineer measures the thickness of a steel plate on a new tank while an architect checks drawings beside him.",
       "narrationMatchScore": 9.3,
       "clarityScore": 9,
@@ -4276,21 +4221,21 @@
       "continuityNote": "Use the North End World Lock and CAST_BIBLE identities; show only what the narration has reached.",
       "historicalAccuracyNote": "1915–1925 Boston: riveted steel, gas lamps, horse wagons, early trucks, 1910s clothing. Follow RECHERCHE.md.",
       "promptQcScore": 9,
-      "plannedHoldSeconds": 3.5,
+      "plannedHoldSeconds": 5.3,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 275.52,
+      "actualEndSeconds": 281.26,
+      "alignmentConfidence": 0.89
     },
     {
-      "imageNumber": 78,
-      "imageFile": "Bild 78.png",
-      "startAnchor": "Eine Warnung wie die von Isaac Gonzalez soll nie wieder einfach im Büro eines Schatzmeisters verschwinden.",
+      "imageNumber": 77,
+      "imageFile": "Bild 77.png",
+      "startAnchor": "abgenommen werden. Eine Warnung wie die von Isaac Gonzalez soll nie wieder einfach im Büro eines Schatzmeisters verschwinden.",
       "endAnchor": null,
-      "narrationBeat": "Eine Warnung wie die von Isaac Gonzalez soll nie wieder einfach im Büro eines Schatzmeisters verschwinden.",
+      "narrationBeat": "abgenommen werden. Eine Warnung wie die von Isaac Gonzalez soll nie wieder einfach im Büro eines Schatzmeisters verschwinden.",
       "timeContext": "nach 1925, neue Prüfpflicht",
       "placeTime": "Massachusetts, late 1920s",
-      "chronologyStep": 78,
+      "chronologyStep": 77,
       "visualAnswer": "Warnungen dürfen nicht mehr verschwinden. Sichtbar: An empty office desk with a closed drawer and a worn grey flat cap resting on it, dust floating in a sunbeam.",
       "narrationMatchScore": 9.3,
       "clarityScore": 9,
@@ -4331,21 +4276,21 @@
       "continuityNote": "Use the North End World Lock and CAST_BIBLE identities; show only what the narration has reached.",
       "historicalAccuracyNote": "1915–1925 Boston: riveted steel, gas lamps, horse wagons, early trucks, 1910s clothing. Follow RECHERCHE.md.",
       "promptQcScore": 9,
-      "plannedHoldSeconds": 5.7,
+      "plannedHoldSeconds": 6.4,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 281.26,
+      "actualEndSeconds": 287.24,
+      "alignmentConfidence": 0.906
     },
     {
-      "imageNumber": 79,
-      "imageFile": "Bild 79.png",
+      "imageNumber": 78,
+      "imageFile": "Bild 78.png",
       "startAnchor": "Heute liegt an der Stelle des Tanks ein Park mit einem Baseballfeld.",
       "endAnchor": null,
       "narrationBeat": "Heute liegt an der Stelle des Tanks ein Park mit einem Baseballfeld.",
       "timeContext": "heute, Langone Park im North End",
       "placeTime": "Langone Park, North End, Boston, present day",
-      "chronologyStep": 79,
+      "chronologyStep": 78,
       "visualAnswer": "Wo der Tank stand, ist heute ein Park. Sichtbar: A present-day city park with a baseball diamond beside the harbor in the North End, brick buildings behind.",
       "narrationMatchScore": 9.3,
       "clarityScore": 9,
@@ -4388,19 +4333,19 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.2,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 287.24,
+      "actualEndSeconds": 291.2,
+      "alignmentConfidence": 0.968
     },
     {
-      "imageNumber": 80,
-      "imageFile": "Bild 80.png",
+      "imageNumber": 79,
+      "imageFile": "Bild 79.png",
       "startAnchor": "Kinder rennen dort über den Rasen, wo früher Nachbarn Dosen unter die Nähte hielten.",
       "endAnchor": null,
       "narrationBeat": "Kinder rennen dort über den Rasen, wo früher Nachbarn Dosen unter die Nähte hielten.",
       "timeContext": "heute, Langone Park im North End",
       "placeTime": "Langone Park, North End, Boston, present day",
-      "chronologyStep": 80,
+      "chronologyStep": 79,
       "visualAnswer": "Kinder spielen, wo früher der Tank leckte. Sichtbar: Present-day children in casual clothes run across the green grass of the baseball field.",
       "narrationMatchScore": 9.3,
       "clarityScore": 9,
@@ -4442,19 +4387,19 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 4.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 291.2,
+      "actualEndSeconds": 295.38,
+      "alignmentConfidence": 0.986
     },
     {
-      "imageNumber": 81,
-      "imageFile": "Bild 81.png",
+      "imageNumber": 80,
+      "imageFile": "Bild 80.png",
       "startAnchor": "Fünfzig Zentimeter unter dem Spielfeld liegt noch immer das alte Fundament.",
       "endAnchor": null,
       "narrationBeat": "Fünfzig Zentimeter unter dem Spielfeld liegt noch immer das alte Fundament.",
       "timeContext": "heute, Langone Park im North End",
       "placeTime": "Langone Park, North End, Boston, present day",
-      "chronologyStep": 81,
+      "chronologyStep": 80,
       "visualAnswer": "Das Fundament liegt noch unter dem Rasen. Sichtbar: Cross-section below the baseball field showing the round concrete foundation ring of the old tank buried under soil and grass.",
       "narrationMatchScore": 9.3,
       "clarityScore": 9,
@@ -4497,19 +4442,19 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 295.38,
+      "actualEndSeconds": 299.04,
+      "alignmentConfidence": 0.945
     },
     {
-      "imageNumber": 82,
-      "imageFile": "Bild 82.png",
+      "imageNumber": 81,
+      "imageFile": "Bild 81.png",
       "startAnchor": "Und an warmen Tagen, so erzählten alte Bewohner noch Jahrzehnte später,",
       "endAnchor": null,
       "narrationBeat": "Und an warmen Tagen, so erzählten alte Bewohner noch Jahrzehnte später,",
       "timeContext": "heute, Langone Park im North End",
       "placeTime": "Langone Park, North End, Boston, present day",
-      "chronologyStep": 82,
+      "chronologyStep": 81,
       "visualAnswer": "Die Erinnerung lebt weiter. Sichtbar: An elderly man in a 1950s hat sits on a park bench by the old 1950s harbor and tells a story to a listening child on a warm evening, only old wharves and warehouses in the background.",
       "narrationMatchScore": 9.3,
       "clarityScore": 9,
@@ -4552,19 +4497,19 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 3.9,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 299.04,
+      "actualEndSeconds": 302.52,
+      "alignmentConfidence": 0.927
     },
     {
-      "imageNumber": 83,
-      "imageFile": "Bild 83.png",
+      "imageNumber": 82,
+      "imageFile": "Bild 82.png",
       "startAnchor": "roch das ganze Viertel nach Melasse.",
       "endAnchor": null,
       "narrationBeat": "roch das ganze Viertel nach Melasse.",
       "timeContext": "heute, Langone Park im North End",
       "placeTime": "Langone Park, North End, Boston, present day",
-      "chronologyStep": 83,
+      "chronologyStep": 82,
       "visualAnswer": "Der Geruch blieb. Sichtbar: Warm summer evening over North End rooftops, a faint golden haze drifting in from the harbor.",
       "narrationMatchScore": 9.3,
       "clarityScore": 9,
@@ -4607,9 +4552,15 @@
       "promptQcScore": 9,
       "plannedHoldSeconds": 2.1,
       "holdReason": "Speech-time estimate; final duration comes from measured Whisper alignment.",
-      "actualStartSeconds": null,
-      "actualEndSeconds": null,
-      "alignmentConfidence": null
+      "actualStartSeconds": 302.52,
+      "actualEndSeconds": 304.072,
+      "alignmentConfidence": 0.741
     }
-  ]
+  ],
+  "autoAlignment": {
+    "matched": 82,
+    "total": 82,
+    "model": "small",
+    "refreshed": false
+  }
 }

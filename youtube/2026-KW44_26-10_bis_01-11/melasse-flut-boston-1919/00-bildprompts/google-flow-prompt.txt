@@ -3,7 +3,7 @@ PROMPT_SYSTEM: flow-compiler-v4-compact
 
 GOOGLE FLOW — Warum eine Welle aus Melasse 1919 Boston überrollte
 
-Auftrag: 83 Szenenbilder im Format 16:9 für ein deutsches YouTube-Geschichtsvideo, plus Cover und Figurenkarten. Arbeite die Schritte 1 bis 7 der Reihe nach ab.
+Auftrag: 82 Szenenbilder im Format 16:9 für ein deutsches YouTube-Geschichtsvideo, plus Cover und Figurenkarten. Arbeite die Schritte 1 bis 7 der Reihe nach ab.
 
 VORLAGEN (als Ingredients anhängen)
 - Kanal-Stil-Referenz „assets/style/kanal-stil-referenz.png“: bei jedem Bild.
@@ -660,20 +660,12 @@ Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural propor
 
 Bild 75 → speichern als „Bild 75.png“
 Prompt:
-A mother in black mourning clothes sits at a small kitchen table and looks at an unopened envelope, an empty child's chair beside her.
-Small tenement kitchen, North End, Boston, 1925, soft window light.
-Medium shot from across the kitchen table.
-People in 1910s Boston working-class clothing.
-Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
-
-Bild 76 → speichern als „Bild 76.png“
-Prompt:
 The Massachusetts State House with its golden dome on a clear day, legislators in dark coats walking up the steps.
 Massachusetts, late 1920s, clear crisp daylight.
 Wide view from the street toward the dome.
 Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
 
-Bild 77 → speichern als „Bild 77.png“
+Bild 76 → speichern als „Bild 76.png“
 Prompt:
 A licensed engineer measures the thickness of a steel plate on a new tank while an architect checks drawings beside him.
 Massachusetts, late 1920s, clear crisp daylight.
@@ -681,59 +673,59 @@ Medium shot at the base of a new tank.
 People in 1910s Boston working-class clothing.
 Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
 
-Bild 78 → speichern als „Bild 78.png“
+Bild 77 → speichern als „Bild 77.png“
 Prompt:
 An empty office desk with a closed drawer and a worn grey flat cap resting on it, dust floating in a sunbeam.
 Massachusetts, late 1920s, clear crisp daylight.
 Close quiet view of the desk and cap.
 Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism, modern clothing, post-1920 cars, tricorn hats.
 
-Bild 79 → speichern als „Bild 79.png“
+Bild 78 → speichern als „Bild 78.png“
 Prompt:
 A present-day city park with a baseball diamond beside the harbor in the North End, brick buildings behind.
 Langone Park, North End, Boston, present day, warm summer evening.
 Wide elevated view across the park.
 Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism.
 
-Bild 80 → speichern als „Bild 80.png“
+Bild 79 → speichern als „Bild 79.png“
 Prompt:
 Present-day children in casual clothes run across the green grass of the baseball field.
 Langone Park, North End, Boston, present day, warm summer evening.
 Medium-wide view at child height.
 Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism.
 
-Prüfe diese 10 Bilder kurz (kein Text, richtige Figur, richtige Epoche), dann weiter.
-
-── Schritt 4.9: Bilder 81–83 ──
-
-Bild 81 → speichern als „Bild 81.png“
+Bild 80 → speichern als „Bild 80.png“
 Prompt:
 Cross-section below the baseball field showing the round concrete foundation ring of the old tank buried under soil and grass.
 Langone Park, North End, Boston, present day, warm summer evening.
 Clean sectional side view.
 Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism.
 
-Bild 82 → speichern als „Bild 82.png“
+Prüfe diese 10 Bilder kurz (kein Text, richtige Figur, richtige Epoche), dann weiter.
+
+── Schritt 4.9: Bilder 81–82 ──
+
+Bild 81 → speichern als „Bild 81.png“
 Prompt:
 An elderly man in a 1950s hat sits on a park bench by the old 1950s harbor and tells a story to a listening child on a warm evening, only old wharves and warehouses in the background.
 Langone Park, North End, Boston, present day, warm summer evening.
 Medium shot from the side of the bench.
 Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism.
 
-Bild 83 → speichern als „Bild 83.png“
+Bild 82 → speichern als „Bild 82.png“
 Prompt:
 Warm summer evening over North End rooftops, a faint golden haze drifting in from the harbor.
 Langone Park, North End, Boston, present day, warm summer evening.
 Wide view over the rooftops toward the water.
 Hand-drawn 2D ink illustration, muted flat colors, paper texture, natural proportions. Exclude: text, letters, numbers, split screen, border, watermark, photorealism.
 
-Prüfe diese 3 Bilder kurz (kein Text, richtige Figur, richtige Epoche), dann weiter.
+Prüfe diese 2 Bilder kurz (kein Text, richtige Figur, richtige Epoche), dann weiter.
 
 SCHRITT 5 — UMBENENNEN
-Alle Szenenbilder heißen exakt „Bild 01.png“ bis „Bild 83.png“: zweistellig, mit Leerzeichen, ohne Zusätze. Namen wie „image_1.png“ oder „Bild 1.png“ korrigieren.
+Alle Szenenbilder heißen exakt „Bild 01.png“ bis „Bild 82.png“: zweistellig, mit Leerzeichen, ohne Zusätze. Namen wie „image_1.png“ oder „Bild 1.png“ korrigieren.
 
 SCHRITT 6 — ALLES NOCHMAL PRÜFEN
-Gehe alle 83 Bilder noch einmal durch: Fehlt ein Bild? Ist Text, eine Zahl oder Pseudo-Schrift zu sehen? Stimmt die Figur? Stimmt die Epoche? Gibt es einen Split-Screen oder Rahmen? Fehlende oder fehlerhafte Bilder neu erzeugen und mir die Liste nennen.
+Gehe alle 82 Bilder noch einmal durch: Fehlt ein Bild? Ist Text, eine Zahl oder Pseudo-Schrift zu sehen? Stimmt die Figur? Stimmt die Epoche? Gibt es einen Split-Screen oder Rahmen? Fehlende oder fehlerhafte Bilder neu erzeugen und mir die Liste nennen.
 
 SCHRITT 7 — EIN ORDNER
-Lege alle 83 Szenenbilder zusammen in den Ordner „images“. Das Thumbnail und die Figurenkarten liegen nicht in images.
+Lege alle 82 Szenenbilder zusammen in den Ordner „images“. Das Thumbnail und die Figurenkarten liegen nicht in images.

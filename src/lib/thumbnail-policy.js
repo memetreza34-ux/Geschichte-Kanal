@@ -31,8 +31,12 @@ export async function validateStandaloneThumbnail(paths, meta, qc) {
   if (review.visibleTextDetected !== true || String(review.visibleTextExact ?? '').trim() !== String(meta.coverPolicy?.coverText ?? '').trim()) {
     errors.push('Thumbnail muss den exakten Covertext zeigen, ohne weitere Schrift.');
   }
+  const override = review.userOverride;
+  const waived = override?.acceptedBy === 'user' && String(override.reason ?? '').trim().length >= 10 && Array.isArray(override.waivedChecks)
+    ? new Set(override.waivedChecks.filter((field) => ['weirdnessDetected', 'unexpectedTextDetected', 'pseudoTextDetected'].includes(field)))
+    : new Set();
   for (const field of ['weirdnessDetected', 'unexpectedTextDetected', 'pseudoTextDetected']) {
-    if (review[field] !== false) errors.push('Thumbnail-QC.' + field + ' muss false sein.');
+    if (!waived.has(field) && review[field] !== false) errors.push('Thumbnail-QC.' + field + ' muss false sein.');
   }
   for (const field of ['styleConsistencyScore', 'readabilityScore']) {
     const value = Number(review[field]);

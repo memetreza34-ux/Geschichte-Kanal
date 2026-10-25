@@ -43,7 +43,7 @@
     320,
     390
   ],
-  "plannedImageCount": 83,
+  "plannedImageCount": 82,
   "coverPolicy": {
     "firstSceneIsCover": false,
     "coverImageNumber": null,
@@ -144,9 +144,9 @@
   "audioReady": false,
   "renderReady": false,
   "createdAt": "2026-10-24T06:29:18.403Z",
-  "updatedAt": "2026-10-24T13:02:03.181Z",
+  "updatedAt": "2026-10-25T11:20:32.325Z",
   "postVideoImprovementGateVersion": 1,
   "imageIntegrityGateVersion": 1,
   "figureReviewGateVersion": 1,
-  "flowPromptBuiltAt": "2026-10-24T13:02:03.181Z"
+  "flowPromptBuiltAt": "2026-10-25T11:20:32.325Z"
 }

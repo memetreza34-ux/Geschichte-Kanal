@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "status": "PENDING_REVIEW",
+  "videoId": "2026-KW44_26-10_bis_01-11_melasse-flut-boston-1919",
+  "source": {
+    "finalVideo": "03-export/FINAL_VIDEO.mp4",
+    "exportReport": "99-technik/EXPORT_REPORT.json",
+    "exportVideoSha256": "84f7991d6c5d32911c3d2998970b8f003c1ca3c8bb07430a5c03181a07edaa78",
+    "reviewedVideoDurationSeconds": null
+  },
+  "reviewedAt": null,
+  "reviewer": "",
+  "dimensionScores": {
+    "hookAndStory": null,
+    "historicalAccuracy": null,
+    "visualVariety": null,
+    "narrationImageMatch": null,
+    "pacingAndTransitions": null,
+    "cameraMotion": null,
+    "audioAndVoice": null,
+    "uploadPackage": null
+  },
+  "findings": [],
+  "verifiedImprovements": [],
+  "nextVideoLessons": [],
+  "reviewNotes": "Review the actual final video. Cite timecodes and concrete observations; do not invent evidence.",
+  "CI": {
+    "regressionChecksPassed": false,
+    "reference": ""
+  }
+}

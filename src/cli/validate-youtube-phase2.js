@@ -11,6 +11,23 @@ function validScore(value, minimum) {
   return Number.isFinite(score) && score >= minimum && score <= 10;
 }
 
+// The reviewer records every defect truthfully; only the user may accept a named defect.
+// Image numbers and internal metadata can never be waived.
+export const WAIVABLE_CHECKS = new Set(['narrationSupportScore', 'visualInterestScore', 'styleConsistencyScore', 'weirdnessDetected', 'unexpectedTextDetected', 'pseudoTextDetected', 'visibleTextDetected']);
+
+export function userWaivedChecks(entry, errors, label) {
+  const override = entry?.userOverride;
+  if (!override) return new Set();
+  const issues = Array.isArray(override.waivedChecks) ? override.waivedChecks : [];
+  if (override.acceptedBy !== 'user' || typeof override.reason !== 'string' || override.reason.trim().length < 10 || !issues.length) {
+    errors.push(`${label}: userOverride braucht acceptedBy=user, reason und waivedChecks.`);
+    return new Set();
+  }
+  const invalid = issues.filter((issue) => !WAIVABLE_CHECKS.has(issue));
+  if (invalid.length) errors.push(`${label}: nicht aufhebbar: ${invalid.join(', ')}.`);
+  return new Set(issues.filter((issue) => WAIVABLE_CHECKS.has(issue)));
+}
+
 async function validateVisualQc(qc, meta, images, mapping) {
   const errors = [];
   const count = images.length;
@@ -44,14 +61,15 @@ async function validateVisualQc(qc, meta, images, mapping) {
       continue;
     }
 
+    const waived = userWaivedChecks(entry, errors, `Bild ${i}`);
     if (entry.approved !== true) errors.push(`Bild ${i} ist im Visual-QC nicht freigegeben.`);
-    if (!validScore(entry.narrationSupportScore, minimumNarration)) errors.push(`Bild ${i}: narrationSupportScore muss mindestens ${minimumNarration}/10 sein.`);
-    if (!validScore(entry.visualInterestScore, minimumInterest)) errors.push(`Bild ${i}: visualInterestScore muss mindestens ${minimumInterest}/10 sein.`);
-    if (!validScore(entry.styleConsistencyScore, minimumStyle)) errors.push(`Bild ${i}: styleConsistencyScore muss mindestens ${minimumStyle}/10 sein.`);
-    if (entry.weirdnessDetected !== false) errors.push(`Bild ${i}: unbeabsichtigte Weirdness muss explizit false sein.`);
+    if (!waived.has('narrationSupportScore') && !validScore(entry.narrationSupportScore, minimumNarration)) errors.push(`Bild ${i}: narrationSupportScore muss mindestens ${minimumNarration}/10 sein.`);
+    if (!waived.has('visualInterestScore') && !validScore(entry.visualInterestScore, minimumInterest)) errors.push(`Bild ${i}: visualInterestScore muss mindestens ${minimumInterest}/10 sein.`);
+    if (!waived.has('styleConsistencyScore') && !validScore(entry.styleConsistencyScore, minimumStyle)) errors.push(`Bild ${i}: styleConsistencyScore muss mindestens ${minimumStyle}/10 sein.`);
+    if (!waived.has('weirdnessDetected') && entry.weirdnessDetected !== false) errors.push(`Bild ${i}: unbeabsichtigte Weirdness muss explizit false sein.`);
     if (entry.imageNumberVisible !== false) errors.push(`Bild ${i}: sichtbare Bildnummer/interne ID erkannt oder nicht ausgeschlossen.`);
-    if (entry.unexpectedTextDetected !== false) errors.push(`Bild ${i}: unerwarteter sichtbarer Text erkannt oder nicht ausgeschlossen.`);
-    if (entry.pseudoTextDetected !== false) errors.push(`Bild ${i}: Pseudo-Schrift erkannt oder nicht ausgeschlossen.`);
+    if (!waived.has('unexpectedTextDetected') && entry.unexpectedTextDetected !== false) errors.push(`Bild ${i}: unerwarteter sichtbarer Text erkannt oder nicht ausgeschlossen.`);
+    if (!waived.has('pseudoTextDetected') && entry.pseudoTextDetected !== false) errors.push(`Bild ${i}: Pseudo-Schrift erkannt oder nicht ausgeschlossen.`);
 
     if (Number(meta.figureReviewGateVersion ?? 0) >= 1) {
       if (typeof entry.prominentPeopleVisible !== 'boolean') errors.push(`Bild ${i}: prominentPeopleVisible muss im Figuren-Review ausdrücklich true oder false sein.`);
@@ -83,7 +101,7 @@ async function validateVisualQc(qc, meta, images, mapping) {
         if (entry.visibleTextDetected !== true) errors.push(`Bild ${i}: freigegebener Redaktionstext muss als sichtbar erkannt und geprüft sein.`);
         if (String(entry.visibleTextExact ?? '').trim() !== expectedText) errors.push(`Bild ${i}: visibleTextExact entspricht nicht exakt dem freigegebenen editorialText.`);
       } else {
-        if (entry.visibleTextDetected !== false) errors.push(`Bild ${i}: Scene Card verlangt NO_VISIBLE_TEXT, visibleTextDetected muss false sein.`);
+        if (!waived.has('visibleTextDetected') && entry.visibleTextDetected !== false) errors.push(`Bild ${i}: Scene Card verlangt NO_VISIBLE_TEXT, visibleTextDetected muss false sein.`);
         if (String(entry.visibleTextExact ?? '').trim()) errors.push(`Bild ${i}: visibleTextExact muss bei NO_VISIBLE_TEXT leer sein.`);
       }
     }

@@ -18,7 +18,7 @@
   "unclearVisualsAbsent": true,
   "onePrimaryTakeawayPerVisual": true,
   "futureEventLeakageAbsent": true,
-  "explanationOnlyVisualShare": 0.084,
+  "explanationOnlyVisualShare": 0.085,
   "maxConsecutiveExplanationOnlyVisuals": 1,
   "historicalWorldReturnsAfterExplanation": true,
   "editorialTextUsedOnlyWhenUseful": true,
@@ -26,7 +26,7 @@
   "overallCoherenceScore": 9,
   "approved": true,
   "notes": [
-    "83 Bilder aus dem fertigen Skript abgeleitet; jedes Bild hat ein eigenes Subjekt, eine eigene Kamera und einen locationKey.",
+    "82 Bilder aus dem fertigen Skript abgeleitet; jedes Bild hat ein eigenes Subjekt, eine eigene Kamera und einen locationKey.",
     "Der Ausblick „Vier Jahre später …“ im Cold Open zeigt bewusst den intakten Tank, keine Welle (keine Vorwegnahme im Bild).",
     "Opfer werden über Objekte und Abwesenheit gezeigt, nie als Körper."
   ]
