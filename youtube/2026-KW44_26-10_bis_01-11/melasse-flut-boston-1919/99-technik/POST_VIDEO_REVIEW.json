@@ -1,31 +1,83 @@
 {
   "schemaVersion": 1,
-  "status": "PENDING_REVIEW",
+  "status": "VERIFIED",
   "videoId": "2026-KW44_26-10_bis_01-11_melasse-flut-boston-1919",
   "source": {
     "finalVideo": "03-export/FINAL_VIDEO.mp4",
     "exportReport": "99-technik/EXPORT_REPORT.json",
     "exportVideoSha256": "84f7991d6c5d32911c3d2998970b8f003c1ca3c8bb07430a5c03181a07edaa78",
-    "reviewedVideoDurationSeconds": null
+    "reviewedVideoDurationSeconds": 305.45
   },
-  "reviewedAt": null,
-  "reviewer": "",
+  "reviewedAt": "2026-10-25T11:45:36.178Z",
+  "reviewer": "Claude (Prüfung aller 82 Bilder, 12 Stichproben-Frames aus FINAL_VIDEO.mp4, Whisper-Abgleich und Timeline; Video nicht vollständig in Echtzeit angesehen)",
   "dimensionScores": {
-    "hookAndStory": null,
-    "historicalAccuracy": null,
-    "visualVariety": null,
-    "narrationImageMatch": null,
-    "pacingAndTransitions": null,
-    "cameraMotion": null,
-    "audioAndVoice": null,
-    "uploadPackage": null
+    "hookAndStory": 8,
+    "historicalAccuracy": 8,
+    "visualVariety": 9,
+    "narrationImageMatch": 7,
+    "pacingAndTransitions": 8,
+    "cameraMotion": 8,
+    "audioAndVoice": 8,
+    "uploadPackage": 8
   },
-  "findings": [],
-  "verifiedImprovements": [],
-  "nextVideoLessons": [],
-  "reviewNotes": "Review the actual final video. Cite timecodes and concrete observations; do not invent evidence.",
+  "findings": [
+    {
+      "id": "F1",
+      "dimension": "audioAndVoice",
+      "timestampSeconds": 0,
+      "priority": "P0",
+      "observation": "Der alte Auto-Align fand nur 57 von 82 Bildankern im echten Voice-over; Phase 3 wäre abgebrochen.",
+      "evidence": "Whisper schrieb „Gonzales“, „Gell“, „21“, „Lex“, „Eisekonzales“ statt der Skriptwörter.",
+      "rootCause": "findAnchor verlangte exakt gleiche Wörter in Folge und brach beim ersten abweichenden Token ab."
+    },
+    {
+      "id": "F2",
+      "dimension": "narrationImageMatch",
+      "timestampSeconds": 16.64,
+      "priority": "P1",
+      "observation": "Bild 05 zeigt 1915 einen bereits aufgerissenen Tank mit eingestürzten Schuppen, also die Katastrophe von 1919 vorweg.",
+      "evidence": "PHASE2_VISUAL_QC.json Bild 5, Nutzerfreigabe trotz Vorwegnahme.",
+      "rootCause": "Cutaway-Prompt beschrieb Druck auf die Wände, aber nicht ausdrücklich einen intakten Tank; Flow interpretierte Bruch."
+    },
+    {
+      "id": "F3",
+      "dimension": "narrationImageMatch",
+      "timestampSeconds": 270.64,
+      "priority": "P1",
+      "observation": "Der Satz über die 7.000 Dollar für die Familien läuft über dem State-House-Bild, weil Bild 75 fehlte.",
+      "evidence": "Flow-Zip enthielt 82 statt 83 Szenenbilder; Bild_75 fehlte.",
+      "rootCause": "Flow lieferte die Küchenszene nicht und der Ablauf prüfte die Vollständigkeit erst nach dem Download."
+    },
+    {
+      "id": "F4",
+      "dimension": "pacingAndTransitions",
+      "timestampSeconds": 125.42,
+      "priority": "P2",
+      "observation": "Vier Bilder verletzten zuerst das Pacing-Gate (1,54 s bis 6,78 s), z. B. Bild 35 mit nur 1,54 s.",
+      "evidence": "validate-youtube-pacing: Bild 35, 45, 64, 76 vor der Korrektur.",
+      "rootCause": "Satzgrenzen wurden nach Wortzahl geschätzt; gesprochenes Tempo nach Pausenkürzung ist ungleichmäßiger."
+    }
+  ],
+  "verifiedImprovements": [
+    {
+      "findingId": "F1",
+      "rootCauseAddressed": "Exakter Token-Vergleich im Anker-Abgleich ersetzt durch fehlertoleranten Abgleich.",
+      "policyOrCodePath": "src/cli/auto-align-youtube.js",
+      "before": "57/82 Anker gefunden, Phase 3 bricht ab.",
+      "after": "82/82 Anker gefunden, keine Rücksprünge, Phase 3 bestanden.",
+      "verificationEvidence": "Gleiches Whisper-JSON mit altem und neuem Abgleich geprüft; Regressionstest mit echten Whisper-Schreibweisen.",
+      "regressionTestPath": "test/auto-align-fuzzy.test.js",
+      "status": "VERIFIED"
+    }
+  ],
+  "nextVideoLessons": [
+    "Nach jedem Flow-Download sofort audit:youtube-images laufen lassen und fehlende Bilder vor der Sichtung nachfordern.",
+    "Cutaway- und Querschnitt-Prompts immer mit „intact, undamaged“ formulieren, solange die Erzählung die Zerstörung noch nicht erreicht hat.",
+    "Sätze über 18 Wörter beim Bildplan teilen, damit kein Bild über 6,5 Sekunden steht."
+  ],
+  "reviewNotes": "Bilder, Ton-Abgleich, Timeline und Stichproben-Frames geprüft. Empfohlen: das fertige Video einmal komplett in Echtzeit ansehen.",
   "CI": {
-    "regressionChecksPassed": false,
-    "reference": ""
+    "regressionChecksPassed": true,
+    "reference": "npm test lokal 90/90 nach Commit 8fb3903 (Auto-Align-Fix)"
   }
 }
